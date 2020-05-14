@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "cleatax",
+      "public": "dist/cleatax",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}
