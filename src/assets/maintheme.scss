@@ -1,2 +1,31 @@
 @import "./nucleo/css/nucleo.css";
 @import "./nucleo/css/nucleo-svg.css";
+@import '~@angular/material/theming';
+
+$custom-typography: mat-typography-config(
+  $font-family: 'Lato, sans-serif ',
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-1: mat-typography-level(16px, 24px, 500)
+);
+
+$header-typography: mat-typography-config(
+  $font-family: 'Ubuntu, sans-serifs',
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-1: mat-typography-level(16px, 24px, 500)
+);
+
+@include mat-tabs-typography($header-typography);
+@include mat-datepicker-typography($header-typography);
+@include mat-form-field-typography($header-typography);
+@include mat-base-typography($header-typography);
+@include mat-checkbox-typography($header-typography);
+@include mat-toolbar-typography($header-typography); 
+@include mat-button-typography($header-typography);
+@include mat-card-typography($header-typography);
+@include mat-badge-typography($header-typography);
+@include mat-dialog-typography($header-typography);
+@include mat-snack-bar-typography($header-typography);
+@include mat-table-typography($header-typography);
+@include mat-select-typography($header-typography); 
+@include mat-tooltip-typography($header-typography);
+@include mat-input-typography($header-typography);
