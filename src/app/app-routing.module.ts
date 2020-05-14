@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 const routes: Routes = [
-{ path: '', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule), 
+{ path: '', component: DashboardComponent,
 children: [
  { path: 'file-taxes', loadChildren: () => import('./file-my-taxes/file-my-taxes.module').then(m => m.FileMyTaxesModule) },
  { path: 'history', loadChildren: () => import('./history/history.module').then(m => m.HistoryModule) }, 

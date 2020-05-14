@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
 constructor(private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit(): void {
-    throw new Error("Method not implemented.");
+    console.log('I am live');
   }
 
 
