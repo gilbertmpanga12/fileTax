@@ -9,13 +9,18 @@
      
       <div class="links-wrapper">
         <ng-container *ngFor="let link of links">
-          <a class="link-item is-anchor" [routerLink]="link.path">
+          <a class="link-item is-anchor" [routerLink]="link.path" 
+          [routerLinkActiveOptions]="{exact: true}" routerLinkActive
+          #rla="routerLinkActive">
             <div class="flex">
               <div class="is-10">
-                <i [class]="link.icon"></i>
+                
+                <i [ngClass]="rla.isActive ? link.icon + ' ' + 'is-selected' : link.icon + ' ' + 'is-not-selected' "></i>
               </div>
               <div class="is-90">
-                <h3 >{{link.name}}</h3>
+                <h3 
+                [ngClass]="rla.isActive ? 'is-h3' + ' ' + 'is-selected' : 'is-h3' + ' ' + 'is-not-selected' "
+                >{{link.name}}</h3>
               </div>
             </div>
           </a>

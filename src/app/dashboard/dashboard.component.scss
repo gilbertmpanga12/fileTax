@@ -41,7 +41,7 @@
     flex-basis: 8%;
     padding-left: 6px;
     padding-top: 9px;
-
+    width: 28px;
     // border: 1px solid black;
    
     padding-top: 8px;
@@ -51,14 +51,16 @@
     // border: 1px solid purple;
    
     padding-top: 4px;
-    h3{
-      font-weight: 500;
-      text-transform: capitalize;
-      padding-left: 12px;
-      font-size: 17px;
-      color: #ffffff !important;
+   
+  }
+  .is-h3{
+    font-weight: 500;
+    text-transform: capitalize;
+    padding-left: 12px;
+    font-size: 17px;
+    // color: papayawhip !important; //whitesmoke
+    text-align: justify;
 
-    }
   }
 
   .links-wrapper{

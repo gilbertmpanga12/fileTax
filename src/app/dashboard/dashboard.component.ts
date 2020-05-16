@@ -19,22 +19,22 @@ export class DashboardComponent implements OnInit {
 
 links:  Links[] = [{
   path: '/',
-  icon: 'icon ni ni-shop icon-lg icon-outline.icon-stroke-1 ni-2x',
+  icon: 'icon ni ni-shop icon-lg icon-outline icon-stroke-3 ni-2x',
   name: 'Dashboard'
-},
+},// shop
 {
   path: '/file-taxes',
-  icon: 'icon ni ni-chart-pie-35 icon-lg icon-outline.icon-stroke-1 ni-2x',
+  icon: 'icon ni ni-chart-pie-35 icon-lg icon-outline icon-stroke-1 ni-2x',
   name: 'File taxes'
 },
 {
   path: '/history',
-  icon: 'icon ni ni-archive-2 icon-lg icon-outline.icon-stroke-1 ni-2x',
+  icon: 'icon ni ni-archive-2 icon-lg icon-outline icon-stroke-1 ni-2x',
   name: 'Tax history'
 },
 {
   path: '/settings',
-  icon: 'icon ni ni-settings-gear-65 icon-lg icon-outline.icon-stroke-1 ni-2x',
+  icon: 'icon ni ni-settings-gear-65 icon-lg icon-outline icon-stroke-1 ni-2x',
   name: 'Settings'
 }
 ];
