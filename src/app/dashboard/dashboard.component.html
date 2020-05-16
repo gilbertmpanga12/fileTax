@@ -12,9 +12,10 @@
           <a class="link-item is-anchor" [routerLink]="link.path" 
           [routerLinkActiveOptions]="{exact: true}" routerLinkActive
           #rla="routerLinkActive">
-            <div class="flex">
+            <div 
+            [ngClass]="rla.isActive ? 'flex-active' : 'flex'"
+            >
               <div class="is-10">
-                
                 <i [ngClass]="rla.isActive ? link.icon + ' ' + 'is-selected' : link.icon + ' ' + 'is-not-selected' "></i>
               </div>
               <div class="is-90">

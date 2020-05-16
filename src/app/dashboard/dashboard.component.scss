@@ -37,6 +37,13 @@
     flex-direction: row;
     height: 40px;
   }
+  .flex-active{
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    border-radius: 5px;
+    background: rgba(40, 44, 44, 0.6);
+  }
   .is-10{
     flex-basis: 8%;
     padding-left: 6px;
