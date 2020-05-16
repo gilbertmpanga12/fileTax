@@ -20,7 +20,7 @@
               </div>
               <div class="is-90">
                 <h3 
-                [ngClass]="rla.isActive ? 'is-h3' + ' ' + 'is-selected' : 'is-h3' + ' ' + 'is-not-selected' "
+                [ngClass]="rla.isActive ? 'is-h3' + ' ' + 'is-selected' : 'is-h3-light' + ' ' + 'is-not-selected' "
                 >{{link.name}}</h3>
               </div>
             </div>
@@ -29,6 +29,16 @@
         </ng-container>
 
       </div>
+<br/>
+      <mat-divider class="divider-bottom"></mat-divider>
+     <mat-card class="card-bottom">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title class="bottom-title">Shiba Inu</mat-card-title>
+        <mat-card-subtitle class="bottom-subtitle">View profile</mat-card-subtitle>
+      </mat-card-header>
+     </mat-card>
+
     </mat-sidenav>
     <mat-sidenav-content>
       <mat-toolbar color="primary">
