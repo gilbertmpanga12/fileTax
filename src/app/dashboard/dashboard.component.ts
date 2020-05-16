@@ -3,6 +3,13 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 
+// Models
+interface Links {
+  path: string;
+  icon: string;
+  name: string;
+}
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -10,6 +17,27 @@ import { map, shareReplay } from 'rxjs/operators';
 })
 export class DashboardComponent implements OnInit {
 
+links:  Links[] = [{
+  path: '/',
+  icon: 'icon ni ni-shop icon-lg icon-outline.icon-stroke-1 ni-2x',
+  name: 'Dashboard'
+},
+{
+  path: '/file-taxes',
+  icon: 'icon ni ni-chart-pie-35 icon-lg icon-outline.icon-stroke-1 ni-2x',
+  name: 'File taxes'
+},
+{
+  path: '/history',
+  icon: 'icon ni ni-archive-2 icon-lg icon-outline.icon-stroke-1 ni-2x',
+  name: 'Tax history'
+},
+{
+  path: '/settings',
+  icon: 'icon ni ni-settings-gear-65 icon-lg icon-outline.icon-stroke-1 ni-2x',
+  name: 'Settings'
+}
+];
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
   .pipe(
     map(result => result.matches),

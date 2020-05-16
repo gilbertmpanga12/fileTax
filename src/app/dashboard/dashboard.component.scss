@@ -1,9 +1,15 @@
 .sidenav-container {
     height: 100%;
+    // background-color: #43379d !important;
   }
   
+ .navbrand{
+   color: #ffffff;
+ }
   .sidenav {
     width: 260px;
+    background-color: #43379d !important;
+    
   }
   
   .sidenav .mat-toolbar {
@@ -14,4 +20,59 @@
     position: sticky;
     top: 0;
     z-index: 1;
+  }
+  .is-anchor{
+    display: block;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .size-20{
+    // font-size: 22px;
+    font-weight: bold;
+    color: #ffffff !important;
+  }
+
+  .flex{
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+  }
+  .is-10{
+    flex-basis: 8%;
+    padding-left: 6px;
+    padding-top: 9px;
+
+    // border: 1px solid black;
+   
+    padding-top: 8px;
+  }
+  .is-90{
+    flex-basis: 92%;
+    // border: 1px solid purple;
+   
+    padding-top: 4px;
+    h3{
+      font-weight: 500;
+      text-transform: capitalize;
+      padding-left: 12px;
+      font-size: 17px;
+      color: #ffffff !important;
+
+    }
+  }
+
+  .links-wrapper{
+    // border: 1px solid red;
+    height: 70%;
+    padding-top: 1.7rem;
+    .link-item{
+      margin-bottom: 11px;
+      margin-left: 5px;
+      margin-right: 0;
+      width: 95%;
+      padding-left: 3px;
+      padding-right: 0;
+      border-radius: 9px;
+      margin-top: 21px;
+    }
   }

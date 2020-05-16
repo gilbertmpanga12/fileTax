@@ -3,36 +3,26 @@
         [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
         [mode]="(isHandset$ | async) ? 'over' : 'side'"
         [opened]="(isHandset$ | async) === false">
-      <mat-toolbar>FileTax</mat-toolbar>
-      <!-- <mat-nav-list>
-        <a mat-list-item routerLink="/file-taxes">Dashboard</a>
-        <a mat-list-item routerLink="/file-taxes">File Taxes</a>
-        <a mat-list-item routerLink="/history">Tax File History</a>
-        <a mat-list-item routerLink="/settings">Settings</a>
-      </mat-nav-list> -->
-      <mat-list>
-        <!-- <div mat-subheader>Folders</div> -->
-        <mat-list-item>
-          <i class="ni ni-shop"></i>
-          <div mat-line>Dashboard</div>
-        </mat-list-item>
-        <mat-divider></mat-divider>
-        <mat-list-item> 
-          <i class="ni ni-chart-pie-35"></i>
-          <div mat-line>File Taxes</div>
-        </mat-list-item>
-        <mat-divider></mat-divider>
-        <mat-list-item>
-          <i class="ni ni-archive-2"></i>
-          <div mat-line>Tax History</div>
-        </mat-list-item>
-        <mat-divider></mat-divider>
-        <mat-list-item>
-          <i class="ni ni-settings-gear-65"></i>
-          <div mat-line>Settings</div>
-        </mat-list-item>
+      <mat-toolbar class="custom-toolbar-color">
+        <h3 class="navbrand">FileTax</h3>
+      </mat-toolbar>
+     
+      <div class="links-wrapper">
+        <ng-container *ngFor="let link of links">
+          <a class="link-item is-anchor" [routerLink]="link.path">
+            <div class="flex">
+              <div class="is-10">
+                <i [class]="link.icon"></i>
+              </div>
+              <div class="is-90">
+                <h3 >{{link.name}}</h3>
+              </div>
+            </div>
+          </a>
+        <!-- <br/> -->
+        </ng-container>
 
-      </mat-list>
+      </div>
     </mat-sidenav>
     <mat-sidenav-content>
       <mat-toolbar color="primary">
@@ -47,6 +37,7 @@
         <span>cleatax</span>
       </mat-toolbar>
       <!-- Add Content Here -->
+      <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
   
