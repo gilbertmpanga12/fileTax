@@ -24,7 +24,7 @@ links:  Links[] = [{
 },// shop
 {
   path: '/file-taxes',
-  icon: 'icon ni ni-chart-pie-35 icon-lg icon-outline icon-stroke-1 ni-2x',
+  icon: 'icon ni ni-money-coins icon-lg icon-outline icon-stroke-1 ni-2x',
   name: 'File taxes'
 },
 {

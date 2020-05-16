@@ -22,6 +22,14 @@
     z-index: 1;
   }
 
+  .logo{
+    background-image: url('/assets/logo_transparent.png');
+    position: relative;
+    margin-top: -21px;
+    top: 12px;
+    height: 40px;
+    background-size: cover;
+  }
   .example-header-image {
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;
@@ -30,15 +38,18 @@
   .bottom-title{
     color: #ffffff !important;
     font-size: 16px !important;
+    font-variant-caps: all-small-caps;
   }
 
   .bottom-subtitle{
     color: wheat !important;
-    font-weight: 500 !important;
+    font-weight: 400 !important;
     font-size: 14px !important;
     margin-top: -12px !important;
     cursor: pointer;
-    font-family: 'Lato', sans-serif !important;
+    text-transform: capitalize;
+    font-family: 'Ubuntu', sans-serifs !important;
+    // font-family: 'Lato', sans-serif !important;
   }
  
   .card-bottom{
