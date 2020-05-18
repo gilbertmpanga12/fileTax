@@ -41,7 +41,7 @@ links:  Links[] = [{
 
 {
   path: '/requsest-off-site-file-tax',
-  icon: 'icon ni ni-send icon-lg icon-outline icon-stroke-1 ni-2x',
+  icon: 'icon ni ni-books icon-lg icon-outline icon-stroke-1 ni-2x',
   name: 'Offline Filing'
 },{
   path: '/auth',
