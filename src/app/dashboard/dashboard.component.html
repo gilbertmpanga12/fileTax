@@ -56,7 +56,12 @@
           *ngIf="isHandset$ | async">
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
-        <!-- <span><small>Dashboard</small></span> -->
+        <span class="fill-remaining-space"></span>
+        <span>
+          <mat-icon matBadge="15" 
+          class="notifications-icon"
+          matBadgeColor="warn">notifications</mat-icon>
+        </span>
       </mat-toolbar>
       <!-- Add Content Here -->
       <router-outlet></router-outlet>

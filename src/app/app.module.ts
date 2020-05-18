@@ -12,7 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {MatCardModule} from '@angular/material/card';
-
+import {MatBadgeModule} from '@angular/material/badge';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +28,7 @@ import {MatCardModule} from '@angular/material/card';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatCardModule
+    MatCardModule, MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
