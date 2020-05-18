@@ -9,7 +9,9 @@
         <mat-card class="metrics-cards mat-elevation-z5">
             <h6>All taxes filed</h6>
             <h1>0</h1>
-          <div class="cta-action" (click)="navigateToOtherPage('/history')">
+          <div class="cta-action"
+          routerLink="/history"
+          >
             <h2>SEE FULL HISTORY</h2>
           </div>
         </mat-card>
@@ -18,7 +20,9 @@
         <mat-card class="metrics-cards mat-elevation-z5">
             <h6>Latest taxes filed</h6>
             <h1>1</h1>
-            <div class="cta-action" (click)="navigateToOtherPage('/file-taxes')">
+            <div class="cta-action" 
+            routerLink="/file-taxes"
+            >
                 <h2>FILE NEW TAXES</h2>
               </div>
         </mat-card>

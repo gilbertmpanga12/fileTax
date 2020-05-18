@@ -47,16 +47,19 @@
   .bottom-subtitle{
     color: wheat !important;
     font-weight: 400 !important;
-    font-size: 14px !important;
+    font-size: 15px;
     margin-top: -12px !important;
     cursor: pointer;
     text-transform: capitalize;
     font-family: 'Ubuntu', sans-serifs !important;
+    text-decoration: none;
+    border: none;
+    outline: 0;
+    
     // font-family: 'Lato', sans-serif !important;
   }
  
   .card-bottom{
-    // margin-bottom: 0 !important;
     position: relative;
     bottom: 0;
     border-radius: 0 !important;

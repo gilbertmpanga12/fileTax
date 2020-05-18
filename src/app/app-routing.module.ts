@@ -9,9 +9,13 @@ children: [
   { path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) }, 
  { path: 'file-taxes', loadChildren: () => import('./file-my-taxes/file-my-taxes.module').then(m => m.FileMyTaxesModule) },
  { path: 'history', loadChildren: () => import('./history/history.module').then(m => m.HistoryModule) }, 
- { path: 'settings', loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule) }
+ { path: 'settings', loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule) },
+ { path: 'requsest-off-site-file-tax', loadChildren: () => import('./offline/offline.module').then(m => m.OfflineModule) },
+ { path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) }
 ]},
-{ path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) }
+{ path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
+
+
 ];
 
 @NgModule({

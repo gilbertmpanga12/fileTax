@@ -37,11 +37,17 @@ links:  Links[] = [{
   icon: 'icon ni ni-settings-gear-65 icon-lg icon-outline icon-stroke-1 ni-2x',
   name: 'Settings'
 },
+
 {
+  path: '/requsest-off-site-file-tax',
+  icon: 'icon ni ni-send icon-lg icon-outline icon-stroke-1 ni-2x',
+  name: 'Offline Filing'
+},{
   path: '/auth',
   icon: 'icon ni ni-lock-circle-open icon-lg icon-outline icon-stroke-1 ni-2x',
   name: 'Log out'
 }
+
 ];
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
   .pipe(
