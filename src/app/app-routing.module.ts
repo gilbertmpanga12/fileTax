@@ -11,9 +11,11 @@ children: [
  { path: 'history', loadChildren: () => import('./history/history.module').then(m => m.HistoryModule) }, 
  { path: 'settings', loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule) },
  { path: 'requsest-off-site-file-tax', loadChildren: () => import('./offline/offline.module').then(m => m.OfflineModule) },
- { path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) }
+ { path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) },
+ { path: 'notifications', loadChildren: () => import('./notifications/notifications.module').then(m => m.NotificationsModule) }
 ]},
 { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
+
 
 
 ];
