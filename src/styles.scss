@@ -87,8 +87,14 @@ flex-basis: 50%;
 
 .header-h4{
     margin-top: -8px;
-    color: #636567 !important;
+    // color: #636567 !important;
     font-size: 17px !important;
+}
+.header-status-h4{
+    margin-top: -12px;
+    // color: #636567 !important;
+    font-size: 17.1px !important;
+    text-transform: capitalize;
 }
 .reduce-height{
     height: 38px;
@@ -99,4 +105,15 @@ width: 150px;
 font-size: 17px !important;
 border: 1.3px solid #43379d !important;
 color: #43379d !important;
+}
+
+.filled-btn-width-adjust{
+    width: 150px;
+    font-size: 17px !important;
+    // border: 1.3px solid #43379d !important;
+    background-color: #43379d !important;
+    }
+
+.danger{
+    color: #43379d;
 }

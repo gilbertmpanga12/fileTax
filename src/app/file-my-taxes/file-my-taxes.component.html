@@ -7,7 +7,7 @@
 
 
 <div class="flex-container">
-    <mat-card class="file-tax-card">
+    <mat-card class="file-tax-card-main mat-elevation-z5">
         <div class="flex-container-row reduce-height">
             <h2>Basic Info <mat-icon class="con-info">info</mat-icon></h2>
         </div>
@@ -22,5 +22,33 @@
                 >Edit/Review</button>
             </div>
         </div>
+        <!-- <br/> -->
+        <div class="flex-container-row">
+            <h4 class="header-status-h4">filing status: <b>0/0</b></h4>
+        </div>
     </mat-card>
 </div>
+
+<!-- More features -->
+<br/>
+
+<ng-container>
+    <div class="flex-container">
+        <mat-card class="file-tax-card mat-elevation-z3">
+            <div class="flex-container-row reduce-height">
+                <h2>Pay As You Earn</h2>
+            </div>
+            <div class="flex-container-row">
+                <div class="col-grid-33">
+                    <h4 class="header-h4">Let's start your Pay-As-You-Earn taxes</h4>
+                </div>
+                <div class="align-last">
+                    <button mat-flat-button color="primary"
+                    class="filled-btn-width-adjust"
+                    >Start</button>
+                </div>
+            </div>
+           
+        </mat-card>
+    </div>
+</ng-container>
