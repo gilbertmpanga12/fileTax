@@ -35,13 +35,41 @@ h1,h2,h3,h4,h6{
     padding-right: 15px;
     padding-left: 15px;
 }
+.flex-container-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.col-grid-10{
+    flex-basis: 33.3%;
+}
+.col-3-grid{
+    flex-basis: 30%;
+}
+
+.align-start{
+align-self: flex-start;
+}
+
+.align-last{
+    flex-basis: 30%;
+    display: flex;
+    margin-right: 15px;
+    align-items: baseline;
+    justify-content: flex-end;
+}
 
 .col-6-grid{
 flex-basis: 50%;
 }
 
 .col-8-grid{
-    flex-basis: 80%;
+    flex-basis: 90%;
 }
 
 .overview-title{
