@@ -15,6 +15,7 @@ children: [
  { path: 'notifications', loadChildren: () => import('./notifications/notifications.module').then(m => m.NotificationsModule) }
 ]},
 { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
+{ path: 'services', loadChildren: () => import('./services/services.module').then(m => m.ServicesModule) },
 
 
 
