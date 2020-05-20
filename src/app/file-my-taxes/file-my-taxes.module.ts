@@ -20,8 +20,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatDividerModule,
     MatSnackBarModule,
     MatListModule,
-    MatIconModule,
-    MatCheckboxModule
+    MatIconModule
   ]
 })
 export class FileMyTaxesModule { }

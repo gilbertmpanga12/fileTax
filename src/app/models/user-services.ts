@@ -1,8 +1,13 @@
+interface ServiceType{
+    description: string;
+    serviceName: string;
+}
+
 
 export const UserServices = {
 'pay-as-you-earn': {
     serviceName: 'Pay As You Earn',
-    description: 'Great! Let\'s file your pay-as-you-earn taxes'
+    description: 'Attach spreadsheets, excel or pdf documents'
 },
 'vat-returns': {
     serviceName: '',

@@ -29,3 +29,4 @@ $header-typography: mat-typography-config(
 @include mat-select-typography($header-typography); 
 @include mat-tooltip-typography($header-typography);
 @include mat-input-typography($header-typography);
+@include mat-stepper-typography($header-typography);

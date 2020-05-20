@@ -36,6 +36,17 @@ h1,h2,h3,h4,h6{
     padding-right: 15px;
     padding-left: 15px;
 }
+
+.flex-container-column {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-right: 15px;
+    padding-left: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
 .flex-container-row {
     display: flex;
     flex-direction: row;
@@ -118,3 +129,27 @@ color: #43379d !important;
     color: #43379d;
 }
 
+.upload-taxes-btn{
+    border-radius: 6px !important;
+    width: 200px;
+    padding: 6px !important;
+    font-size: 16px !important;
+    margin-top: 20% !important;
+    text-transform: uppercase !important;
+    background-color: #43379d !important;
+    color: #ffffff !important;
+    // margin-bottom: 17px !important;
+    .icon-lg{
+        font-size: 25px !important;
+        vertical-align: middle !important;
+    }
+}
+
+.custom-h2{
+    font-size: 16px !important;
+    margin-top: 14px !important;
+    font-weight: 400 !important;
+}
+.mat-step-header .mat-step-label.mat-step-label-active {
+    color: #32325d;
+}
