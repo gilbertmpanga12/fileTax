@@ -4,15 +4,15 @@
 
 export const environment = {
   production: false,
-  firebase: {
-    apiKey: "AIzaSyAKpqXlx8PmNZUGKairxjNprsrHXHQ4Ylk",
-    authDomain: "onlinepayments-4a216.firebaseapp.com",
-    databaseURL: "https://onlinepayments-4a216.firebaseio.com",
-    projectId: "onlinepayments-4a216",
-    storageBucket: "onlinepayments-4a216.appspot.com",
-    messagingSenderId: "528507565107",
-    appId: "1:528507565107:web:27e0990e7de103f2ebdf46",
-    measurementId: "G-9KX7SMX99J"
+  firebase: { 
+    apiKey: "AIzaSyDgsepomz7meneHDmg9qemBVDbEa-fnf3E",
+    authDomain: "tax-as-a-service.firebaseapp.com",
+    databaseURL: "https://tax-as-a-service.firebaseio.com",
+    projectId: "tax-as-a-service",
+    storageBucket: "tax-as-a-service.appspot.com",
+    messagingSenderId: "1054789011988",
+    appId: "1:1054789011988:web:1b47ca58fb4da5f4287501",
+    measurementId: "G-CZH2JEJ00Y"
   }
 };
 
