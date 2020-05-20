@@ -32,6 +32,13 @@
 <!-- More features -->
 <br/>
 
+<div class="flex-container">
+    <div class="col-6-grid">
+        <h1 class="overview-title mat-title">Business Income Tax returns</h1>
+        <!-- <h3 class="header-h4 sub-heading">Select services to file</h3> -->
+    </div>
+</div>
+
 <ng-container>
     <div class="flex-container">
         <mat-card class="file-tax-card mat-elevation-z3" id="wave">
@@ -40,7 +47,7 @@
             </div>
             <div class="flex-container-row">
                 <div class="col-grid-33">
-                    <h4 class="header-h4">Let's start your Pay-As-You-Earn taxes</h4>
+                    <h4 class="custom-h4">Let's start your Pay-As-You-Earn taxes</h4>
                 </div>
                 <div class="align-last">
                     <button mat-flat-button 
@@ -54,3 +61,55 @@
         </mat-card>
     </div>
 </ng-container>
+<br/>
+<ng-container>
+   
+    
+    <div class="flex-container">
+        <mat-card class="file-tax-card mat-elevation-z3" id="wave">
+            <div class="flex-container-row reduce-height">
+                <h2>VAT returns</h2>
+            </div>
+            <div class="flex-container-row">
+                <div class="col-grid-33">
+                    <h4 class="custom-h4">Start filing your VAT returns</h4>
+                </div>
+                <div class="align-last">
+                    <button mat-flat-button 
+                    [routerLink]="['/services','pay-as-you-earn']"
+                    color="primary"
+                    class="filled-btn-width-adjust"
+                    >Start</button>
+                </div>
+            </div>
+           
+        </mat-card>
+    </div>
+</ng-container>
+
+<br/>
+<ng-container>
+   
+    
+    <div class="flex-container">
+        <mat-card class="file-tax-card mat-elevation-z3" id="wave">
+            <div class="flex-container-row reduce-height">
+                <h2>Rental income tax returns</h2>
+            </div>
+            <div class="flex-container-row">
+                <div class="col-grid-33">
+                    <h4 class="custom-h4">File Rental income tax returns now</h4>
+                </div>
+                <div class="align-last">
+                    <button mat-flat-button 
+                    [routerLink]="['/services','pay-as-you-earn']"
+                    color="primary"
+                    class="filled-btn-width-adjust"
+                    >Start</button>
+                </div>
+            </div>
+           
+        </mat-card>
+    </div>
+</ng-container>
+<br/>
