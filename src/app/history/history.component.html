@@ -1,1 +1,28 @@
-<p>history works!</p>
+<div class="flex-container">
+    <div class="col-6-grid">
+        <h1 class="overview-title mat-headline">HISTORY</h1>
+    </div>
+    </div>
+
+<div class="flex-container">
+    <mat-card class="history-tax-card">
+        <mat-list>
+            <div mat-subheader>Recent activity</div>
+            <mat-list-item *ngFor="let folder of folders; last as last">
+              <mat-icon mat-list-icon color="accent">assessment</mat-icon>
+              <div mat-line>{{folder.name}}</div>
+              <div mat-line> {{folder.updated | date}} </div>
+              <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
+            </mat-list-item>
+            
+          </mat-list>
+          <br/>
+          <div class="flex-container">
+            <button mat-flat-button color="primary"
+            
+            class="main-cta"
+            >SHOW MORE</button>
+        </div>
+    </mat-card>
+    
+</div>

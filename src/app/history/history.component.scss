@@ -1,0 +1,21 @@
+.history-tax-card{
+    width: 93%;
+}
+.flex-container-history{
+    flex-basis: 100%;
+    height: 40px;
+    position: relative;
+    bottom: 0;
+    border: 1px solid red;
+    cursor: pointer;
+    h2{
+        font-variant-caps: all-petite-caps;
+        text-align: center;
+        font-weight: 500;
+        size: 17px;
+    }
+}
+
+.main-cta{
+    width: 100%;
+}

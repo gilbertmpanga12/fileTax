@@ -31,3 +31,4 @@ $header-typography: mat-typography-config(
 @include mat-input-typography($header-typography);
 @include mat-stepper-typography($header-typography);
 @include mat-radio-typography($header-typography);
+@include mat-list-typography($header-typography);
