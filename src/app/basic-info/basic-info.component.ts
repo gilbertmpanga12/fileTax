@@ -33,6 +33,7 @@ export class BasicInfoComponent implements OnInit {
   moreInfo: FormGroup;
   residenceInfo: FormGroup;
   documentsUpload: FormGroup;
+  financialsUpload: FormGroup;
   sex: string[] = ['Male', 'Female'];
   maritalStatuses: string[] = ['Married', 'Single'];
   citizen: string[] = ['Yes','No'];
@@ -54,11 +55,19 @@ export class BasicInfoComponent implements OnInit {
       secondaryName: ['No', Validators.required],
       appliedForTin: ['', Validators.required],
       partnershipCorporateId: ['', Validators.required],
-      sourceOfIncome: ['', Validators.required], // dynamic []
       tin: ['', Validators.required],// dynamic [],
       secondName: [''], // appliess to secondary name,
       minor: ['No', Validators.required],
       parentsName: ['', Validators.required]// applies to minors
+    });
+
+    this.financialsUpload = this._formBuilder.group({
+      sourceOfIncome: ['Self employed', Validators.required],
+      refereeName: [''],
+      refereeTin: [''],
+      refereetelephone: [''],
+      selfEmployed: [''],
+      businessAddress: [''] // works for businessCertificate value
     });
 
     this.residenceInfo = this._formBuilder.group({

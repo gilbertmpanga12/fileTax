@@ -192,3 +192,16 @@ color: #43379d !important;
 .strong-indicator{
     color: rgb(11, 92, 81);
 }
+
+.mat-radio-label-content {
+    -webkit-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
+    display: inline-block;
+    order: 0;
+    line-height: inherit;
+    padding-left: 8px;
+    padding-right: 0;
+    color: #32325d !important;
+}
