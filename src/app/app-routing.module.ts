@@ -13,9 +13,11 @@ children: [
  { path: 'requsest-off-site-file-tax', loadChildren: () => import('./offline/offline.module').then(m => m.OfflineModule) },
  { path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) },
  { path: 'notifications', loadChildren: () => import('./notifications/notifications.module').then(m => m.NotificationsModule) },
- { path: 'services/:serviceName', loadChildren: () => import('./services/services.module').then(m => m.ServicesModule) }
+ { path: 'services/:serviceName', loadChildren: () => import('./services/services.module').then(m => m.ServicesModule) },
+ { path: 'basic-info', loadChildren: () => import('./basic-info/basic-info.module').then(m => m.BasicInfoModule) }
 ]},
 { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
+
 
 
 
