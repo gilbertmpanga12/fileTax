@@ -56,11 +56,13 @@
                 </div>
               </form> -->
               <div class="flex-container">
-                <h2>0 documents</h2>
+                <h2>0 documents added</h2>
                </div>
                <div class="flex-container">
                 <ol class="ol-style">
-                  <li>Bank Statement bank-statement.pdf</li>
+                  <li>Bank Statement <small 
+                    matTooltip="File uploaded for Bank Statement"
+                    class="file-display"><i>bank-statement.pdf</i></small></li>
                 </ol>
                </div>
 <div class="flex-container">
@@ -121,71 +123,85 @@
   </div>
   
 </div>
-<br/>
-<mat-divider></mat-divider>
-<br/>
-
-<div class="flex-container">
-  <div class="col-grid-33">
-    <button mat-flat-button 
-    color="accent" class="margin-bottom-10"
-    >
-    <mat-icon>add</mat-icon>
-    Cash book ledger</button>
-  </div>
-  
-  <div class="col-grid-33">
-    <button mat-flat-button 
-    color="accent" class="margin-bottom-10"
-    >
-    <mat-icon>add</mat-icon>
-    Receivables ledger</button>
-  </div>
-  <div class="col-grid-33">
-    <button mat-flat-button 
-    color="accent" class="margin-bottom-10"
-    >
-    <mat-icon>add</mat-icon>
-    Payables ledgers</button>
-  </div>
-  <div class="col-grid-33">
-    <button mat-flat-button 
-    color="accent" class="margin-bottom-10"
-    >
-    <mat-icon>add</mat-icon>
-    Inventory record</button>
-  </div>
-  <div class="col-grid-33">
-    <button mat-flat-button 
-    color="accent" class="margin-bottom-10"
-    >
-    <mat-icon>add</mat-icon>
-    Tax records</button>
-  </div><div class="col-grid-33">
-    <button mat-flat-button 
-    color="accent" class="margin-bottom-10"
-    >
-    <mat-icon>add</mat-icon>
-    Staff payroll</button>
-  </div><div class="col-grid-33">
-    <button mat-flat-button 
-    color="accent" class="margin-bottom-10"
-    >
-    <mat-icon>add</mat-icon>
-    Payment vouchers</button>
-  </div>
-  <div class="col-grid-33">
-    <button mat-flat-button 
-    color="accent" class="margin-bottom-10"
-    >
-    <mat-icon>add</mat-icon>
-    TIN of Land Lord if renting</button>
-  </div>
-  
-</div>
+<!-- <br/>
+<mat-divider></mat-divider> -->
+<!-- <br/> -->
 
 
 
+
+            </mat-step>
+
+            <mat-step>
+              <ng-template matStepLabel>Finish up</ng-template>
+              <div class="flex-container">
+                <h2>0 documents added</h2>
+               </div>
+               <div class="flex-container">
+                <ol class="ol-style">
+                  <li>Bank Statement <small 
+                    matTooltip="File uploaded for Bank Statement"
+                    class="file-display"><i>bank-statement.pdf</i></small></li>
+                </ol>
+               </div>
+              <div class="flex-container">
+                <div class="col-grid-33">
+                  <button mat-flat-button 
+                  color="accent" class="margin-bottom-10"
+                  >
+                  <mat-icon>add</mat-icon>
+                  Cash book ledger</button>
+                </div>
+                
+                <div class="col-grid-33">
+                  <button mat-flat-button 
+                  color="accent" class="margin-bottom-10"
+                  >
+                  <mat-icon>add</mat-icon>
+                  Receivables ledger</button>
+                </div>
+                <div class="col-grid-33">
+                  <button mat-flat-button 
+                  color="accent" class="margin-bottom-10"
+                  >
+                  <mat-icon>add</mat-icon>
+                  Payables ledgers</button>
+                </div>
+                <div class="col-grid-33">
+                  <button mat-flat-button 
+                  color="accent" class="margin-bottom-10"
+                  >
+                  <mat-icon>add</mat-icon>
+                  Inventory record</button>
+                </div>
+                <div class="col-grid-33">
+                  <button mat-flat-button 
+                  color="accent" class="margin-bottom-10"
+                  >
+                  <mat-icon>add</mat-icon>
+                  Tax records</button>
+                </div><div class="col-grid-33">
+                  <button mat-flat-button 
+                  color="accent" class="margin-bottom-10"
+                  >
+                  <mat-icon>add</mat-icon>
+                  Staff payroll</button>
+                </div><div class="col-grid-33">
+                  <button mat-flat-button 
+                  color="accent" class="margin-bottom-10"
+                  >
+                  <mat-icon>add</mat-icon>
+                  Payment vouchers</button>
+                </div>
+                <div class="col-grid-33">
+                  <button mat-flat-button 
+                  color="accent" class="margin-bottom-10"
+                  >
+                  <mat-icon>add</mat-icon>
+                  TIN of Land Lord if renting</button>
+                </div>
+                
+              </div>
             </mat-step>
             <mat-step>
               <ng-template matStepLabel>Submit for review</ng-template>
