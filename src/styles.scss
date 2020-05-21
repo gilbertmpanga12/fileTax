@@ -157,3 +157,16 @@ color: #43379d !important;
 .margin-bottom-10{
     margin-bottom: 10px !important;
 }
+
+.ol-style{
+    margin-left: 0 !important;
+    padding-left: 13px !important;
+    border: 1px solid red;
+    margin-top: 0 !important;
+    display: flex !important;
+    flex-direction: column;
+    flex-basis: 100% !important;
+    flex-wrap: wrap !important;
+    height: 150px !important;
+      
+}
