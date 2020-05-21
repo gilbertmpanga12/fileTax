@@ -47,6 +47,14 @@ h1,h2,h3,h4,h5,h6{
     align-items: center;
 }
 
+.flex-column{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
 .flex-container-row {
     display: flex;
     flex-direction: row;

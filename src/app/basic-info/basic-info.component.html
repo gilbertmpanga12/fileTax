@@ -16,8 +16,8 @@
         <br/>
 
        
-
-        <mat-horizontal-stepper linear #stepper>
+<!-- linear -->
+        <mat-horizontal-stepper  #stepper>
             <mat-step [stepControl]="personalInfo">
                 <ng-template matStepLabel>About yourself</ng-template>
                 <form [formGroup]="personalInfo" class="flex-container">
@@ -81,24 +81,10 @@
                               </mat-form-field>
                           </p>
                     </div>
-
-                    <div class="col-grid-33">
-                        <p></p>
-                        <p>
-                            <mat-form-field class="forms-select">
-                                <mat-label>Are a you a minor</mat-label>
-                                <mat-select formControlName="minor">
-                                  <mat-option *ngFor="let status of minors" [value]="status">
-                                    {{status}}
-                                  </mat-option>
-                                </mat-select>
-                              </mat-form-field>
-                          </p>
-                    </div>
+     
                 </form>
                 <br/>
                 <div class="flex-container">
-                    <!-- matStepperNext -->
                     <button mat-flat-button color="primary"
                     matStepperNext
                     class="main-cta"
@@ -106,7 +92,46 @@
                 </div>
             </mat-step>
             <mat-step>
-                <ng-template matStepLabel>Anything else</ng-template>
+                <ng-template matStepLabel>More about you</ng-template>
+                <form [formGroup]="moreInfo">
+                    <div  class="flex-column">
+            <strong><h2 class="label-text">Have you ever been known by other names? <small><i>If yes provide names</i></small></h2></strong>
+                        <p>
+                            <mat-form-field class="col-grid-33">
+                                <mat-select formControlName="secondaryName">
+                                  <mat-option *ngFor="let status of secondaryNames" [value]="status">
+                                    {{status}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                              <mat-form-field appearance="standard" class="form-inline" 
+                              *ngIf="moreInfo.get('secondaryName').value == 'Yes'">
+                                <mat-label>Your other names</mat-label>
+                                <input matInput placeholder="e.g Magic Thomson" formControlName="secondName">
+                                </mat-form-field>
+                              
+                        </p>
+                        <strong><h2 class="label-text">Are you a minor? <small><i>If yes provide names of parents/guardian</i></small></h2></strong>
+                        <p>
+                            <mat-form-field class="col-grid-33">
+                                <mat-select formControlName="minor">
+                                  <mat-option *ngFor="let status of minors" [value]="status">
+                                    {{status}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                              <mat-form-field appearance="standard" class="form-inline" 
+                              *ngIf="moreInfo.get('minor').value == 'Yes'">
+                                <mat-label>Parent / Guardian names</mat-label>
+                                <input matInput placeholder="e.g Mike Kato" formControlName="parentsName">
+                                </mat-form-field>
+                              
+                        </p>
+                    </div>
+                  
+                    
+                </form>
+                
             </mat-step>
             <mat-step>
                 <ng-template matStepLabel>Your residence</ng-template>

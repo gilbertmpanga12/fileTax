@@ -36,7 +36,9 @@ export class BasicInfoComponent implements OnInit {
   sex: string[] = ['Male', 'Female'];
   maritalStatuses: string[] = ['Married', 'Single'];
   citizen: string[] = ['Yes','No'];
-  minors: string[] = ['Yes', 'No']
+  minors: string[] = ['Yes', 'No'];
+  secondaryNames: string[] = this.minors;
+  appliedForTins: string[] = this.minors;
   constructor(private _formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
@@ -45,16 +47,18 @@ export class BasicInfoComponent implements OnInit {
       maritalStatus: ['', Validators.required],
       sex: ['Female', Validators.required],
       telephone: ['', Validators.required],
-      citizenship: ['', Validators.required],
-      minor: ['', Validators.required]
+      citizenship: ['', Validators.required]
     });
 
     this.moreInfo = this._formBuilder.group({
-      secondaryName: ['', Validators.required],
+      secondaryName: ['No', Validators.required],
       appliedForTin: ['', Validators.required],
       partnershipCorporateId: ['', Validators.required],
       sourceOfIncome: ['', Validators.required], // dynamic []
-      tin: ['', Validators.required]// dynamic []
+      tin: ['', Validators.required],// dynamic [],
+      secondName: [''], // appliess to secondary name,
+      minor: ['No', Validators.required],
+      parentsName: ['', Validators.required]// applies to minors
     });
 
     this.residenceInfo = this._formBuilder.group({
