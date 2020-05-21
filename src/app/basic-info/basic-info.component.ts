@@ -67,7 +67,8 @@ export class BasicInfoComponent implements OnInit {
       refereeTin: [''],
       refereetelephone: [''],
       selfEmployed: [''],
-      businessAddress: [''] // works for businessCertificate value
+      businessAddress: [''], // works for businessCertificate value,
+      selfEmployedTin: ['']
     });
 
     this.residenceInfo = this._formBuilder.group({

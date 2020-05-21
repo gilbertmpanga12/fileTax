@@ -159,24 +159,38 @@
       <p></p>
       <p>
         <mat-radio-group aria-label="Select an option" formControlName="sourceOfIncome">
-            <mat-radio-button value="Self employed">Self Employed </mat-radio-button>&nbsp;&nbsp;
-            <mat-radio-button value="Employed or owns Business">Employed or Owns Business</mat-radio-button>
+            <mat-radio-button value="Self employed">Self Employed or owns business</mat-radio-button>&nbsp;&nbsp;
+            <mat-radio-button value="Employed or owns Business">Employed</mat-radio-button>
           </mat-radio-group>
       </p>
-
-      <mat-form-field appearance="standard" class="forms" 
-      *ngIf="financialsUpload.get('sourceOfIncome').value == 'Self employed'">
-        <input matInput placeholder="Address"
-        formControlName="selfEmployed"
-        >
-        <mat-hint>
-        Provide address of your business
-        </mat-hint>
-        </mat-form-field>
-
-            
+      
                     </div>
-
+                    
+                    <div class="flex-container"  *ngIf="financialsUpload.get('sourceOfIncome').value == 'Self employed'">
+                        <div class="col-grid-33">
+                            <mat-form-field appearance="standard" class="forms" 
+                            >
+                               <input matInput placeholder="Address"
+                               formControlName="selfEmployed"
+                               >
+                               <mat-hint>
+                               Provide address of your business
+                               </mat-hint>
+                               </mat-form-field>
+                        </div>
+                        <div class="col-grid-33">
+                            <mat-form-field appearance="standard" class="forms" 
+                            >
+                               <input matInput placeholder="Your business TIN"
+                               formControlName="selfEmployedTin"
+                               >
+                               <mat-hint>
+                               TIN number for your business
+                               </mat-hint>
+                               </mat-form-field>
+                        </div>
+                    </div>
+<br/>
                     <div class="flex-container" 
                     *ngIf="financialsUpload.get('sourceOfIncome').value == 'Employed or owns Business'"
                     >
@@ -216,6 +230,13 @@
                     </div>
 
                 </form>
+                <br/>
+                <div class="flex-container">
+                    <button mat-flat-button color="primary"
+                    matStepperNext
+                    class="main-cta"
+                    >Continue</button>
+                </div>
             </mat-step>
 
             <mat-step>
