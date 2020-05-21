@@ -4,3 +4,59 @@
         <!-- <h3 class="header-h4 sub-heading">Select services to file</h3> -->
     </div>
 </div>
+
+<div class="flex-container">
+    <mat-card class="basic-tax-card-main mat-elevation-z5">
+        <div class="flex-container-row reduce-height">
+            <strong><h2>Get started filing taxes now</h2></strong>
+        </div>
+  
+        <div class="flex-container-row">
+            <h6 class="header-h5">We'll make it easy - just answer a few questions and we'll put together <br/>forms for you</h6>
+        </div>
+        <br/>
+
+       
+
+        <mat-horizontal-stepper  #stepper>
+            <mat-step>
+                <ng-template matStepLabel>About yourself</ng-template>
+                <div class="flex-container">
+                    <div class="col-grid-33">
+                        <p>
+                            <mat-form-field appearance="standard" class="forms">
+                              <mat-label>Mother's Maiden Name</mat-label>
+                              <input matInput placeholder="e.g Jessica Fox">
+                              </mat-form-field>
+                          </p>
+                    </div>
+                    <div class="col-grid-33">
+                        <p>
+                            <mat-form-field appearance="standard" class="forms">
+                              <mat-label>Marital Status</mat-label>
+                              <input matInput placeholder="Single">
+                              </mat-form-field>
+                          </p>
+                    </div>
+                    <div class="col-grid-33">
+                        <p>
+                            <mat-form-field appearance="standard" class="forms">
+                              <mat-label>Telephone</mat-label>
+                              <input matInput placeholder="0785442700">
+                              </mat-form-field>
+                          </p>
+                    </div>
+                </div>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Anything else</ng-template>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Your residence</ng-template>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Identification documents</ng-template>
+            </mat-step>
+        </mat-horizontal-stepper>
+    </mat-card>
+</div>

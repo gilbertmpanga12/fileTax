@@ -8,7 +8,7 @@ font-family: 'Ubuntu', sans-serifs;
 p,small{
     font-family: 'Lato', sans-serif !important;
 }
-h1,h2,h3,h4,h6{
+h1,h2,h3,h4,h5,h6{
     font-family: 'Ubuntu', sans-serifs !important;
     color: #32325d !important;
 }
@@ -101,6 +101,11 @@ flex-basis: 50%;
     // color: #636567 !important;
     font-size: 17px !important;
 }
+.header-h5{
+    margin-top: 13px;
+    font-size: 15.9px !important;
+    font-weight: 400 !important;
+}
 .header-status-h4{
     margin-top: -12px;
     // color: #636567 !important;
@@ -174,4 +179,8 @@ color: #43379d !important;
     text-decoration: underline;
     color: #43379d;
     cursor: pointer;
+}
+
+.strong-indicator{
+    color: rgb(11, 92, 81);
 }

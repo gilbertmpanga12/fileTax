@@ -11,7 +11,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [BasicInfoComponent],
@@ -26,7 +27,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatIconModule,
     MatIconModule,
     MatStepperModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatInputModule,
+    MatFormFieldModule
   ]
 })
 export class BasicInfoModule { }
