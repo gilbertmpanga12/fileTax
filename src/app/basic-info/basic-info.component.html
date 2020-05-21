@@ -264,6 +264,33 @@
             </mat-step>
             <mat-step>
                 <ng-template matStepLabel>Documents</ng-template>
+                <div class="flex-container">
+                    <strong ><h2 class="shrink-h4">Upload atleast 2 documents</h2></strong>
+                   </div>
+                   <div class="flex-container">
+                    <ol class="ol-style">
+                      <li>Bank Statement <small 
+                        matTooltip="File uploaded for Bank Statement"
+                        class="file-display"><i>bank-statement.pdf</i></small></li>
+                    </ol>
+                   </div>
+                   <div class="flex-container">
+                    <div class="col-grid-33" *ngFor="let button of buttonsUpload">
+                      <button mat-flat-button 
+                      color="accent" class="margin-bottom-10"
+                      >
+                      <mat-icon>add</mat-icon>
+                      {{button}}</button>
+                    </div>
+                
+                </div>
+                <br/>
+                <div class="flex-container">
+                    <button mat-flat-button color="primary"
+                    
+                    class="main-cta"
+                    >Finish</button>
+                </div>
             </mat-step>
         </mat-horizontal-stepper>
     </mat-card>

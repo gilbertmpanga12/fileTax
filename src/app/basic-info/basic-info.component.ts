@@ -12,6 +12,10 @@ interface Residence{
   styleUrls: ['./basic-info.component.scss']
 })
 export class BasicInfoComponent implements OnInit {
+  buttonsUpload: string[] = ['National ID', 'NSSF card', 'Passport', 'Employee ID', 
+  'Voters Card', 'Drivers Permit', 'Work Permit', 'Village ID', 'Diplomatic foreign Affairs ID', 'Refugee ID',
+'Business Certificate if any'
+];
   isLinear = false;
   personalInfo: FormGroup;
   moreInfo: FormGroup;
