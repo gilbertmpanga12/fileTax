@@ -33,13 +33,17 @@ export class BasicInfoComponent implements OnInit {
   moreInfo: FormGroup;
   residenceInfo: FormGroup;
   documentsUpload: FormGroup;
+  sex: string[] = ['Male', 'Female'];
+  maritalStatuses: string[] = ['Married', 'Single'];
+  citizen: string[] = ['Yes','No'];
+  minors: string[] = ['Yes', 'No']
   constructor(private _formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.personalInfo = this._formBuilder.group({
       motherMaidenName: ['', Validators.required],
       maritalStatus: ['', Validators.required],
-      sex: ['', Validators.required],
+      sex: ['Female', Validators.required],
       telephone: ['', Validators.required],
       citizenship: ['', Validators.required],
       minor: ['', Validators.required]
@@ -74,5 +78,8 @@ export class BasicInfoComponent implements OnInit {
     });
   }
   
+  // test(){
+  //   console.log(this.personalInfo.getRawValue())
+  // }
 
 }

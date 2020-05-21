@@ -1,7 +1,6 @@
 <div class="flex-container">
     <div class="col-6-grid">
         <h1 class="overview-title mat-title">Basic Info</h1>
-        <!-- <h3 class="header-h4 sub-heading">Select services to file</h3> -->
     </div>
 </div>
 
@@ -18,34 +17,92 @@
 
        
 
-        <mat-horizontal-stepper  #stepper>
-            <mat-step>
+        <mat-horizontal-stepper linear #stepper>
+            <mat-step [stepControl]="personalInfo">
                 <ng-template matStepLabel>About yourself</ng-template>
-                <div class="flex-container">
+                <form [formGroup]="personalInfo" class="flex-container">
                     <div class="col-grid-33">
                         <p>
                             <mat-form-field appearance="standard" class="forms">
                               <mat-label>Mother's Maiden Name</mat-label>
-                              <input matInput placeholder="e.g Jessica Fox">
+                              <input matInput placeholder="e.g Jessica Fox"
+                              formControlName="motherMaidenName"
+                              >
                               </mat-form-field>
                           </p>
                     </div>
                     <div class="col-grid-33">
                         <p>
                             <mat-form-field appearance="standard" class="forms">
-                              <mat-label>Marital Status</mat-label>
-                              <input matInput placeholder="Single">
+                              <mat-label>Your telephone number</mat-label>
+                              <input matInput placeholder="0700900465" formControlName="telephone">
                               </mat-form-field>
                           </p>
                     </div>
+
                     <div class="col-grid-33">
+                        <p></p>
                         <p>
-                            <mat-form-field appearance="standard" class="forms">
-                              <mat-label>Telephone</mat-label>
-                              <input matInput placeholder="0785442700">
+                            <mat-form-field class="forms-select">
+                                <mat-label>Sex</mat-label>
+                                <mat-select formControlName="sex">
+                                  <mat-option *ngFor="let gender of sex" [value]="gender">
+                                    {{gender}}
+                                  </mat-option>
+                                </mat-select>
                               </mat-form-field>
                           </p>
                     </div>
+
+                    <div class="col-grid-33">
+                        <p></p>
+                        <p>
+                            <mat-form-field class="forms-select">
+                                <mat-label>Marital status</mat-label>
+                                <mat-select formControlName="maritalStatus">
+                                  <mat-option *ngFor="let status of maritalStatuses" [value]="status">
+                                    {{status}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                          </p>
+                    </div>
+
+                    <div class="col-grid-33">
+                        <p></p>
+                        <p>
+                            <mat-form-field class="forms-select">
+                                <mat-label>Are a you citizen of Uganda</mat-label>
+                                <mat-select formControlName="citizenship">
+                                  <mat-option *ngFor="let status of citizen" [value]="status">
+                                    {{status}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                          </p>
+                    </div>
+
+                    <div class="col-grid-33">
+                        <p></p>
+                        <p>
+                            <mat-form-field class="forms-select">
+                                <mat-label>Are a you a minor</mat-label>
+                                <mat-select formControlName="minor">
+                                  <mat-option *ngFor="let status of minors" [value]="status">
+                                    {{status}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                          </p>
+                    </div>
+                </form>
+                <br/>
+                <div class="flex-container">
+                    <!-- matStepperNext -->
+                    <button mat-flat-button color="primary"
+                    matStepperNext
+                    class="main-cta"
+                    >Continue</button>
                 </div>
             </mat-step>
             <mat-step>
