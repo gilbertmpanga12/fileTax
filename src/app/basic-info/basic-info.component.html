@@ -241,6 +241,26 @@
 
             <mat-step>
                 <ng-template matStepLabel>Residence</ng-template>
+               
+                <form [formGroup]="residenceInfo" class="flex-container">
+                    <div class="col-grid-33" *ngFor="let controller of residenceControllers">
+                        <p>
+                            <mat-form-field appearance="standard" class="forms">
+                              <mat-label>{{controller.name}}</mat-label>
+                              <input matInput placeholder=""
+                              formControlName="{{controller.controller}}"
+                              >
+                              </mat-form-field>
+                          </p>
+                    </div>
+                    </form>
+                <br/>
+                <div class="flex-container">
+                    <button mat-flat-button color="primary"
+                    matStepperNext
+                    class="main-cta"
+                    >Continue</button>
+                </div>
             </mat-step>
             <mat-step>
                 <ng-template matStepLabel>Documents</ng-template>

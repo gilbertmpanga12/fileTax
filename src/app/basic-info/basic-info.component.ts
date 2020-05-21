@@ -1,27 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-/*
-personalInfo:
--> Mother's Maiden Name
--> Marital Status of Applicant ( Single or Married)
--> Sex ( Male or Female)
--> telephone
--> Citizenship if NOT Ugandan
--> Are you Minor ( If YES provide details of Parents / guardian)
-moreInfo:
-Have you ever been known by another name ( If yes Provide names)
-Have you previously applied for TIN ( if YES provide TIN)
 
-# residence info
-District,
-❖ Trading center,
-❖ City,
-❖ Sub County,
-❖ Parish, Village
+interface Residence{
+  name: string;
+  controller: string;
+}
 
-documentsUpload:
-Identification Documents required, two of the following)
-*/
 @Component({
   selector: 'app-basic-info',
   templateUrl: './basic-info.component.html',
@@ -40,6 +24,10 @@ export class BasicInfoComponent implements OnInit {
   minors: string[] = ['Yes', 'No'];
   secondaryNames: string[] = this.minors;
   appliedForTins: string[] = this.minors;
+  residenceControllers: Residence[] = [{name:'District',controller:'district'}, {name:'City',controller:'city'},
+{name: 'Sub county',controller:'subCounty'}, {name: 'Parish', controller: 'parish'},
+{name: 'Village', controller: 'village'}
+];
   constructor(private _formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
