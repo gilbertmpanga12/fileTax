@@ -16,12 +16,8 @@ children: [
  { path: 'services/:serviceName', loadChildren: () => import('./services/services.module').then(m => m.ServicesModule) },
  { path: 'basic-info', loadChildren: () => import('./basic-info/basic-info.module').then(m => m.BasicInfoModule) }
 ]},
-{ path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
-
-
-
-
-
+{ path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
+{ path: 'register', loadChildren: () => import('./register/register.module').then(m => m.RegisterModule) }
 ];
 
 @NgModule({
