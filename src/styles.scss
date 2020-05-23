@@ -182,6 +182,25 @@ color: #43379d !important;
     max-height: 150px !important;
       
 }
+.li-style{
+    margin-left: 0 !important;
+    padding-left: 13px !important;
+    margin-top: 0px !important;
+    display: flex !important;
+    flex-direction: column;
+    flex-basis: 100% !important;
+    flex-wrap: wrap !important;
+    max-height: 150px !important;
+    list-style-type: none;
+    
+}
+.li-style{
+    // margin-bottom: 13px;
+    color: #32325d !important;
+}
+.li-style li{
+    margin-bottom: 8px !important;
+}
 
 .file-display{
     text-decoration: underline;
