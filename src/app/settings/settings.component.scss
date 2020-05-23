@@ -1,3 +1,63 @@
 .settings-card-main{
     width: 94% !important;
 }
+.c5e-project-settings-item {
+    align-items: center;
+    display: flex;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 13px;
+    min-height: 35px;
+}
+
+.c5e-project-settings-item>label {
+    color: rgba(0,0,0,.54);
+    display: inline-block;
+    font-size: 13px;
+    line-height: 20px;
+    width: 200px;
+}
+.help-icon {
+    font-size: 16px;
+    padding-left: 4px;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+    cursor: default;
+    color: rgba(0,0,0,.54);
+}
+.spanner {
+    overflow: auto;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.c5e-settings-icon-edit-mode-off {
+    color: rgba(0,0,0,.54);
+    cursor: pointer;
+    margin-left: 16px;
+    outline: none;
+}
+
+ .c5e-settings-icon-edit-mode-off:hover {
+    color: rgba(0,0,0,.87);
+}
+
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+    height: 47px;
+    width: 47px;
+  }
+.image-wrap{
+    width: 200px;
+}
+.image-edit-btn{
+    padding-left: 16px;
+    padding-right: 16px;
+    border: 0;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    text-transform: none;
+    letter-spacing: .25px;
+}
