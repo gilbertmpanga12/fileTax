@@ -1,1 +1,41 @@
-<p>login works!</p>
+<div class="login-wrapper-background">
+    <div class="logo-wrapper-box">
+        <img class="gb_ua" src="/assets/coollogo_com-8614574.png" 
+       alt="" aria-hidden="true" style="width:120px;height:46px">
+    </div>
+</div>
+<mat-card class="login-card mat-elevation-z4">
+    <!-- <mat-card-header>
+    
+    </mat-card-header> -->
+    <h2 class="login-title">LOGIN</h2>
+    <br/>
+    <div class="flex-container">
+        <form class="example-form">
+            <p>
+             <mat-form-field class="example-full-width">
+                 <mat-label>Email</mat-label>
+                 <input matInput placeholder="Ex. Johndoe@example.com" type="email" >
+               </mat-form-field>
+             
+            </p>
+             <p>
+                 <mat-form-field class="example-full-width">
+                     <mat-label>Password</mat-label>
+                     <input matInput placeholder="" type="password">
+                   </mat-form-field>
+             </p>
+           </form>
+    </div>
+    <!-- <br/> -->
+      <div class="flex-container">
+          <a routerLink="/register" class="cta-register-link">Or create a new account</a>
+      </div>
+      <mat-divider></mat-divider>
+     <div class="bottom-actions">
+        <mat-card-actions >
+            <button mat-button>Forgot password?</button>&nbsp;
+            <button mat-flat-button color="primary" class="image-edit-btn">LOG IN</button>
+        </mat-card-actions>
+     </div>
+</mat-card>

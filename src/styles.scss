@@ -45,6 +45,7 @@ h1,h2,h3,h4,h5,h6{
     padding-left: 15px;
     justify-content: center;
     align-items: center;
+
 }
 
 .flex-column{
@@ -228,4 +229,81 @@ color: #43379d !important;
     font-size: 17px !important;
     font-weight: 400 !important;
     color: #43379d !important;
+}
+
+.login-flex{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-right: 15px;
+    padding-left: 15px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.login-wrapper-background{
+    height: 330px;
+    background-color: #43379d !important;
+    width: 100%;
+    .logo-wrapper-box{
+        width: 150px;
+        // border: 1px solid white;
+        position: relative;
+        top: 25%;
+        left: 45%;
+    }
+}
+
+.login-card{
+    width: 390px;
+    // max-width: 400px;
+    height: 340px;
+    max-height: 400px;
+    margin: -136px auto;
+    .login-title{
+        font-size: 1.4rem;
+        text-align: center;
+        // font-weight: 300;
+    }
+
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  .bottom-actions{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-right: 15px;
+    padding-left: 15px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    // border: 1px solid red;
+    height: 48px;
+  }
+
+  .cta-register-link{
+      margin-bottom: 15px;
+      margin-top: 15px;
+    //   text-decoration: none;
+      color: #ff4081;
+  }
+
+  .image-edit-btn{
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    border: 0 !important;
+    -webkit-border-radius: 8px !important;
+    border-radius: 8px !important;
+    text-transform: none !important;
+    letter-spacing: .25px !important;
 }
