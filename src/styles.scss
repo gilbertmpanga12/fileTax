@@ -319,13 +319,18 @@ color: #43379d !important;
   }
   .register-btn{
       width: 50% !important;
- 
+      margin-top: 30px;
+  }
+  .flex-container-center{
+      display: flex;
+      justify-content: center;
+      align-items: center;
   }
   .cta-register-link{
       margin-bottom: 15px;
       margin-top: 15px;
     //   text-decoration: none;
-      color: #4a148c;
+      color: #6515dd;
   }
 
   .image-edit-btn{
