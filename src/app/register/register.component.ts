@@ -10,6 +10,8 @@ interface Registration{
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+  date: Date = new Date();
+year: number = this.date.getFullYear();
   controls: Registration[] = [{
     name: 'First name',
     control: 'firstName'

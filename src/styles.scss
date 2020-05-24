@@ -347,3 +347,21 @@ color: #43379d !important;
 .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
 background-color: #6515dd !important;
 }
+
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 12px;
+  width: 100%;
+  
+//   background-color: red;
+  color: #32325d;
+  cursor: pointer;
+  text-align: center;
+  .resources-links{
+      display: inline;
+      padding-left: 5px;
+      padding-right: 5px;;
+  }
+}

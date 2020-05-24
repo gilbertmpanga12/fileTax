@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reset-password.component.scss']
 })
 export class ResetPasswordComponent implements OnInit {
-
+  date: Date = new Date();
+year: number = this.date.getFullYear();
   constructor() { }
 
   ngOnInit(): void {

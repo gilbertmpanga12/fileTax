@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./not-authenticated.component.scss']
 })
 export class NotAuthenticatedComponent implements OnInit {
-
+  date: Date = new Date();
+year: number = this.date.getFullYear();
   constructor() { }
 
   ngOnInit(): void {

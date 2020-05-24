@@ -15,6 +15,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatBadgeModule} from '@angular/material/badge';
 import { NotAuthenticatedComponent } from './not-authenticated/not-authenticated.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,9 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatCardModule, MatBadgeModule
+    MatCardModule, MatBadgeModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

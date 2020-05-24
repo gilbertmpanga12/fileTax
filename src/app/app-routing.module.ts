@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {NotAuthenticatedComponent} from './not-authenticated/not-authenticated.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 const routes: Routes = [
 { path: '', component: DashboardComponent,
@@ -18,7 +19,8 @@ children: [
 ]},
 { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
 { path: 'register', loadChildren: () => import('./register/register.module').then(m => m.RegisterModule) },
-{path: 'verify-account',component: NotAuthenticatedComponent}
+{path: 'verify-account',component: NotAuthenticatedComponent},
+{path: 'reset-password',component: ResetPasswordComponent}
 ];
 
 @NgModule({
