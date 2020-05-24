@@ -243,13 +243,13 @@ color: #43379d !important;
 }
 .login-wrapper-background{
     height: 330px;
-    background-color: #43379d !important;
+    background-color: #6515dd !important;
     width: 100%;
     .logo-wrapper-box{
         width: 150px;
         // border: 1px solid white;
         position: relative;
-        top: 25%;
+        top: 32%;
         left: 45%;
     }
 }
@@ -325,7 +325,7 @@ color: #43379d !important;
       margin-bottom: 15px;
       margin-top: 15px;
     //   text-decoration: none;
-      color: #43379d;
+      color: #4a148c;
   }
 
   .image-edit-btn{
@@ -336,4 +336,9 @@ color: #43379d !important;
     border-radius: 8px !important;
     text-transform: none !important;
     letter-spacing: .25px !important;
+}
+// #6515dd
+.mat-flat-button.mat-primary, .mat-raised-button.mat-primary, 
+.mat-fab.mat-primary, .mat-mini-fab.mat-primary {
+background-color: #6515dd !important;
 }
