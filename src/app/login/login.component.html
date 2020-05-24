@@ -15,14 +15,26 @@
             <p>
              <mat-form-field class="example-full-width">
                  <mat-label>Email</mat-label>
-                 <input matInput placeholder="Ex. Johndoe@example.com" type="email" formControlName="email"/>
+                 <input matInput placeholder="Ex. Johndoe@example.com" 
+                 [errorStateMatcher]="matcher"
+                 email formControlName="email"/>
+                 <mat-error> A valid email required e.g joefraser@casiusclay.com</mat-error>
+                 <!-- <mat-error
+                 *ngIf="loginGroup.hasError('email') && !loginGroup.hasError('required')"
+                 >A valid email required e.g joefraser@casiusclay.com</mat-error> -->
                </mat-form-field>
              
             </p>
              <p>
                  <mat-form-field class="example-full-width">
                      <mat-label>Password</mat-label>
-                     <input matInput placeholder="" type="password" formControlName="password">
+                     <input matInput placeholder="" type="password" formControlName="password" minlength="6">
+                     <mat-error>
+                         Password must be at least 6 characters
+                     </mat-error>
+                     <mat-error
+                     *ngIf="loginGroup.hasError('password') && !loginGroup.hasError('required')"
+                     >A password is required</mat-error>
                    </mat-form-field>
              </p>
            </form>
