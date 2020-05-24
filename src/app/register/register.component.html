@@ -62,7 +62,7 @@
     </div>
          <!-- br -->
          <div class="col-6-grid">
-            <mat-form-field class="example-full-width" 
+            <!-- <mat-form-field class="example-full-width" 
             
             >
                 <mat-label>Date of birth</mat-label>
@@ -70,7 +70,17 @@
                 [errorStateMatcher]="matcher"
                 formControlName="dateOfBirth">
                 <mat-error>Date of birth required</mat-error>
+              </mat-form-field> -->
+
+              <mat-form-field class="example-full-width">
+                <mat-label>Date of birth</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="dateOfBirth" [errorStateMatcher]="matcher"> 
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error>Date of birth required</mat-error>
+                <mat-hint>Tap calendar icon to choose dates</mat-hint>
               </mat-form-field>
+
         </div>
         <!-- br -->
         <div class="col-6-grid">
