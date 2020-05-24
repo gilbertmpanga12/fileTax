@@ -13,10 +13,12 @@ import { MatListModule } from '@angular/material/list';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatBadgeModule} from '@angular/material/badge';
+import { NotAuthenticatedComponent } from './not-authenticated/not-authenticated.component';
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    NotAuthenticatedComponent
   ],
   imports: [
     BrowserModule,
