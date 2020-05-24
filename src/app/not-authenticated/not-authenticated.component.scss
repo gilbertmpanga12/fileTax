@@ -1,0 +1,22 @@
+.activation-card{
+    max-width: 500px;
+    margin: 11% auto;
+    max-height: 200px;
+    .indicator-btn{
+        position: absolute;
+        top: -20%;
+        left: 43%;
+    }
+    h2{
+        margin-top: 19px;
+        text-align: center;
+        font-weight: 500;
+        // margin-bottom: 3px;
+    }
+    a{
+        display: block;
+        text-align: center;
+        font-size: 20px;
+        color: #ff4081;
+    }
+}
