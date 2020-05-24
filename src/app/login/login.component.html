@@ -11,18 +11,18 @@
     <h3 class="login-title">LOGIN</h3>
     <br/>
     <div class="flex-container">
-        <form class="example-form">
+        <form class="example-form" [formGroup]="loginGroup">
             <p>
              <mat-form-field class="example-full-width">
                  <mat-label>Email</mat-label>
-                 <input matInput placeholder="Ex. Johndoe@example.com" type="email" >
+                 <input matInput placeholder="Ex. Johndoe@example.com" type="email" formControlName="email"/>
                </mat-form-field>
              
             </p>
              <p>
                  <mat-form-field class="example-full-width">
                      <mat-label>Password</mat-label>
-                     <input matInput placeholder="" type="password">
+                     <input matInput placeholder="" type="password" formControlName="password">
                    </mat-form-field>
              </p>
            </form>
