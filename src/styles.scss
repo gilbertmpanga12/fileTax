@@ -354,14 +354,17 @@ background-color: #6515dd !important;
   left: 0;
   bottom: 12px;
   width: 100%;
-  
+  background: none;
+//   background-color: transparent !important;
 //   background-color: red;
-  color: #32325d;
-  cursor: pointer;
+ 
   text-align: center;
   .resources-links{
       display: inline;
       padding-left: 5px;
-      padding-right: 5px;;
+      padding-right: 5px;
+      color: #32325d !important;
+      text-decoration: none;
+      cursor: pointer;
   }
 }
