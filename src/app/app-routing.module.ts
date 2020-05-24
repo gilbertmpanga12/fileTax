@@ -3,9 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {NotAuthenticatedComponent} from './not-authenticated/not-authenticated.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { GuardGuard } from './services/guard.guard';
 
 const routes: Routes = [
 { path: '', component: DashboardComponent,
+canActivateChild: [GuardGuard],
 children: [
   { path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) }, 
  { path: 'file-taxes', loadChildren: () => import('./file-my-taxes/file-my-taxes.module').then(m => m.FileMyTaxesModule) },
@@ -14,7 +16,7 @@ children: [
  { path: 'requsest-off-site-file-tax', loadChildren: () => import('./offline/offline.module').then(m => m.OfflineModule) },
  { path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) },
  { path: 'notifications', loadChildren: () => import('./notifications/notifications.module').then(m => m.NotificationsModule) },
- { path: 'services/:serviceName', loadChildren: () => import('./services/services.module').then(m => m.ServicesModule) },
+ { path: 'services/:serviceName', loadChildren: () => import('./tax-services/services.module').then(m => m.ServicesModule) },
  { path: 'basic-info', loadChildren: () => import('./basic-info/basic-info.module').then(m => m.BasicInfoModule) }
 ]},
 { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
