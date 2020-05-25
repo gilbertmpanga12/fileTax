@@ -105,7 +105,14 @@ class="progress-position"></mat-progress-bar>
       <button mat-flat-button color="primary" 
       routerLink="/app/login"
       type="submit"
-      class="image-edit-btn register-btn">REGISTER</button>    
+      class="image-edit-btn register-btn">
+      <div class="spinner" *ngIf="loadingText.length < 1">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+      </div>
+      <span *ngIf="loadingText.length > 1">{{loadingText}}</span>
+    </button>    
   </div>
   <br/>
    <mat-divider></mat-divider>
