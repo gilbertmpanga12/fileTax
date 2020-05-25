@@ -46,6 +46,8 @@ export class RegisterComponent implements OnInit {
       }).catch(err => {
         this.progressLoading = false;
       });
+    }else{
+      this.progressLoading = false;
     }
     
   }
