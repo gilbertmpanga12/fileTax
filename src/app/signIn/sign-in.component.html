@@ -13,50 +13,52 @@
     </mat-card-header> -->
     <h3 class="login-title">LOGIN</h3>
     <br/>
+    <form  [formGroup]="loginGroup"
+    (ngSubmit)="logIn(loginGroup.get('email').value, loginGroup.get('password').value)">
     <div class="flex-container">
-        <form class="example-form" [formGroup]="loginGroup"
-         (ngSubmit)="logIn(loginGroup.get('email').value, loginGroup.get('password').value)">
+        <div class="example-form">
             <p>
-             <mat-form-field class="example-full-width">
-                 <mat-label>Email</mat-label>
-                 <input matInput placeholder="Ex. Johndoe@example.com" 
-                 [errorStateMatcher]="matcher"
-                 email formControlName="email"/>
-                 <mat-error> A valid email required e.g joefraser@casiusclay.com</mat-error>
-                 <!-- <mat-error
-                 *ngIf="loginGroup.hasError('email') && !loginGroup.hasError('required')"
-                 >A valid email required e.g joefraser@casiusclay.com</mat-error> -->
-               </mat-form-field>
-             
-            </p>
-             <p>
-                 <mat-form-field class="example-full-width">
-                     <mat-label>Password</mat-label>
-                     <input matInput placeholder="" type="password" formControlName="password" minlength="6">
-                     <mat-error>
-                         Password must be at least 6 characters
-                     </mat-error>
-                     <mat-error
-                     *ngIf="loginGroup.hasError('password') && !loginGroup.hasError('required')"
-                     >A password is required</mat-error>
-                   </mat-form-field>
-             </p>
-           </form>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Ex. Johndoe@example.com" 
+                    [errorStateMatcher]="matcher"
+                    email formControlName="email"/>
+                    <mat-error> A valid email required e.g joefraser@casiusclay.com</mat-error>
+                    <!-- <mat-error
+                    *ngIf="loginGroup.hasError('email') && !loginGroup.hasError('required')"
+                    >A valid email required e.g joefraser@casiusclay.com</mat-error> -->
+                  </mat-form-field>
+                
+               </p>
+                <p>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Password</mat-label>
+                        <input matInput placeholder="" type="password" formControlName="password" minlength="6">
+                        <mat-error>
+                            Password must be at least 6 characters
+                        </mat-error>
+                        <mat-error
+                        *ngIf="loginGroup.hasError('password') && !loginGroup.hasError('required')"
+                        >A password is required</mat-error>
+                      </mat-form-field>
+                </p>
+        </div>
+      
     </div>
-    <!-- <br/> -->
-      <div class="flex-container">
-          <a routerLink="/app/register" class="cta-register-link">Or create a new account</a>
-      </div>
-      <mat-divider></mat-divider>
-     <div class="bottom-actions">
-        <button mat-button 
-
-        routerLink="/app/reset-password" class="forgot-password"
-        >Forgot password?</button>&nbsp;&nbsp;&nbsp;
-        <button mat-flat-button color="primary" 
-        type="submit"
-        class="image-edit-btn">LOGIN</button>
-     </div>
+    <div class="flex-container">
+        <a routerLink="/app/register" class="cta-register-link">Or create a new account</a>
+    </div>
+    <mat-divider></mat-divider>
+   <div class="bottom-actions">
+      <button mat-button 
+  
+      routerLink="/app/reset-password" class="forgot-password"
+      >Forgot password?</button>&nbsp;&nbsp;&nbsp;
+      <button mat-flat-button color="primary" 
+      type="submit"
+      class="image-edit-btn">LOGIN</button>
+   </div>
+    </form>
 </mat-card>
 
 <footer class="footer">
