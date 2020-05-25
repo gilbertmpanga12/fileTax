@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators, FormGroupDirective, NgForm, FormCon
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { MainserviceService } from '../services/mainservice.service';
+import { MatSnackBarRef, MatSnackBar } from '@angular/material/snack-bar';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -20,8 +21,9 @@ export class SignInComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
   date: Date = new Date();
   year: number = this.date.getFullYear();
+  progressLoading: boolean = false;
   constructor(private _fb: FormBuilder, private router: Router, 
-    private service: MainserviceService) { }
+    private service: MainserviceService, private snackBar: MatSnackBar) { }
   
   ngOnInit(): void {
     this.loginGroup = this._fb.group({
@@ -31,7 +33,18 @@ export class SignInComponent implements OnInit {
   }
 
   logIn(email: string, password: string){
-    
+    this.progressLoading = true;
+    this.service.login(email,password).then((resp) => {
+       this.progressLoading = false;
+    }).catch(err => {
+       this.progressLoading = false;
+       console.log(err);
+       this.snackbar(err.message);
+    });
+  }
+
+  snackbar(message: string): void{
+    this.snackBar.open(message,'OK',{duration: 2000});
   }
   
 
