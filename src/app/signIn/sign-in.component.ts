@@ -31,7 +31,7 @@ export class SignInComponent implements OnInit {
   }
 
   logIn(email: string, password: string){
-
+    
   }
   
 
