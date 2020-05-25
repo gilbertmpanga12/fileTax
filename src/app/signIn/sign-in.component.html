@@ -33,13 +33,15 @@
                 <p>
                     <mat-form-field class="example-full-width">
                         <mat-label>Password</mat-label>
-                        <input matInput placeholder="" type="password" formControlName="password" minlength="6">
+                        <input matInput placeholder="" type="password"
+                        [errorStateMatcher]="matcher"
+                        formControlName="password" [minLength]="6">
                         <mat-error>
                             Password must be at least 6 characters
                         </mat-error>
-                        <mat-error
+                        <!-- <mat-error
                         *ngIf="loginGroup.hasError('password') && !loginGroup.hasError('required')"
-                        >A password is required</mat-error>
+                        >A password is required</mat-error> -->
                       </mat-form-field>
                 </p>
         </div>
@@ -56,7 +58,14 @@
       >Forgot password?</button>&nbsp;&nbsp;&nbsp;
       <button mat-flat-button color="primary" 
       type="submit"
-      class="image-edit-btn">LOGIN</button>
+      class="image-edit-btn">
+      <div class="spinner" *ngIf="loadingText.length < 1">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+      </div>
+      <span *ngIf="loadingText.length > 1">{{loadingText}}</span>
+    </button>
    </div>
     </form>
 </mat-card>

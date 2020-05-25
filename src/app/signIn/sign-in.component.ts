@@ -22,34 +22,37 @@ export class SignInComponent implements OnInit {
   date: Date = new Date();
   year: number = this.date.getFullYear();
   progressLoading: boolean = false;
+  defatultText: string = 'Login';
+  loadingText: string = 'Login';
   constructor(private _fb: FormBuilder, private router: Router, 
     private service: MainserviceService, private snackBar: MatSnackBar) { }
   
   ngOnInit(): void {
     this.loginGroup = this._fb.group({
       email: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', [Validators.required,Validators.minLength(6)]]
     },{updateOn: 'blur'});
   }
 
   logIn(email: string, password: string){
     this.progressLoading = true;
+    this.loadingText = '';
     if(!this.loginGroup.invalid){
-    //   this.service.login(email,password).then((resp) => {
-    //     this.progressLoading = false;
-    //  }).catch(err => {
-    //     this.progressLoading = false;
-    //     console.log(err);
-    //     this.snackbar(err.message);
-    //  });
- 
+      this.service.login(email,password).then((resp) => {
+        this.progressLoading = false;
+     }).catch(err => {
+        this.progressLoading = false;
+        this.loadingText = this.defatultText;
+        this.snackbar(err.message);
+     });
     }else{
       this.progressLoading = false;
+      this.loadingText = this.defatultText;
     }
   }
 
   snackbar(message: string): void{
-    this.snackBar.open(message,'OK',{duration: 2000});
+    this.snackBar.open(message,'OK',{duration: 3000,verticalPosition:'top',horizontalPosition:'right'});
   }
   
 
