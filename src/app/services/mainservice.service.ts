@@ -9,10 +9,12 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class MainserviceService {
   user:  User;
+  userVerified: boolean = false;
   constructor(private auth: AngularFireAuth, private router: Router, private firestore: AngularFirestore) {
     this.auth.authState.subscribe(user => {
       if (user){
         this.user = user;
+        this.userVerified = user.emailVerified;
         localStorage.setItem('user', JSON.stringify(this.user));
       } else {
         localStorage.setItem('user', null);

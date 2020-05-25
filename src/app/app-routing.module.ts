@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import {NotAuthenticatedComponent} from './not-authenticated/not-authenticated.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { GuardGuard } from './services/guard.guard';
 import { SignInComponent } from './signIn/sign-in.component';
@@ -34,7 +33,6 @@ children: [
 children: [
   {path: 'login',component: SignInComponent},
   {path: 'register',component: RegisterComponent},
-  {path: 'verify-account',component: NotAuthenticatedComponent},
   {path: 'reset-password',component: ResetPasswordComponent}
   ],
 

@@ -1,4 +1,5 @@
-<mat-sidenav-container class="sidenav-container">
+<ng-container *ngIf="service.userVerified">
+  <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #drawer class="sidenav" fixedInViewport
         [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
         [mode]="(isHandset$ | async) ? 'over' : 'side'"
@@ -71,3 +72,25 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
   
+</ng-container>
+
+<ng-container *ngIf="!service.userVerified">
+  <div class="center-box">
+    <h1>👋👋 Please check your email for a link to<br/>activate this account</h1>
+  </div>
+  
+  <br/>
+  <div class="flex-container-center">
+    <button mat-flat-button (click)="service.logout()"
+  class="cta-unverified-email"
+  color="primary">Log out</button>
+  </div>
+  
+  <footer class="footer">
+    <a class="resources-links">&copy; {{year}} — Filetax </a>
+    <a class="resources-links" routerLink="/app/login"><small><u>Home</u></small></a>
+    <a class="resources-links"> <small><u>Help</u></small></a>
+    <a class="resources-links"> <u><small>Terms and Conditions</small></u></a>
+    <a class="resources-links"> <u><small>Blog</small></u></a>
+  </footer>
+</ng-container>

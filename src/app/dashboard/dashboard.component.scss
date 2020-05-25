@@ -158,3 +158,26 @@
       margin-top: 21px;
     }
   }
+
+
+  .center-box{
+    text-align: center;
+    margin-top: 12%;
+  }
+
+  .cta-unverified-email{
+    font-weight: 500;
+    font-size: 22px;
+    display: block;
+    width: 25%;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    border-radius: 2px;
+    padding: 14px;
+    background: rgb(51, 104, 250);
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+    transition: background 0.2s linear 0s;
+  }

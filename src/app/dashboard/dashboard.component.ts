@@ -18,7 +18,8 @@ interface Links {
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
+  date: Date = new Date();
+  year: number = this.date.getFullYear();
 links:  Links[] = [{
   path: '/',
   icon: 'icon ni ni-shop icon-lg icon-outline icon-stroke-3 ni-2x',
