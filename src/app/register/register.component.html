@@ -4,10 +4,13 @@
        alt="" aria-hidden="true" style="width:120px;height:46px">
     </div>
 </div>
+
 <mat-card class="register-card mat-elevation-z4">
-    <!-- <mat-card-header>
-    
-    </mat-card-header> -->
+    <mat-card-header>
+    <mat-progress-bar mode="indeterminate" 
+color="accent" *ngIf="progressLoading"
+class="progress-position"></mat-progress-bar>
+    </mat-card-header>
     <h2 class="login-title">CREATE ACCOUNT</h2>
     <br/>
     <form class="flex-container" [formGroup]="registerGroup">
@@ -100,6 +103,7 @@
   <div class="flex-container-center">
     <button mat-flat-button color="primary" 
     routerLink="/app/login"
+    (ngSubmit)="register()"
     class="image-edit-btn register-btn">REGISTER</button>    
 </div>
 <br/>

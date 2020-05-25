@@ -54,7 +54,7 @@
         >Forgot password?</button>&nbsp;&nbsp;&nbsp;
         <button mat-flat-button color="primary" 
         cdkFocusInitial
-        (click)="logIn(loginGroup.get('email').value, loginGroup.get('password').value)"
+        (ngSubmit)="logIn(loginGroup.get('email').value, loginGroup.get('password').value)"
         class="image-edit-btn">LOGIN</button>
      </div>
 </mat-card>

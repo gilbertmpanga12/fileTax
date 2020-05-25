@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormGroupDirective, NgForm, FormControl} from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { MainserviceService } from '../services/mainservice.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -19,7 +20,9 @@ export class RegisterComponent implements OnInit {
   year: number = this.date.getFullYear();
   registerGroup: FormGroup;
   matcher = new MyErrorStateMatcher();
-  constructor(private _fb: FormBuilder) { }
+  progressLoading: boolean = false;
+
+  constructor(private _fb: FormBuilder, private service: MainserviceService) { }
 
   ngOnInit(): void {
     this.registerGroup = this._fb.group({
@@ -31,6 +34,20 @@ export class RegisterComponent implements OnInit {
       dateOfBirth: ['', Validators.required],
       
     });
+  }
+
+  register(): void {
+    this.progressLoading = true;
+    let payload = this.registerGroup.getRawValue();
+    if(!this.registerGroup.invalid){
+      this.service.register(payload['email'],payload['firstName'],payload['lastName'],
+      payload['address'], payload['dateOfBirth'],payload['password']).then((resp) => {
+        this.progressLoading = false;
+      }).catch(err => {
+        this.progressLoading = false;
+      });
+    }
+    
   }
 
 }

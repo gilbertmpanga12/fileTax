@@ -34,13 +34,15 @@ export class SignInComponent implements OnInit {
 
   logIn(email: string, password: string){
     this.progressLoading = true;
-    this.service.login(email,password).then((resp) => {
-       this.progressLoading = false;
-    }).catch(err => {
-       this.progressLoading = false;
-       console.log(err);
-       this.snackbar(err.message);
-    });
+    if(!this.loginGroup.invalid){
+      this.service.login(email,password).then((resp) => {
+        this.progressLoading = false;
+     }).catch(err => {
+        this.progressLoading = false;
+        console.log(err);
+        this.snackbar(err.message);
+     });
+    }
   }
 
   snackbar(message: string): void{
