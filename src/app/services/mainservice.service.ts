@@ -10,6 +10,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class MainserviceService {
   user:  User;
   userVerified: boolean = false;
+  profilePhoto: string = 'https://firebasestorage.googleapis.com/v0/b/tax-as-a-service.appspot.com/o/blah.png?alt=media&token=36da8459-06e9-4c9b-a829-e9de0e5a9312';
   constructor(private auth: AngularFireAuth, private router: Router, private firestore: AngularFirestore) {
     this.auth.authState.subscribe(user => {
       if (user){
@@ -32,6 +33,7 @@ export class MainserviceService {
     lastName: string, address: string,
     dateOfBirth: string,password: string) {
      let result = await this.auth.createUserWithEmailAndPassword(email,password);
+     this.updateUserProfile(firstName + lastName, this.profilePhoto);
      this.storeProfile(email,firstName,lastName,dateOfBirth,address);
      this.sendEmailVerification();
    }
@@ -55,6 +57,14 @@ export class MainserviceService {
       email, lastName, dateOfBirth,firstName,address, creationTime, status
     });
     
+  }
+
+  async updateUserProfile(fullName: string, profilePhoto: string){
+    let user = this.auth.currentUser;
+    (await user).updateProfile({
+      displayName: fullName,
+      photoURL: profilePhoto
+    });
   }
 
   async logout(){

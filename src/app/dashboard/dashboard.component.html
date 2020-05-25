@@ -40,8 +40,10 @@
       <mat-divider class="divider-bottom"></mat-divider>
      <mat-card class="card-bottom">
       <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title class="bottom-title">Shiba Inu</mat-card-title>
+      
+        <img  mat-card-avatar [src]="service.user.photoURL" 
+        class="example-header-image">
+        <mat-card-title class="bottom-title">{{service.user.displayName}}</mat-card-title>
         <mat-card-subtitle class="bottom-subtitle"
         routerLink="/profile"
         >view profile</mat-card-subtitle>
