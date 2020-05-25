@@ -36,7 +36,7 @@ export class MainserviceService {
 
    async sendEmailVerification() {
     await (await this.auth.currentUser).sendEmailVerification();
-    this.router.navigate(['app/verify-email']);
+    // this.router.navigate(['app/verify-email']);
   }
 
   async sendPasswordResetEmail(email: string) {

@@ -3,6 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { MainserviceService } from '../services/mainservice.service';
 
 // Models
 interface Links {
@@ -56,14 +57,18 @@ links:  Links[] = [{
     shareReplay()
   );
 
-constructor(private breakpointObserver: BreakpointObserver, private router: Router) {}
+constructor(private breakpointObserver: BreakpointObserver, private router: Router, public service: MainserviceService) {}
 
   ngOnInit(): void {
-    console.log('I am live');
+   
   }
   checkNotifications(): void{
     // do something after navigation
     this.router.navigate(['/notifications']);
+  }
+
+  logout(): void{
+    this.service.logout();
   }
 
 }

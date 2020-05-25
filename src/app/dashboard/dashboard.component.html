@@ -15,7 +15,9 @@
         <ng-container *ngFor="let link of links">
           <a class="link-item is-anchor" [routerLink]="link.path" 
           [routerLinkActiveOptions]="{exact: true}" routerLinkActive
-          #rla="routerLinkActive">
+          #rla="routerLinkActive"
+          (click)="link.path == '/app/login' ? logout(): false"
+          >
             <div 
             [ngClass]="rla.isActive ? 'flex-active' : 'flex'"
             >

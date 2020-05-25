@@ -22,10 +22,9 @@ export class GuardGuard implements  CanActivateChild {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this.auth.authState
     .pipe(take(1),map(user => {
-      return !!user
+      return !!user;
     }), tap(loggedIn => {
       if (!loggedIn) {
-        // console.log("access denied")
         this.router.navigate(['/app/login']);
       }
   }));
