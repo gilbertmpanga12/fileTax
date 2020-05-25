@@ -44,7 +44,7 @@ links:  Links[] = [{
   icon: 'icon ni ni-books icon-lg icon-outline icon-stroke-1 ni-2x',
   name: 'Offline Filing'
 },{
-  path: '/login',
+  path: '/app/login',
   icon: 'icon ni ni-lock-circle-open icon-lg icon-outline icon-stroke-1 ni-2x',
   name: 'Log out'
 }
