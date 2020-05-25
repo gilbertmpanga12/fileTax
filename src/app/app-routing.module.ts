@@ -4,14 +4,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {NotAuthenticatedComponent} from './not-authenticated/not-authenticated.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { GuardGuard } from './services/guard.guard';
-import { SignInComponent } from './sign-in/sign-in.component';
+import { SignInComponent } from './signIn/sign-in.component';
 import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './authentication-wrapper/login.component';
 
 
 const routes: Routes = [
 {path: '', component: DashboardComponent,
-canActivate: [GuardGuard],
+canActivateChild: [GuardGuard],
 children: [
   { path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
 }, 
