@@ -5,9 +5,11 @@ import {NotAuthenticatedComponent} from './not-authenticated/not-authenticated.c
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 // import { GuardGuard } from './services/guard.guard';
 import { AngularFireAuthGuard, emailVerified, redirectUnauthorizedTo, redirectLoggedInTo} from '@angular/fire/auth-guard';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { RegisterComponent } from './register/register.component';
 // import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 // const redirectIfEmailVerified = () => emailVerified;
-const unAuthorizedUsers = () => redirectUnauthorizedTo(['login']);
+const unAuthorizedUsers = () => redirectUnauthorizedTo(['app','login']);
 const isAuthorizedRedirect = () => redirectLoggedInTo(['']);
 
 
@@ -33,13 +35,14 @@ children: [
  { path: 'services/:serviceName', loadChildren: () => import('./tax-services/services.module').then(m => m.ServicesModule)},
  { path: 'basic-info', loadChildren: () => import('./basic-info/basic-info.module').then(m => m.BasicInfoModule)}
 ]},
-{ path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule),
-canActivate: [AngularFireAuthGuard], data: {authGuardPipe: isAuthorizedRedirect }
-},
-{ path: 'register', loadChildren: () => import('./register/register.module').then(m => m.RegisterModule)
-},
+{ path: 'app', children: [
+{path: 'login',component: SignInComponent},
+{path: 'register',component: RegisterComponent},
 {path: 'verify-account',component: NotAuthenticatedComponent},
-{path: 'reset-password',component: ResetPasswordComponent},
+{path: 'reset-password',component: ResetPasswordComponent}
+]
+},
+
 {path: '**', pathMatch: 'full', redirectTo: '/' } // canActivate: [AngularFireAuthGuard], data: unAuthorizedUsers,
 ];
 

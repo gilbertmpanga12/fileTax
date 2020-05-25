@@ -21,6 +21,13 @@ import { environment } from '../environments/environment';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
+import { LoginComponent } from './login/login.component';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -28,7 +35,10 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
     DashboardComponent,
     NotAuthenticatedComponent,
     ResetPasswordComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    LoginComponent,
+    SignInComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -41,11 +51,16 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
     MatIconModule,
     MatListModule,
     MatCardModule, MatBadgeModule,
-    MatFormFieldModule,
     MatInputModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,
     AngularFirestoreModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatDividerModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    MatDatepickerModule, MatNativeDateModule
     // AngularFireAuthModule
   ],
   providers: [],
