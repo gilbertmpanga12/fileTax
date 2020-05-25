@@ -51,7 +51,7 @@
         >Forgot password?</button>&nbsp;&nbsp;&nbsp;
         <button mat-flat-button color="primary" 
         cdkFocusInitial
-        routerLink="/"
+        (click)="logIn(loginGroup.get('email').value, loginGroup.get('password').value)"
         class="image-edit-btn">LOGIN</button>
      </div>
 </mat-card>
