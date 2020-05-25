@@ -13,7 +13,6 @@ import { MatListModule } from '@angular/material/list';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatBadgeModule} from '@angular/material/badge';
-import { NotAuthenticatedComponent } from './not-authenticated/not-authenticated.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -35,7 +34,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
   declarations: [
     AppComponent,
     DashboardComponent,
-    NotAuthenticatedComponent,
     ResetPasswordComponent,
     NotFoundPageComponent,
     LoginComponent,
