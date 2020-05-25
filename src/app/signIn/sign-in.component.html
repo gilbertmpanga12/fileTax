@@ -14,7 +14,8 @@
     <h3 class="login-title">LOGIN</h3>
     <br/>
     <div class="flex-container">
-        <form class="example-form" [formGroup]="loginGroup">
+        <form class="example-form" [formGroup]="loginGroup"
+         (ngSubmit)="logIn(loginGroup.get('email').value, loginGroup.get('password').value)">
             <p>
              <mat-form-field class="example-full-width">
                  <mat-label>Email</mat-label>
@@ -53,8 +54,7 @@
         routerLink="/app/reset-password" class="forgot-password"
         >Forgot password?</button>&nbsp;&nbsp;&nbsp;
         <button mat-flat-button color="primary" 
-        cdkFocusInitial
-        (ngSubmit)="logIn(loginGroup.get('email').value, loginGroup.get('password').value)"
+        type="submit"
         class="image-edit-btn">LOGIN</button>
      </div>
 </mat-card>

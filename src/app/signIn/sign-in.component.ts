@@ -29,19 +29,22 @@ export class SignInComponent implements OnInit {
     this.loginGroup = this._fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required]
-    });
+    },{updateOn: 'blur'});
   }
 
   logIn(email: string, password: string){
     this.progressLoading = true;
     if(!this.loginGroup.invalid){
-      this.service.login(email,password).then((resp) => {
-        this.progressLoading = false;
-     }).catch(err => {
-        this.progressLoading = false;
-        console.log(err);
-        this.snackbar(err.message);
-     });
+    //   this.service.login(email,password).then((resp) => {
+    //     this.progressLoading = false;
+    //  }).catch(err => {
+    //     this.progressLoading = false;
+    //     console.log(err);
+    //     this.snackbar(err.message);
+    //  });
+ 
+    }else{
+      this.progressLoading = false;
     }
   }
 
