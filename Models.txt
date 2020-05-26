@@ -1,0 +1,61 @@
+Models 
+=> Dashboard;
+# Name: dashbordCounts
+# Properties
+1. totalTaxesFiled
+2. latestTaxFiled
+## SubcollectionName
+# Name: recentFilings
+1. Name
+2. timeStamp
+
+=> Services;
+1. title
+2. description
+##SubcollectionName: supportingDocuments
+1. name 
+2. file 
+3. count
+
+=> Basic Information
+1. motherMaidenName
+2. telephoneNumber
+3. maritalStatus
+4. citizenShip
+5. sex
+6. otherNames [dynamic]
+7  minor[dynamic]
+8. partnershipOrCorporateTin
+9. sourceOfIncome [dynamic]
+10. district
+11. city
+12. subcounty
+13. parish
+14. village
+15. documents [2]
+16. filledStatus 1/100
+
+=> History
+1. date
+2. name
+
+=> Settings
+1. fullName
+2. tinId
+3. tinPassword
+4. <password>
+
+=> Offline filing
+1. date
+2. types of taxes collected []
+3. customerName
+<sendGridEmailAPI>
+
+=> pushNofications
+1. count
+2. date
+3. service requested description
+4. download summary
+
+=> cookies?
+Rearch about cookies implementation
