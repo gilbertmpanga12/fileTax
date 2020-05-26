@@ -9,9 +9,9 @@ import { Observable } from 'rxjs';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  items: Observable<any>;
+  items$: Observable<any>;
   constructor(private firestore: AngularFirestore, private service: MainserviceService) { 
-    this.items = firestore.collection('dashbordCounts').doc(this.service.user.email).valueChanges();
+    this.items$ = firestore.collection('dashbordCounts').doc(this.service.user.uid).valueChanges();
   }
 
   ngOnInit(): void {
