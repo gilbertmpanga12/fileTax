@@ -45,8 +45,8 @@ export class RegisterComponent implements OnInit {
     if(!this.registerGroup.invalid){
       this.service.register(payload['email'],payload['firstName'],payload['lastName'],
       payload['address'], payload['dateOfBirth'],payload['password']).then((resp) => {
-        this.progressLoading = false;
-        this.loadingText = this.defatultText;
+        // this.progressLoading = false;
+        // this.loadingText = this.defatultText;
       }).catch(err => {
         this.progressLoading = false;
         this.loadingText = this.defatultText;

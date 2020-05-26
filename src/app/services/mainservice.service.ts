@@ -32,9 +32,9 @@ export class MainserviceService {
     firstName: string, 
     lastName: string, address: string,
     dateOfBirth: string,password: string) {
-     let result = await this.auth.createUserWithEmailAndPassword(email,password);
-    //  this.updateUserProfile(firstName + lastName, this.profilePhoto);
-    //  this.storeProfile(email,firstName,lastName,dateOfBirth,address);
+     await this.auth.createUserWithEmailAndPassword(email,password);
+     this.updateUserProfile(firstName + ' ' + lastName, this.profilePhoto);
+     this.storeProfile(email,firstName,lastName,dateOfBirth,address);
      this.sendEmailVerification();
    }
 
