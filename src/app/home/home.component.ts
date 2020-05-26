@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AngularFirestore } from '@angular/fire/firestore';
+import { MainserviceService } from '../services/mainservice.service';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private firestore: AngularFirestore, private service: MainserviceService) { }
 
   ngOnInit(): void {
   }
+
+
 
 }

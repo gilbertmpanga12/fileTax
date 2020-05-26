@@ -10,7 +10,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class MainserviceService {
   user:  User;
   userVerified: boolean = false;
-  profilePhoto: string = 'https://firebasestorage.googleapis.com/v0/b/tax-as-a-service.appspot.com/o/blah.png?alt=media&token=36da8459-06e9-4c9b-a829-e9de0e5a9312';
+  profilePhoto: string = 'https://firebasestorage.googleapis.com/v0/b/tax-as-a-service.appspot.com/o/images%20(1).png?alt=media&token=3a84172a-e351-4890-bdf4-70445c2ad2c1';
   constructor(private auth: AngularFireAuth, private router: Router, private firestore: AngularFirestore) {
     this.auth.authState.subscribe(user => {
       if (user){
