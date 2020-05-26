@@ -27,8 +27,9 @@
         <!-- <br/> -->
         <div class="flex-container-row" *ngIf="basicInfo$ | async; let basicInfos;">
             <h4 class="header-status-h4-tax-file">
-                <span>{{basicInfos.profileSetup < 100 ? '' :
-                'Finish profile 1/100'
+                <span>{{basicInfos.profileSetup < 100 ? 
+                    'steps remaining '+ basicInfos.profileSetup + '/100' :'profile completed'
+                
                 }}</span>
             </h4>
         </div>
@@ -45,10 +46,10 @@
 <!-- More features -->
 <br/>
 <br/>
-
+<br/>
 <div class="flex-container">
     <div class="col-6-grid">
-        <h1 class="overview-title mat-title">Business Income Tax returns</h1>
+        <h1 class="overview-title mat-title">Business Income Tax returns <small><i>scroll for more*</i></small></h1>
         <!-- <h3 class="header-h4 sub-heading">Select services to file</h3> -->
     </div>
 </div>
@@ -71,9 +72,10 @@
                     >Start</button>
                 </div>
             </div>
-           
+            <br/>
         </mat-card>
     </div>
+  
 </ng-container>
 
 <ng-template #loading>
