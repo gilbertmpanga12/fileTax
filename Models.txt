@@ -4,6 +4,7 @@ Models
 # Properties
 1. totalTaxesFiled
 2. latestTaxFiled
+3. lastestTaxFiledName
 ## SubcollectionName
 # Name: recentFilings
 1. Name

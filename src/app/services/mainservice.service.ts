@@ -11,11 +11,13 @@ export class MainserviceService {
   user:  User;
   userVerified: boolean = false;
   profilePhoto: string = 'https://firebasestorage.googleapis.com/v0/b/tax-as-a-service.appspot.com/o/images%20(1).png?alt=media&token=3a84172a-e351-4890-bdf4-70445c2ad2c1';
+  userId: string;
   constructor(private auth: AngularFireAuth, private router: Router, private firestore: AngularFirestore) {
     this.auth.authState.subscribe(user => {
       if (user){
         this.user = user;
         this.userVerified = user.emailVerified;
+        this.userId = user.uid;
         localStorage.setItem('user', JSON.stringify(this.user));
       } else {
         localStorage.setItem('user', null);
@@ -53,9 +55,16 @@ export class MainserviceService {
     dateOfBirth: string){
     let status: boolean = false;
     let creationTime: number = Date.now();
-    this.firestore.collection('users').doc(email).set({
+
+    await this.firestore.collection('users').doc(this.userId).set({
       email, lastName, dateOfBirth,firstName,address, creationTime, status
-    });
+    },{merge: true});
+
+    await this.firestore.collection('dashbordCounts').doc(this.userId).set({
+      totalTaxesFiled: 0,
+      latestTaxFiled: 0,
+      lastestTaxFiledName: ''
+    },{merge: true});
     
   }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { MainserviceService } from '../services/mainservice.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +9,13 @@ import { MainserviceService } from '../services/mainservice.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  constructor(private firestore: AngularFirestore, private service: MainserviceService) { }
+  items: Observable<any>;
+  constructor(private firestore: AngularFirestore, private service: MainserviceService) { 
+    this.items = firestore.collection('dashbordCounts').doc(this.service.user.email).valueChanges();
+  }
 
   ngOnInit(): void {
+    
   }
 
 
