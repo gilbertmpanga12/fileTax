@@ -293,8 +293,13 @@ color: #43379d !important;
     width: 100%;
   }
 
+  .divider-stretch{
+      margin-top: 5% !important;
+  }
+
   .bottom-actions{
     // border: 1px solid red;
+    // height: 12px;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
@@ -331,10 +336,15 @@ color: #43379d !important;
   }
   .cta-register-link{
       margin-bottom: 9px;
-      margin-top: 20px;
-    //   text-decoration: none;
+      margin-top: 9px;
       color: #6515dd;
       cursor: pointer;
+  }
+  .reset-password-link{
+    margin-bottom: 9px;
+    margin-top: 16px;
+    color: #6515dd;
+    cursor: pointer;
   }
 
   .image-edit-btn{
