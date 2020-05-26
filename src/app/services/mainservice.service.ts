@@ -55,12 +55,15 @@ export class MainserviceService {
     dateOfBirth: string){
     let status: boolean = false;
     let creationTime: number = Date.now();
+    let user = await this.auth.currentUser;
 
-    await this.firestore.collection('users').doc(this.userId).set({
-      email, lastName, dateOfBirth,firstName,address, creationTime, status
+    await this.firestore.collection('users').doc(user.uid).set({
+      email: email, lastName: lastName, dateOfBirth: dateOfBirth,firstName: firstName,
+      address: address, creationTime: creationTime, status: status,
+      uid: user.uid
     },{merge: true});
 
-    await this.firestore.collection('dashbordCounts').doc(this.userId).set({
+    await this.firestore.collection('dashbordCounts').doc(user.uid).set({
       totalTaxesFiled: 0,
       latestTaxFiled: 0,
       lastestTaxFiledName: ''
