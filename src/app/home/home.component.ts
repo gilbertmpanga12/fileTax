@@ -1,7 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { MainserviceService } from '../services/mainservice.service';
 import { Observable } from 'rxjs';
+
+interface DashboardCount{
+  totalTaxesFiled: number;
+  latestTaxFiled: number;
+  lastestTaxFiledName: string;
+}
 
 @Component({
   selector: 'app-home',
@@ -9,9 +15,11 @@ import { Observable } from 'rxjs';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  items$: Observable<any>;
+  dashboardCountDocument: AngularFirestoreDocument<DashboardCount>;
+  items$: Observable<DashboardCount>;
   constructor(private firestore: AngularFirestore, private service: MainserviceService) { 
-    this.items$ = firestore.collection('dashbordCounts').doc(this.service.user.uid).valueChanges();
+   this.dashboardCountDocument = this.firestore.doc('dashbordCounts/'+this.service.user.uid);
+    this.items$ = this.dashboardCountDocument.valueChanges();
   }
 
   ngOnInit(): void {
