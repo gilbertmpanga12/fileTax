@@ -48,13 +48,15 @@
       
     </div>
     <div class="flex-container">
-        <a routerLink="/app/register" class="cta-register-link">Or create a new account</a>
+        <a 
+        (click)="navigateToOtherPages('/app/register')"
+        class="cta-register-link">Or create a new account</a>
     </div>
     <mat-divider></mat-divider>
    <div class="bottom-actions">
       <button mat-button 
-  
-      routerLink="/app/reset-password" class="forgot-password"
+  (click)="navigateToOtherPages('/app/reset-password')"
+       class="forgot-password"
       >Forgot password?</button>&nbsp;&nbsp;&nbsp;
       <button mat-flat-button color="primary" 
       type="submit"

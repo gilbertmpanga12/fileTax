@@ -33,14 +33,14 @@ export class MainserviceService {
     lastName: string, address: string,
     dateOfBirth: string,password: string) {
      let result = await this.auth.createUserWithEmailAndPassword(email,password);
-     this.updateUserProfile(firstName + lastName, this.profilePhoto);
-     this.storeProfile(email,firstName,lastName,dateOfBirth,address);
+    //  this.updateUserProfile(firstName + lastName, this.profilePhoto);
+    //  this.storeProfile(email,firstName,lastName,dateOfBirth,address);
      this.sendEmailVerification();
    }
 
    async sendEmailVerification() {
     await (await this.auth.currentUser).sendEmailVerification();
-    // this.router.navigate(['app/verify-email']);
+    this.router.navigate(['/']);
   }
 
   async sendPasswordResetEmail(email: string) {
@@ -53,7 +53,7 @@ export class MainserviceService {
     dateOfBirth: string){
     let status: boolean = false;
     let creationTime: number = Date.now();
-    this.firestore.collection('users').doc(this.user.uid).set({
+    this.firestore.collection('users').doc(email).set({
       email, lastName, dateOfBirth,firstName,address, creationTime, status
     });
     

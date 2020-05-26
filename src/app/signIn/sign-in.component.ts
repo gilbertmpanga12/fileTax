@@ -55,5 +55,8 @@ export class SignInComponent implements OnInit {
     this.snackBar.open(message,'OK',{duration: 3000,verticalPosition:'top',horizontalPosition:'right'});
   }
   
+  navigateToOtherPages(url: string){
+    this.router.navigate([url]);
+  }
 
 }
