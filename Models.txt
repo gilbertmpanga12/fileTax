@@ -18,7 +18,7 @@ Models
 2. file 
 3. count
 
-=> Basic Information
+=> Basic Information .. subcollection to userscollection has a count on main usersCollection called profileSetup:1-100
 1. motherMaidenName
 2. telephoneNumber
 3. maritalStatus

@@ -2,12 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { MainserviceService } from '../services/mainservice.service';
 import { Observable } from 'rxjs';
+import { DashboardCount } from '../models/datamodels';
 
-interface DashboardCount{
-  totalTaxesFiled: number;
-  latestTaxFiled: number;
-  lastestTaxFiledName: string;
-}
 
 @Component({
   selector: 'app-home',

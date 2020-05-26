@@ -13,8 +13,8 @@
         </div>
        
         <div class="flex-container-row">
-            <div class="col-grid-33">
-                <h4 class="header-h4">Your household info</h4>
+            <div class="col-grid-50">
+                <h4 class="header-h4">Complete/setup your profile to get started</h4>
             </div>
             <div class="align-last">
                 <button 
@@ -25,9 +25,20 @@
             </div>
         </div>
         <!-- <br/> -->
-        <div class="flex-container-row">
-            <h4 class="header-status-h4">filing status: <b>0/0</b></h4>
+        <div class="flex-container-row" *ngIf="basicInfo$ | async; let basicInfos;">
+            <h4 class="header-status-h4-tax-file">
+                <span>{{basicInfos.profileSetup < 100 ? '' :
+                'Finish profile 1/100'
+                }}</span>
+            </h4>
         </div>
+
+        <!-- <ng-template #statusIncomplete>
+<div class="flex-container-row">
+    <h4 class="header-status-h4"><b>Your profile is incomple</b>finish up to complete any filing</h4>
+</div>
+        </ng-template> -->
+
     </mat-card>
 </div>
 
@@ -42,15 +53,15 @@
     </div>
 </div>
 
-<ng-container>
+<ng-container *ngFor="let service of serviceCollection$ | async; let shouldLoad">
     <div class="flex-container">
         <mat-card class="file-tax-card mat-elevation-z3" id="wave">
             <div class="flex-container-row reduce-height">
-                <h2>Pay As You Earn</h2>
+                <h2>{{service.title}}</h2>
             </div>
             <div class="flex-container-row">
                 <div class="col-grid-33">
-                    <h4 class="custom-h4">Let's start your Pay-As-You-Earn taxes</h4>
+                    <h4 class="custom-h4">{{service.description}}</h4>
                 </div>
                 <div class="align-last">
                     <button mat-flat-button 
@@ -63,31 +74,18 @@
            
         </mat-card>
     </div>
-</ng-container>
-<br/>
-<ng-container>
-   
-    <ng-container>
-        <div class="flex-container">
-            <mat-card class="file-tax-card mat-elevation-z3" id="wave">
-                <div class="flex-container-row reduce-height">
-                    <h2>Tax Audit management</h2>
-                </div>
-                <div class="flex-container-row">
-                    <div class="col-grid-33">
-                        <h4 class="custom-h4">Start filing your Tax audit management</h4>
-                    </div>
-                    <div class="align-last">
-                        <button mat-flat-button 
-                        [routerLink]="['/services','pay-as-you-earn']"
-                        color="primary"
-                        class="filled-btn-width-adjust"
-                        >Start</button>
-                    </div>
-                </div>
-               
-            </mat-card>
-        </div>
-    </ng-container>
+    <!-- <div class="flex-container-column" *ngIf="shouldLoad.title">
+        <div class="height-block"></div>
+          <div class="sk-chase">
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+            </div>
+      </div> -->
     <br/>
-    <ng-container>
+</ng-container>
+
+

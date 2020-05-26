@@ -53,14 +53,14 @@ export class MainserviceService {
     firstName: string, 
     lastName: string, address: string,
     dateOfBirth: string){
-    let status: boolean = false;
+    // let status: boolean = false;
     let creationTime: number = Date.now();
     let user = await this.auth.currentUser;
 
     await this.firestore.collection('users').doc(user.uid).set({
       email: email, lastName: lastName, dateOfBirth: dateOfBirth,firstName: firstName,
-      address: address, creationTime: creationTime, status: status,
-      uid: user.uid
+      address: address, creationTime: creationTime,
+      uid: user.uid,profileSetup: 0
     },{merge: true});
 
     await this.firestore.collection('dashbordCounts').doc(user.uid).set({

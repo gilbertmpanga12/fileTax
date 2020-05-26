@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { MainserviceService } from '../services/mainservice.service';
+import { Observable } from 'rxjs';
+import { TaxServices, IndividualUser } from '../models/datamodels';
 
-export interface Section {
-  name: string;
-  updated: Date;
-}
 
 @Component({
   selector: 'app-file-my-taxes',
@@ -11,31 +11,16 @@ export interface Section {
   styleUrls: ['./file-my-taxes.component.scss']
 })
 export class FileMyTaxesComponent implements OnInit {
-  folders: Section[] = [
-    {
-      name: 'Photos',
-      updated: new Date('1/1/16'),
-    },
-    {
-      name: 'Recipes',
-      updated: new Date('1/17/16'),
-    },
-    {
-      name: 'Work',
-      updated: new Date('1/28/16'),
-    }
-  ];
-  notes: Section[] = [
-    {
-      name: 'Vacation Itinerary',
-      updated: new Date('2/20/16'),
-    },
-    {
-      name: 'Kitchen Remodel',
-      updated: new Date('1/18/16'),
-    }
-  ];
-  constructor() { }
+  basicInfodoc: AngularFirestoreDocument<IndividualUser>;
+  basicInfo$: Observable<IndividualUser>;
+  servicesDocumentCollection: AngularFirestoreCollection<TaxServices>;
+  serviceCollection$: Observable<TaxServices[]>;
+  constructor(private firestore: AngularFirestore, private service: MainserviceService) { 
+    this.basicInfodoc = this.firestore.doc('users/' + this.service.user.uid);
+    this.basicInfo$ = this.basicInfodoc.valueChanges();
+    this.servicesDocumentCollection = this.firestore.collection<TaxServices>('taxServices');
+    this.serviceCollection$ = this.servicesDocumentCollection.valueChanges();
+  }
 
   ngOnInit(): void {
   }

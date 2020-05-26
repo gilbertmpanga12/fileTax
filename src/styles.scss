@@ -121,6 +121,14 @@ flex-basis: 50%;
     font-size: 17.1px !important;
     text-transform: capitalize;
 }
+.header-status-h4-tax-file{
+    margin-top: 13px;
+    font-size: 20.1px !important;
+    // text-transform: capitalize;
+    font-weight: 500;
+    color:#ff4444 !important;
+    font-variant-caps: all-petite-caps !important;
+}
 .reduce-height{
     height: 38px;
 }
@@ -433,7 +441,7 @@ background-color: #6515dd !important;
   }
 
   .height-block{
-      height:150px;
+      height:120px;
   }
   //sk-chase spin kit
   .sk-chase {
