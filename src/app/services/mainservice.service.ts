@@ -88,7 +88,7 @@ export class MainserviceService {
   get isLoggedIn(): boolean {
     const  user  =  JSON.parse(localStorage.getItem('user'));
     return  user  !==  null;
-}
+ }
 
 
 }
