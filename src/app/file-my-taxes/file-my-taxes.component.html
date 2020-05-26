@@ -53,15 +53,15 @@
     </div>
 </div>
 
-<ng-container *ngFor="let service of serviceCollection$ | async; let shouldLoad">
+<ng-container *ngIf="serviceCollection$ | async; let services; else loading">
     <div class="flex-container">
-        <mat-card class="file-tax-card mat-elevation-z3" id="wave">
+        <mat-card class="file-tax-card mat-elevation-z3" id="wave" *ngFor="let serviceTax of services">
             <div class="flex-container-row reduce-height">
-                <h2>{{service.title}}</h2>
+                <h2>{{serviceTax.title}}</h2>
             </div>
             <div class="flex-container-row">
                 <div class="col-grid-33">
-                    <h4 class="custom-h4">{{service.description}}</h4>
+                    <h4 class="custom-h4">{{serviceTax.description}}</h4>
                 </div>
                 <div class="align-last">
                     <button mat-flat-button 
@@ -74,7 +74,10 @@
            
         </mat-card>
     </div>
-    <!-- <div class="flex-container-column" *ngIf="shouldLoad.title">
+</ng-container>
+
+<ng-template #loading>
+    <div class="flex-container-column">
         <div class="height-block"></div>
           <div class="sk-chase">
               <div class="sk-chase-dot"></div>
@@ -84,8 +87,7 @@
               <div class="sk-chase-dot"></div>
               <div class="sk-chase-dot"></div>
             </div>
-      </div> -->
-    <br/>
-</ng-container>
+      </div>
+</ng-template>
 
 
