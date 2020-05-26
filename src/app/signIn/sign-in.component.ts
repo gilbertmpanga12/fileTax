@@ -31,7 +31,7 @@ export class SignInComponent implements OnInit {
     this.loginGroup = this._fb.group({
       email: ['', Validators.required],
       password: ['', [Validators.required,Validators.minLength(6)]]
-    },{updateOn: 'blur'});
+    });
   }
 
   logIn(email: string, password: string){

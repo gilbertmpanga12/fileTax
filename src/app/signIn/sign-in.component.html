@@ -31,17 +31,16 @@
                 
                </p>
                 <p>
-                    <mat-form-field class="example-full-width">
+                    
+                    <mat-form-field class="example-full-width" 
+          
+                    >
                         <mat-label>Password</mat-label>
-                        <input matInput placeholder="" type="password"
+                        <input matInput placeholder="******"
                         [errorStateMatcher]="matcher"
-                        formControlName="password" [minLength]="6">
-                        <mat-error>
-                            Password must be at least 6 characters
-                        </mat-error>
-                        <!-- <mat-error
-                        *ngIf="loginGroup.hasError('password') && !loginGroup.hasError('required')"
-                        >A password is required</mat-error> -->
+                        formControlName="password" type="password" minlength="6"
+                        >
+                        <mat-error>Password is required and must be at least 6 characters</mat-error>
                       </mat-form-field>
                 </p>
         </div>
@@ -54,7 +53,7 @@
     </div>
     <mat-divider class="divider-stretch"></mat-divider>
    <div class="bottom-actions">
-      <button mat-button 
+      <button mat-button  type="button"
   (click)="navigateToOtherPages('/app/reset-password')"
        class="forgot-password"
       >Forgot password?</button>&nbsp;&nbsp;&nbsp;
