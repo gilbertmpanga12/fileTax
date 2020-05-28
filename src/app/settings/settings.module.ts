@@ -9,7 +9,10 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ResetpasswordmodelComponent } from './resetpasswordmodel/resetpasswordmodel.component';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [SettingsComponent, ResetpasswordmodelComponent],
@@ -21,7 +24,10 @@ import { FormsModule } from '@angular/forms';
     MatButtonModule,
     MatTooltipModule,
     MatDialogModule,
-    FormsModule
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatSnackBarModule,
+    MatInputModule
   ]
 })
 export class SettingsModule { }
