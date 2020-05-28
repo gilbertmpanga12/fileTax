@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { MainserviceService } from 'src/app/services/mainservice.service';
-import {MatDialogRef} from '@angular/material/dialog';
+import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { DialogActtion } from 'src/app/models/datamodels';
 
 @Component({
   selector: 'app-resetpasswordmodel',
@@ -10,9 +11,13 @@ import {MatDialogRef} from '@angular/material/dialog';
 export class ResetpasswordmodelComponent implements OnInit {
   isLoading: boolean = false;
   isRequestSent: boolean = false;
-  constructor(public service: MainserviceService, public modalRef: MatDialogRef<ResetpasswordmodelComponent>) { }
+  action: string;
+  constructor(public service: MainserviceService, public modalRef: MatDialogRef<ResetpasswordmodelComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogActtion
+    ) { }
 
   ngOnInit(): void {
+  
   }
 
   resetPassword(): void{

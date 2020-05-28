@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from 'firebase/app';
 import { Router } from '@angular/router';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { IndividualUser } from '../models/datamodels';
 
 @Injectable({
@@ -89,6 +89,18 @@ export class MainserviceService {
   get isLoggedIn(): boolean {
     const  user  =  JSON.parse(localStorage.getItem('user'));
     return  user  !==  null;
+ }
+
+ async resetTinId(tinIDValue:string){
+  let user = await this.auth.currentUser;
+  let userProfile = this.firestore.doc('users/' + user.uid);
+  userProfile.set({tinId: tinIDValue}, {merge: true});
+ }
+
+ async resetTinPassword(tinIDValue:string){
+  let user = await this.auth.currentUser;
+  let userProfile = this.firestore.doc('users/' + user.uid);
+  userProfile.set({tinPassword: tinIDValue}, {merge: true});
  }
 
 

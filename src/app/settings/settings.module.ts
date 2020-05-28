@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ResetpasswordmodelComponent } from './resetpasswordmodel/resetpasswordmodel.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [SettingsComponent, ResetpasswordmodelComponent],
@@ -19,7 +20,8 @@ import { ResetpasswordmodelComponent } from './resetpasswordmodel/resetpasswordm
     MatIconModule,
     MatButtonModule,
     MatTooltipModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule
   ]
 })
 export class SettingsModule { }

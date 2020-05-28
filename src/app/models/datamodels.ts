@@ -26,3 +26,7 @@ export interface History{
     date: number;
     taxFiledName: string;
 }
+
+export interface DialogActtion{
+    actionType: "resetpassword" | "changeTinId" | "changeTinPassword"
+  }

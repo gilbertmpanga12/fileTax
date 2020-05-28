@@ -38,7 +38,7 @@
             </label>
 <span class="spanner">*********</span>
 <mat-icon 
-(click)="openDialog()"
+(click)="openDialog('changeTinPassword')"
 class="c5e-settings-icon-edit-mode-off">mode_edit</mat-icon>
         </div>
     <!-- br -->
@@ -49,7 +49,9 @@ class="c5e-settings-icon-edit-mode-off">mode_edit</mat-icon>
              class="help-icon">help</mat-icon>
         </label>
 <span class="spanner">{{(userProfile$ | async)?.tinId}}</span>
-<mat-icon class="c5e-settings-icon-edit-mode-off">mode_edit</mat-icon>
+<mat-icon 
+(click)="openDialog('changeTinId')"
+class="c5e-settings-icon-edit-mode-off">mode_edit</mat-icon>
     </div>
     <!-- br -->
     <div class="c5e-project-settings-item">
@@ -59,7 +61,9 @@ class="c5e-settings-icon-edit-mode-off">mode_edit</mat-icon>
              >help</mat-icon>
         </label>
 <span class="spanner">{{(userProfile$ | async)?.tinPassword}}</span>
-<mat-icon class="c5e-settings-icon-edit-mode-off">mode_edit</mat-icon>
+<mat-icon 
+(click)="openDialog('changeTinPassword')"
+class="c5e-settings-icon-edit-mode-off">mode_edit</mat-icon>
     </div>
     </mat-card>
 </div>
