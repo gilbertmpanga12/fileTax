@@ -60,8 +60,10 @@ export class SettingsComponent implements OnInit {
     task.snapshotChanges().pipe(
       finalize(() => {
         this.downloadURL = fileRef.getDownloadURL();
+        // this.percentage = null;
         this.downloadURL.subscribe(url => this.service.updateUserProfilePicture(url));
       } )
+      
    )
   .subscribe();
 

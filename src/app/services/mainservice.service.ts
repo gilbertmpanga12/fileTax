@@ -61,7 +61,8 @@ export class MainserviceService {
     await this.firestore.collection('users').doc(user.uid).set({
       email: email, lastName: lastName, dateOfBirth: dateOfBirth,firstName: firstName,
       address: address, creationTime: creationTime,
-      uid: user.uid,profileSetup: 0,tinId: "Not set yet",tinPassword: "Not set yet"
+      uid: user.uid,profileSetup: 0,tinId: "Not set yet",tinPassword: "Not set yet",
+      photoURL: this.profilePhoto
     },{merge: true});
 
     await this.firestore.collection('dashbordCounts').doc(user.uid).set({
@@ -85,6 +86,9 @@ export class MainserviceService {
     (await user).updateProfile({
       photoURL: path
     });
+    await this.firestore.doc('users/' + this.user.uid).set({
+      photoURL: path
+    }, {merge: true});
   }
 
   async logout(){

@@ -7,11 +7,11 @@
 
 <div class="flex-container">
     <mat-card class="settings-card-main mat-elevation-z5">
-        <mat-progress-bar mode="determinate" *ngIf="percentage | async as pct"
+        <mat-progress-bar mode="determinate" *ngIf="percentage | async as pct; " 
         class="progress-indicator-postion"
-        [value]="percentage">
-        {{ pct | number }}%
+        [value]="pct">
     </mat-progress-bar>
+
         <div class="c5e-project-settings-item">
            <div class="image-wrap">
             <!-- <div mat-card-avatar class="example-header-image"></div> -->
