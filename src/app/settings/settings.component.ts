@@ -15,6 +15,7 @@ import { ResetpasswordmodelComponent } from './resetpasswordmodel/resetpasswordm
 export class SettingsComponent implements OnInit {
  userProfile: AngularFirestoreDocument<IndividualUser>;
  userProfile$: Observable<IndividualUser>;
+ showPassword: boolean = false;
  //dialogType: DialogActtion = {actionType: "resetpassword"};
 
   constructor(public service: MainserviceService, private firestore: AngularFirestore, public dialog: MatDialog,
@@ -34,5 +35,9 @@ export class SettingsComponent implements OnInit {
       width: '320px',
       data: {actionType: actionType}
     });
+  }
+
+  togglePassword(): void{
+    this.showPassword = !this.showPassword;
   }
 }

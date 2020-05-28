@@ -36,7 +36,7 @@
                  matTooltip="Want to reset your password? Tap on edit icon"
                  class="help-icon">visibility</mat-icon>
             </label>
-<span class="spanner">*********</span>
+<span class="spanner">*******</span>
 <mat-icon 
 (click)="openDialog('changeTinPassword')"
 class="c5e-settings-icon-edit-mode-off">mode_edit</mat-icon>
@@ -56,11 +56,11 @@ class="c5e-settings-icon-edit-mode-off">mode_edit</mat-icon>
     <!-- br -->
     <div class="c5e-project-settings-item">
         <label>TIN password
-            <mat-icon 
+            <mat-icon  (click)="togglePassword()"
             matTooltip="Tap this icon to view TIN password"
-            class="help-icon">visibility</mat-icon>
+            class="help-icon-security">visibility</mat-icon>
         </label>
-<span class="spanner">{{(userProfile$ | async)?.tinPassword}}</span>
+<span class="spanner">{{showPassword ? (userProfile$ | async)?.tinPassword : '*******'}}</span>
 <mat-icon 
 (click)="openDialog('changeTinPassword')"
 class="c5e-settings-icon-edit-mode-off">mode_edit</mat-icon>
