@@ -28,5 +28,5 @@ export interface History{
 }
 
 export interface DialogActtion{
-    actionType: "resetpassword" | "changeTinId" | "changeTinPassword"
+    actionType: "resetpassword" | "changeTinId" | "changeTinPassword" | "error"
   }

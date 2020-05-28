@@ -7,16 +7,25 @@
 
 <div class="flex-container">
     <mat-card class="settings-card-main mat-elevation-z5">
-
+        <mat-progress-bar mode="determinate" *ngIf="percentage | async as pct"
+        class="progress-indicator-postion"
+        [value]="percentage">
+        {{ pct | number }}%
+    </mat-progress-bar>
         <div class="c5e-project-settings-item">
            <div class="image-wrap">
             <!-- <div mat-card-avatar class="example-header-image"></div> -->
             <img  mat-card-avatar [src]="service.user.photoURL" 
         class="example-header-image">
            </div>
-           <p></p>
+           <p>
+            <input class="file-input" type="file" 
+            id="form-uploader" #ref
+            (change)="startUpload($event.target.files)">
+           </p>
            <button mat-flat-button 
            class="image-edit-btn"
+           (click)="ref.click()"
            color="primary">
            
            Edit</button>

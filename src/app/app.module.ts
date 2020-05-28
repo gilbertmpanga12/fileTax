@@ -29,6 +29,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ReactiveFormsModule,
     MatDatepickerModule, MatNativeDateModule,
     MatProgressBarModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    AngularFireStorageModule
     // AngularFireAuthModule
   ],
   providers: [],

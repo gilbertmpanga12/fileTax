@@ -80,6 +80,13 @@ export class MainserviceService {
     });
   }
 
+  async updateUserProfilePicture(path: string){
+    let user = this.auth.currentUser;
+    (await user).updateProfile({
+      photoURL: path
+    });
+  }
+
   async logout(){
     await this.auth.signOut();
     localStorage.removeItem('user');
