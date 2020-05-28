@@ -7,16 +7,19 @@ import { SettingsComponent } from './settings.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ResetpasswordmodelComponent } from './resetpasswordmodel/resetpasswordmodel.component';
 
 @NgModule({
-  declarations: [SettingsComponent],
+  declarations: [SettingsComponent, ResetpasswordmodelComponent],
   imports: [
     CommonModule,
     SettingsRoutingModule,
     MatCardModule,
     MatIconModule,
     MatButtonModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDialogModule
   ]
 })
 export class SettingsModule { }

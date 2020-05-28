@@ -44,7 +44,7 @@ export class RegisterComponent implements OnInit {
     let payload = this.registerGroup.getRawValue();
     if(!this.registerGroup.invalid){
       this.service.register(payload['email'],payload['firstName'],payload['lastName'],
-      payload['address'], payload['dateOfBirth'],payload['password']).then((resp) => {
+      payload['dateOfBirth'], payload['address'],payload['password']).then((resp) => {
         // this.progressLoading = false;
         // this.loadingText = this.defatultText;
       }).catch(err => {

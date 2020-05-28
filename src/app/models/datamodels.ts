@@ -18,6 +18,8 @@ export interface IndividualUser{
     dateOfBirth: Date;
     uid: string;
     profileSetup: number;
+    tinId?: string;
+    tinPassword?: string;
 }
 
 export interface History{

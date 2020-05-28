@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from 'firebase/app';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { IndividualUser } from '../models/datamodels';
 
 @Injectable({
   providedIn: 'root'
@@ -60,7 +61,7 @@ export class MainserviceService {
     await this.firestore.collection('users').doc(user.uid).set({
       email: email, lastName: lastName, dateOfBirth: dateOfBirth,firstName: firstName,
       address: address, creationTime: creationTime,
-      uid: user.uid,profileSetup: 0
+      uid: user.uid,profileSetup: 0,tinId: "Not set yet",tinPassword: "Not set yet"
     },{merge: true});
 
     await this.firestore.collection('dashbordCounts').doc(user.uid).set({
