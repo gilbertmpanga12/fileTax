@@ -19,4 +19,8 @@ export interface IndividualUser{
     uid: string;
     profileSetup: number;
 }
-  
+
+export interface History{
+    date: number;
+    taxFiledName: string;
+}

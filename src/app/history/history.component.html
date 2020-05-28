@@ -9,7 +9,8 @@
 
 <div class="flex-container">
     <div class="mat-elevation-z8 full-width">
-        <table mat-table [dataSource]="dataSource">
+     
+        <table mat-table [dataSource]="dataSource" #table matSort [trackBy]="trackByUid">
           
           <!-- Position Column -->
           <ng-container matColumnDef="date">
@@ -18,15 +19,16 @@
           </ng-container>
       
           <!-- Name Column -->
-          <ng-container matColumnDef="taxFiled">
+          <ng-container matColumnDef="taxFiledName">
             <th mat-header-cell *matHeaderCellDef> Service </th>
-            <td mat-cell *matCellDef="let element"> {{element.taxFiled}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.taxFiledName}} </td>
           </ng-container>
       
       
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
+        <h3 class="no-history-placeholder" *ngIf="isDataAvailable">You have no history</h3>
       
         <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
       </div>
