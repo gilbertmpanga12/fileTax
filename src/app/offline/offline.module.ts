@@ -9,6 +9,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatDividerModule } from '@angular/material/divider';
+import { FormsModule } from '@angular/forms'; // ReactiveFormsModule, 
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [OfflineComponent],
@@ -20,7 +25,10 @@ import { MatDividerModule } from '@angular/material/divider';
     MatButtonModule,
     MatTooltipModule,
     MatCheckboxModule,
-    MatDividerModule
+    MatDividerModule,
+    FormsModule,
+    MatDatepickerModule, MatNativeDateModule,
+    MatInputModule, MatFormFieldModule
   ]
 })
 export class OfflineModule { }

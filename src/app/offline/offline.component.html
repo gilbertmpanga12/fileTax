@@ -7,21 +7,27 @@
 
 <div class="flex-container">
     <mat-card class="offline-card-main mat-elevation-z5">
+       <form #offlineForm="ngForm" (ngSubmit)="submitOfflineRequest()">
         <div class="flex-container-row reduce-height">
             <h2>Schedule & Select Services</h2>
+            
         </div>
+   
         <div class="flex-container-row">
             <div class="col-6-grid">
                 <h4 class="custom-h4">Need privacy? Great, choose services you want to file, we send a team to do it for you</h4>
             </div>
             <div class="align-last">
                 <button mat-flat-button 
-                [routerLink]="['/services','pay-as-you-earn']"
+                (click)="submitOfflineRequest()"
                 color="primary"
                 class="filled-btn-width-adjust image-edit-btn"
                 >Submit</button>
             </div>
             
+        </div>
+        <div class="flex-container" *ngIf="showError">
+            <p class="danger-txt">Please choose a date for scheduling and a service to file*</p>
         </div>
         <br/>
 
@@ -30,8 +36,18 @@
                 <label>Schedule date
                      <!-- <mat-icon class="help-icon">help</mat-icon> -->
                 </label>
-    <span class="spanner">20-12-20</span>
-    <mat-icon class="c5e-settings-icon-edit-mode-off">edit_mode</mat-icon>
+    <!-- <span class="spanner">{{dateScheduled}}</span> -->
+    <!-- <mat-icon class="c5e-settings-icon-edit-mode-off">edit_mode</mat-icon> -->
+    <mat-form-field class="full-width">
+        <mat-label>Date of birth</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="dateScheduled" name="dateScheduled" required> 
+        <mat-datepicker-toggle matSuffix [for]="picker">
+            <mat-icon matDatepickerToggleIcon class="date-picker-icon">event</mat-icon>
+        </mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error>Date of birth required</mat-error>
+        <mat-hint>Tap calendar icon to choose dates</mat-hint>
+      </mat-form-field>
             </div>
     
         </div>
@@ -40,11 +56,15 @@
         <br/>
         <div class="flex-container">
             <ul class="li-style">
-              <li><mat-checkbox>Pay As You Earn</mat-checkbox></li>
-              <li><mat-checkbox>Bank Statements</mat-checkbox></li>
-              <li><mat-checkbox>Customer Invoices</mat-checkbox></li>
+              <li *ngFor="let service of taxServicesCollection$ | async">
+                  <mat-checkbox
+                  [value]="service.title"
+                  (change)="addServices($event)"
+                  >{{service.title}}</mat-checkbox></li>
+            
             </ul>
            </div>
+       </form>
     </mat-card>
 </div>
 
