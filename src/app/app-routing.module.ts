@@ -22,8 +22,7 @@ children: [
 },
  { path: 'requsest-off-site-file-tax', loadChildren: () => import('./offline/offline.module').then(m => m.OfflineModule)
 },
- { path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)
-},
+
  { path: 'notifications', loadChildren: () => import('./notifications/notifications.module').then(m => m.NotificationsModule)
 },
  { path: 'services/:serviceName', loadChildren: () => import('./tax-services/services.module').then(m => m.ServicesModule)},
