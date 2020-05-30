@@ -68,11 +68,11 @@ export class BasicInfoComponent implements OnInit {
     this.moreInfo = this._formBuilder.group({
       aliasNameKnown: ['No', Validators.required],
       // appliedForTin: ['', Validators.required],
-      corporatePartnership: ['', Validators.required],
+      corporatePartnership: [''],
       //tin: ['', Validators.required],// dynamic [],
       aliasFullName: [''], // appliess to secondary name,
       minor: ['No', Validators.required],
-      minorGuardianName: ['', Validators.required]// applies to minors
+      minorGuardianName: ['']// applies to minors
     });
 
     this.financialsUpload = this._formBuilder.group({
@@ -149,7 +149,7 @@ export class BasicInfoComponent implements OnInit {
    setTimeout(() =>{
     let personalInfo = this.personalInfo.getRawValue(),
     moreInfo = this.moreInfo.getRawValue(), financialsUpload = this.financialsUpload.getRawValue(),
-    residenceInfo = this.financialsUpload.getRawValue();
+    residenceInfo = this.residenceInfo.getRawValue();
     let payload: BasicProfile = {
       motherMaidenName: personalInfo['motherMaidenName'],
       maritalStatus: personalInfo['maritalStatus'],
@@ -166,7 +166,7 @@ export class BasicInfoComponent implements OnInit {
       village: residenceInfo['village'],
       parish: residenceInfo['parish'],
       subCounty: residenceInfo['subCounty'],
-      city: residenceInfo['citry'],
+      city: residenceInfo['city'],
       documents: this.documentFiles,
       uid: this.service.user.uid,
       minor: moreInfo['minor'],
@@ -176,11 +176,13 @@ export class BasicInfoComponent implements OnInit {
       minorGuardianName: moreInfo['minorGuardianName'],
       profileSetup: 100
     };
+    console.log(payload);
     this.service.createBasicFile(payload).then(res => {
       this.isLoading = false;
       this.snackbar('Great! your profile is up and ready. Start filing taxes now');
       stepper.reset();
   }).catch(err => {
+    console.log(err.message);
     this.isLoading = false;
     this.snackbar('Oops something went wrong. Try again or contact support');
   });

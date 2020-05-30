@@ -16,8 +16,8 @@
         <br/>
 
        
-<!--  linear-->
-        <mat-horizontal-stepper  #stepper >
+<!--  -->
+        <mat-horizontal-stepper  #stepper linear>
             <mat-step [stepControl]="personalInfo">
                 <ng-template matStepLabel>About yourself</ng-template>
                 <form [formGroup]="personalInfo" class="flex-container">
@@ -96,7 +96,7 @@
                     >Continue</button>
                 </div>
             </mat-step>
-            <mat-step>
+            <mat-step [stepControl]="moreInfo">
                 <ng-template matStepLabel>More about you</ng-template>
                 <form [formGroup]="moreInfo">
                     <div  class="flex-column">
@@ -113,6 +113,7 @@
                               *ngIf="moreInfo.get('aliasNameKnown').value == 'Yes'">
                                 <mat-label>Your other names</mat-label>
                                 <input matInput placeholder="e.g Magic Thomson" formControlName="aliasFullName">
+                                <mat-error>Your other name required if any*</mat-error>
                                 </mat-form-field>
                               
                         </p>
@@ -156,7 +157,7 @@
                     >Continue</button>
                 </div>
             </mat-step>
-            <mat-step>
+            <mat-step [stepControl]="financialsUpload">
                 <ng-template matStepLabel>Financials</ng-template>
                 <form [formGroup]="financialsUpload">
                     <div  class="flex-column">
@@ -250,7 +251,7 @@
                 </div>
             </mat-step>
 
-            <mat-step>
+            <mat-step [stepControl]="residenceInfo">
                 <ng-template matStepLabel>Residence</ng-template>
                
                 <form [formGroup]="residenceInfo" class="flex-container">
@@ -305,6 +306,7 @@
                 <br/>
                 <div class="flex-container">
                     <button mat-flat-button color="primary"
+                    [disabled]="colorSets.size == 0"
                     (click)="submitBasicProfile(stepper)"
                     class="main-cta"
                     >
