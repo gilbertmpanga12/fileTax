@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { MainserviceService } from '../services/mainservice.service';
+import { BasicProfile , BasicProfileDocuments} from '../models/datamodels';
 
 interface Residence{
   name: string;
@@ -16,6 +18,7 @@ export class BasicInfoComponent implements OnInit {
   'Voters Card', 'Drivers Permit', 'Work Permit', 'Village ID', 'Diplomatic foreign Affairs ID', 'Refugee ID',
 'Business Certificate if any'
 ];
+documents: BasicProfileDocuments[] = [{name: '',path:''}];
   isLinear = false;
   personalInfo: FormGroup;
   moreInfo: FormGroup;
@@ -32,7 +35,7 @@ export class BasicInfoComponent implements OnInit {
 {name: 'Sub county',controller:'subCounty'}, {name: 'Parish', controller: 'parish'},
 {name: 'Village', controller: 'village'}
 ];
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor(private _formBuilder: FormBuilder, private service: MainserviceService) { }
 
   ngOnInit(): void {
     this.personalInfo = this._formBuilder.group({
@@ -44,22 +47,22 @@ export class BasicInfoComponent implements OnInit {
     });
 
     this.moreInfo = this._formBuilder.group({
-      secondaryName: ['No', Validators.required],
-      appliedForTin: ['', Validators.required],
-      partnershipCorporateId: ['', Validators.required],
-      tin: ['', Validators.required],// dynamic [],
-      secondName: [''], // appliess to secondary name,
+      aliasNameKnown: ['No', Validators.required],
+      // appliedForTin: ['', Validators.required],
+      corporatePartnership: ['', Validators.required],
+      //tin: ['', Validators.required],// dynamic [],
+      aliasFullName: [''], // appliess to secondary name,
       minor: ['No', Validators.required],
-      parentsName: ['', Validators.required]// applies to minors
+      minorGuardianName: ['', Validators.required]// applies to minors
     });
 
     this.financialsUpload = this._formBuilder.group({
       sourceOfIncome: ['Self employed', Validators.required],
-      refereeName: [''],
-      refereeTin: [''],
-      refereetelephone: [''],
+      employerName: [''],
+      employerTin: [''],
+      employerTelephoneNumber: [''],
       selfEmployed: [''],
-      businessAddress: [''], // works for businessCertificate value,
+      selfEmployedAddress: [''], // works for businessCertificate value,
       selfEmployedTin: ['']
     });
 
@@ -84,8 +87,37 @@ export class BasicInfoComponent implements OnInit {
     });
   }
   
-  // test(){
-  //   console.log(this.personalInfo.getRawValue())
-  // }
+    submitBasicProfile(): void {
+      // this.service.createBasicFile();
+      let personalInfo = this.personalInfo.getRawValue(),
+      moreInfo = this.moreInfo.getRawValue(), financialsUpload = this.financialsUpload.getRawValue(),
+      residenceInfo = this.financialsUpload.getRawValue(), documentsUpload = this.documentsUpload.getRawValue();
+      
+      let payload: BasicProfile = {
+        motherMaidenName: personalInfo['motherMaidenName'],
+        maritalStatus: personalInfo['maritalStatus'],
+        sex: personalInfo['sex'],
+        telephone: personalInfo['telephone'],
+        citizenship: personalInfo['citizenship'],
+        aliasNameKnown: moreInfo['aliasNameKnown'],
+        aliasFullName: moreInfo['aliasFullName'],
+        corporatePartnership: moreInfo['corporatePartnership'],
+        sourceOfIncome: financialsUpload['sourceOfIncome'],
+        selfEmployedTin: financialsUpload['selfEmployedTin'],
+        selfEmployedAddress: financialsUpload['selfEmployedAddress'],
+        district: residenceInfo['district'],
+        village: residenceInfo['village'],
+        parish: residenceInfo['parish'],
+        subCounty: residenceInfo['subCounty'],
+        city: residenceInfo['citry'],
+        documents: this.documents,
+        uid: this.service.user.uid,
+        minor: moreInfo['minor'],
+        employerName: financialsUpload['employerName'],
+        employerTelephoneNumber: financialsUpload['employerTelephoneNumber'],
+        employerTin: financialsUpload['employerTin'],
+        minorGuardianName: moreInfo['minorGuardianName']
+      };
+    }
 
 }

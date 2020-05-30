@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from 'firebase/app';
 import { Router } from '@angular/router';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { IndividualUser, OfflineTaxFiling } from '../models/datamodels';
+import { IndividualUser, OfflineTaxFiling, BasicProfile } from '../models/datamodels';
 
 @Injectable({
   providedIn: 'root'
@@ -125,5 +125,11 @@ export class MainserviceService {
    });
  }
 
+ async createBasicFile(payload: BasicProfile) {
+   return await this.firestore.doc(payload.uid).
+   collection<BasicProfile>('basicProfile').doc(payload.uid).set({
+
+   });
+ }
 
 }

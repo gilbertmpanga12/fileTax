@@ -39,23 +39,23 @@ export interface OfflineTaxFiling{
     uid: string;
 }
 
-interface BasicProfileDocuments{
+export interface BasicProfileDocuments{
     name: string;
     path: string;
 }
 
 export interface BasicProfile{
     motherMaidenName: string;
-    telephoneNumber: string;
+    telephone: string;
     sex: string;
     maritalStatus: string;
-    citizenShip: string;
+    citizenship: string;
     aliasNameKnown: "Yes" | "No";
     aliasFullName?: string;
     minor: "Yes" | "No";
     minorGuardianName?: string;
     corporatePartnership: "Yes" | "No";
-    selfEmployed: boolean; // SelfEmployed or Employer
+    sourceOfIncome: "Self employed" | "Employed or owns Business";
     selfEmployedAddress?: string;
     selfEmployedTin?: string;
     employerTin?: string;
@@ -66,6 +66,7 @@ export interface BasicProfile{
     parish: string;
     subCounty: string;
     village: string;
-    documents: BasicProfileDocuments[]
+    documents: BasicProfileDocuments[],
+    uid: string;
 }
 
