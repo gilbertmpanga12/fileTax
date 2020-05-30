@@ -6,23 +6,41 @@
 
 <div class="flex-container">
     <mat-card class="history-tax-card">
+       <ng-container  *ngIf="notificationsCollection$ | async; let items; else loading">
         <mat-list>
             <div mat-subheader>Recent activity</div>
-            <mat-list-item *ngFor="let folder of folders; last as last">
-              <mat-icon mat-list-icon color="accent">assessment</mat-icon>
-              <div mat-line>{{folder.name}}</div>
-              <div mat-line> {{folder.updated | date}} </div>
-              <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
-            </mat-list-item>
+            
+            <mat-list-item *ngFor="let folder of  items; last as last">
+                <mat-icon mat-list-icon color="accent">assessment</mat-icon>
+                <div mat-line>{{folder.description}}</div>
+                <div mat-line> {{folder.timeStamp | date}} </div>
+                <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
+              </mat-list-item>
             
           </mat-list>
-          <br/>
-          <div class="flex-container">
+          <div class="flex-container" *ngIf="items.length > 0">
             <button mat-flat-button color="primary"
             
             class="main-cta"
             >SHOW MORE</button>
+           
         </div>
+        <h3 class="no-notifcations" *ngIf="items.length ==  0">You have no notifications</h3>
+       </ng-container>
+          <ng-template #loading class="center-loader">
+            <div class="flex-container-center">
+                <div class="sk-chase">
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                  </div>
+            </div>
+          </ng-template>
+          <br/>
+         
     </mat-card>
     
 </div>

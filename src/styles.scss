@@ -463,11 +463,13 @@ background-color: #6515dd !important;
     height:300px !important;
   }
   .no-history-placeholder{
-      font-variant-caps: all-petite-caps;
+      font-variant-caps: all-petite-caps !important;
       text-align: center;
-      font-size: 19px;
+      font-size: 19px !important;
       padding-top: 13px;
-      padding-bottom: 12px;
+    //   padding-bottom: 12px;
+      font-weight: 400;
+      background: white !important;
   }
   //sk-chase spin kit
   .sk-chase {

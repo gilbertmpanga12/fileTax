@@ -69,5 +69,10 @@ export interface BasicProfile{
     documents: BasicProfileDocuments[],
     uid: string;
     profileSetup: number;
+    
 }
 
+export interface TaxNotifications{
+    description: string;
+    timeStamp: number;
+}
