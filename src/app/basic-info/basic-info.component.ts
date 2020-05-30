@@ -25,7 +25,9 @@ export class BasicInfoComponent implements OnInit {
 'Business Certificate if any'
 ];
   documents: BasicProfileDocuments[] = [{name: '',path:''}];
+  asyncCounter = 0;
   isLinear = false;
+  isLoading: boolean = false;
   primaryColor="primary";
   accentColor="accent";
   colorSets: Set<string> = new Set();
@@ -126,7 +128,8 @@ export class BasicInfoComponent implements OnInit {
     }
   
 
-    startUpload(file: any, fileName: string): void {
+   async startUpload(file: any, fileName: string, stepper: MatHorizontalStepper) {
+     this.isLoading = true;
       const filePath = `profiles/${new Date().getTime()}_${file.name}`;
       const fileRef = this.storage.ref(filePath);
       const task = this.storage.upload(filePath, file);
@@ -134,59 +137,67 @@ export class BasicInfoComponent implements OnInit {
       task.snapshotChanges().pipe(
         finalize(() => {
           this.downloadURL = fileRef.getDownloadURL();
-          // this.percentage = null;
           this.downloadURL.subscribe(url => {
-            this.documentFiles.push({name: file,path:url});
+            this.documentFiles.push({name: fileName,path:url});
+            console.log(this.documentFiles);
           });
+
         } )
         
      )
     .subscribe();
+   setTimeout(() =>{
+    let personalInfo = this.personalInfo.getRawValue(),
+    moreInfo = this.moreInfo.getRawValue(), financialsUpload = this.financialsUpload.getRawValue(),
+    residenceInfo = this.financialsUpload.getRawValue();
+    let payload: BasicProfile = {
+      motherMaidenName: personalInfo['motherMaidenName'],
+      maritalStatus: personalInfo['maritalStatus'],
+      sex: personalInfo['sex'],
+      telephone: personalInfo['telephone'],
+      citizenship: personalInfo['citizenship'],
+      aliasNameKnown: moreInfo['aliasNameKnown'],
+      aliasFullName: moreInfo['aliasFullName'],
+      corporatePartnership: moreInfo['corporatePartnership'],
+      sourceOfIncome: financialsUpload['sourceOfIncome'],
+      selfEmployedTin: financialsUpload['selfEmployedTin'],
+      selfEmployedAddress: financialsUpload['selfEmployedAddress'],
+      district: residenceInfo['district'],
+      village: residenceInfo['village'],
+      parish: residenceInfo['parish'],
+      subCounty: residenceInfo['subCounty'],
+      city: residenceInfo['citry'],
+      documents: this.documentFiles,
+      uid: this.service.user.uid,
+      minor: moreInfo['minor'],
+      employerName: financialsUpload['employerName'],
+      employerTelephoneNumber: financialsUpload['employerTelephoneNumber'],
+      employerTin: financialsUpload['employerTin'],
+      minorGuardianName: moreInfo['minorGuardianName'],
+    };
+    this.service.createBasicFile(payload).then(res => {
+      this.isLoading = false;
+      this.snackbar('Great! your profile is up and ready. Start filing taxes now');
+      stepper.reset();
+  }).catch(err => {
+    this.isLoading = false;
+    this.snackbar('Oops something went wrong. Try again or contact support');
+  });
+   }, 9000);
   
     }
 
-    async submitBasicProfile(stepper: MatHorizontalStepper){
-      let personalInfo = this.personalInfo.getRawValue(),
-      moreInfo = this.moreInfo.getRawValue(), financialsUpload = this.financialsUpload.getRawValue(),
-      residenceInfo = this.financialsUpload.getRawValue();
-
+     async submitBasicProfile(stepper: MatHorizontalStepper){
+      
       for(let docs in this.globalDocsStore){
-          this.startUpload(this.globalDocsStore[docs]['file'], this.globalDocsStore[docs]['name']);
+        this.asyncCounter +=1;
+         await this.startUpload(this.globalDocsStore[docs]['file'], this.globalDocsStore[docs]['name'],stepper);
       }
       
-      let payload: BasicProfile = {
-        motherMaidenName: personalInfo['motherMaidenName'],
-        maritalStatus: personalInfo['maritalStatus'],
-        sex: personalInfo['sex'],
-        telephone: personalInfo['telephone'],
-        citizenship: personalInfo['citizenship'],
-        aliasNameKnown: moreInfo['aliasNameKnown'],
-        aliasFullName: moreInfo['aliasFullName'],
-        corporatePartnership: moreInfo['corporatePartnership'],
-        sourceOfIncome: financialsUpload['sourceOfIncome'],
-        selfEmployedTin: financialsUpload['selfEmployedTin'],
-        selfEmployedAddress: financialsUpload['selfEmployedAddress'],
-        district: residenceInfo['district'],
-        village: residenceInfo['village'],
-        parish: residenceInfo['parish'],
-        subCounty: residenceInfo['subCounty'],
-        city: residenceInfo['citry'],
-        documents: this.documentFiles,
-        uid: this.service.user.uid,
-        minor: moreInfo['minor'],
-        employerName: financialsUpload['employerName'],
-        employerTelephoneNumber: financialsUpload['employerTelephoneNumber'],
-        employerTin: financialsUpload['employerTin'],
-        minorGuardianName: moreInfo['minorGuardianName'],
-      };
+     
       
-      this.service.createBasicFile(payload).then(res => {
-          this.snackbar('Great! your profile is up and ready. Start filing taxes now');
-          stepper.reset();
-      }).catch(err => {
-        this.snackbar('Oops something went wrong. Try again or contact support');
-      });
     }
+
 
     snackbar(message: string): void{
       this.snackBar.open(message,'OK',{duration: 3000,verticalPosition:'top',horizontalPosition:'right'});

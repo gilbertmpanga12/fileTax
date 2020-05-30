@@ -16,8 +16,8 @@
         <br/>
 
        
-<!-- linear -->
-        <mat-horizontal-stepper  #stepper>
+<!--  linear-->
+        <mat-horizontal-stepper  #stepper >
             <mat-step [stepControl]="personalInfo">
                 <ng-template matStepLabel>About yourself</ng-template>
                 <form [formGroup]="personalInfo" class="flex-container">
@@ -307,7 +307,14 @@
                     <button mat-flat-button color="primary"
                     (click)="submitBasicProfile(stepper)"
                     class="main-cta"
-                    >Finish</button>
+                    >
+                    <div class="spinner" *ngIf="isLoading">
+                        <div class="bounce1"></div>
+                        <div class="bounce2"></div>
+                        <div class="bounce3"></div>
+                      </div>
+                    <span *ngIf="!isLoading">Finish</span>
+                    </button>
                 </div>
             </mat-step>
         </mat-horizontal-stepper>

@@ -126,10 +126,9 @@ export class MainserviceService {
  }
 
  async createBasicFile(payload: BasicProfile) {
-   return await this.firestore.doc(payload.uid).
-   collection<BasicProfile>('basicProfile').doc(payload.uid).set({
-
-   });
+   return await this.firestore.collection('users').doc(payload.uid).
+   collection('basicProfile').doc(payload.uid).set(payload,{merge: true})
+   ;
  }
 
 }
