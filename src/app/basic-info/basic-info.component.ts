@@ -174,6 +174,7 @@ export class BasicInfoComponent implements OnInit {
       employerTelephoneNumber: financialsUpload['employerTelephoneNumber'],
       employerTin: financialsUpload['employerTin'],
       minorGuardianName: moreInfo['minorGuardianName'],
+      profileSetup: 100
     };
     this.service.createBasicFile(payload).then(res => {
       this.isLoading = false;

@@ -68,5 +68,6 @@ export interface BasicProfile{
     village: string;
     documents: BasicProfileDocuments[],
     uid: string;
+    profileSetup: number;
 }
 

@@ -28,7 +28,7 @@
         <div class="flex-container-row" *ngIf="basicInfo$ | async; let basicInfos;">
             <h4 class="header-status-h4-tax-file">
                 <span>{{basicInfos.profileSetup < 100 ? 
-                    'steps remaining '+ basicInfos.profileSetup + '/100' :'profile completed'
+                    'profile incomplete ' :'profile completed'
                 
                 }}</span>
             </h4>
