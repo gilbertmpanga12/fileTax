@@ -2,6 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { MainserviceService } from '../services/mainservice.service';
 import { BasicProfile , BasicProfileDocuments} from '../models/datamodels';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatHorizontalStepper } from '@angular/material/stepper';
+import { AngularFireUploadTask } from '@angular/fire/storage/task';
+import { Observable } from 'rxjs';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { finalize, tap } from 'rxjs/operators';
 
 interface Residence{
   name: string;
@@ -18,8 +24,12 @@ export class BasicInfoComponent implements OnInit {
   'Voters Card', 'Drivers Permit', 'Work Permit', 'Village ID', 'Diplomatic foreign Affairs ID', 'Refugee ID',
 'Business Certificate if any'
 ];
-documents: BasicProfileDocuments[] = [{name: '',path:''}];
+  documents: BasicProfileDocuments[] = [{name: '',path:''}];
   isLinear = false;
+  primaryColor="primary";
+  accentColor="accent";
+  colorSets: Set<string> = new Set();
+  globalDocsStore: any = {};
   personalInfo: FormGroup;
   moreInfo: FormGroup;
   residenceInfo: FormGroup;
@@ -35,7 +45,14 @@ documents: BasicProfileDocuments[] = [{name: '',path:''}];
 {name: 'Sub county',controller:'subCounty'}, {name: 'Parish', controller: 'parish'},
 {name: 'Village', controller: 'village'}
 ];
-  constructor(private _formBuilder: FormBuilder, private service: MainserviceService) { }
+ task: AngularFireUploadTask;
+ percentage: Observable<number>;
+ snapshot: Observable<any>;
+ downloadURL: Observable<string>;
+ documentFiles: BasicProfileDocuments[] = [];
+  constructor(private _formBuilder: FormBuilder, private service: MainserviceService,
+    private snackBar: MatSnackBar, private storage: AngularFireStorage
+    ) { }
 
   ngOnInit(): void {
     this.personalInfo = this._formBuilder.group({
@@ -86,12 +103,56 @@ documents: BasicProfileDocuments[] = [{name: '',path:''}];
       refugeeId: ['', Validators.required]
     });
   }
+
+    uploadDocuments(serviceName: string, event: FileList): void{
+        this.colorSets.add(serviceName);
+        const file = event.item(0);
+        if (file.type.split('/')[0] == 'image' || file.type.split('/')[0] == 'video' || file.type.split('/')[0] == 'video') { 
+        alert('Please enter only documents');
+        return;
+        }
+        console.log(file.type.split('/')[0]);
+       this.globalDocsStore[serviceName] = {
+         name: serviceName,
+         file: file
+       }
+       console.log(this.globalDocsStore);
+    }
+
+    deleteDocument(serviceName: string): void{
+      this.colorSets.delete(serviceName);
+      delete(this.globalDocsStore[serviceName]);
+      console.log(this.globalDocsStore);
+    }
   
-    submitBasicProfile(): void {
-      // this.service.createBasicFile();
+
+    startUpload(file: any, fileName: string): void {
+      const filePath = `profiles/${new Date().getTime()}_${file.name}`;
+      const fileRef = this.storage.ref(filePath);
+      const task = this.storage.upload(filePath, file);
+      this.percentage = task.percentageChanges();
+      task.snapshotChanges().pipe(
+        finalize(() => {
+          this.downloadURL = fileRef.getDownloadURL();
+          // this.percentage = null;
+          this.downloadURL.subscribe(url => {
+            this.documentFiles.push({name: file,path:url});
+          });
+        } )
+        
+     )
+    .subscribe();
+  
+    }
+
+    async submitBasicProfile(stepper: MatHorizontalStepper){
       let personalInfo = this.personalInfo.getRawValue(),
       moreInfo = this.moreInfo.getRawValue(), financialsUpload = this.financialsUpload.getRawValue(),
-      residenceInfo = this.financialsUpload.getRawValue(), documentsUpload = this.documentsUpload.getRawValue();
+      residenceInfo = this.financialsUpload.getRawValue();
+
+      for(let docs in this.globalDocsStore){
+          this.startUpload(this.globalDocsStore[docs]['file'], this.globalDocsStore[docs]['name']);
+      }
       
       let payload: BasicProfile = {
         motherMaidenName: personalInfo['motherMaidenName'],
@@ -110,14 +171,25 @@ documents: BasicProfileDocuments[] = [{name: '',path:''}];
         parish: residenceInfo['parish'],
         subCounty: residenceInfo['subCounty'],
         city: residenceInfo['citry'],
-        documents: this.documents,
+        documents: this.documentFiles,
         uid: this.service.user.uid,
         minor: moreInfo['minor'],
         employerName: financialsUpload['employerName'],
         employerTelephoneNumber: financialsUpload['employerTelephoneNumber'],
         employerTin: financialsUpload['employerTin'],
-        minorGuardianName: moreInfo['minorGuardianName']
+        minorGuardianName: moreInfo['minorGuardianName'],
       };
+      
+      this.service.createBasicFile(payload).then(res => {
+          this.snackbar('Great! your profile is up and ready. Start filing taxes now');
+          stepper.reset();
+      }).catch(err => {
+        this.snackbar('Oops something went wrong. Try again or contact support');
+      });
+    }
+
+    snackbar(message: string): void{
+      this.snackBar.open(message,'OK',{duration: 3000,verticalPosition:'top',horizontalPosition:'right'});
     }
 
 }

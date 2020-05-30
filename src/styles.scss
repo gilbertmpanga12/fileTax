@@ -194,6 +194,7 @@ color: #43379d !important;
     flex-basis: 100% !important;
     flex-wrap: wrap !important;
     max-height: 150px !important;
+    list-style-type: none;
       
 }
 .li-style{
@@ -517,3 +518,7 @@ background-color: #6515dd !important;
   .date-picker-icon{
       font-size: 20px !important;
   }
+
+  .file-input{
+    display: none;
+}

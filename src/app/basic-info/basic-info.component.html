@@ -28,6 +28,7 @@
                               <input matInput placeholder="e.g Jessica Fox"
                               formControlName="motherMaidenName"
                               >
+                              <mat-error>Provide mother's maiden name</mat-error>
                               </mat-form-field>
                           </p>
                     </div>
@@ -36,6 +37,7 @@
                             <mat-form-field appearance="standard" class="forms">
                               <mat-label>Your telephone number</mat-label>
                               <input matInput placeholder="0700900465" formControlName="telephone">
+                              <mat-error>Telephone number required</mat-error>
                               </mat-form-field>
                           </p>
                     </div>
@@ -50,6 +52,7 @@
                                     {{gender}}
                                   </mat-option>
                                 </mat-select>
+                                <mat-error>Gender required</mat-error>
                               </mat-form-field>
                           </p>
                     </div>
@@ -64,6 +67,7 @@
                                     {{status}}
                                   </mat-option>
                                 </mat-select>
+                                <mat-error>Provide marital status</mat-error>
                               </mat-form-field>
                           </p>
                     </div>
@@ -78,6 +82,7 @@
                                     {{status}}
                                   </mat-option>
                                 </mat-select>
+                                <mat-error>Citizenship required</mat-error>
                               </mat-form-field>
                           </p>
                     </div>
@@ -135,6 +140,7 @@
                                 <input matInput placeholder="e.g HHSGH02920"
                                 formControlName="corporatePartnership"
                                 >
+                                <mat-error>Corporate TIN or Partnership TIN required</mat-error>
                                 </mat-form-field>
                         </p>
 
@@ -176,6 +182,7 @@
                                <mat-hint>
                                Provide address of your business
                                </mat-hint>
+                               <mat-error>Address required</mat-error>
                                </mat-form-field>
                         </div>
                         <div class="col-grid-33">
@@ -187,6 +194,7 @@
                                <mat-hint>
                                TIN number for your business
                                </mat-hint>
+                               <mat-error>Business TIN required if any</mat-error>
                                </mat-form-field>
                         </div>
                     </div>
@@ -201,6 +209,7 @@
                               <input matInput placeholder="e.g TIN number"
                               formControlName="employerTin"
                               >
+                              <mat-error>Provide employer's TIN</mat-error>
                               </mat-form-field>
                           </p>
                     </div>
@@ -212,6 +221,7 @@
                               <input matInput placeholder="e.g Mukwano Enterprises"
                               formControlName="employerName"
                               >
+                              <mat-error>Provide employer's name</mat-error>
                               </mat-form-field>
                           </p>
                     </div>
@@ -223,6 +233,7 @@
                               <input matInput placeholder="e.g +256..."
                               formControlName="employerTelephoneNumber"
                               >
+                              <mat-error>Provide employer's telephone number</mat-error>
                               </mat-form-field>
                           </p>
                     </div>
@@ -250,6 +261,7 @@
                               <input matInput placeholder=""
                               formControlName="{{controller.controller}}"
                               >
+                              <!-- <mat-error>District required*</mat-error> -->
                               </mat-form-field>
                           </p>
                     </div>
@@ -263,24 +275,29 @@
                 </div>
             </mat-step>
             <mat-step>
+                
                 <ng-template matStepLabel>Documents</ng-template>
                 <div class="flex-container">
                     <strong ><h2 class="shrink-h4">Upload atleast 2 documents</h2></strong>
                    </div>
                    <div class="flex-container">
-                    <ol class="ol-style">
-                      <li>Bank Statement <small 
+                    <ul class="ol-style">
+                      <li *ngFor="let files of colorSets"><small 
                         matTooltip="File uploaded for Bank Statement"
-                        class="file-display"><i>bank-statement.pdf</i></small></li>
-                    </ol>
+                        class="file-display"><i>A {{files}} added</i></small></li>
+                      </ul>
                    </div>
                    <div class="flex-container">
                     <div class="col-grid-33" *ngFor="let button of buttonsUpload">
-                      <button mat-flat-button 
-                      color="accent" class="margin-bottom-10"
+                      <button mat-flat-button (click)="colorSets.has(button) ? deleteDocument(button) : ref.click()"
+                      color="{{colorSets.has(button) ? accentColor : primaryColor}}" class="margin-bottom-10"
                       >
                       <mat-icon>add</mat-icon>
                       {{button}}</button>
+                      <input class="file-input" type="file" 
+                      accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.pdf"
+            id="form-uploader" #ref
+            (change)="uploadDocuments(button,$event.target.files)">
                     </div>
                 
                 </div>
@@ -288,7 +305,7 @@
                 <br/>
                 <div class="flex-container">
                     <button mat-flat-button color="primary"
-                    
+                    (click)="submitBasicProfile(stepper)"
                     class="main-cta"
                     >Finish</button>
                 </div>
