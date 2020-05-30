@@ -8,6 +8,7 @@ export interface DashboardCount{
 export interface TaxServices {
     title: string;
     description: string;
+    url: string;
   }
 
 export interface IndividualUser{
@@ -76,4 +77,10 @@ export interface BasicProfile{
 export interface TaxNotifications{
     description: string;
     timeStamp: number;
+}
+
+export interface Filings {
+   serviceFile: string;
+   serviceName: string;
+   supporting:  BasicProfileDocuments[]
 }

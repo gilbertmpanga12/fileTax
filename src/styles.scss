@@ -167,18 +167,23 @@ color: #43379d !important;
 }
 
 .upload-taxes-btn{
-    border-radius: 6px !important;
-    width: 200px;
-    padding: 6px !important;
+    border-radius: 5px !important;
+    width: auto;
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
     font-size: 16px !important;
     margin-top: 20% !important;
     text-transform: uppercase !important;
     background-color: #43379d !important;
     color: #ffffff !important;
+    margin-left: 5px !important;
+    margin-right: 5px !important;
     // margin-bottom: 17px !important;
     .icon-lg{
-        font-size: 25px !important;
-        vertical-align: middle !important;
+        font-size: 27px !important;
+        vertical-align: sub !important;
+        margin-top: 8px !important;
+        padding-right: 3px;
     }
 }
 

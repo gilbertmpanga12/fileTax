@@ -9,36 +9,35 @@
 
 <div class="flex-container">
     <mat-card class="service-tax-card mat-elevation-z3">
-        <mat-horizontal-stepper  #stepper>
+        <mat-horizontal-stepper  #stepper linear>
             <mat-step>
                 <ng-template matStepLabel>File {{serviceName}}</ng-template>
-              <!-- <form [formGroup]="firstFormGroup">
-                <ng-template matStepLabel>Fill out your name</ng-template>
-                <mat-form-field>
-                  <mat-label>Name</mat-label>
-                  <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-                </mat-form-field>
-                <div>
-                  <button mat-button matStepperNext>Next</button>
-                </div>
-              </form> -->
-              <div class="flex-container-column">
-     
-                <div class="col-grid-33">
-                    <button mat-raised-button 
-                    class="upload-taxes-btn"
-                    color="primary">
-                    <mat-icon
-                    class="icon-lg"
-                    >cloud_upload</mat-icon> 
-                    {{buttonText}}
-                    </button>
-                </div>
-              
-                <div class="col-grid-33">
-                    <h2 class="custom-h2">{{description}}</h2>
-                </div>
-            </div>
+               
+                <input class="file-input" type="file" 
+                accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.pdf"
+      id="form-uploader" #ref
+      (change)="uploadMainDocument($event.target.files,stepper)">
+
+     <form [formGroup]="uploadServiceGroup">
+      <div class="flex-container-column">
+     <input formControl="serviceName" class="form-hidden"/>
+        <div class="col-grid-33">
+            <button mat-raised-button 
+            class="upload-taxes-btn"
+            (click)="colorSets.has(serviceName) ? deleteMainDocument(serviceName) : ref.click()"
+            color="{{colorSets.has(serviceName) ? accentColor : primaryColor}}">
+            <mat-icon
+            class="icon-lg"
+            >cloud_upload</mat-icon> 
+          FILE {{serviceName}}
+            </button>
+        </div>
+      
+        <div class="col-grid-33">
+            <h2 class="custom-h2">{{description}}</h2>
+        </div>
+    </div>
+     </form>
               
             </mat-step>
             <mat-step>

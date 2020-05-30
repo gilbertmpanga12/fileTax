@@ -11,6 +11,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [ServicesComponent],
@@ -24,7 +25,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatListModule,
     MatIconModule,
     MatStepperModule,
-    MatTooltipModule
+    MatTooltipModule,
+    ReactiveFormsModule
   ]
 })
 export class ServicesModule { }

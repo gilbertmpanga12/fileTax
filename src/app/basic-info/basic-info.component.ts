@@ -34,6 +34,7 @@ export class BasicInfoComponent implements OnInit {
   globalDocsStore: any = {};
   personalInfo: FormGroup;
   moreInfo: FormGroup;
+  
   residenceInfo: FormGroup;
   documentsUpload: FormGroup;
   financialsUpload: FormGroup;
@@ -113,7 +114,7 @@ export class BasicInfoComponent implements OnInit {
         alert('Please enter only documents');
         return;
         }
-        console.log(file.type.split('/')[0]);
+       
        this.globalDocsStore[serviceName] = {
          name: serviceName,
          file: file
