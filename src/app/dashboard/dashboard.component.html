@@ -61,7 +61,9 @@
         </button>
         <span class="fill-remaining-space"></span>
         <span>
-          <mat-icon matBadge="15" 
+          <mat-icon 
+          [matBadgeHidden]="(notificationsDocument$ | async)?.notificationCount > 0 ? false: true"
+          [matBadge]="(notificationsDocument$ | async)?.notificationCount" 
           class="notifications-icon"
           (click)="checkNotifications()"
           matBadgeColor="warn">notifications</mat-icon>

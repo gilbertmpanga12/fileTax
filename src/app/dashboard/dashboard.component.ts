@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
+
 import { map, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { MainserviceService } from '../services/mainservice.service';
-
+import { TaxNotifications, IndividualUser } from '../models/datamodels';
+import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection} from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 // Models
 interface Links {
   path: string;
@@ -57,8 +59,14 @@ links:  Links[] = [{
     map(result => result.matches),
     shareReplay()
   );
-
-constructor(private breakpointObserver: BreakpointObserver, private router: Router, public service: MainserviceService) {}
+  notificationsDocument: AngularFirestoreDocument<IndividualUser>;
+  notificationsDocument$: Observable<IndividualUser>;
+constructor(private breakpointObserver: BreakpointObserver, private router: Router, public service: MainserviceService
+  , private firestore: AngularFirestore
+  ) {
+  this.notificationsDocument = this.firestore.doc<IndividualUser>('users/' + this.service.user.uid);
+  this.notificationsDocument$ = this.notificationsDocument.valueChanges();
+}
 
   ngOnInit(): void {
    

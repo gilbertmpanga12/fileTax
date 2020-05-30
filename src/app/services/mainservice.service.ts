@@ -62,7 +62,7 @@ export class MainserviceService {
       email: email, lastName: lastName, dateOfBirth: dateOfBirth,firstName: firstName,
       address: address, creationTime: creationTime,
       uid: user.uid,profileSetup: 0,tinId: "Not set yet",tinPassword: "Not set yet",
-      photoURL: this.profilePhoto
+      photoURL: this.profilePhoto,notificationCount: 0
     },{merge: true});
 
     await this.firestore.collection('dashbordCounts').doc(user.uid).set({

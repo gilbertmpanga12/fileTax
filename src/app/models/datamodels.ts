@@ -20,6 +20,7 @@ export interface IndividualUser{
     profileSetup: number;
     tinId?: string;
     tinPassword?: string;
+    notificationCount: number;
 }
 
 export interface History{
