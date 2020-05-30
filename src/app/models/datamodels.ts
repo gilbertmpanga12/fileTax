@@ -38,3 +38,34 @@ export interface OfflineTaxFiling{
     requesteeName: string;
     uid: string;
 }
+
+interface BasicProfileDocuments{
+    name: string;
+    path: string;
+}
+
+export interface BasicProfile{
+    motherMaidenName: string;
+    telephoneNumber: string;
+    sex: string;
+    maritalStatus: string;
+    citizenShip: string;
+    aliasNameKnown: "Yes" | "No";
+    aliasFullName?: string;
+    minor: "Yes" | "No";
+    minorGuardianName?: string;
+    corporatePartnership: "Yes" | "No";
+    selfEmployed: boolean; // SelfEmployed or Employer
+    selfEmployedAddress?: string;
+    selfEmployedTin?: string;
+    employerTin?: string;
+    employerName?: string;
+    employerTelephoneNumber?: string;
+    district: string;
+    city: string;
+    parish: string;
+    subCounty: string;
+    village: string;
+    documents: BasicProfileDocuments[]
+}
+
