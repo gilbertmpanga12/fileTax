@@ -29,4 +29,12 @@ export interface History{
 
 export interface DialogActtion{
     actionType: "resetpassword" | "changeTinId" | "changeTinPassword" | "error"
-  }
+}
+
+export interface OfflineTaxFiling{
+    date: Date;
+    taxServicesRequired: string[];
+    requesteeType: "individual" | "company",
+    requesteeName: string;
+    uid: string;
+}

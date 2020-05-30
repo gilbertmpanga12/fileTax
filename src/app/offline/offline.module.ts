@@ -14,6 +14,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [OfflineComponent],
@@ -28,7 +29,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatDividerModule,
     FormsModule,
     MatDatepickerModule, MatNativeDateModule,
-    MatInputModule, MatFormFieldModule
+    MatInputModule, MatFormFieldModule,
+    MatSnackBarModule
   ]
 })
 export class OfflineModule { }

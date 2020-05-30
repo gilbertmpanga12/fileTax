@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from 'firebase/app';
 import { Router } from '@angular/router';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { IndividualUser } from '../models/datamodels';
+import { IndividualUser, OfflineTaxFiling } from '../models/datamodels';
 
 @Injectable({
   providedIn: 'root'
@@ -112,6 +112,17 @@ export class MainserviceService {
   let user = await this.auth.currentUser;
   let userProfile = this.firestore.doc('users/' + user.uid);
   userProfile.set({tinPassword: tinIDValue}, {merge: true});
+ }
+
+ async requestOfflineTaxation(payload: OfflineTaxFiling){
+  
+   await this.firestore.collection<OfflineTaxFiling>('offlineTaxFiling').add({
+    date: payload.date,
+    requesteeName: payload.requesteeName,
+    requesteeType: payload.requesteeType,
+    taxServicesRequired: payload.taxServicesRequired,
+    uid: payload.uid
+   });
  }
 
 

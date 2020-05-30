@@ -19,10 +19,16 @@
             </div>
             <div class="align-last">
                 <button mat-flat-button 
-                (click)="submitOfflineRequest()"
                 color="primary"
                 class="filled-btn-width-adjust image-edit-btn"
-                >Submit</button>
+                >
+                <div class="spinner" *ngIf="isLoading">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                  </div>
+                  <span *ngIf="!isLoading">Submit</span>
+            </button>
             </div>
             
         </div>
