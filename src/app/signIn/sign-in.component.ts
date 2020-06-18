@@ -22,8 +22,9 @@ export class SignInComponent implements OnInit {
   date: Date = new Date();
   year: number = this.date.getFullYear();
   progressLoading: boolean = false;
-  defatultText: string = 'Login';
-  loadingText: string = 'Login';
+  defatultText: string = 'Log In';
+  loadingText: string = 'Log In';
+  businessText: string = 'Create Business Account';
   constructor(private _fb: FormBuilder, private router: Router, 
     private service: MainserviceService, private snackBar: MatSnackBar) { }
   

@@ -1,17 +1,15 @@
 <div class="login-wrapper-background">
-    <div class="logo-wrapper-box">
+    <!-- <div class="logo-wrapper-box">
         <img class="gb_ua" src="/assets/coollogo_com-8614574.png" 
        alt="" aria-hidden="true" style="width:120px;height:46px">
-    </div>
+    </div> -->
 </div>
 <mat-card class="login-card mat-elevation-z4">
     <mat-progress-bar mode="indeterminate" 
     color="accent" *ngIf="progressLoading"
     class="progress-position"></mat-progress-bar>
-    <!-- <mat-card-header>
-    
-    </mat-card-header> -->
-    <h3 class="login-title">LOGIN</h3>
+   
+    <h3 class="login-title">Filetax</h3>
     <br/>
     <form  [formGroup]="loginGroup"
     (ngSubmit)="logIn(loginGroup.get('email').value, loginGroup.get('password').value)">
@@ -46,28 +44,60 @@
         </div>
       
     </div>
-    <div class="flex-container">
+
+    <p class="flex-container">
+        <button mat-flat-button color="primary" 
+        type="submit"
+        class="full-btn">
+        <div class="spinner" *ngIf="loadingText.length < 1">
+          <div class="bounce1"></div>
+          <div class="bounce2"></div>
+          <div class="bounce3"></div>
+        </div>
+        <span *ngIf="loadingText.length > 1">{{loadingText}}</span>
+      </button>
+    </p>
+    <!-- <div class="flex-container">
         <a 
         (click)="navigateToOtherPages('/app/register')"
         class="cta-register-link"><u>Or create a new account</u></a>
-    </div>
-    <mat-divider class="divider-stretch"></mat-divider>
-   <div class="bottom-actions">
-      <button mat-button  type="button"
-  (click)="navigateToOtherPages('/app/reset-password')"
-       class="forgot-password"
-      >Forgot password?</button>&nbsp;&nbsp;&nbsp;
-      <button mat-flat-button color="primary" 
-      type="submit"
-      class="image-edit-btn">
-      <div class="spinner" *ngIf="loadingText.length < 1">
-        <div class="bounce1"></div>
-        <div class="bounce2"></div>
-        <div class="bounce3"></div>
-      </div>
-      <span *ngIf="loadingText.length > 1">{{loadingText}}</span>
-    </button>
+    </div> -->
+
+   <div class="outer-wrap">
+    <div class="or-text-wrapper">
+        <div class="line-let"></div>
+        <div class="actual-text"> OR </div>
+        <div class="line-let"></div>
+            </div>
    </div>
+
+   <p class="flex-container">
+    <button mat-stroked-button color="primary" 
+    type="submit"
+    class="full-btn-stroked">
+    <div class="spinner" *ngIf="businessText.length < 1">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+    <span *ngIf="businessText.length > 1">{{businessText}}</span>
+  </button>
+</p>
+
+<div class="flex-container-center">
+    <br/>
+    <a routerLink="/app/register"
+    class="register-individual-account"
+    ><h3 class="register-individual-account">Create Individual Account</h3></a>
+</div>
+<div class="flex-container-center">
+    <p>
+        <a routerLink="/app/reset-password"
+class="forgot-password"
+>Forgot password?</a>
+    </p>
+</div>
+  
     </form>
 </mat-card>
 
