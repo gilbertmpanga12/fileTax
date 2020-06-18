@@ -80,7 +80,7 @@ export interface TaxNotifications{
 }
 
 export interface Filings {
-   serviceFile: string;
-   serviceName: string;
-   supporting:  BasicProfileDocuments[]
+//    serviceFile: string;
+//    serviceName: string;
+   supportingDocuments:  BasicProfileDocuments[]
 }

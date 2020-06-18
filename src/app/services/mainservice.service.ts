@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from 'firebase/app';
 import { Router } from '@angular/router';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { IndividualUser, OfflineTaxFiling, BasicProfile } from '../models/datamodels';
+import { IndividualUser, OfflineTaxFiling, BasicProfile, Filings } from '../models/datamodels';
 
 @Injectable({
   providedIn: 'root'
@@ -131,7 +131,10 @@ export class MainserviceService {
    await this.firestore.doc('users/' + payload.uid).set({profileSetup: 100}, {merge: true});
    ;
  }
-
+ 
+ async uploadTaxFiles(payload: Filings){
+   await this.firestore.collection<Filings>('filings').add(payload);
+ }
 
 
 }

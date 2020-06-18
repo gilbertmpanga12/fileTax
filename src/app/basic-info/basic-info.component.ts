@@ -119,13 +119,13 @@ export class BasicInfoComponent implements OnInit {
          name: serviceName,
          file: file
        }
-       console.log(this.globalDocsStore);
+    
     }
 
     deleteDocument(serviceName: string): void{
       this.colorSets.delete(serviceName);
       delete(this.globalDocsStore[serviceName]);
-      console.log(this.globalDocsStore);
+   
     }
   
 
@@ -140,55 +140,14 @@ export class BasicInfoComponent implements OnInit {
           this.downloadURL = fileRef.getDownloadURL();
           this.downloadURL.subscribe(url => {
             this.documentFiles.push({name: fileName,path:url});
-            console.log(this.documentFiles);
+       
           });
 
         } )
         
      )
     .subscribe();
-   setTimeout(() =>{
-    let personalInfo = this.personalInfo.getRawValue(),
-    moreInfo = this.moreInfo.getRawValue(), financialsUpload = this.financialsUpload.getRawValue(),
-    residenceInfo = this.residenceInfo.getRawValue();
-    let payload: BasicProfile = {
-      motherMaidenName: personalInfo['motherMaidenName'],
-      maritalStatus: personalInfo['maritalStatus'],
-      sex: personalInfo['sex'],
-      telephone: personalInfo['telephone'],
-      citizenship: personalInfo['citizenship'],
-      aliasNameKnown: moreInfo['aliasNameKnown'],
-      aliasFullName: moreInfo['aliasFullName'],
-      corporatePartnership: moreInfo['corporatePartnership'],
-      sourceOfIncome: financialsUpload['sourceOfIncome'],
-      selfEmployedTin: financialsUpload['selfEmployedTin'],
-      selfEmployedAddress: financialsUpload['selfEmployedAddress'],
-      district: residenceInfo['district'],
-      village: residenceInfo['village'],
-      parish: residenceInfo['parish'],
-      subCounty: residenceInfo['subCounty'],
-      city: residenceInfo['city'],
-      documents: this.documentFiles,
-      uid: this.service.user.uid,
-      minor: moreInfo['minor'],
-      employerName: financialsUpload['employerName'],
-      employerTelephoneNumber: financialsUpload['employerTelephoneNumber'],
-      employerTin: financialsUpload['employerTin'],
-      minorGuardianName: moreInfo['minorGuardianName'],
-      profileSetup: 100
-    };
-    console.log(payload);
-    this.service.createBasicFile(payload).then(res => {
-      this.isLoading = false;
-      this.snackbar('Great! your profile is up and ready. Start filing taxes now');
-      stepper.reset();
-  }).catch(err => {
-    console.log(err.message);
-    this.isLoading = false;
-    this.snackbar('Oops something went wrong. Try again or contact support');
-  });
-   }, 9000);
-  
+   
     }
 
      async submitBasicProfile(stepper: MatHorizontalStepper){
@@ -197,6 +156,47 @@ export class BasicInfoComponent implements OnInit {
         this.asyncCounter +=1;
          await this.startUpload(this.globalDocsStore[docs]['file'], this.globalDocsStore[docs]['name'],stepper);
       }
+      setTimeout(() =>{
+        let personalInfo = this.personalInfo.getRawValue(),
+        moreInfo = this.moreInfo.getRawValue(), financialsUpload = this.financialsUpload.getRawValue(),
+        residenceInfo = this.residenceInfo.getRawValue();
+        let payload: BasicProfile = {
+          motherMaidenName: personalInfo['motherMaidenName'],
+          maritalStatus: personalInfo['maritalStatus'],
+          sex: personalInfo['sex'],
+          telephone: personalInfo['telephone'],
+          citizenship: personalInfo['citizenship'],
+          aliasNameKnown: moreInfo['aliasNameKnown'],
+          aliasFullName: moreInfo['aliasFullName'],
+          corporatePartnership: moreInfo['corporatePartnership'],
+          sourceOfIncome: financialsUpload['sourceOfIncome'],
+          selfEmployedTin: financialsUpload['selfEmployedTin'],
+          selfEmployedAddress: financialsUpload['selfEmployedAddress'],
+          district: residenceInfo['district'],
+          village: residenceInfo['village'],
+          parish: residenceInfo['parish'],
+          subCounty: residenceInfo['subCounty'],
+          city: residenceInfo['city'],
+          documents: this.documentFiles,
+          uid: this.service.user.uid,
+          minor: moreInfo['minor'],
+          employerName: financialsUpload['employerName'],
+          employerTelephoneNumber: financialsUpload['employerTelephoneNumber'],
+          employerTin: financialsUpload['employerTin'],
+          minorGuardianName: moreInfo['minorGuardianName'],
+          profileSetup: 100
+        };
+    
+        this.service.createBasicFile(payload).then(res => {
+          this.isLoading = false;
+          this.snackbar('Great! your profile is up and ready. Start filing taxes now');
+          stepper.reset();
+      }).catch(err => {
+    
+        this.isLoading = false;
+        this.snackbar('Oops something went wrong. Try again or contact support');
+      });
+       }, 9000);
       
      
       
