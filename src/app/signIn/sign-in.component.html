@@ -57,11 +57,19 @@
         <span *ngIf="loadingText.length > 1">{{loadingText}}</span>
       </button>
     </p>
-    <!-- <div class="flex-container">
-        <a 
-        (click)="navigateToOtherPages('/app/register')"
-        class="cta-register-link"><u>Or create a new account</u></a>
-    </div> -->
+   
+    <div class="flex-container">
+        <br/>
+        <button mat-stroked-button 
+        routerLink="/app/register"
+        color="primary" 
+        type="submit"
+        class="full-btn">
+        Create Individual Account
+      </button>
+    </div>
+<br/>
+    
 
    <div class="outer-wrap">
     <div class="or-text-wrapper">
@@ -84,12 +92,7 @@
   </button>
 </p>
 
-<div class="flex-container-center">
-    <br/>
-    <a routerLink="/app/register"
-    class="register-individual-account"
-    ><h3 class="register-individual-account">Create Individual Account</h3></a>
-</div>
+
 <div class="flex-container-center">
     <p>
         <a routerLink="/app/reset-password"
