@@ -9,8 +9,11 @@
     color="accent" *ngIf="progressLoading"
     class="progress-position"></mat-progress-bar>
    
-    <h3 class="login-title">Filetax</h3>
-    <br/>
+    <div class="logo-wrapper-box">
+        <img class="gb_ua" src="/assets/coollogo_com-124492030.png" 
+       alt="" aria-hidden="true" style="width:120px;height:46px">
+    </div>
+  
     <form  [formGroup]="loginGroup"
     (ngSubmit)="logIn(loginGroup.get('email').value, loginGroup.get('password').value)">
     <div class="flex-container">
