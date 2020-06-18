@@ -1,18 +1,14 @@
 <div class="login-wrapper-background">
-    <div class="logo-wrapper-box">
-        <img class="gb_ua" src="/assets/coollogo_com-8614574.png" 
-       alt="" aria-hidden="true" style="width:120px;height:46px">
-    </div>
+   
 </div>
 
 <mat-card class="register-card mat-elevation-z4">
-    <mat-card-header>
-    <mat-progress-bar mode="indeterminate" 
-color="accent" *ngIf="progressLoading"
-class="progress-position"></mat-progress-bar>
-    </mat-card-header>
-    <h2 class="login-title">CREATE ACCOUNT</h2>
-    <br/>
+  <div class="logo-wrapper-box-container-registerbox">
+    <img class="gb_ua" src="/assets/coollogo_com-124492030.png" 
+   alt="" aria-hidden="true" style="width:120px;height:46px">
+</div>
+    
+    <!-- <br/> -->
     <form [formGroup]="registerGroup" (ngSubmit)="register()">
       <div class="flex-container">
         <div class="col-6-grid">
@@ -101,10 +97,10 @@ class="progress-position"></mat-progress-bar>
       </div>
      
     <!-- <br/> -->
-    <div class="flex-container-center">
+    <div class="flex-container">
       <button mat-flat-button color="primary" 
       type="submit"
-      class="image-edit-btn register-btn">
+      class="register-btn">
       <div class="spinner" *ngIf="loadingText.length < 1">
         <div class="bounce1"></div>
         <div class="bounce2"></div>
@@ -113,12 +109,39 @@ class="progress-position"></mat-progress-bar>
       <span *ngIf="loadingText.length > 1">{{loadingText}}</span>
     </button>    
   </div>
-  <br/>
-   <mat-divider></mat-divider>
   
-   <div class="flex-container-center">
-      <a routerLink="/app/login" class="cta-register-link">Already have an account? Login</a>
-  </div><br/>
+  <div class="outer-wrap">
+    <div class="or-text-wrapper">
+        <div class="line-let"></div>
+        <div class="actual-text"> OR </div>
+        <div class="line-let"></div>
+            </div>
+   </div>
+
+   <p class="flex-container">
+    <button mat-stroked-button color="primary" 
+    type="submit"
+    class="full-btn-stroked">
+    <div class="spinner" *ngIf="businessLogIn.length < 1">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+    <span *ngIf="businessLogIn.length > 1">{{businessLogIn}}</span>
+  </button>
+</p>
+  
+
+<br/>
+  <div class="flex-container-center">
+    <br/>
+    <p>
+        <a routerLink="/app/login"
+class="forgot-password"
+><u>Already have an <b>individual account?</b> Login</u></a>
+    </p>
+</div>
+  <br/>
   
     </form>
     
