@@ -40,6 +40,7 @@ export class SignInComponent implements OnInit {
     this.loadingText = '';
     if(!this.loginGroup.invalid){
       this.service.login(email,password).then((resp) => {
+        this.service.sessionRegister(this.service.user.uid,false);
         this.progressLoading = false;
      }).catch(err => {
         this.progressLoading = false;
