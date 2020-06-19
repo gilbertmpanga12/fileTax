@@ -1,0 +1,157 @@
+<div class="login-wrapper-background">
+   
+</div>
+
+<mat-card class="register-card mat-elevation-z4">
+  <div class="logo-wrapper-box-container-registerbox">
+    <img class="gb_ua" src="/assets/coollogo_com-124492030.png" 
+   alt="" aria-hidden="true" style="width:120px;height:46px">
+</div>
+    
+    <!-- <br/> -->
+    <form [formGroup]="registerGroup" (ngSubmit)="register()">
+      <div class="flex-container">
+        <div class="col-6-grid">
+          <mat-form-field class="example-full-width" 
+          
+          >
+              <mat-label>First name</mat-label>
+              <input matInput placeholder="John" 
+              [errorStateMatcher]="matcher"
+              formControlName="firstName">
+              <mat-error>First name required</mat-error>
+            </mat-form-field>
+      </div>
+      <!-- br -->
+      <div class="col-6-grid">
+          <mat-form-field class="example-full-width" 
+          
+          >
+              <mat-label>Last name</mat-label>
+              <input matInput placeholder="Doe" 
+              [errorStateMatcher]="matcher"
+              formControlName="lastName">
+              <mat-error>Provide your last name</mat-error>
+            </mat-form-field>
+      </div>
+      <!-- br -->
+      <div class="col-6-grid">
+          <mat-form-field class="example-full-width" 
+          
+          >
+              <mat-label>Email</mat-label>
+              <input matInput placeholder="johndoe@example.com" email 
+              [errorStateMatcher]="matcher"
+              formControlName="email"
+              >
+              <mat-error>A valid email is required</mat-error>
+            </mat-form-field>
+      </div>
+     <!-- br -->
+     <div class="col-6-grid">
+      <mat-form-field class="example-full-width" 
+      
+      >
+          <mat-label>Address</mat-label>
+          <input matInput placeholder="Kansas, kampala ST"
+          [errorStateMatcher]="matcher"
+          formControlName="address"
+          >
+          <mat-error>An address is required</mat-error>
+        </mat-form-field>
+  </div>
+       <!-- br -->
+       <div class="col-6-grid">
+          <!-- <mat-form-field class="example-full-width" 
+          
+          >
+              <mat-label>Date of birth</mat-label>
+              <input matInput placeholder="October 20th 1999" 
+              [errorStateMatcher]="matcher"
+              formControlName="dateOfBirth">
+              <mat-error>Date of birth required</mat-error>
+            </mat-form-field> -->
+  
+            <mat-form-field class="example-full-width">
+              <mat-label>Date of birth</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="dateOfBirth" [errorStateMatcher]="matcher"> 
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              <mat-error>Date of birth required</mat-error>
+              <mat-hint>Tap calendar icon to choose dates</mat-hint>
+            </mat-form-field>
+  
+      </div>
+      <!-- br -->
+      <div class="col-6-grid">
+          <mat-form-field class="example-full-width" 
+          
+          >
+              <mat-label>Password</mat-label>
+              <input matInput placeholder="**" type="password" minlength="6" 
+              [errorStateMatcher]="matcher"
+              formControlName="password">
+              <mat-error>A valid password of at least 6 characters required</mat-error>
+            </mat-form-field>
+      </div>
+      </div>
+     
+    <!-- <br/> -->
+    <div class="flex-container">
+      <button mat-flat-button color="primary" 
+      type="submit"
+      class="register-btn">
+      <div class="spinner" *ngIf="loadingText.length < 1">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+      </div>
+      <span *ngIf="loadingText.length > 1">{{loadingText}}</span>
+    </button>    
+  </div>
+  
+  <div class="outer-wrap">
+    <div class="or-text-wrapper">
+        <div class="line-let"></div>
+        <div class="actual-text"> OR </div>
+        <div class="line-let"></div>
+            </div>
+   </div>
+
+   <p class="flex-container">
+    <button mat-stroked-button color="primary" 
+    type="submit"
+    class="full-btn-stroked">
+    <div class="spinner" *ngIf="businessLogIn.length < 1">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+    <span *ngIf="businessLogIn.length > 1">{{businessLogIn}}</span>
+  </button>
+</p>
+  
+
+<br/>
+  <div class="flex-container-center">
+    <br/>
+    <p>
+        <a routerLink="/app/login"
+class="forgot-password"
+><u>Already have an <b>individual account?</b> Login</u></a>
+    </p>
+</div>
+  <br/>
+  
+    </form>
+    
+     
+</mat-card>
+
+<footer class="footer">
+    <a class="resources-links">&copy; {{year}} — Filetax </a>
+    <a class="resources-links" routerLink="/app/login"><small><u>Home</u></small></a>
+    <a class="resources-links"> <small><u>Help</u></small></a>
+    <a class="resources-links"> <u><small>Terms and Conditions</small></u></a>
+    <a class="resources-links"> <u><small>Blog</small></u></a>
+  </footer>

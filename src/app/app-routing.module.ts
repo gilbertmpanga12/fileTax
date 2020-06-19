@@ -6,6 +6,8 @@ import { GuardGuard } from './services/guard.guard';
 import { SignInComponent } from './signIn/sign-in.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './authentication-wrapper/login.component';
+import { CreateBusinessAccountComponent } from './create-business-account/create-business-account.component';
+import { LoginBusinessAccountComponent } from './login-business-account/login-business-account.component';
 
 
 const routes: Routes = [
@@ -32,7 +34,9 @@ children: [
 children: [
   {path: 'login',component: SignInComponent},
   {path: 'register',component: RegisterComponent},
-  {path: 'reset-password',component: ResetPasswordComponent}
+  {path: 'reset-password',component: ResetPasswordComponent},
+  {path: 'register-company-account',component: CreateBusinessAccountComponent},
+  {path: 'login-company-account',component: LoginBusinessAccountComponent}
   ],
 
 },
