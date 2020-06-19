@@ -22,9 +22,9 @@ export class CreateBusinessAccountComponent implements OnInit {
   registerGroup: FormGroup;
   matcher = new MyErrorStateMatcher();
   progressLoading: boolean = false;
-  defatultText: string = 'Register Individual Account'
-  loadingText: string = 'Register Individual Account';
-  businessLogIn: string = 'Log In Business Account';
+  defatultText: string = 'Register Company Account'
+  loadingText: string = 'Register Company Account';
+  businessLogIn: string = 'Log In Individual Account';
   constructor(private _fb: FormBuilder, private service: MainserviceService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {

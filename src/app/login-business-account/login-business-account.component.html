@@ -64,11 +64,11 @@
     <div class="flex-container">
         <br/>
         <button mat-stroked-button 
-        routerLink="/app/register"
+        routerLink="/app/register-company-account"
         color="primary" 
         type="submit"
         class="full-btn">
-        Create Individual Account
+        Create Company Account
       </button>
     </div>
 <br/>
@@ -84,14 +84,9 @@
 
    <p class="flex-container">
     <button mat-stroked-button color="primary" 
-    type="submit"
+    routerLink="/app/register"
     class="full-btn-stroked">
-    <div class="spinner" *ngIf="businessText.length < 1">
-      <div class="bounce1"></div>
-      <div class="bounce2"></div>
-      <div class="bounce3"></div>
-    </div>
-    <span *ngIf="businessText.length > 1">{{businessText}}</span>
+    Create Individual Account
   </button>
 </p>
 

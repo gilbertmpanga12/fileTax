@@ -24,9 +24,9 @@ export class LoginBusinessAccountComponent implements OnInit {
   date: Date = new Date();
   year: number = this.date.getFullYear();
   progressLoading: boolean = false;
-  defatultText: string = 'Log In';
-  loadingText: string = 'Log In';
-  businessText: string = 'Create Individual Account';
+  defatultText: string = 'Log In Company Account';
+  loadingText: string = 'Log In Company Account';
+  businessText: string = 'Create Company Account';
   constructor(private _fb: FormBuilder, private router: Router, 
     private service: MainserviceService, private snackBar: MatSnackBar) { }
   
