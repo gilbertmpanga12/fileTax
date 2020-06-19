@@ -4,6 +4,7 @@ import { User } from 'firebase/app';
 import { Router } from '@angular/router';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { IndividualUser, OfflineTaxFiling, BasicProfile, Filings } from '../models/datamodels';
+import { merge } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -54,15 +55,16 @@ export class MainserviceService {
     firstName: string, 
     lastName: string, address: string,
     dateOfBirth: string){
-    // let status: boolean = false;
     let creationTime: number = Date.now();
     let user = await this.auth.currentUser;
+    let notificationCount = 0, profileSetup = 0, tinId = "Not set yet", 
+    tinPassword = "Not set yet", uid = user.uid, photoURL = this.profilePhoto;
 
     await this.firestore.collection('users').doc(user.uid).set({
-      email: email, lastName: lastName, dateOfBirth: dateOfBirth,firstName: firstName,
-      address: address, creationTime: creationTime,
-      uid: user.uid,profileSetup: 0,tinId: "Not set yet",tinPassword: "Not set yet",
-      photoURL: this.profilePhoto,notificationCount: 0
+      email, lastName, dateOfBirth, firstName,
+      address, creationTime,
+      uid,tinId,tinPassword,
+      photoURL,notificationCount, profileSetup
     },{merge: true});
 
     await this.firestore.collection('dashbordCounts').doc(user.uid).set({
@@ -70,7 +72,38 @@ export class MainserviceService {
       latestTaxFiled: 0,
       lastestTaxFiledName: ''
     },{merge: true});
-    
+
+    this.sessionRegister(user.uid, false);
+  }
+
+
+ async storeCompanyProfile(email: string,
+  address: string, companyFoundationDate: string, 
+  registrationNumber: string, companyName: string, password: string
+  ){
+    let user = await this.auth.currentUser, uid = user.uid, 
+    notificationCount = 0, profileSetup = 0, tinId = "Not set yet",photoURL = this.profilePhoto, 
+    tinPassword = "Not set yet";
+     
+    await this.auth.createUserWithEmailAndPassword(email,password);
+    await this.firestore.doc('/company_users' + uid).set({
+      email, address, companyFoundationDate, registrationNumber, companyName,
+      notificationCount, profileSetup, tinId, tinPassword, photoURL
+    }, {merge: true});
+
+    await this.firestore.collection('dashbordCounts').doc(user.uid).set({
+      totalTaxesFiled: 0,
+      latestTaxFiled: 0,
+      lastestTaxFiledName: ''
+    },{merge: true});
+
+    this.sessionRegister(user.uid, true);
+
+ }
+
+
+  async sessionRegister(uid: string, isCompany: boolean){
+        await this.firestore.doc('/sessionRegister' + uid).set({isCompany}, {merge: true});
   }
 
   async updateUserProfile(fullName: string, profilePhoto: string){

@@ -4,6 +4,16 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { MainserviceService } from '../services/mainservice.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+interface CompanyUser{
+  email: string;
+  password: string;
+  companyName: string;
+  address: string;
+  companyFoundationDate: string;
+  registrationNumber: string;
+}
+
+
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
@@ -17,6 +27,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./create-business-account.component.scss']
 })
 export class CreateBusinessAccountComponent implements OnInit {
+
   date: Date = new Date();
   year: number = this.date.getFullYear();
   registerGroup: FormGroup;
@@ -31,21 +42,30 @@ export class CreateBusinessAccountComponent implements OnInit {
     this.registerGroup = this._fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
+      companyName: ['', Validators.required],
       address: ['', Validators.required],
-      dateOfBirth: ['', Validators.required],
-      
+      companyFoundationDate: ['', Validators.required],
+      registrationNumber: ['', Validators.required]
     });
   }
+
+  /*
+  email: ['', Validators.required],
+      password: ['', Validators.required],
+      companyName: ['', Validators.required],
+      address: ['', Validators.required],
+      companyFoundationDate: ['', Validators.required],
+      registrationNumber: ['', Validators.required]
+  */
 
   register(): void {
     this.progressLoading = true;
     this.loadingText = '';
-    let payload = this.registerGroup.getRawValue();
+    let payload: CompanyUser = this.registerGroup.getRawValue();
     if(!this.registerGroup.invalid){
-      this.service.register(payload['email'],payload['firstName'],payload['lastName'],
-      payload['dateOfBirth'], payload['address'],payload['password']).then((resp) => {
+      this.service.storeCompanyProfile(payload.email,payload.password,payload.companyName,
+        payload.address,payload.companyFoundationDate,payload.registrationNumber
+        ).then((resp) => {
         // this.progressLoading = false;
         // this.loadingText = this.defatultText;
       }).catch(err => {

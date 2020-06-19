@@ -18,11 +18,11 @@
           <mat-form-field class="example-full-width" 
           
           >
-              <mat-label>First name</mat-label>
+              <mat-label>Company name</mat-label>
               <input matInput placeholder="John" 
               [errorStateMatcher]="matcher"
-              formControlName="firstName">
-              <mat-error>First name required</mat-error>
+              formControlName="companyName">
+              <mat-error>Company name required</mat-error>
             </mat-form-field>
       </div>
       <!-- br -->
@@ -30,11 +30,11 @@
           <mat-form-field class="example-full-width" 
           
           >
-              <mat-label>Last name</mat-label>
+              <mat-label>Registration number</mat-label>
               <input matInput placeholder="Doe" 
               [errorStateMatcher]="matcher"
-              formControlName="lastName">
-              <mat-error>Provide your last name</mat-error>
+              formControlName="registrationNumber">
+              <mat-error>Provide your registration number</mat-error>
             </mat-form-field>
       </div>
       <!-- br -->
@@ -76,11 +76,11 @@
             </mat-form-field> -->
   
             <mat-form-field class="example-full-width">
-              <mat-label>Date of birth</mat-label>
-              <input matInput [matDatepicker]="picker" formControlName="dateOfBirth" [errorStateMatcher]="matcher"> 
+              <mat-label>Company founded on</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="companyFoundationDate" [errorStateMatcher]="matcher"> 
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
-              <mat-error>Date of birth required</mat-error>
+              <mat-error>When was the company created?</mat-error>
               <mat-hint>Tap calendar icon to choose dates</mat-hint>
             </mat-form-field>
   
