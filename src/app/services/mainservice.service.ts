@@ -73,7 +73,7 @@ export class MainserviceService {
       lastestTaxFiledName: ''
     },{merge: true});
 
-    this.sessionRegister(user.uid, false);
+    this.sessionRegister(false);
   }
 
 
@@ -97,13 +97,13 @@ export class MainserviceService {
       lastestTaxFiledName: ''
     },{merge: true});
 
-    this.sessionRegister(user.uid, true);
+    this.sessionRegister(true);
 
  }
 
 
-  async sessionRegister(uid: string, isCompany: boolean){
-        await this.firestore.doc('/sessionRegister' + uid).set({isCompany}, {merge: true});
+  async sessionRegister(isCompany: boolean){
+    await this.firestore.doc('/sessionRegister' + this.user.uid).set({isCompany}, {merge: true});
   }
 
   async updateUserProfile(fullName: string, profilePhoto: string){

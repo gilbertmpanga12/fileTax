@@ -42,7 +42,7 @@ export class LoginBusinessAccountComponent implements OnInit {
     this.loadingText = '';
     if(!this.loginGroup.invalid){
       this.service.login(email,password).then((resp) => {
-        this.service.sessionRegister(this.service.user.uid,true);
+        this.service.sessionRegister(true);
         this.progressLoading = false;
      }).catch(err => {
         this.progressLoading = false;
