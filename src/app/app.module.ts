@@ -24,7 +24,7 @@ import { LoginComponent } from './authentication-wrapper/login.component';
 import { SignInComponent } from './signIn/sign-in.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RegisterComponent } from './register/register.component';
+import { RegisterComponent } from './register-individual-account/register.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
