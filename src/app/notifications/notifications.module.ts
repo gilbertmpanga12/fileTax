@@ -9,10 +9,12 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import { UserNotificationsComponent } from './user-notifications/user-notifications.component';
+import { CompanyNotificationsComponent } from './company-notifications/company-notifications.component';
 
 
 @NgModule({
-  declarations: [NotificationsComponent],
+  declarations: [NotificationsComponent, UserNotificationsComponent, CompanyNotificationsComponent],
   imports: [
     CommonModule,
     NotificationsRoutingModule,
