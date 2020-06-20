@@ -84,3 +84,7 @@ export interface Filings {
 //    serviceName: string;
    supportingDocuments:  BasicProfileDocuments[]
 }
+
+export interface AccountType {
+    isCompany: boolean;
+  }

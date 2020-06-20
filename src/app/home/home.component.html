@@ -1,5 +1,5 @@
 <app-companydasboard 
-*ngIf="(accountType$ | async)?.isCompany == true;
+*ngIf="(service.accountType$ | async)?.isCompany == true;
 else user"></app-companydasboard>
 
 <app-userdashboard #user></app-userdashboard>

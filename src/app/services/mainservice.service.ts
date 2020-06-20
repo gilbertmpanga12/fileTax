@@ -3,9 +3,10 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from 'firebase/app';
 import { Router } from '@angular/router';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { IndividualUser, OfflineTaxFiling, BasicProfile, Filings } from '../models/datamodels';
+import { IndividualUser, OfflineTaxFiling, BasicProfile, Filings, AccountType } from '../models/datamodels';
 import { merge } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,9 @@ export class MainserviceService {
   userVerified: boolean = false;
   profilePhoto: string = 'https://firebasestorage.googleapis.com/v0/b/tax-as-a-service.appspot.com/o/images%20(1).png?alt=media&token=3a84172a-e351-4890-bdf4-70445c2ad2c1';
   userId: string;
+  accountType: AngularFirestoreDocument<AccountType>;
+  accountType$: Observable<AccountType>;
+
   constructor(private auth: AngularFireAuth, private router: Router, private firestore: AngularFirestore,
     private snackBar: MatSnackBar
     ) {
@@ -24,6 +28,8 @@ export class MainserviceService {
         this.userVerified = user.emailVerified;
         this.userId = user.uid;
         localStorage.setItem('user', JSON.stringify(this.user));
+        this.accountType = this.firestore.doc<AccountType>('sessionRegister/' + this.user.uid);
+        this.accountType$ = this.accountType.valueChanges();
       } else {
         localStorage.setItem('user', null);
       }

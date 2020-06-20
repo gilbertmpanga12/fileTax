@@ -9,9 +9,11 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { FileTaxesUserComponent } from './file-taxes-user/file-taxes-user.component';
+import { FileTaxesBusinessComponent } from './file-taxes-business/file-taxes-business.component';
 
 @NgModule({
-  declarations: [FileMyTaxesComponent],
+  declarations: [FileMyTaxesComponent, FileTaxesUserComponent, FileTaxesBusinessComponent],
   imports: [
     CommonModule,
     FileMyTaxesRoutingModule,
