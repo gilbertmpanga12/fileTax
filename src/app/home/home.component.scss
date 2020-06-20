@@ -1,0 +1,32 @@
+.metrics-cards {
+    width: 400px;
+    height: 180px;
+    h6{
+        // font-variant-caps: all-petite-caps !important;
+        font-size: 15px;
+    }
+    h1{
+        font-size: 3rem !important;
+    }
+   
+}
+.cta-action{
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    cursor: pointer;
+    border-top: 1px solid #eeeeee;
+    width: inherit;
+    outline: none;
+    h2{
+        font-variant-caps: all-petite-caps !important;
+        color: #5850eb;
+    }
+}
+
+.loading{
+    font-variant-caps: all-petite-caps;
+    color: #5850eb;
+    text-align: center;
+    font-size: 19px;
+}

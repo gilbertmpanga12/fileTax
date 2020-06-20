@@ -22,6 +22,7 @@ export class MainserviceService {
   constructor(private auth: AngularFireAuth, private router: Router, private firestore: AngularFirestore,
     private snackBar: MatSnackBar
     ) {
+    
     this.auth.authState.subscribe(user => {
       if (user){
         this.user = user;

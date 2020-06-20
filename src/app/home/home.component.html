@@ -1,5 +1,6 @@
 <app-companydasboard 
-*ngIf="(service.accountType$ | async)?.isCompany == true;
-else user"></app-companydasboard>
+*ngIf="(service.accountType$ | async)?.isCompany == true;else user"></app-companydasboard>
 
-<app-userdashboard #user></app-userdashboard>
+<ng-template #user>
+    <app-userdashboard #user></app-userdashboard>
+</ng-template>

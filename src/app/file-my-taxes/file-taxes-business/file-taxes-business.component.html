@@ -1,1 +1,95 @@
-<p>file-taxes-business works!</p>
+<div class="flex-container">
+    <div class="col-6-grid">
+        <h1 class="overview-title mat-title">File Taxes</h1>
+        <!-- <h3 class="header-h4 sub-heading">Select services to file</h3> -->
+    </div>
+</div>
+
+
+<div class="flex-container">
+    <mat-card class="file-tax-card-main mat-elevation-z5">
+        <div class="flex-container-row reduce-height">
+            <h2>Basic Info <mat-icon class="con-info">info</mat-icon></h2>
+        </div>
+       
+        <div class="flex-container-row">
+            <div class="col-grid-50">
+                <h4 class="header-h4">Complete/setup your profile to get started</h4>
+            </div>
+            <div class="align-last">
+                <button 
+                routerLink="/basic-info"
+                mat-stroked-button color="primary"
+                class="outline-btn-width-adjust"
+                >Edit/Review</button>
+            </div>
+        </div>
+        <!-- <br/> -->
+        <div class="flex-container-row" *ngIf="basicInfo$ | async; let basicInfos;">
+            <h4 class="header-status-h4-tax-file" [ngClass]="basicInfos.profileSetup < 100 ? 'header-status-h4-tax-file' : 'header-status-h4-tax-file-sucess'">
+                <span>{{basicInfos.profileSetup < 100 ? 
+                    'profile incomplete ' :'profile completed'
+                
+                }}</span>
+            </h4>
+        </div>
+
+        <!-- <ng-template #statusIncomplete>
+<div class="flex-container-row">
+    <h4 class="header-status-h4"><b>Your profile is incomple</b>finish up to complete any filing</h4>
+</div>
+        </ng-template> -->
+
+    </mat-card>
+</div>
+
+<!-- More features -->
+<br/>
+<br/>
+<br/>
+<div class="flex-container">
+    <div class="col-6-grid">
+        <h1 class="overview-title mat-title">Business Income Tax returns <small><i>scroll for more*</i></small></h1>
+        <!-- <h3 class="header-h4 sub-heading">Select services to file</h3> -->
+    </div>
+</div>
+
+<ng-container *ngIf="serviceCollection$ | async; let services; else loading">
+    <div class="flex-container">
+        <mat-card class="file-tax-card mat-elevation-z3" id="wave" *ngFor="let serviceTax of services">
+            <div class="flex-container-row reduce-height">
+                <h2>{{serviceTax.title}}</h2>
+            </div>
+            <div class="flex-container-row">
+                <div class="col-grid-33">
+                    <h4 class="custom-h4">{{serviceTax.description}}</h4>
+                </div>
+                <div class="align-last">
+                    <button mat-flat-button 
+                    [routerLink]="['/services',serviceTax.url]"
+                    color="primary"
+                    class="filled-btn-width-adjust"
+                    >Start</button>
+                </div>
+            </div>
+            <br/>
+        </mat-card>
+    </div>
+  
+</ng-container>
+
+<ng-template #loading>
+    <div class="flex-container-column">
+        <div class="height-block"></div>
+          <div class="sk-chase">
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+            </div>
+      </div>
+</ng-template>
+
+
