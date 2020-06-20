@@ -15,9 +15,11 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { UserOfflineFilingComponent } from './user-offline-filing/user-offline-filing.component';
+import { CompanyOfflineFilingComponent } from './company-offline-filing/company-offline-filing.component';
 
 @NgModule({
-  declarations: [OfflineComponent],
+  declarations: [OfflineComponent, UserOfflineFilingComponent, CompanyOfflineFilingComponent],
   imports: [
     CommonModule,
     OfflineRoutingModule,

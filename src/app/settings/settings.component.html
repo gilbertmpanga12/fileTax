@@ -1,78 +1,8 @@
-<div class="flex-container">
-    <div class="col-6-grid">
-        <h1 class="overview-title mat-title">Settings & Profile</h1>
-        <!-- <h3 class="header-h4 sub-heading">Select services to file</h3> -->
-    </div>
-</div>
+<app-company-settings
+*ngIf="(service.accountType$ | async)?.isCompany == true;
+else user"
+></app-company-settings>
 
-<div class="flex-container">
-    <mat-card class="settings-card-main mat-elevation-z5">
-        <mat-progress-bar mode="determinate" *ngIf="percentage | async as pct; " 
-        class="progress-indicator-postion"
-        [value]="pct">
-    </mat-progress-bar>
-
-        <div class="c5e-project-settings-item">
-           <div class="image-wrap">
-            <!-- <div mat-card-avatar class="example-header-image"></div> -->
-            <img  mat-card-avatar [src]="service.user.photoURL" 
-        class="example-header-image">
-           </div>
-           <p>
-            <input class="file-input" type="file" 
-            id="form-uploader" #ref
-            (change)="startUpload($event.target.files)">
-           </p>
-           <button mat-flat-button 
-           class="image-edit-btn"
-           (click)="ref.click()"
-           color="primary">
-           
-           Edit</button>
-        </div>
-        <!-- br -->
-        <div class="c5e-project-settings-item">
-            <label>Edit your names
-                 <!-- <mat-icon class="help-icon">help</mat-icon> -->
-            </label>
-<span class="spanner">{{service.user.displayName}}</span>
-<mat-icon class="c5e-settings-icon-edit-mode-off">mode_edit</mat-icon>
-        </div>
-        <!-- br -->
-        <div class="c5e-project-settings-item">
-            <label>Change password
-                 <mat-icon 
-                 matTooltip="Want to reset your password? Tap on edit icon"
-                 class="help-icon">visibility</mat-icon>
-            </label>
-<span class="spanner">*******</span>
-<mat-icon 
-(click)="openDialog('changeTinPassword')"
-class="c5e-settings-icon-edit-mode-off">mode_edit</mat-icon>
-        </div>
-    <!-- br -->
-    <div class="c5e-project-settings-item">
-        <label>Change TIN id
-             <mat-icon 
-             matTooltip="Change your TIN ID here"
-             class="help-icon">help</mat-icon>
-        </label>
-<span class="spanner">{{(userProfile$ | async)?.tinId}}</span>
-<mat-icon 
-(click)="openDialog('changeTinId')"
-class="c5e-settings-icon-edit-mode-off">mode_edit</mat-icon>
-    </div>
-    <!-- br -->
-    <div class="c5e-project-settings-item">
-        <label>TIN password
-            <mat-icon  (click)="togglePassword()"
-            matTooltip="Tap this icon to view TIN password"
-            class="help-icon-security">visibility</mat-icon>
-        </label>
-<span class="spanner">{{showPassword ? (userProfile$ | async)?.tinPassword : '*******'}}</span>
-<mat-icon 
-(click)="openDialog('changeTinPassword')"
-class="c5e-settings-icon-edit-mode-off">mode_edit</mat-icon>
-    </div>
-    </mat-card>
-</div>
+<ng-template #user>
+    <app-user-settings></app-user-settings>
+</ng-template>
