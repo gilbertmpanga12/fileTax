@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { MainserviceService } from '../services/mainservice.service';
+import { IndividualUser } from '../models/datamodels';
 import { Observable } from 'rxjs';
-import { DashboardCount } from '../models/datamodels';
 
+interface AccountType {
+  isCompany: boolean;
+}
 
 @Component({
   selector: 'app-home',
@@ -11,17 +14,13 @@ import { DashboardCount } from '../models/datamodels';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  dashboardCountDocument: AngularFirestoreDocument<DashboardCount>;
-  items$: Observable<DashboardCount>;
-  constructor(private firestore: AngularFirestore, private service: MainserviceService) { 
-   this.dashboardCountDocument = this.firestore.doc('dashbordCounts/'+this.service.user.uid);
-    this.items$ = this.dashboardCountDocument.valueChanges();
-  }
+  accountType: AngularFirestoreDocument<AccountType>;
+  accountType$: Observable<AccountType>;
+constructor(private firestore: AngularFirestore, private service: MainserviceService){
+  this.accountType = this.firestore.doc<AccountType>('sessionRegister/' + this.service.user.uid);
+  this.accountType$ = this.accountType.valueChanges();
+}
 
-  ngOnInit(): void {
-    
-  }
-
-
+ngOnInit(){}
 
 }

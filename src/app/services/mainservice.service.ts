@@ -32,22 +32,11 @@ export class MainserviceService {
 
   async login(email: string, password: string) {
     let result = await this.auth.signInWithEmailAndPassword(email,password);
+    this.router.navigate(['/']);
   }
 
    
-   shouldNavigate(): void{
-    this.firestore.collection('sessionRegister').doc(this.user.uid).get().subscribe(user => {
-      if(user.exists){
-        this.logout();
-        this.snackbar('This email is already being used by Individual Account try another one');
-        // window.location.reload();
-        return;
-      }
-
-      this.router.navigate(['/']);
-      
-    });
-   }
+   
    
    snackbar(message: string): void{
     this.snackBar.open(message,'OK',{duration: 5000,verticalPosition:'top',horizontalPosition:'right'});
