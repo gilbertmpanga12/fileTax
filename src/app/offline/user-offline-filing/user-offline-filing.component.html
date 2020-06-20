@@ -1,1 +1,76 @@
-<p>user-offline-filing works!</p>
+<div class="flex-container">
+    <div class="col-6-grid">
+        <h1 class="overview-title mat-title">File taxes offsite</h1>
+        <!-- <h3 class="header-h4 sub-heading">Select services to file</h3> -->
+    </div>
+</div>
+
+<div class="flex-container">
+    <mat-card class="offline-card-main mat-elevation-z5">
+       <form #offlineForm="ngForm" (ngSubmit)="submitOfflineRequest()">
+        <div class="flex-container-row reduce-height">
+            <h2>Schedule & Select Services</h2>
+            
+        </div>
+   
+        <div class="flex-container-row">
+            <div class="col-6-grid">
+                <h4 class="custom-h4">Need privacy? Great, choose services you want to file, we send a team to do it for you</h4>
+            </div>
+            <div class="align-last">
+                <button mat-flat-button 
+                color="primary"
+                class="filled-btn-width-adjust image-edit-btn"
+                >
+                <div class="spinner" *ngIf="isLoading">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                  </div>
+                  <span *ngIf="!isLoading">Submit</span>
+            </button>
+            </div>
+            
+        </div>
+        <div class="flex-container" *ngIf="showError">
+            <p class="danger-txt">Please choose a date for scheduling and a service to file*</p>
+        </div>
+        <br/>
+
+        <div class="flex-container">
+            <div class="c5e-project-settings-item">
+                <label>Schedule date
+                     <!-- <mat-icon class="help-icon">help</mat-icon> -->
+                </label>
+    <!-- <span class="spanner">{{dateScheduled}}</span> -->
+    <!-- <mat-icon class="c5e-settings-icon-edit-mode-off">edit_mode</mat-icon> -->
+    <mat-form-field class="full-width">
+        <mat-label>Date of birth</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="dateScheduled" name="dateScheduled" required> 
+        <mat-datepicker-toggle matSuffix [for]="picker">
+            <mat-icon matDatepickerToggleIcon class="date-picker-icon">event</mat-icon>
+        </mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error>Date of birth required</mat-error>
+        <mat-hint>Tap calendar icon to choose dates</mat-hint>
+      </mat-form-field>
+            </div>
+    
+        </div>
+      
+        <mat-divider></mat-divider>
+        <br/>
+        <div class="flex-container">
+            <ul class="li-style">
+              <li *ngFor="let service of taxServicesCollection$ | async">
+                  <mat-checkbox
+                  [value]="service.title"
+                  (change)="addServices($event)"
+                  >{{service.title}}</mat-checkbox></li>
+            
+            </ul>
+           </div>
+       </form>
+    </mat-card>
+</div>
+
