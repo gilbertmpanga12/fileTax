@@ -12,9 +12,11 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UserTaxformsComponent } from './user-taxforms/user-taxforms.component';
+import { CompanyTaxformsComponent } from './company-taxforms/company-taxforms.component';
 
 @NgModule({
-  declarations: [ServicesComponent],
+  declarations: [ServicesComponent, UserTaxformsComponent, CompanyTaxformsComponent],
   imports: [
     CommonModule,
     ServicesRoutingModule,
