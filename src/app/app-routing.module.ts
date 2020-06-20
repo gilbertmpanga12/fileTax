@@ -35,8 +35,7 @@ children: [
   {path: 'login',component: SignInComponent},
   {path: 'register',component: RegisterComponent},
   {path: 'reset-password',component: ResetPasswordComponent},
-  {path: 'register-company-account',component: CreateBusinessAccountComponent},
-  {path: 'login-company-account',component: LoginBusinessAccountComponent}
+  {path: 'register-company-account',component: CreateBusinessAccountComponent}
   ],
 
 },

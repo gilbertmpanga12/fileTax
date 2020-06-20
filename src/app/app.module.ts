@@ -31,7 +31,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { CreateBusinessAccountComponent } from './create-business-account/create-business-account.component';
-import { LoginBusinessAccountComponent } from './login-business-account/login-business-account.component';
+
 
 @NgModule({
   declarations: [
@@ -42,8 +42,7 @@ import { LoginBusinessAccountComponent } from './login-business-account/login-bu
     LoginComponent,
     SignInComponent,
     RegisterComponent,
-    CreateBusinessAccountComponent,
-    LoginBusinessAccountComponent
+    CreateBusinessAccountComponent
   ],
   imports: [
     BrowserModule,
