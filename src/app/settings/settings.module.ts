@@ -14,9 +14,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { UserSettingsComponent } from './user-settings/user-settings.component';
+import { CompanySettingsComponent } from './company-settings/company-settings.component';
 
 @NgModule({
-  declarations: [SettingsComponent, ResetpasswordmodelComponent],
+  declarations: [SettingsComponent, ResetpasswordmodelComponent, UserSettingsComponent, CompanySettingsComponent],
   imports: [
     CommonModule,
     SettingsRoutingModule,
