@@ -7,7 +7,6 @@ import { SignInComponent } from './signIn/sign-in.component';
 import { RegisterComponent } from './register-individual-account/register.component';
 import { LoginComponent } from './authentication-wrapper/login.component';
 import { CreateBusinessAccountComponent } from './create-business-account/create-business-account.component';
-import { LoginBusinessAccountComponent } from './login-business-account/login-business-account.component';
 
 
 const routes: Routes = [

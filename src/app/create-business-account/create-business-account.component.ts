@@ -35,7 +35,7 @@ export class CreateBusinessAccountComponent implements OnInit {
   progressLoading: boolean = false;
   defatultText: string = 'Register Company Account'
   loadingText: string = 'Register Company Account';
-  businessLogIn: string = 'Log In Individual Account';
+  businessLogIn: string = 'Log In Company Account';
   constructor(private _fb: FormBuilder, private service: MainserviceService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
