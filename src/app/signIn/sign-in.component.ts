@@ -3,8 +3,8 @@ import { FormGroup, FormBuilder, Validators, FormGroupDirective, NgForm, FormCon
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { MainserviceService } from '../services/mainservice.service';
-import { MatSnackBarRef, MatSnackBar } from '@angular/material/snack-bar';
-import { AngularFireAuth } from '@angular/fire/auth/auth';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -27,8 +27,7 @@ export class SignInComponent implements OnInit {
   loadingText: string = 'Log In';
   businessText: string = 'Create Business Account';
   constructor(private _fb: FormBuilder, private router: Router, 
-    private service: MainserviceService, private snackBar: MatSnackBar,
-    private firestore: AngularFireAuth
+    private service: MainserviceService, private snackBar: MatSnackBar
     ) { }
   
   ngOnInit(): void {
@@ -44,7 +43,6 @@ export class SignInComponent implements OnInit {
     this.loadingText = '';
     if(!this.loginGroup.invalid){
       this.service.login(email,password).then((resp) => {
-        this.service.sessionRegister(false);
         this.progressLoading = false;
      }).catch(err => {
         this.progressLoading = false;

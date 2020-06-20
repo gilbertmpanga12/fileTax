@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { IndividualUser, OfflineTaxFiling, BasicProfile, Filings } from '../models/datamodels';
 import { merge } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,9 @@ export class MainserviceService {
   userVerified: boolean = false;
   profilePhoto: string = 'https://firebasestorage.googleapis.com/v0/b/tax-as-a-service.appspot.com/o/images%20(1).png?alt=media&token=3a84172a-e351-4890-bdf4-70445c2ad2c1';
   userId: string;
-  constructor(private auth: AngularFireAuth, private router: Router, private firestore: AngularFirestore) {
+  constructor(private auth: AngularFireAuth, private router: Router, private firestore: AngularFirestore,
+    private snackBar: MatSnackBar
+    ) {
     this.auth.authState.subscribe(user => {
       if (user){
         this.user = user;
@@ -27,10 +30,28 @@ export class MainserviceService {
     })
    }
 
-   async login(email: string, password: string) {
+  async login(email: string, password: string) {
     let result = await this.auth.signInWithEmailAndPassword(email,password);
-    this.router.navigate(['/']);
+  }
+
+   
+   shouldNavigate(): void{
+    this.firestore.collection('sessionRegister').doc(this.user.uid).get().subscribe(user => {
+      if(user.exists){
+        this.logout();
+        this.snackbar('This email is already being used by Individual Account try another one');
+        // window.location.reload();
+        return;
+      }
+
+      this.router.navigate(['/']);
+      
+    });
    }
+   
+   snackbar(message: string): void{
+    this.snackBar.open(message,'OK',{duration: 5000,verticalPosition:'top',horizontalPosition:'right'});
+  }
 
    async register(email: string, 
     firstName: string, 
@@ -96,14 +117,13 @@ export class MainserviceService {
       latestTaxFiled: 0,
       lastestTaxFiledName: ''
     },{merge: true});
-
+    
     this.sessionRegister(true);
-
  }
 
 
   async sessionRegister(isCompany: boolean){
-    await this.firestore.doc('/sessionRegister' + this.user.uid).set({isCompany}, {merge: true});
+    await this.firestore.doc('sessionRegister/' + this.user.uid).set({isCompany}, {merge: true});
   }
 
   async updateUserProfile(fullName: string, profilePhoto: string){
