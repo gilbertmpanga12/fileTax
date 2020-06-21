@@ -16,8 +16,8 @@
         <br/>
 
        
-<!--linear -->
-        <mat-horizontal-stepper  #stepper  >
+<!---->
+        <mat-horizontal-stepper  #stepper linear>
             <mat-step [stepControl]="personalInfo">
                 <ng-template matStepLabel>Primay Contact Information</ng-template>
                 <form [formGroup]="personalInfo" class="flex-container">
@@ -104,9 +104,9 @@
                               </mat-form-field>
                               <mat-form-field appearance="standard" class="form-inline" 
                               *ngIf="moreInfo.get('tin').value == 'Yes'">
-                                <mat-label>Your other names</mat-label>
-                                <input matInput formControlName="tinNumber">
-                                <mat-error>Your other name required if any*</mat-error>
+                                <mat-label>Entitity TIN number</mat-label>
+                                <input matInput formControlName="tinNumber" required>
+                                <mat-error>TIN required</mat-error>
                                 </mat-form-field>
                               
                         </p>

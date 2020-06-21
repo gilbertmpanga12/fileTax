@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { MainserviceService } from '../../services/mainservice.service';
-import { BasicProfile , BasicProfileDocuments} from '../../models/datamodels';
+import { BasicProfile , BasicProfileDocuments, CompanyProfile} from '../../models/datamodels';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatHorizontalStepper } from '@angular/material/stepper';
 import { AngularFireUploadTask } from '@angular/fire/storage/task';
@@ -76,15 +76,6 @@ export class CompanyBasicInfoComponent implements OnInit {
 
 
     this.documentsUpload = this._formBuilder.group({
-      // nationalId: ['', Validators.required],
-      // nssfCard: ['', Validators.required],
-      // passport: ['', Validators.required],
-      // employeeId: ['', Validators.required],
-      // votersCard: ['', Validators.required],
-      // workPermit: ['', Validators.required],
-      // villageId: ['', Validators.required],
-      // diplomaticForeignAffairsId: ['', Validators.required],
-      // refugeeId: ['', Validators.required]
       associatedEntityName: [''],
       associatedEntityTin: [''],
       companyForms: ['', Validators.required],
@@ -144,36 +135,24 @@ export class CompanyBasicInfoComponent implements OnInit {
       }
       setTimeout(() =>{
         let personalInfo = this.personalInfo.getRawValue(),
-        moreInfo = this.moreInfo.getRawValue(), financialsUpload = this.financialsUpload.getRawValue(),
-        residenceInfo = this.residenceInfo.getRawValue();
-        let payload: BasicProfile = {
-          motherMaidenName: personalInfo['motherMaidenName'],
-          maritalStatus: personalInfo['maritalStatus'],
-          sex: personalInfo['sex'],
+        moreInfo = this.moreInfo.getRawValue(), documentsUpload = this.documentsUpload.getRawValue();
+        let payload: CompanyProfile = {
+          address: personalInfo['address'],
+          fullName: personalInfo['fullName'],
+          email: personalInfo['email'],
           telephone: personalInfo['telephone'],
-          citizenship: personalInfo['citizenship'],
-          aliasNameKnown: moreInfo['aliasNameKnown'],
-          aliasFullName: moreInfo['aliasFullName'],
-          corporatePartnership: moreInfo['corporatePartnership'],
-          sourceOfIncome: financialsUpload['sourceOfIncome'],
-          selfEmployedTin: financialsUpload['selfEmployedTin'],
-          selfEmployedAddress: financialsUpload['selfEmployedAddress'],
-          district: residenceInfo['district'],
-          village: residenceInfo['village'],
-          parish: residenceInfo['parish'],
-          subCounty: residenceInfo['subCounty'],
-          city: residenceInfo['city'],
-          documents: this.documentFiles,
-          uid: this.service.user.uid,
-          minor: moreInfo['minor'],
-          employerName: financialsUpload['employerName'],
-          employerTelephoneNumber: financialsUpload['employerTelephoneNumber'],
-          employerTin: financialsUpload['employerTin'],
-          minorGuardianName: moreInfo['minorGuardianName'],
-          profileSetup: 100
+          refereeName: moreInfo['refereeName'],
+          refereeTelephone: moreInfo['refereeTelephone'],
+          refereeTin: moreInfo['refereeTin'],
+          tin: moreInfo['tinNumber'],
+          associatedEntityName: documentsUpload['associatedEntityName'],
+          associatedEntityTin: documentsUpload['associatedEntityTin'],
+          sourceOfIncome: personalInfo['sourceOfIncome'],
+          keyDocuments: this.documentFiles,
+          uid: this.service.user.uid
         };
     
-        this.service.createBasicFile(payload).then(res => {
+        this.service.createBasicFileCompany(payload).then(res => {
           this.isLoading = false;
           this.snackbar('Great! your profile is up and ready. Start filing taxes now');
           stepper.reset();

@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from 'firebase/app';
 import { Router } from '@angular/router';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { IndividualUser, OfflineTaxFiling, BasicProfile, Filings, AccountType } from '../models/datamodels';
+import { IndividualUser, OfflineTaxFiling, BasicProfile, Filings, AccountType, CompanyProfile } from '../models/datamodels';
 import { merge } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
@@ -180,6 +180,13 @@ export class MainserviceService {
    await this.firestore.doc('users/' + payload.uid).set({profileSetup: 100}, {merge: true});
    ;
  }
+
+ async createBasicFileCompany(payload: CompanyProfile) {
+  await this.firestore.collection('business_users').doc(payload.uid).
+  collection('basicCompanyProfile').doc(payload.uid).set(payload,{merge: true});
+  await this.firestore.doc('business_users/' + payload.uid).set({profileSetup: 100}, {merge: true});
+  ;
+}
  
  async uploadTaxFiles(payload: Filings){
    await this.firestore.collection<Filings>('filings').add(payload);

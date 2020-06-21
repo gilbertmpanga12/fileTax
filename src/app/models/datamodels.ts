@@ -88,3 +88,18 @@ export interface Filings {
 export interface AccountType {
     isCompany: boolean;
   }
+export interface CompanyProfile{
+    address: string;
+    sourceOfIncome: string;
+    fullName: string;
+    email: string;
+    telephone: string;
+    tin: string;
+    refereeName: string;
+    refereeTin: string;
+    refereeTelephone: string;
+    associatedEntityName:  string;
+    associatedEntityTin: string;
+    keyDocuments: BasicProfileDocuments[]
+    uid: string;
+}
