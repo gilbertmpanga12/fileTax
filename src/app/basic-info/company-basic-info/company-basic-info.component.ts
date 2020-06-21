@@ -20,9 +20,8 @@ interface Residence{
   styleUrls: ['./company-basic-info.component.scss']
 })
 export class CompanyBasicInfoComponent implements OnInit {
-  buttonsUpload: string[] = ['National ID', 'NSSF card', 'Passport', 'Employee ID', 
-  'Voters Card', 'Drivers Permit', 'Work Permit', 'Village ID', 'Diplomatic foreign Affairs ID', 'Refugee ID',
-'Business Certificate if any'
+  buttonsUpload: string[] = [
+    'Company Form 20','Company Form 7', 'Certificate of Registration', 'Certificate of Incorporation'
 ];
   documents: BasicProfileDocuments[] = [{name: '',path:''}];
   asyncCounter = 0;
@@ -59,51 +58,38 @@ export class CompanyBasicInfoComponent implements OnInit {
 
   ngOnInit(): void {
     this.personalInfo = this._formBuilder.group({
-      motherMaidenName: ['', Validators.required],
-      maritalStatus: ['', Validators.required],
-      sex: ['Female', Validators.required],
-      telephone: ['', Validators.required],
-      citizenship: ['', Validators.required]
+      address: ['', Validators.required],
+      sourceOfIncome: ['', Validators.required],
+      fullName: ['', Validators.required],
+      email: ['', Validators.required],
+      telephone: ['', Validators.required]
     });
 
+  
     this.moreInfo = this._formBuilder.group({
-      aliasNameKnown: ['No', Validators.required],
-      // appliedForTin: ['', Validators.required],
-      corporatePartnership: [''],
-      //tin: ['', Validators.required],// dynamic [],
-      aliasFullName: [''], // appliess to secondary name,
-      minor: ['No', Validators.required],
-      minorGuardianName: ['']// applies to minors
+      tin: ['No', Validators.required],
+      tinNumber: [''],
+      refereeName: ['', Validators.required],
+      refereeTin: ['', Validators.required],
+      refereeTelephone: ['', Validators.required]
     });
 
-    this.financialsUpload = this._formBuilder.group({
-      sourceOfIncome: ['Self employed', Validators.required],
-      employerName: [''],
-      employerTin: [''],
-      employerTelephoneNumber: [''],
-      selfEmployed: [''],
-      selfEmployedAddress: [''], // works for businessCertificate value,
-      selfEmployedTin: ['']
-    });
-
-    this.residenceInfo = this._formBuilder.group({
-      district: ['', Validators.required],
-      city: ['', Validators.required],
-      subCounty: ['', Validators.required],
-      parish: ['', Validators.required],
-      village: ['', Validators.required]
-    });
 
     this.documentsUpload = this._formBuilder.group({
-      nationalId: ['', Validators.required],
-      nssfCard: ['', Validators.required],
-      passport: ['', Validators.required],
-      employeeId: ['', Validators.required],
-      votersCard: ['', Validators.required],
-      workPermit: ['', Validators.required],
-      villageId: ['', Validators.required],
-      diplomaticForeignAffairsId: ['', Validators.required],
-      refugeeId: ['', Validators.required]
+      // nationalId: ['', Validators.required],
+      // nssfCard: ['', Validators.required],
+      // passport: ['', Validators.required],
+      // employeeId: ['', Validators.required],
+      // votersCard: ['', Validators.required],
+      // workPermit: ['', Validators.required],
+      // villageId: ['', Validators.required],
+      // diplomaticForeignAffairsId: ['', Validators.required],
+      // refugeeId: ['', Validators.required]
+      associatedEntityName: [''],
+      associatedEntityTin: [''],
+      companyForms: ['', Validators.required],
+      certificatesOfRegistration: ['', Validators.required],
+      directorsTin: ['']
     });
   }
 

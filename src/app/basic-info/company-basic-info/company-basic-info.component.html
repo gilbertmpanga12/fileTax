@@ -1,1 +1,227 @@
-<p>company-basic-info works!</p>
+<div class="flex-container">
+    <div class="col-6-grid">
+        <h1 class="overview-title mat-title">Basic Info about company</h1>
+    </div>
+</div>
+
+<div class="flex-container">
+    <mat-card class="basic-tax-card-main mat-elevation-z5">
+        <div class="flex-container-row reduce-height">
+            <strong><h2>Set up company profile </h2></strong>
+        </div>
+  
+        <div class="flex-container-row">
+            <h6 class="header-h5">We'll make it easy - just answer a few questions and we'll put together <br/>forms for you</h6>
+        </div>
+        <br/>
+
+       
+<!--linear -->
+        <mat-horizontal-stepper  #stepper  >
+            <mat-step [stepControl]="personalInfo">
+                <ng-template matStepLabel>Primay Contact Information</ng-template>
+                <form [formGroup]="personalInfo" class="flex-container">
+                    <div class="col-grid-33">
+                        <p>
+                            <mat-form-field appearance="standard" class="forms">
+                              <mat-label>Name of person or entity</mat-label>
+                              <input matInput placeholder="e.g Robert Kisaka"
+                              formControlName="fullName"
+                              >
+                              <mat-error>Provide name of person or entity</mat-error>
+                              </mat-form-field>
+                          </p>
+                    </div>
+                    <div class="col-grid-33">
+                        <p>
+                            <mat-form-field appearance="standard" class="forms">
+                              <mat-label>Email</mat-label>
+                              <input matInput placeholder="robertkisaka@example.com" 
+                              type="email"
+                              formControlName="email">
+                              <mat-error>Email required</mat-error>
+                              </mat-form-field>
+                          </p>
+                    </div>
+
+                    <div class="col-grid-33">
+                     
+                        <p>
+                            <mat-form-field appearance="standard" class="forms">
+                              <mat-label>Phone number</mat-label>
+                              <input matInput placeholder="078522537272" 
+                              type="tel"
+                              formControlName="telephone">
+                              <mat-error>Telephone number required</mat-error>
+                              </mat-form-field>
+                          </p>
+                    </div>
+
+                    <div class="col-grid-33">
+                        <p>
+                            <mat-form-field appearance="standard" class="forms">
+                              <mat-label>Principle Business Address</mat-label>
+                              <input matInput placeholder="Luwum ST" 
+                              
+                              formControlName="address">
+                              <mat-error>Address required</mat-error>
+                              </mat-form-field>
+                          </p>
+                    </div>
+
+                    <div class="col-grid-33">
+                        <p>
+                            <mat-form-field appearance="standard" class="forms">
+                              <mat-label>Source of Income & Business Activity</mat-label>
+                              <input matInput placeholder="Retail" 
+                              formControlName="sourceOfIncome">
+                              <mat-error>Source of income or business activity required</mat-error>
+                              </mat-form-field>
+                          </p>
+                    </div>
+     
+                </form>
+                <br/>
+                <div class="flex-container">
+                    <button mat-flat-button color="primary"
+                    matStepperNext
+                    class="main-cta"
+                    >Continue</button>
+                </div>
+            </mat-step>
+            <mat-step [stepControl]="moreInfo">
+                <ng-template matStepLabel>Applicant's Financial Institution details</ng-template>
+                <form [formGroup]="moreInfo">
+                    <div  class="flex-column">
+            <strong><h2 class="label-text">Was the Entity issued with TIN ? <small><i>( If so provide)</i></small></h2></strong>
+                        <p>
+                            <mat-form-field class="col-grid-33">
+                                <mat-select formControlName="tin">
+                                  <mat-option *ngFor="let status of secondaryNames" [value]="status">
+                                    {{status}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                              <mat-form-field appearance="standard" class="form-inline" 
+                              *ngIf="moreInfo.get('tin').value == 'Yes'">
+                                <mat-label>Your other names</mat-label>
+                                <input matInput formControlName="tinNumber">
+                                <mat-error>Your other name required if any*</mat-error>
+                                </mat-form-field>
+                              
+                        </p>
+                        <strong><h2 class="label-text">The TIN application must be referenced by a tax payer whose TIN is active</h2></strong>
+                        <div class="flex">
+                            <div class="custom-width">
+                                <mat-form-field appearance="standard" class="forms">
+                                  <mat-label>Referee Name</mat-label>
+                                  <input matInput placeholder="Robert Kisaka" 
+                                  formControlName="refereeName">
+                                  <mat-error>Referee name required</mat-error>
+                                  </mat-form-field>
+                            </div>
+                              <div class="custom-width">
+                                <mat-form-field appearance="standard" class="forms">
+                                  <mat-label>Referee telephone number</mat-label>
+                                  <input matInput placeholder="0700039392" 
+                                  formControlName="refereeTelephone" type="tel">
+                                  <mat-error>Referee telephone number required</mat-error>
+                                  </mat-form-field>
+                                </div>
+                              <div class="custom-width">
+                                <mat-form-field appearance="standard" class="forms">
+                                  <mat-label>Referee Tin</mat-label>
+                                  <input matInput placeholder="" 
+                                  formControlName="refereeTin">
+                                  <mat-error>Referee TIN required</mat-error>
+                                  </mat-form-field>
+                                </div>
+                        </div>
+     
+
+                    </div>
+                  
+                    
+                </form>
+                <br/>
+                <div class="flex-container">
+                    <button mat-flat-button color="primary"
+                    matStepperNext
+                    class="main-cta"
+                    >Continue</button>
+                </div>
+            </mat-step>
+            
+
+            <!-- [stepControl]="documentsUpload" -->
+            <mat-step >
+                <form [formGroup]="documentsUpload">
+                    <ng-template matStepLabel>Documents</ng-template>
+                <div class="flex-container">
+
+                    <div class="custom-width-50"
+                    >
+                    <mat-form-field appearance="standard" class="forms">
+                        <mat-label>Associated Entity Name</mat-label>
+                        <input matInput placeholder="" 
+                        formControlName="associatedEntityName">
+                        <mat-error>Provide Associated Entity Name</mat-error>
+                        </mat-form-field>
+                </div>
+
+                <div class="custom-width-50"
+                >
+                <mat-form-field appearance="standard" class="forms">
+                    <mat-label>Associated Entity TIN</mat-label>
+                    <input matInput placeholder="" 
+                    formControlName="associatedEntityTin">
+                    <mat-error>Provide Associated Entity TIN</mat-error>
+                    </mat-form-field>
+            </div>
+
+
+                   </div>
+                   <div class="flex-container">
+                       <h3>Upload at least 3 documents*</h3>
+                    <ul class="ol-style">
+                      <li *ngFor="let files of colorSets"><small 
+                        matTooltip="File uploaded for Bank Statement"
+                        class="file-display"><i>A {{files}} added</i></small></li>
+                      </ul>
+                   </div>
+                   <div class="flex-container">
+                    <div class="col-grid-33" *ngFor="let button of buttonsUpload">
+                      <button mat-flat-button (click)="colorSets.has(button) ? deleteDocument(button) : ref.click()"
+                      color="{{colorSets.has(button) ? accentColor : primaryColor}}" class="margin-bottom-10"
+                      >
+                      <mat-icon>add</mat-icon>
+                      {{button}}</button>
+                      <input class="file-input" type="file" 
+                      accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.pdf"
+            id="form-uploader" #ref
+            (change)="uploadDocuments(button,$event.target.files)">
+                    </div>
+                
+                </div>
+                <br/>
+                <br/>
+                <!-- [disabled]="colorSets.size == 0" -->
+                <div class="flex-container">
+                    <button mat-flat-button color="primary"
+                    
+                    (click)="submitBasicProfile(stepper)"
+                    class="main-cta-override"
+                    >
+                    <div class="spinner" *ngIf="isLoading">
+                        <div class="bounce1"></div>
+                        <div class="bounce2"></div>
+                        <div class="bounce3"></div>
+                      </div>
+                    <span *ngIf="!isLoading">Finish</span>
+                    </button>
+                </div>
+                </form>
+            </mat-step>
+        </mat-horizontal-stepper>
+    </mat-card>
+</div>
