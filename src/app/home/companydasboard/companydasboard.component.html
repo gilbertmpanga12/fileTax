@@ -7,7 +7,7 @@
     <div class="flex-container" *ngIf="items$ | async; let items; else loading">
         <div class="col-6-grid">
             <mat-card class="metrics-cards mat-elevation-z5">
-                <h6>All taxes filed</h6>
+                <h6>Number of taxes filed</h6>
                 <h1>{{items.totalTaxesFiled}}</h1>
               <div class="cta-action"
               routerLink="/history"
@@ -18,7 +18,7 @@
         </div>
         <div class="col-6-grid">
             <mat-card class="metrics-cards mat-elevation-z5">
-                <h6>Latest taxes filed</h6>
+                <h6>Pending Tax Filing request</h6>
                 <h1>{{items.latestTaxFiled}}</h1>
                 <!--  -->
                 <div class="cta-action" 

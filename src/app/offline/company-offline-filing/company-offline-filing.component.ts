@@ -41,7 +41,7 @@ export class CompanyOfflineFilingComponent implements OnInit {
   submitOfflineRequest(){
     let userId = this.service.user.uid;
     this.isLoading = true;
-  let payload: OfflineTaxFiling = {
+    let payload: OfflineTaxFiling = {
     date: this.dateScheduled,
     taxServicesRequired: this.servicesRequired,
     requesteeType: "individual",
@@ -49,7 +49,7 @@ export class CompanyOfflineFilingComponent implements OnInit {
     uid: userId
   }
   if(this.servicesRequired.length > 0 && this.dateScheduled !== null){
-    this.service.requestOfflineTaxation(payload).then((resp) => {
+    this.service.requestOfflineTaxationCompay(payload).then((resp) => {
       this.isLoading = false;
       this.snackbar('Offline request sent! You\' receive email comformation shortly');
     }).catch(err => {

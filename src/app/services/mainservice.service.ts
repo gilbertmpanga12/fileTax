@@ -122,11 +122,20 @@ export class MainserviceService {
     await this.firestore.doc('sessionRegister/' + this.user.uid).set({isCompany}, {merge: true});
   }
 
+
   async updateUserProfile(fullName: string, profilePhoto: string){
     let user = this.auth.currentUser;
     (await user).updateProfile({
       displayName: fullName,
       photoURL: profilePhoto
+    });
+  }
+
+
+  async updateFullName(fullName: string){
+    let user = this.auth.currentUser;
+    (await user).updateProfile({
+      displayName: fullName
     });
   }
 
@@ -139,6 +148,7 @@ export class MainserviceService {
       photoURL: path
     }, {merge: true});
   }
+
 
   async logout(){
     await this.auth.signOut();
@@ -163,8 +173,8 @@ export class MainserviceService {
   userProfile.set({tinPassword: tinIDValue}, {merge: true});
  }
 
+
  async requestOfflineTaxation(payload: OfflineTaxFiling){
-  
    await this.firestore.collection<OfflineTaxFiling>('offlineTaxFiling').add({
     date: payload.date,
     requesteeName: payload.requesteeName,
@@ -173,6 +183,17 @@ export class MainserviceService {
     uid: payload.uid
    });
  }
+
+ async requestOfflineTaxationCompay(payload: OfflineTaxFiling){
+  
+  await this.firestore.collection<OfflineTaxFiling>('offlineTaxFilingCompany').add({
+   date: payload.date,
+   requesteeName: payload.requesteeName,
+   requesteeType: payload.requesteeType,
+   taxServicesRequired: payload.taxServicesRequired,
+   uid: payload.uid
+  });
+}
 
  async createBasicFile(payload: BasicProfile) {
    await this.firestore.collection('users').doc(payload.uid).

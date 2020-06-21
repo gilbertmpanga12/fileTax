@@ -36,6 +36,7 @@ export class UserSettingsComponent implements OnInit {
    
    
    openDialog(actionType: string): void {
+     console.log('Holla' + actionType);
      const dialogRef = this.dialog.open(ResetpasswordmodelComponent, {
        width: '320px',
        data: {actionType: actionType}

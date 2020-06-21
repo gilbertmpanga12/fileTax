@@ -16,6 +16,7 @@ export class ResetpasswordmodelComponent implements OnInit {
   action: string;
   tinIdResetform: FormGroup;
   resetPinPasswordform: FormGroup;
+  fullNameForm: FormGroup;
   constructor(public service: MainserviceService, public modalRef: MatDialogRef<ResetpasswordmodelComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogActtion, private snackBar: MatSnackBar, private _fb: FormBuilder
     ) { }
@@ -24,10 +25,15 @@ export class ResetpasswordmodelComponent implements OnInit {
     this.resetPinPasswordform = this._fb.group({
       tinPassword: ['', Validators.required]
     });
+
     this.tinIdResetform = this._fb.group({
       tinId: ['', Validators.required]
     });
-  
+   
+    this.fullNameForm = this._fb.group({
+      fullName: ['', Validators.required]
+    });
+
   }
 
   resetPassword(): void{
@@ -65,6 +71,22 @@ export class ResetpasswordmodelComponent implements OnInit {
       this.isLoading = false;
       this.modalRef.close();
       this.snackbar('TIN password reset successfully');
+    }).catch(err => {
+      console.log(err.message);
+      this.isLoading = false;
+      this.modalRef.close();
+      this.snackbar('Oops something went wrong, try again');
+    });
+  }
+
+
+  resetFullName(){
+    let fullName = this.fullNameForm.get('fullName').value;
+    this.isLoading = true;
+    this.service.updateFullName(fullName).then((res) => {
+      this.isLoading = false;
+      this.modalRef.close();
+      this.snackbar('Rest name reset successfully');
     }).catch(err => {
       console.log(err.message);
       this.isLoading = false;

@@ -30,7 +30,7 @@ export interface History{
 }
 
 export interface DialogActtion{
-    actionType: "resetpassword" | "changeTinId" | "changeTinPassword" | "error"
+    actionType: "resetpassword" | "changeTinId" | "changeTinPassword" | "error" | "changeName"
 }
 
 export interface OfflineTaxFiling{
