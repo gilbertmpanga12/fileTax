@@ -35,24 +35,23 @@ snapshot: Observable<any>;
 downloadURL: Observable<string>;
 documentFiles: BasicProfileDocuments[] = [];
 supportDocuments1 =  [
-  'Customer invoices',
-  'Customer receipts',
-  'Employment income payslips',
   'Bank Statements',
+  'Customer Invoices',
+  'Customer Receipts', 'Pay slips for employment income',
   'Suppliers invoices and receipts',
-  'Sales ledger',
-  'Expenses ledger'
+  'Sales Ledger', 'Expenses ledger',
+  'Cash book ledger',
+  'Certificate of incorporation / Registration',
+  'Staff payroll', 'TIN of Land Lord if renting'
   ];
   supportDocuments2 = [
-    'Cash book ledger',
-    'Cash book ledger',
-    'Receivables ledger',
-    'Payables ledgers',
-    'Inventory record',
-    'Tax records',
-    'Payment vouchers',
-    'TIN of landlord if renting',
-    'Staff payroll'
+    'Receivables ledger','Payables ledgers',
+    'Inventory record, if any', 'Tax records',
+    'Latest company Annual return and current year board resolutions',
+    'Notice of changes in the organisation structure',
+    'Memorandum and Article of association',
+    'Company form 7 or Form 20','Payment vouchers',
+    'And any other document relating to doing business'
     ];
 constructor(private router: Router,  
   private route: ActivatedRoute, private _fb: FormBuilder, private storage: AngularFireStorage,
