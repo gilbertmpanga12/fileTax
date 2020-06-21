@@ -15,7 +15,7 @@ export class CompanyNotificationsComponent implements OnInit {
   notificationsCollection$: Observable<TaxNotifications[]>;
 
   constructor(private service: MainserviceService, private firestore: AngularFirestore) { 
-    this.notificationsCollection = this.firestore.collection('users')
+    this.notificationsCollection = this.firestore.collection('company_users')
     .doc(this.service.user.uid).collection<TaxNotifications>('notifications');
     this.notificationsCollection$ = this.notificationsCollection.valueChanges();
   }

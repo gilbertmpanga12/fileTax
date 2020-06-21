@@ -25,7 +25,7 @@ export class CompanyHistoryComponent implements OnInit {
   }
 
   ngAfterView(){
-    this.firestore.collection<History>('userHistory').valueChanges().subscribe(data => {
+    this.firestore.collection<History>('companyHistory').valueChanges().subscribe(data => {
       this.dataSource = new MatTableDataSource(data); 
       this.isDataAvailable = this.dataSource.data.length == 0;
       this.dataSource.sort = this.sort;

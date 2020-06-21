@@ -16,9 +16,9 @@ export class FileTaxesBusinessComponent implements OnInit {
   servicesDocumentCollection: AngularFirestoreCollection<TaxServices>;
   serviceCollection$: Observable<TaxServices[]>;
   constructor(private firestore: AngularFirestore, private service: MainserviceService) { 
-    this.basicInfodoc = this.firestore.doc('users/' + this.service.user.uid);
+    this.basicInfodoc = this.firestore.doc('company_users/' + this.service.user.uid);
     this.basicInfo$ = this.basicInfodoc.valueChanges();
-    this.servicesDocumentCollection = this.firestore.collection<TaxServices>('taxServices');
+    this.servicesDocumentCollection = this.firestore.collection<TaxServices>('businessTaxServices');
     this.serviceCollection$ = this.servicesDocumentCollection.valueChanges();
   }
 

@@ -43,7 +43,7 @@ export class UserOfflineFilingComponent implements OnInit {
   let payload: OfflineTaxFiling = {
     date: this.dateScheduled,
     taxServicesRequired: this.servicesRequired,
-    requesteeType: "individual",
+    requesteeType: "users",
     requesteeName: this.service.user.displayName,
     uid: userId
   }

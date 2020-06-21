@@ -26,7 +26,7 @@ export class CompanySettingsComponent implements OnInit {
    constructor(public service: MainserviceService, private firestore: AngularFirestore, public dialog: MatDialog,
      private storage: AngularFireStorage
      ) {
-     this.userProfile = this.firestore.doc('users/' + this.service.user.uid);
+     this.userProfile = this.firestore.doc('company_users/' + this.service.user.uid);
      this.userProfile$ = this.userProfile.valueChanges();
     }
  
@@ -38,7 +38,7 @@ export class CompanySettingsComponent implements OnInit {
    openDialog(actionType: string): void {
      const dialogRef = this.dialog.open(ResetpasswordmodelComponent, {
        width: '320px',
-       data: {actionType: actionType}
+       data: {actionType: actionType,accountType: "company_users"}
      });
    }
  
@@ -60,7 +60,7 @@ export class CompanySettingsComponent implements OnInit {
        finalize(() => {
          this.downloadURL = fileRef.getDownloadURL();
          // this.percentage = null;
-         this.downloadURL.subscribe(url => this.service.updateUserProfilePicture(url));
+         this.downloadURL.subscribe(url => this.service.updateUserProfilePicture(url, "company_users"));
        } )
        
     )

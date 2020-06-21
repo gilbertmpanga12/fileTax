@@ -122,6 +122,7 @@ export class MainserviceService {
     await this.firestore.doc('sessionRegister/' + this.user.uid).set({isCompany}, {merge: true});
   }
 
+  // Basic Operations
 
   async updateUserProfile(fullName: string, profilePhoto: string){
     let user = this.auth.currentUser;
@@ -132,22 +133,37 @@ export class MainserviceService {
   }
 
 
-  async updateFullName(fullName: string){
+  async updateFullName(fullName: string, accountType: string){
     let user = this.auth.currentUser;
     (await user).updateProfile({
       displayName: fullName
     });
+    await this.firestore.doc(`${accountType}/` + this.user.uid).set({
+      fullName: fullName
+    }, {merge: true});
   }
 
-  async updateUserProfilePicture(path: string){
+  async updateUserProfilePicture(path: string, accountType: string){
     let user = this.auth.currentUser;
     (await user).updateProfile({
       photoURL: path
     });
-    await this.firestore.doc('users/' + this.user.uid).set({
+    await this.firestore.doc(`${accountType}/` + this.user.uid).set({
       photoURL: path
     }, {merge: true});
   }
+  
+  async resetTinId(tinIDValue:string, accountType: string){
+    let user = await this.auth.currentUser;
+    let userProfile = this.firestore.doc(`${accountType}/` + user.uid);
+    userProfile.set({tinId: tinIDValue}, {merge: true});
+   }
+  
+   async resetTinPassword(tinIDValue:string, accountType: string){
+    let user = await this.auth.currentUser;
+    let userProfile = this.firestore.doc(`${accountType}/` + user.uid);
+    userProfile.set({tinPassword: tinIDValue}, {merge: true});
+   }
 
 
   async logout(){
@@ -161,17 +177,7 @@ export class MainserviceService {
     return  user  !==  null;
  }
 
- async resetTinId(tinIDValue:string){
-  let user = await this.auth.currentUser;
-  let userProfile = this.firestore.doc('users/' + user.uid);
-  userProfile.set({tinId: tinIDValue}, {merge: true});
- }
-
- async resetTinPassword(tinIDValue:string){
-  let user = await this.auth.currentUser;
-  let userProfile = this.firestore.doc('users/' + user.uid);
-  userProfile.set({tinPassword: tinIDValue}, {merge: true});
- }
+ 
 
 
  async requestOfflineTaxation(payload: OfflineTaxFiling){
@@ -203,9 +209,9 @@ export class MainserviceService {
  }
 
  async createBasicFileCompany(payload: CompanyProfile) {
-  await this.firestore.collection('business_users').doc(payload.uid).
+  await this.firestore.collection('company_users').doc(payload.uid).
   collection('basicCompanyProfile').doc(payload.uid).set(payload,{merge: true});
-  await this.firestore.doc('business_users/' + payload.uid).set({profileSetup: 100}, {merge: true});
+  await this.firestore.doc('company_users/' + payload.uid).set({profileSetup: 100}, {merge: true});
   ;
 }
  

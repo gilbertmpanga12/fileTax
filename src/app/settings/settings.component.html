@@ -1,8 +1,7 @@
 <app-company-settings
-*ngIf="(service.accountType$ | async)?.isCompany == true;
-else user"
+*ngIf="(service.accountType$ | async)?.isCompany == true"
 ></app-company-settings>
 
-<ng-template #user>
-    <app-user-settings></app-user-settings>
-</ng-template>
+<app-user-settings
+*ngIf="(service.accountType$ | async)?.isCompany == false"
+></app-user-settings>

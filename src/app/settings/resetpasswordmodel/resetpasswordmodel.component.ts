@@ -50,9 +50,8 @@ export class ResetpasswordmodelComponent implements OnInit {
 
   resetTinId(){
     let tinId = this.tinIdResetform.get('tinId').value;
-    console.log('XM my tin id ' + tinId);
     this.isLoading = true;
-    this.service.resetTinId(tinId).then((res) => {
+    this.service.resetTinId(tinId,this.data.accountType).then((res) => {
       this.isLoading = false;
       this.modalRef.close();
       this.snackbar('TIN ID reset successfully');
@@ -65,9 +64,8 @@ export class ResetpasswordmodelComponent implements OnInit {
 
   resetTinPassword(){
     let tinPassword = this.resetPinPasswordform.get('tinPassword').value;
-    console.log('shhhhh' + tinPassword)
     this.isLoading = true;
-    this.service.resetTinPassword(tinPassword).then((res) => {
+    this.service.resetTinPassword(tinPassword, this.data.accountType).then((res) => {
       this.isLoading = false;
       this.modalRef.close();
       this.snackbar('TIN password reset successfully');
@@ -83,7 +81,7 @@ export class ResetpasswordmodelComponent implements OnInit {
   resetFullName(){
     let fullName = this.fullNameForm.get('fullName').value;
     this.isLoading = true;
-    this.service.updateFullName(fullName).then((res) => {
+    this.service.updateFullName(fullName, this.data.accountType).then((res) => {
       this.isLoading = false;
       this.modalRef.close();
       this.snackbar('Rest name reset successfully');

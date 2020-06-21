@@ -151,13 +151,12 @@ export class CompanyBasicInfoComponent implements OnInit {
           keyDocuments: this.documentFiles,
           uid: this.service.user.uid
         };
-    
+   
         this.service.createBasicFileCompany(payload).then(res => {
           this.isLoading = false;
           this.snackbar('Great! your profile is up and ready. Start filing taxes now');
           stepper.reset();
       }).catch(err => {
-    
         this.isLoading = false;
         this.snackbar('Oops something went wrong. Try again or contact support');
       });

@@ -30,13 +30,14 @@ export interface History{
 }
 
 export interface DialogActtion{
-    actionType: "resetpassword" | "changeTinId" | "changeTinPassword" | "error" | "changeName"
+    actionType: "resetpassword" | "changeTinId" | "changeTinPassword" | "error" | "changeName";
+    accountType: "company" | "individual";
 }
 
 export interface OfflineTaxFiling{
     date: Date;
     taxServicesRequired: string[];
-    requesteeType: "individual" | "company",
+    requesteeType: "users" | "company_users",
     requesteeName: string;
     uid: string;
 }

@@ -14,7 +14,7 @@ export class CompanydasboardComponent implements OnInit {
   dashboardCountDocument: AngularFirestoreDocument<DashboardCount>;
   items$: Observable<DashboardCount>;
   constructor(private firestore: AngularFirestore, private service: MainserviceService) { 
-   this.dashboardCountDocument = this.firestore.doc('dashbordCounts/'+this.service.user.uid);
+   this.dashboardCountDocument = this.firestore.doc('dashbordCountsCompany/'+this.service.user.uid);
     this.items$ = this.dashboardCountDocument.valueChanges();
   }
 

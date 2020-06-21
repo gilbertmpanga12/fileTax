@@ -36,10 +36,9 @@ export class UserSettingsComponent implements OnInit {
    
    
    openDialog(actionType: string): void {
-     console.log('Holla' + actionType);
      const dialogRef = this.dialog.open(ResetpasswordmodelComponent, {
        width: '320px',
-       data: {actionType: actionType}
+       data: {actionType: actionType, accountType: "users"}
      });
    }
  
@@ -61,7 +60,7 @@ export class UserSettingsComponent implements OnInit {
        finalize(() => {
          this.downloadURL = fileRef.getDownloadURL();
          // this.percentage = null;
-         this.downloadURL.subscribe(url => this.service.updateUserProfilePicture(url));
+         this.downloadURL.subscribe(url => this.service.updateUserProfilePicture(url, "users"));
        } )
        
     )

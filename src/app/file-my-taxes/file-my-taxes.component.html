@@ -1,9 +1,7 @@
 <app-file-taxes-business 
-*ngIf="(service.accountType$ | async)?.isCompany == true;
-else user"
+*ngIf="(service.accountType$ | async)?.isCompany == true"
 ></app-file-taxes-business>
 
-<ng-template #user>
-    <app-file-taxes-user 
+<app-file-taxes-user 
+*ngIf="(service.accountType$ | async)?.isCompany == false"
     ></app-file-taxes-user>
-</ng-template>
