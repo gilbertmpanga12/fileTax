@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from 'firebase/app';
 import { Router } from '@angular/router';
 import { AngularFirestore, AngularFirestoreDocument} from '@angular/fire/firestore';
-import {OfflineTaxFiling, BasicProfile, Filings, AccountType, CompanyProfile } from '../models/datamodels';
+import {OfflineTaxFiling, BasicProfile, Filings, AccountType, CompanyProfile, TaxNotifications } from '../models/datamodels';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { firestore as ft } from 'firebase/app';
@@ -189,6 +189,7 @@ export class MainserviceService {
     uid: payload.uid
    });
    this.updateDashboardCount(accountType);
+   this.sendNotification(accountType, 'Offline');
  }
 
  async requestOfflineTaxationCompay(payload: OfflineTaxFiling, accountType: string){
@@ -201,6 +202,7 @@ export class MainserviceService {
    uid: payload.uid
   });
   this.updateDashboardCount(accountType);
+  this.sendNotification(accountType,'Offline');
 }
 
  async createBasicFile(payload: BasicProfile) {
@@ -220,12 +222,26 @@ export class MainserviceService {
  async uploadTaxFiles(payload: Filings, businessType: string, accountType: string){
    await this.firestore.collection<Filings>(businessType).add(payload);
    this.updateDashboardCount(accountType);
+   this.sendNotification(accountType);
  }
 
  async updateDashboardCount(businessType: string){
    const increment = ft.FieldValue.increment(1);
    await this.firestore.doc(businessType + this.user.uid)
    .set({latestTaxFiled: increment}, {merge: true});
+ }
+
+ async sendNotification(accountType: string, offline=' '){
+   const audio = new Audio('assets/swiftly.ogg');
+   audio.addEventListener("canplaythrough", event => {
+    audio.play();
+  });
+  const increment = ft.FieldValue.increment(1);
+  await this.firestore.doc(accountType + this.user.uid).set({notificationCount: increment},{merge: true});
+    await this.firestore.collection(accountType)
+  .doc(this.user.uid).collection<TaxNotifications>('notifications')
+  .add({description:
+     `Your${offline}request has been received. You will receive your results in 2 business days`, timeStamp: Date.now()});
  }
 
 
