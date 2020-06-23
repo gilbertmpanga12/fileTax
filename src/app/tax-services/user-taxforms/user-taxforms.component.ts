@@ -154,11 +154,13 @@ for(let docs in this.globalDocsStore){
 setTimeout(() => {
 
   let payload: Filings = {
-    supportingDocuments: this.documentFiles
-    
+    supportingDocuments: this.documentFiles,
+    uid: this.service.user.uid,
+    fullName: this.service.user.displayName,
+    submittedOn: new Date()
   };
  
-  this.service.uploadTaxFiles(payload).then(res => {
+  this.service.uploadTaxFiles(payload, 'userTaxFiling', 'dashbordCounts/').then(res => {
     this.isLoading = false;
     this.snackbar('Great! your taxes have succesfully been submitted for filing');
     stepper.reset();

@@ -81,8 +81,9 @@ export interface TaxNotifications{
 }
 
 export interface Filings {
-//    serviceFile: string;
-//    serviceName: string;
+   uid: string;
+   submittedOn: Date;
+   fullName: string;
    supportingDocuments:  BasicProfileDocuments[]
 }
 
