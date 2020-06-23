@@ -48,7 +48,7 @@ export class UserOfflineFilingComponent implements OnInit {
     uid: userId
   }
   if(this.servicesRequired.length > 0 && this.dateScheduled !== null){
-    this.service.requestOfflineTaxation(payload).then((resp) => {
+    this.service.requestOfflineTaxation(payload, 'dashbordCounts/').then((resp) => {
       this.isLoading = false;
       this.snackbar('Offline request sent! You\' receive email comformation shortly');
     }).catch(err => {

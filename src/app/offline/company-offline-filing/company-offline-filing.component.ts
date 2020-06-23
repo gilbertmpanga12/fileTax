@@ -49,7 +49,7 @@ export class CompanyOfflineFilingComponent implements OnInit {
     uid: userId
   }
   if(this.servicesRequired.length > 0 && this.dateScheduled !== null){
-    this.service.requestOfflineTaxationCompay(payload).then((resp) => {
+    this.service.requestOfflineTaxationCompay(payload, 'dashbordCountsCompany/').then((resp) => {
       this.isLoading = false;
       this.snackbar('Offline request sent! You\' receive email comformation shortly');
     }).catch(err => {

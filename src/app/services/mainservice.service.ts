@@ -180,7 +180,7 @@ export class MainserviceService {
  
 
 
- async requestOfflineTaxation(payload: OfflineTaxFiling){
+ async requestOfflineTaxation(payload: OfflineTaxFiling, accountType: string){
    await this.firestore.collection<OfflineTaxFiling>('offlineTaxFiling').add({
     date: payload.date,
     requesteeName: payload.requesteeName,
@@ -188,9 +188,10 @@ export class MainserviceService {
     taxServicesRequired: payload.taxServicesRequired,
     uid: payload.uid
    });
+   this.updateDashboardCount(accountType);
  }
 
- async requestOfflineTaxationCompay(payload: OfflineTaxFiling){
+ async requestOfflineTaxationCompay(payload: OfflineTaxFiling, accountType: string){
   
   await this.firestore.collection<OfflineTaxFiling>('offlineTaxFilingCompany').add({
    date: payload.date,
@@ -199,6 +200,7 @@ export class MainserviceService {
    taxServicesRequired: payload.taxServicesRequired,
    uid: payload.uid
   });
+  this.updateDashboardCount(accountType);
 }
 
  async createBasicFile(payload: BasicProfile) {
