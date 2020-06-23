@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>xPider - Helpers</title>
+    <!-- favicon CSS -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,400i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alice" rel="stylesheet">
+    <!-- custom fonts -->
+    <link href="fonts/aileron.css" rel="stylesheet">
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="css/plugins.min.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="css/app.css">
+    <!-- Your CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body class="" data-spy="scroll" data-target="#navbar-nav">
+    <!-- =========== Start of Sidebar ============ -->
+<aside class="sidebar">
+        <div class="sidebar-logo-holder">
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="navbarToggler" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="sidebar-brand">
+                <a href="index.html"><img src="img/brand-logo-color.png" alt="brand-logo"></a>
+            </div>
+        </div>
+        <div class="sidebar-inner">
+            <div class="navbar-wrapper">
+                <div class="sidebar-nav">
+                    <ul class="navigation">
+                        <li class="nav-title">Getting started</li>
+                        <li class="nav-item"><a href="index.html" class="nav-link">Introduction</a></li>
+                        <li class="nav-item"><a href="file-structure.html" class="nav-link">File structures</a></li>
+                        <li class="nav-item"><a href="gulp.html" class="nav-link">Gulp</a></li>
+                        <li class="nav-item"><a href="bem.html" class="nav-link">BEM Naming Convention</a></li>
+                        <li class="nav-item"><a href="customization.html" class="nav-link">Customization</a></li>
+                        <li class="nav-item"><a href="update.html" class="nav-link">Update</a></li>
+                    </ul>
+                    <ul class="navigation">
+                        <li class="nav-title">Components</li>
+                        <li class="nav-item"><a href="background-image-holder.html" class="nav-link">Background Holder</a></li>
+                        <li class="nav-item"><a href="buttons.html" class="nav-link">Buttons</a></li>
+                        <li class="nav-item"><a href="cards.html" class="nav-link">Cards</a></li>
+                        <li class="nav-item"><a href="countdown.html" class="nav-link">Countdown</a></li>
+                        <li class="nav-item"><a href="form.html" class="nav-link">Form</a></li>
+                        <li class="nav-item"><a href="icons.html" class="nav-link">Icons</a></li>
+                        <li class="nav-item"><a href="language-selector.html" class="nav-link">Language Selector</a></li>
+                        <li class="nav-item"><a href="media-player.html" class="nav-link">Media Player</a></li>
+                        <li class="nav-item"><a href="reveal.html" class="nav-link">Reveal Animation</a></li>
+                        <li class="nav-item"><a href="social-icon-list.html" class="nav-link">Social Icon List</a></li>
+                    </ul>
+                    <ul class="navigation">
+                        <li class="nav-title">Utilities</li>
+                        <li class="nav-item"><a href="helpers.html" class="nav-link">Helpers</a></li>
+                        <li class="nav-item"><a href="spacing.html" class="nav-link">Spacing</a></li>
+                        <li class="nav-item"><a href="xPider-template-options.html" class="nav-link">xPider template
+                                options</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </aside>
+    <!-- =========== End of Sidebar ============ -->
+    <main class="main documentation">
+
+        <!-- =========== Start of Body Content ============ -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-10 order-xl-1 pl-lg-60">
+                        <!-- Getting started -->
+                        <div class="content-title mb-30 pb-30 border-bottom">
+                            <h1 class="h3-font mb-10">Helpers</h1>
+                            <p class="lead font-w-400 mb-30">xPider includes a wide range of shorthand utility classes to modify an element's appearance.</p>
+                            <p>add any of listed classes to the html <code>element</code> to apply them.</p>
+                        </div>
+
+                        <div class="mb-60">
+                            <h3 class="pb-20 h4-font">CSS Class Reference</h3>
+                            <div class="card bg-color-grey mb-60">
+                                <div class="card-body">
+                                    <div class="mb-30">
+                                        <h6 class="title-decorative">Border</h6>
+                                        <hr>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.border-bottom-light</code></dt>
+                                            <dd class="col-8">Sets <code>1px</code> border bottom of the element</dd>
+                                        </dl>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.border-none</code></dt>
+                                            <dd class="col-8">Remove any border from the element</dd>
+                                        </dl>
+                                    </div>
+                                    <!-- end of item -->
+                                    <div class="mb-30">
+                                        <h6 class="title-decorative">Color</h6>
+                                        <hr>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.color-primary</code></dt>
+                                            <dd class="col-8">Sets element <code>color</code> as template primary color</dd>
+                                        </dl>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.color-white</code></dt>
+                                            <dd class="col-8">Sets element <code>color</code> white</dd>
+                                        </dl>
+                                    </div>
+                                    <!-- end of item -->
+                                    <div class="mb-30">
+                                        <h6 class="title-decorative">Background Color</h6>
+                                        <hr>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.bg-color-primary</code></dt>
+                                            <dd class="col-8">Sets <code>background</code> color as template primary color to the element</dd>
+                                        </dl>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.bg-color-midnight</code></dt>
+                                            <dd class="col-8">Sets <code>background</code> color Midnight to the element</dd>
+                                        </dl>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.bg-color-darkblue</code></dt>
+                                            <dd class="col-8">Sets <code>background</code> color Dark Blue to the element</dd>
+                                        </dl>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.bg-color-grey</code></dt>
+                                            <dd class="col-8">Sets <code>background</code> color Gray to the element</dd>
+                                        </dl>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.bg-color-coral</code></dt>
+                                            <dd class="col-8">Sets <code>background</code> color Coral to the element</dd>
+                                        </dl>
+                                    </div>
+                                    <!-- end of item -->
+                                    <div class="mb-30">
+                                        <h6 class="title-decorative">Border Radius</h6>
+                                        <hr>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.rounded-default</code></dt>
+                                            <dd class="col-8">Sets <code>5px</code> border Radius to the element</dd>
+                                        </dl>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.rounded-sm</code></dt>
+                                            <dd class="col-8">Sets <code>3px</code> border Radius to the element</dd>
+                                        </dl>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.rounded-md</code></dt>
+                                            <dd class="col-8">Sets <code>10px</code> border Radius to the element</dd>
+                                        </dl>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.rounded-lg</code></dt>
+                                            <dd class="col-8">Sets <code>1px</code> border Radius to the element</dd>
+                                        </dl>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.rounded-full</code></dt>
+                                            <dd class="col-8">Sets <code>100px</code> border Radius to the element</dd>
+                                        </dl>
+                                    </div>
+                                    <!-- end of item -->
+                                    <div class="mb-30">
+                                        <h6 class="title-decorative">Box Shadow</h6>
+                                        <hr>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.box-shadow-1</code></dt>
+                                            <dd class="col-8">Gives some box Shadow to the element</dd>
+                                        </dl>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.box-shadow-2</code></dt>
+                                            <dd class="col-8">Gives a little bit more box Shadow to the element</dd>
+                                        </dl>
+                                    </div>
+                                    <!-- end of item -->
+                                    <div class="mb-30">
+                                        <h6 class="title-decorative">Boxed Layout</h6>
+                                        <hr>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.boxed-layout</code></dt>
+                                            <dd class="col-8">Add the class <code>boxed-layout</code> to the <code>&lt;body&gt;</code> element for Boxe Layout style.</dd>
+                                        </dl>
+                                    </div>
+                                    <!-- end of item -->
+                                    <div class="mb-30">
+                                        <h6 class="title-decorative">Divider</h6>
+                                        <hr>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.hr--blod</code></dt>
+                                            <dd class="col-8">Apply to the <code>&lt;hr&gt;</code> element for <code>2px</code> border Divider</dd>
+                                        </dl>
+                                    </div>
+                                    <!-- end of item -->
+                                    <div class="mb-30">
+                                        <h6 class="title-decorative">Height</h6>
+                                        <hr>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.h-100vh</code></dt>
+                                            <dd class="col-8">Sets the height of the element 100vh</dd>
+                                        </dl>
+                                    </div>
+                                    <!-- end of item -->
+                                    <div class="mb-30">
+                                        <h6 class="title-decorative">Opacity</h6>
+                                        <hr>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.opacity-05</code></dt>
+                                            <dd class="col-8">Sets <code> opacity: .05; </code> to the element</dd>
+                                        </dl>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.opacity-10</code></dt>
+                                            <dd class="col-8">Sets <code> opacity: .1; </code> to the element</dd>
+                                        </dl>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.opacity-20</code></dt>
+                                            <dd class="col-8">Sets <code> opacity: .2; </code> to the element</dd>
+                                        </dl>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.opacity-30</code></dt>
+                                            <dd class="col-8">Sets <code> opacity: .3; </code> to the element</dd>
+                                        </dl>
+                                    </div>
+                                    <!-- end of item -->
+                                    <div class="mb-30">
+                                        <h6 class="title-decorative">Position</h6>
+                                        <hr>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.pos-abs-top</code></dt>
+                                            <dd class="col-8">Apply to a element to position the element at the top of the section</dd>
+                                        </dl>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.pos-abs-bottom</code></dt>
+                                            <dd class="col-8">Apply to a element to position the element at the bottom of the section</dd>
+                                        </dl>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.pos-abs-bottom-left</code></dt>
+                                            <dd class="col-8">position the element to the bottom left hand coner of the section</dd>
+                                        </dl>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.pos-abs-bottom-right</code></dt>
+                                            <dd class="col-8">position the element to the bottom right hand coner of the section</dd>
+                                        </dl>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.pos-abs-top-right</code></dt>
+                                            <dd class="col-8">position the element to the top right hand coner of the section</dd>
+                                        </dl>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.pos-abs-top-left</code></dt>
+                                            <dd class="col-8">position the element to the top left hand coner of the section</dd>
+                                        </dl>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.pos-center</code></dt>
+                                            <dd class="col-8">position the element center of the section</dd>
+                                        </dl>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.pos-horizon-center</code></dt>
+                                            <dd class="col-8">position the element horizontally center of the section</dd>
+                                        </dl>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.pos-vertical-center</code></dt>
+                                            <dd class="col-8">position the element vertically center of the section</dd>
+                                        </dl>
+                                    </div>
+                                    <!-- end of item -->
+                                    <div class="mb-30">
+                                        <h6 class="title-decorative">Overflow</h6>
+                                        <hr>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.hidden</code></dt>
+                                            <dd class="col-8">Sets overflow attribute to hidden</dd>
+                                        </dl>
+                                    </div>
+                                    <!-- enf of group -->
+                                    <div class="mb-30">
+                                        <h6 class="title-decorative">Z-Index</h6>
+                                        <hr>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.z-index1</code></dt>
+                                            <dd class="col-8">Sets <code>z-index: 1;</code></dd>
+                                        </dl>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.z-index2</code></dt>
+                                            <dd class="col-8">Sets <code>z-index: 2;</code></dd>
+                                        </dl>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.z-index-1</code></dt>
+                                            <dd class="col-8">Sets <code>z-index: -1;</code></dd>
+                                        </dl>
+                                        <dl class="row justfiy-content-between">
+                                            <dt class="col-4"><code>.z-index-2</code></dt>
+                                            <dd class="col-8">Sets <code>z-index: -2;</code></dd>
+                                        </dl>
+                                    </div>
+                                    <!-- enf of group -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- =========== End of Body Content ============ -->
+    </main>
+
+    <script src="js/plugins.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

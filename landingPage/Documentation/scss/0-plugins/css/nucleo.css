@@ -1,0 +1,260 @@
+/* --------------------------------
+
+xPider Web Font
+Generated using nucleoapp.com
+
+-------------------------------- */
+@font-face {
+  font-family: 'xPider';
+  src: url("../icons/xPider.eot");
+  src: url("../icons/xPider.eot") format("embedded-opentype"), url("../icons/xPider.woff2") format("woff2"), url("../icons/xPider.woff") format("woff"), url("../icons/xPider.ttf") format("truetype"), url("../icons/xPider.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*------------------------
+	base class definition
+-------------------------*/
+.icon {
+  display: inline-block;
+  font: normal normal normal 1em/1 'xPider';
+  speak: none;
+  text-transform: none;
+  /* Better Font Rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*------------------------
+  change icon size
+-------------------------*/
+/* relative units */
+.icon-sm {
+  font-size: 0.8em;
+}
+
+.icon-lg {
+  font-size: 1.2em;
+}
+
+/* absolute units */
+.icon-16 {
+  font-size: 16px;
+}
+
+.icon-32 {
+  font-size: 32px;
+}
+
+/*----------------------------------
+  add a square/circle background
+-----------------------------------*/
+.icon-bg-square,
+.icon-bg-circle {
+  padding: 0.35em;
+  background-color: #eee;
+}
+
+.icon-bg-circle {
+  border-radius: 50%;
+}
+
+/*------------------------------------
+  use icons as list item markers
+-------------------------------------*/
+.icon-ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.icon-ul > li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  line-height: 1.4;
+}
+
+.icon-ul > li > .icon {
+  margin-right: 0.4em;
+  line-height: inherit;
+}
+
+/*------------------------
+  spinning icons
+-------------------------*/
+.icon-is-spinning {
+  -webkit-animation: icon-spin 2s infinite linear;
+  animation: icon-spin 2s infinite linear;
+}
+
+@-webkit-keyframes icon-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes icon-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/*------------------------
+  rotated/flipped icons
+-------------------------*/
+.icon-rotate-90 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.icon-rotate-180 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.icon-rotate-270 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
+.icon-flip-y {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0);
+  -webkit-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+
+.icon-flip-x {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: scale(1, -1);
+  transform: scale(1, -1);
+}
+
+/*------------------------
+	icons
+-------------------------*/
+.icon-archery-target::before {
+  content: "\ea01";
+}
+
+.icon-bill::before {
+  content: "\ea02";
+}
+
+.icon-book-open-2::before {
+  content: "\ea03";
+}
+
+.icon-button-circle-play::before {
+  content: "\ea04";
+}
+
+.icon-cursor-pointer::before {
+  content: "\ea05";
+}
+
+.icon-favourite-31::before {
+  content: "\ea06";
+}
+
+.icon-grid-45::before {
+  content: "\ea07";
+}
+
+.icon-headset::before {
+  content: "\ea08";
+}
+
+.icon-hybrid::before {
+  content: "\ea09";
+}
+
+.icon-layout-11::before {
+  content: "\ea0a";
+}
+
+.icon-mail::before {
+  content: "\ea0b";
+}
+
+.icon-p-heart::before {
+  content: "\ea0c";
+}
+
+.icon-phone-2::before {
+  content: "\ea0d";
+}
+
+.icon-pin-2::before {
+  content: "\ea0e";
+}
+
+.icon-pin-3::before {
+  content: "\ea0f";
+}
+
+.icon-preferences-circle::before {
+  content: "\ea10";
+}
+
+.icon-recipe::before {
+  content: "\ea11";
+}
+
+.icon-responsive::before {
+  content: "\ea12";
+}
+
+.icon-settings::before {
+  content: "\ea13";
+}
+
+.icon-spaceship::before {
+  content: "\ea14";
+}
+
+.icon-stre-left::before {
+  content: "\ea15";
+}
+
+.icon-stre-right-2::before {
+  content: "\ea16";
+}
+
+.icon-stre-right::before {
+  content: "\ea17";
+}
+
+.icon-tail-left::before {
+  content: "\ea18";
+}
+
+.icon-tail-right-2::before {
+  content: "\ea19";
+}
+
+.icon-tail-right::before {
+  content: "\ea1a";
+}
+
+.icon-triangle-left-18::before {
+  content: "\ea1b";
+}
+
+.icon-triangle-right-17::before {
+  content: "\ea1c";
+}
+/*# sourceMappingURL=nucleo.css.map */

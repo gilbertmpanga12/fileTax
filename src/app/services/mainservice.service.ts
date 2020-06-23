@@ -189,7 +189,7 @@ export class MainserviceService {
     uid: payload.uid
    });
    this.updateDashboardCount(accountType);
-   this.sendNotification(accountType, 'Offline');
+   this.sendNotification(payload.requesteeType + '/', 'Offline');
  }
 
  async requestOfflineTaxationCompay(payload: OfflineTaxFiling, accountType: string){
@@ -202,7 +202,7 @@ export class MainserviceService {
    uid: payload.uid
   });
   this.updateDashboardCount(accountType);
-  this.sendNotification(accountType,'Offline');
+  this.sendNotification(payload.requesteeType + '/','Offline');
 }
 
  async createBasicFile(payload: BasicProfile) {
@@ -222,7 +222,7 @@ export class MainserviceService {
  async uploadTaxFiles(payload: Filings, businessType: string, accountType: string){
    await this.firestore.collection<Filings>(businessType).add(payload);
    this.updateDashboardCount(accountType);
-   this.sendNotification(accountType);
+   this.sendNotification(businessType + '/');
  }
 
  async updateDashboardCount(businessType: string){
@@ -236,9 +236,10 @@ export class MainserviceService {
    audio.addEventListener("canplaythrough", event => {
     audio.play();
   });
-  const increment = ft.FieldValue.increment(1);
-  await this.firestore.doc(accountType + this.user.uid).set({notificationCount: increment},{merge: true});
-    await this.firestore.collection(accountType)
+  // const increment = ft.FieldValue.increment(1);
+  await this.firestore.doc(accountType + this.user.uid).set({notificationCount: 1},{merge: true});
+    
+  await this.firestore.collection(accountType)
   .doc(this.user.uid).collection<TaxNotifications>('notifications')
   .add({description:
      `Your${offline}request has been received. You will receive your results in 2 business days`, timeStamp: Date.now()});

@@ -1,0 +1,289 @@
+@import '1-scss_helpers/variables';
+.switcher {
+  height: 100%;
+  box-shadow: 0 0.125rem 2.75rem rgba(0, 0, 0, 0.17);
+  background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  z-index: 99999;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 280px;
+  right: -280px;
+  transition: .3s ease;
+}
+
+@media only screen and (min-width: 576px) {
+  .switcher {
+    max-width: 370px;
+    right: -370px;
+  }
+}
+
+.switcher__is-open {
+  right: 0;
+}
+
+.switcher__toggler {
+  background-color: #ffffff;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 5px 0 0 5px;
+  position: absolute;
+  left: -45px;
+  top: 95px;
+  box-shadow: -8px 5px 30px rgba(0, 0, 0, 0.1);
+}
+
+@media only screen and (min-width: 768px) {
+  .switcher__toggler {
+    left: -50px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .switcher__toggler {
+    top: 150px;
+  }
+}
+
+.switcher-wrapper {
+  overflow: auto;
+  height: 100%;
+}
+
+.switcher__item-title {
+  color: #2d3136!important;
+  font-size: 1.313rem;
+  font-weight: 500;
+  margin-bottom: 1.875rem;
+  text-align: center;
+}
+
+.switcher-clone {
+  padding-bottom: 20px;
+}
+
+.switcher-clone:not(:last-child) {
+  border-bottom: 0.125rem dashed #e2e6ea;
+  margin-bottom: 30px;
+}
+
+.switcher-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 2.1875rem;
+}
+
+.switcher-tab__item button {
+  padding-right: 1.375rem;
+  padding-left: 1.375rem;
+  min-width: 6.25rem;
+  height: 2.313rem;
+  border: 1px solid #e2e6ea;
+  background-color: #ffffff;
+  color: #818992;
+  font-family: "SF Pro Display";
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.switcher-tab__item button.active {
+  background-color: #4777f4;
+  color: #ffffff;
+}
+
+.switcher-tab__item:first-child button {
+  border-radius: 5px 0 0 5px;
+  border-right: 0;
+}
+
+.switcher-tab__item:last-child {
+  border-radius: 0 5px 5px 0;
+}
+
+.switcher-colors {
+  margin-top: 40px;
+}
+
+.switcher-tab-content ul {
+  display: flex;
+  flex-wrap: wrap;
+  padding-right: 5rem;
+  padding-left: 5rem;
+}
+
+.switcher-tab-content ul li {
+  flex: 0 0 33.33%;
+  margin-bottom: 0.3125rem;
+}
+
+.switcher-tab-content ul button {
+  width: 3.063rem;
+  height: 3.063rem;
+  border-radius: 100px;
+}
+
+.switcher .switcher-tab__color .switcher-color {
+  display: none;
+}
+
+.switcher .switcher-tab__color .switcher-color.active {
+  display: flex;
+}
+
+.switcher .switcher-tab__color .switcher-gradient {
+  display: none;
+}
+
+.switcher .switcher-tab__color .switcher-gradient.active {
+  display: flex;
+}
+
+.switcher .switcher-tab__color button.active:before {
+  content: "\f00c";
+  font-family: FontAwesome;
+  color: #fff;
+  font-size: 1.25rem;
+}
+
+.switcher .switcher-tab__color .theme-green {
+  background: $theme-green;
+}
+
+.switcher .switcher-tab__color .theme-violet {
+  background: $theme-violet;
+}
+
+.switcher .switcher-tab__color .theme-red {
+  background: $theme-red;
+}
+
+.switcher .switcher-tab__color .theme-firoza {
+  background: $theme-firoza;
+}
+
+.switcher .switcher-tab__color .theme-primary {
+  background: $color-primary;
+}
+
+.switcher .switcher-tab__color .theme-orange {
+  background: $theme-orange;
+}
+
+.switcher .switcher-tab__color .gradient-1 {
+  background: $gradient-1;
+}
+
+.switcher .switcher-tab__color .gradient-2 {
+  background: $gradient-2;
+}
+
+.switcher .switcher-tab__color .gradient-3 {
+  background: $gradient-3;
+}
+
+.switcher .switcher-tab__color .gradient-4 {
+  background: $gradient-4;
+}
+
+.switcher .switcher-tab__color .gradient-5 {
+  background: $gradient-5;
+}
+
+.switcher .switcher-tab__color .gradient-6 {
+  background: $gradient-6;
+}
+
+.switcher .switcher-boxed {
+  display: none;
+  padding-right: 3.125rem;
+  padding-left: 3.125rem;
+  .media__content{
+    border-radius: 5px;
+  }
+}
+
+.switcher .switcher-boxed.active {
+  display: flex;
+}
+
+.switcher .switcher-boxed li {
+  flex: 0 0 25%;
+}
+
+.switcher .switcher-boxed button {
+  width: 45px;
+  height: 45px;
+  border-radius: 5px;
+  box-shadow: 0 0 0 1px #ddd;
+}
+
+.switcher .switcher-boxed button.active {
+  box-shadow: 0 0 0 2px #4777f4;
+}
+
+.switcher .theme-variation img {
+  border-radius: 3px;
+  max-width: 300px;
+}
+
+.switcher .theme-variation span {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  width: 3rem;
+  height: 3rem;
+  line-height: 3rem;
+  border-radius: 100px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #3498db;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+}
+
+.switcher .theme-variation a {
+  position: relative;
+  margin-bottom: 1.875rem;
+  border-radius: 5px;
+  transition: .3s;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.switcher .theme-variation a:before {
+  position: absolute;
+  content: "";
+  border-radius: 5px;
+  border: 0.063rem solid #e2e6ea;
+  background-color: #2d3136;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+}
+
+.switcher .theme-variation a:hover:before {
+  opacity: 0.76;
+  visibility: visible;
+}
+
+.switcher .theme-variation a.active:before {
+  opacity: 0.76;
+  visibility: visible;
+}
+
+.switcher .theme-variation a.active span {
+  opacity: 1;
+  visibility: visible;
+}

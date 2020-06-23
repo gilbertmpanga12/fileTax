@@ -1,0 +1,143 @@
+/**! ----- Common colors (SCSS extend) ---- **/
+%bg-color-primary {
+	background: $color-primary;
+}
+%color-primary {
+	color: $color-primary;
+	[data-theme=dark] & {
+		color: $color-primary;
+	}
+}
+%box-shadow-primary {
+	box-shadow: 0px 2px 0px $color-primary;
+}
+.border-primary {
+	border-color: $color-primary;
+}
+
+/**! ----- light theme theme background ---- **/
+.main{
+    background: $color-white;
+}
+
+/**! ----- Dark theme color ---- **/
+#{$theme-dark} {
+	color: $color-on-light-secondary-2;
+	.main {
+		background: $midnight;
+	}
+}
+/**! ----- Color palette ---- **/
+.bg-color-midnight {
+	background: $midnight;
+}
+.bg-color-darkblue {
+	background: $darkblue;
+}
+
+.bg-color-primary {
+	@extend %bg-color-primary;
+}
+
+.bg-color-grey {
+	background-color: $pale-grey;
+}
+
+.bg-color-coral {
+	background-color: $coral;
+}
+
+.color-primary {
+	@extend %color-primary;
+}
+
+.color-white {
+	color: $color-white;
+	#{$theme-dark} &{
+		color: $color-white;
+	}
+}
+.color-light-primary {
+	color: $color-on-light-primary;
+}
+
+.color-light-secondary {
+	color: $color-on-light-secondary;
+}
+
+.color-light-secondary-2 {
+	color: $color-on-light-secondary-2;
+}
+
+.icon-color-white {
+	color: $color-white;
+
+	* {
+		color: $color-white;
+	}
+}
+
+/**! ----- Typography Color Settings ---- **/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: $color-on-light-primary;
+}
+
+h1,
+h2,
+h3{
+	.bg-color-primary & {
+		color: $color-white;
+	}
+}
+
+#{$theme-dark}, .bg-color-darkblue {
+	h1,
+	h2,
+	h3,
+	h4{
+		color: $color-white;
+	}
+}
+
+p {
+	color: $color-on-light-secondary;
+
+	#{$theme-dark} &,
+	.bg-color-darkblue & {
+		color: $color-on-light-secondary-2;
+	}
+
+	.bg-color-primary & {
+		color: $iron;
+	}
+
+}
+
+.lead {
+	color: $color-on-light-secondary-2;
+
+	.bg-color-primary & {
+		color: $light-blue-grey;
+	}
+}
+
+.type--fine-print {
+	.bg-color-primary & {
+		color: $iron;
+	}
+}
+.blockquote {
+	.bg-color-darkblue &{
+		color: $light-blue-grey;
+		h4 {
+			color: $light-blue-grey;
+		}
+	}
+
+}
+

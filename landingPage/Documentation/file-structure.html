@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>shades - File Structures</title>
+    <!-- favicon CSS -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,400i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alice" rel="stylesheet">
+    <!-- custom fonts -->
+    <link href="fonts/aileron.css" rel="stylesheet">
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="css/plugins.min.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="css/app.css">
+    <!-- Your CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body class="" data-spy="scroll" data-target="#navbar-nav">
+    <!-- =========== Start of Sidebar ============ -->
+    <aside class="sidebar">
+            <div class="sidebar-logo-holder">
+                <button class="navbar-toggler d-lg-none" type="button" data-toggle="navbarToggler" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="sidebar-brand">
+                    <a href="index.html"><img src="./img/logo-shade.png" alt="brand-logo"></a>
+                </div>
+            </div>
+            <div class="sidebar-inner">
+                <div class="navbar-wrapper">
+                    <div class="sidebar-nav">
+                        <ul class="navigation">
+                            <li class="nav-title">Getting started</li>
+                            <li class="nav-item"><a href="index.html" class="nav-link">Introduction</a></li>
+                            <li class="nav-item"><a href="file-structure.html" class="nav-link">File structures</a></li>
+                            <li class="nav-item"><a href="customization.html" class="nav-link">Customization</a></li>
+                            <li class="nav-item"><a href="update.html" class="nav-link">Update</a></li>
+                        </ul>
+                        <!-- <ul class="navigation">
+                            <li class="nav-title">Components</li>
+                            <li class="nav-item"><a href="background-image-holder.html" class="nav-link">Background Holder</a></li>
+                            <li class="nav-item"><a href="buttons.html" class="nav-link">Buttons</a></li>
+                            <li class="nav-item"><a href="cards.html" class="nav-link">Cards</a></li>
+                            <li class="nav-item"><a href="countdown.html" class="nav-link">Countdown</a></li>
+                            <li class="nav-item"><a href="form.html" class="nav-link">Form</a></li>
+                            <li class="nav-item"><a href="icons.html" class="nav-link">Icons</a></li>
+                            <li class="nav-item"><a href="language-selector.html" class="nav-link">Language Selector</a></li>
+                            <li class="nav-item"><a href="media-player.html" class="nav-link">Media Player</a></li>
+                            <li class="nav-item"><a href="reveal.html" class="nav-link">Reveal Animation</a></li>
+                            <li class="nav-item"><a href="social-icon-list.html" class="nav-link">Social Icon List</a></li>
+                        </ul> -->
+                        <!-- <ul class="navigation">
+                            <li class="nav-title">Utilities</li>
+                            <li class="nav-item"><a href="helpers.html" class="nav-link">Helpers</a></li>
+                            <li class="nav-item"><a href="spacing.html" class="nav-link">Spacing</a></li>
+                            <li class="nav-item"><a href="shades-template-options.html" class="nav-link">shades template
+                                    options</a></li>
+                        </ul> -->
+                    </div>
+                </div>
+            </div>
+        
+        </aside>
+    <!-- =========== End of Sidebar ============ -->
+    <main class="main documentation">
+
+        <!-- =========== Start of Body Content ============ -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-10 order-xl-1 pl-lg-60">
+                        <!-- Getting started -->
+                        <div class="content-title mb-30 pb-30 border-bottom">
+                            <h1 class="h3-font mb-10">File structure</h1>
+                            <p class="lead font-w-400">Within this theme you’ll find the following directories and files, grouping common resources and providing both compiled and minified distribution files, as well as raw source files.</p>
+                        </div>
+                        <div class="mb-20">
+                            <h3 class="pb-10 h5-font">What's Included?</h3>
+                            <!-- <p><i class="fa fa-folder text-primary mr-2"></i><strong>pages</strong> is where all HTML pages are stored. Use any of these to start building your website. Everything is exactly as see in the live preview. Each page is named after its shades so it can be easy for you to find the one you need. You can open it directly in your browser or your favorite editor to modify its contents.</p> -->
+                        </div>
+                        <!-- end of group -->
+
+                        <div class="mb-40">
+                            <h3 class="pb-20 h5-font">SCSS</h3>
+                            <p><i class="fa fa-folder text-primary mr-2"></i><strong>scss</strong>  contains all of raw source files that are used to create the final CSS that is included in the theme.
+                            </p>
+
+                            <!-- <div class="pl-20 mt-5">
+                                
+                                <h4 class="text-primary lead"><i class="fa fa-folder-open text-primary mr-2"></i> Helpers</h4>
+                                <p>Contains <code>_mixins.scss</code> and <code>_variables.scss</code></p>
+                                
+                            </div> -->
+                        </div>
+                        <!-- end of group -->
+                        
+                        <div class="mb-40">
+                            <h3 class="pb-20 h5-font">css</h3>
+                            <p><i class="fa fa-folder text-primary mr-2"></i><strong>css</strong> contains all the compiled css written for shades:
+                            </p>
+                            <div class="pl-20 mt-10">
+                                <h4 class="lead"><i class="fa fa-file-code-o text-primary mr-1"></i> <code>settings.css</code></h4>
+                                <p>contains all the reset/reboot style code. it is required for the theme</p>
+                                <hr>
+                                <h4 class="lead"><i class="fa fa-file-code-o text-primary mr-1"></i> <code>styles.css</code></h4>
+                                <p>contains the shade theme main style file.</p>
+                                <hr>
+                                <h4 class="lead"><i class="fa fa-file-code-o text-primary mr-1"></i> <code>custom.css</code></h4>
+                                <p>this is empty css file. you can put your own code here.</p>
+                            </div>
+                        </div>
+                        <!-- end of group -->
+
+
+                        <div class="mb-40">
+                            <h3 class="pb-20 h5-font">JS</h3>
+                            <p><i class="fa fa-folder text-primary mr-2"></i><strong>js</strong> contains one js files:
+                            </p>
+                            <div class="pl-20 mt-10">
+                                <h4 class="lead"><i class="fa fa-file-code-o text-primary mr-1"></i> <code>active.js</code></h4>
+                                <p>contains all the plugin's activation and additional scripts included in Shades.</p>
+                            </div>
+                        </div>
+                        <!-- end of group -->
+
+                        <div class="mb-40">
+                            <h3 class="pb-20 h5-font">Plugins</h3>
+                            <p><i class="fa fa-folder text-primary mr-2"></i><strong>plugins</strong> contains all the plugins folder used in shade.
+                            </p>
+                        </div>
+                        <!-- end of group -->
+
+                        <div class="mb-40">
+                            <h3 class="pb-20 h5-font">Images</h3>
+                            <p><i class="fa fa-folder text-primary mr-2"></i><strong>img</strong> contains all images used in this theme, backgrounds, icons, patterns and more.
+                            </p>
+                        </div>
+                        <!-- end of group -->
+
+                        <div class="mb-40">
+                            <h3 class="h5-font">Fonts</h3>
+                            <p><i class="fa fa-folder text-primary mr-2"></i><strong>fonts</strong> contains all the third party Typography fonts and Icon fonts that used in shades.
+                            </p>
+                        </div>
+                        <!-- end of group -->
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- =========== End of Body Content ============ -->
+    </main>
+
+    <script src="js/plugins.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

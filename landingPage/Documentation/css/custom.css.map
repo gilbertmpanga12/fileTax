@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "mappings": "AAIA;;EAEE",
+    "sources": [
+        "../scss/custom.scss",
+        "../scss/1-scss_helpers/_functions.scss",
+        "../scss/1-scss_helpers/_variables.scss",
+        "../scss/1-scss_helpers/_mixins.scss"
+    ],
+    "names": [],
+    "file": "custom.css"
+}

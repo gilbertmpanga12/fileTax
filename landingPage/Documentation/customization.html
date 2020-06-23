@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>shades - Customization</title>
+    <!-- favicon CSS -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,400i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alice" rel="stylesheet">
+    <!-- custom fonts -->
+    <link href="fonts/aileron.css" rel="stylesheet">
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="css/plugins.min.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="css/app.css">
+    <!-- Your CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body class="" data-spy="scroll" data-target="#navbar-nav">
+    <!-- =========== Start of Sidebar ============ -->
+    <aside class="sidebar">
+        <div class="sidebar-logo-holder">
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="navbarToggler" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="sidebar-brand">
+                <a href="index.html"><img src="./img/logo-shade.png" alt="brand-logo"></a>
+            </div>
+        </div>
+        <div class="sidebar-inner">
+            <div class="navbar-wrapper">
+                <div class="sidebar-nav">
+                    <ul class="navigation">
+                        <li class="nav-title">Getting started</li>
+                        <li class="nav-item"><a href="index.html" class="nav-link">Introduction</a></li>
+                        <li class="nav-item"><a href="file-structure.html" class="nav-link">File structures</a></li>
+                        <li class="nav-item"><a href="customization.html" class="nav-link">Customization</a></li>
+                        <li class="nav-item"><a href="update.html" class="nav-link">Update</a></li>
+                    </ul>
+                    <!-- <ul class="navigation">
+                        <li class="nav-title">Components</li>
+                        <li class="nav-item"><a href="background-image-holder.html" class="nav-link">Background Holder</a></li>
+                        <li class="nav-item"><a href="buttons.html" class="nav-link">Buttons</a></li>
+                        <li class="nav-item"><a href="cards.html" class="nav-link">Cards</a></li>
+                        <li class="nav-item"><a href="countdown.html" class="nav-link">Countdown</a></li>
+                        <li class="nav-item"><a href="form.html" class="nav-link">Form</a></li>
+                        <li class="nav-item"><a href="icons.html" class="nav-link">Icons</a></li>
+                        <li class="nav-item"><a href="language-selector.html" class="nav-link">Language Selector</a></li>
+                        <li class="nav-item"><a href="media-player.html" class="nav-link">Media Player</a></li>
+                        <li class="nav-item"><a href="reveal.html" class="nav-link">Reveal Animation</a></li>
+                        <li class="nav-item"><a href="social-icon-list.html" class="nav-link">Social Icon List</a></li>
+                    </ul> -->
+                    <!-- <ul class="navigation">
+                        <li class="nav-title">Utilities</li>
+                        <li class="nav-item"><a href="helpers.html" class="nav-link">Helpers</a></li>
+                        <li class="nav-item"><a href="spacing.html" class="nav-link">Spacing</a></li>
+                        <li class="nav-item"><a href="shades-template-options.html" class="nav-link">shades template
+                                options</a></li>
+                    </ul> -->
+                </div>
+            </div>
+        </div>
+    
+    </aside>
+    <!-- =========== End of Sidebar ============ -->
+    <main class="main documentation">
+
+        <!-- =========== Start of Body Content ============ -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-10 order-xl-1 pl-lg-60">
+                        <!-- Getting started -->
+                        <div class="content-title mb-30 pb-30 border-bottom">
+                            <h1 class="h3-font mb-10">Customization</h1>
+                            <p class="lead font-w-400">Learn how to create your own style without changing the theme’s
+                                core files
+                                so you can take advantage of future updates.</p>
+                        </div>
+                        <div class="mb-50">
+                            <h3 class="pb-20 h4-font">Sass </h3>
+                            <p>It's highly recommended that all the customized styles to be wriiten only within the
+                                <code>custom.scss</code> file from the scss folder so you can update this theme anytime
+                                with no effort. When you update Shade, make sure you backup your <code>custom.scss</code>
+                                file, that may contain styles you have created already.</p>
+                            <br>
+                            <p class="lead font-w-500 mb-20"><code>custom.scss</code> file is dedicated for custom edit and
+                                additions.</p>
+
+                                <!-- <p class="font-w-500 text-danger">If you are gonna use the SCSS version then please delete the CSS
+                                    <code>
+                                            &lt;link rel=&quot;stylesheet&quot; href=&quot;css/custom.css&quot;&gt;
+                                    </code> from &lt;head&gt; of HTML  or delete all codes from <code>css/custom.css</code> file. This file is for css user and It might conflict with your scss color and font updates since the <code>custom.css</code> is placed bottom of the <code>app.css</code>.
+                                </p>
+                                <pre>
+                                    <code class="language-html" data-lang="html">
+                                            &lt;!-- Your CSS --&gt;
+                                            &lt;link rel=&quot;stylesheet&quot; href=&quot;css/custom.css&quot;&gt;
+                                    </code>
+                                </pre> -->
+
+                        </div>
+                        <!-- end of group -->
+
+                        <div class="mb-60">
+                            <div class="mb-30">
+                                <h2 class="h4-font mb-10">How to include a typeface?</h2>
+                                <p class="lead font-w-400">Add or change shades typography with the following
+                                    instructions.</p>
+                            </div>
+
+                            <div class="mb-50">
+                                <h3 class="pb-20 h6-font">With SASS</h3>
+
+                                <ul>
+                                    <!-- <li class="mb-30">
+                                        Add your font stylesheet into the <code class="highlighter-rouge">&lt;head&gt;</code>
+                                        before all other stylesheets. Like:
+
+                                        <pre>
+                                            <code class="language-html" data-lang="html">
+                                            &lt;!-- google fonts --&gt;
+                                            &lt;link rel="stylesheet" href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"&gt;
+                                            </code>
+                                        </pre>
+                                    </li> -->
+                                    <li>
+                                        <p>open <code>scss/settings.scss</code> file and update your
+                                            typeface from the top.</p>
+                                        <pre>
+                                        <code class="language-scss" data-lang="scss">
+                                                // Fonts
+                                                @import url('https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i&display=swap');
+                                                
+                                        </code>
+                                      </pre>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="pb-20 h6-font">With CSS</h3>
+
+                                <ol>
+                                    <!-- <li class="mb-30">
+                                        Add your font stylesheet into the <code class="highlighter-rouge">&lt;head&gt;</code>
+                                        before all other stylesheets. Like:
+
+                                        <pre>
+                                            <code class="language-html" data-lang="html">
+                                            &lt;!-- google fonts --&gt;
+                                            &lt;link rel="stylesheet" href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"&gt;
+                                            </code>
+                                        </pre>
+                                    </li> -->
+                                    <li>
+                                        <p>open <code>css/settings.css</code> file and update your
+                                            typeface from the top.</p>
+                                        <pre>
+                                        <code class="language-scss" data-lang="css">
+                                                // Fonts
+                                                @import url('https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i&display=swap');
+                                                
+                                        </code>
+                                        </pre>
+                                    </li>
+                                    <li>
+                                        Open <code>css/custom.css</code> files
+                                        and simply replace the <code class="highlighter-rouge">font-family</code>
+                                        from <code class="highlighter-rouge">&lt;body&gt;</code>.
+                                        <pre>
+                                        <code class="language-css" data-lang="css">
+                                                body {
+                                                    font-family: &#x22;Karla&#x22;, sans-serif, &#x22;Aileron&#x22;, sans-serif;
+                                                  }
+                                        </code>
+                                      </pre>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                        <!-- end of group -->
+                        <div class="mb-30">
+                            <div class="mb-30">
+                                <h2 class="h4-font mb-10">How to update colors?</h2>
+                                <p>There are two options you have to update the colors.</p>
+                            </div>
+                            <div>
+
+                                <ul>
+                                    <!-- end of template color -->
+                                    <li class="mb-40">
+                                        <div class="mb-10">
+                                            <h3 class="h5-font mb-10">Applying your own colors using from SCSS</h3>
+                                            <p>open <code>scss/helpers/_variables.scss</code> files and update your color
+                                                from the
+                                                variable list.</p>
+                                        </div>
+
+                                        <p>For example, if you need to change the primary color, all you need to do is
+                                            replace <code>$primary-color</code> color value/code with your own color
+                                            value/code.
+                                        </p>
+                                        <pre>
+                                        <code class="language-scss" data-lang="scss">
+                                                $primary-color:                                                       #1290a4;  
+                                        </code>
+                                        </pre>
+                                    </li>
+                                    <!-- end of own color  css-->
+                                    <li>
+                                        <div class="mb-10">
+                                            <h3 class="h5-font mb-10">Applying your own colors from CSS</h3>
+                                            <p>Open <code>css/custom.css</code> files and simply replace the color codes of <code>background, color, box-shadow, border-color </code> properties with yours.</p>
+                                        </div>
+                                        <pre>
+                                        <code class="language-scss" data-lang="scss">
+                                            .border-primary, .hr--blod, .btn--color-primary, .btn--color-dark.btn-text-hover:hover, .btn--outline:hover, .btn--outline-thick:hover, .btn-text-hover:hover {
+                                                border-color: #2f5bea;
+                                              }
+                                        </code>
+                                        </pre>
+                                    </li>
+                                    <!-- end of own color -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mb-30">
+                            <div class="mb-30">
+                                <h2 class="h4-font mb-10">How to Change Logo?</h2>
+                            </div>
+                            <div class="mb-10">
+                                <!-- <h3 class="h5-font mb-10">Applying your own colors using from SCSS</h3> -->
+                                <p>open <code>index.html</code> file. look for the block called <code>&lt;!-- Brand Logo --&gt;</code> and change the image <code>src=""</code>:</p>
+                                    <pre>
+                                        <code class="language-html" data-lang="html">
+                                                &lt;!-- Brand Logo --&gt;
+                                                &lt;div class="brand-logo"&gt;
+                                                    &lt;a href=""&gt;
+                                                        &lt;img src="image/main-logo.png" alt="" /&gt;
+                                                    &lt;/a&gt;
+                                                &lt;/div&gt;                                                       
+                                        </code>
+                                    </pre>
+                            </div>
+                        </div>
+                        <!-- end of group -->
+                        <div class="mb-30">
+                            <div class="mb-30">
+                                <h2 class="h4-font mb-10">How to Change the Copyright Text</h2>
+                            </div>
+                            <div class="mb-10">
+                                <!-- <h3 class="h5-font mb-10">Applying your own colors using from SCSS</h3> -->
+                                <p>open <code>index.html</code> file. look for the block called <code>&lt;!-- Copyright Block --&gt;</code> and change the Text inside the <code>p</code> Tag     :</p>
+                                    <pre>
+                                        <code class="language-html" data-lang="html">
+                                                &lt;!-- Copyright Block --&gt;
+                                                &lt;div class="copyright-block"&gt;
+                                                    &lt;p&gt;
+                                                        &lt;img src="image/main-logo.png" alt="" /&gt;
+                                                    &lt;/p&gt;
+                                                &lt;/div&gt;                                                       
+                                        </code>
+                                    </pre>
+                            </div>
+                        </div>
+                        <!-- end of group -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- =========== End of Body Content ============ -->
+    </main>
+
+    <script src="js/plugins.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
