@@ -74,6 +74,8 @@ constructor(private breakpointObserver: BreakpointObserver, private router: Rout
   checkNotifications(): void{
     // do something after navigation
     this.router.navigate(['/notifications']);
+    this.service.uncheckNotification();
+    
   }
 
   logout(): void{

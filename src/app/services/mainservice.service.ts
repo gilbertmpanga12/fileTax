@@ -246,4 +246,26 @@ export class MainserviceService {
  }
 
 
+  async uncheckNotification(){
+    this.firestore.collection('sessionRegister').doc(this.user.uid).get().subscribe(val => {
+    
+      if(val.data()['isCompany']){
+        this.resetToZero('company_users');
+        return;
+      }
+      this.resetToZero('users');
+      return;
+    }, err => {
+      console.log(err);
+    });
+    
 }
+ async resetToZero(accountType: string){
+   await this.firestore.collection(accountType)
+   .doc(this.user.uid).set({notificationCount: 0},{merge:true});
+ }
+
+}
+
+
+ 
