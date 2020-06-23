@@ -11,6 +11,8 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { FileTaxesUserComponent } from './file-taxes-user/file-taxes-user.component';
 import { FileTaxesBusinessComponent } from './file-taxes-business/file-taxes-business.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 @NgModule({
   declarations: [FileMyTaxesComponent, FileTaxesUserComponent, FileTaxesBusinessComponent],
@@ -22,7 +24,8 @@ import { FileTaxesBusinessComponent } from './file-taxes-business/file-taxes-bus
     MatDividerModule,
     MatSnackBarModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressSpinnerModule
   ]
 })
 export class FileMyTaxesModule { }

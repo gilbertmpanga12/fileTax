@@ -1,7 +1,23 @@
-<app-company-settings
-*ngIf="(service.accountType$ | async)?.isCompany == true"
-></app-company-settings>
 
-<app-user-settings
-*ngIf="(service.accountType$ | async)?.isCompany == false"
-></app-user-settings>
+
+<ng-container [ngSwitch]="(service.accountType$ | async)?.isCompany">
+    <app-company-settings
+    *ngSwitchCase="true"
+    ></app-company-settings>
+    
+    <app-user-settings
+    *ngSwitchCase="false"
+    ></app-user-settings>
+
+    <div class="flex-container-column" *ngSwitchDefault>
+        <div class="height-block2"></div>
+          <div class="sk-chase">
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+            </div>
+      </div>
+</ng-container>

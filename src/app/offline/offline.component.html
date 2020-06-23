@@ -1,8 +1,16 @@
-<app-company-offline-filing
-*ngIf="(service.accountType$ | async)?.isCompany == true;
-else user"
+<ng-container [ngSwitch]="(service.accountType$ | async)?.isCompany">
+    <app-company-offline-filing *ngSwitchCase="true"
 ></app-company-offline-filing>
-
-<ng-template #user>
-    <app-user-offline-filing></app-user-offline-filing>
-</ng-template>
+    <app-user-offline-filing *ngSwitchCase="false"></app-user-offline-filing>
+    <div class="flex-container-column" *ngSwitchDefault>
+        <div class="height-block2"></div>
+          <div class="sk-chase">
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+            </div>
+      </div>
+</ng-container>

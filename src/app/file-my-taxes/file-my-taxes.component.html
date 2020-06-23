@@ -1,7 +1,20 @@
-<app-file-taxes-business 
-*ngIf="(service.accountType$ | async)?.isCompany == true"
+<ng-container [ngSwitch]="(service.accountType$ | async)?.isCompany">
+    <app-file-taxes-business 
+    *ngSwitchCase="true"
 ></app-file-taxes-business>
 
 <app-file-taxes-user 
-*ngIf="(service.accountType$ | async)?.isCompany == false"
+*ngSwitchCase="false"
     ></app-file-taxes-user>
+    <div class="flex-container-column" *ngSwitchDefault>
+        <div class="height-block2"></div>
+          <div class="sk-chase">
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+            </div>
+      </div>
+</ng-container>
