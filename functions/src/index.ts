@@ -6,8 +6,8 @@ const sgMail = require('@sendgrid/mail');
 export const setBusinessAccount = functions.https.onRequest((request, response) => {
   const toEmail = request.params['toEmail'];
   const fromEmail = request.params['fromEmail'];
-  const subject = request.params['subject'];
-  const message  = request.params['message'];
+  //const subject = request.params['subject'];
+  //const message  = request.params['message'];
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
   const msg = {
   to: toEmail,
@@ -17,4 +17,5 @@ export const setBusinessAccount = functions.https.onRequest((request, response) 
   html: '<strong>and easy to do anywhere, even with Node.js</strong>',
 };
 sgMail.send(msg);
+response.send({message: "done!"});
 });
