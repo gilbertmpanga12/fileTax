@@ -7,6 +7,9 @@ import {OfflineTaxFiling, BasicProfile, Filings, AccountType, CompanyProfile, Ta
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { firestore as ft } from 'firebase/app';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +23,7 @@ export class MainserviceService {
   accountType$: Observable<AccountType>;
 
   constructor(private auth: AngularFireAuth, private router: Router, private firestore: AngularFirestore,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar, private http: HttpClient
     ) {
     
     this.auth.authState.subscribe(user => {
@@ -273,6 +276,16 @@ export class MainserviceService {
  async resetToZero(accountType: string){
    await this.firestore.collection(accountType)
    .doc(this.user.uid).set({notificationCount: 0},{merge:true});
+ }
+
+ // callable functions
+
+ async welcomeTemplate(email: string, fullName: string){
+   const functionName = 'onboarding-welcomeEmail';
+   await this.http.get(environment.baseUrl + functionName, {params: {fullName: fullName, 
+   toEmail: email}},
+   );
+    
  }
 
 }

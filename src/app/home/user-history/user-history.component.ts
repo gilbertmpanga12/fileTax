@@ -14,7 +14,7 @@ export class UserHistoryComponent implements OnInit {
   displayedColumns: string[] = ['date', 'taxFiledName'];
   dataSource: MatTableDataSource<History>;
   isDataAvailable: boolean = true;
-  constructor(private firestore: AngularFirestore, private service: MainserviceService){
+  constructor(private firestore: AngularFirestore, public service: MainserviceService){
   
   }
 

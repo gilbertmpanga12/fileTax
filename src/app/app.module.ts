@@ -31,7 +31,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { CreateBusinessAccountComponent } from './create-business-account/create-business-account.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -67,10 +67,13 @@ import { CreateBusinessAccountComponent } from './create-business-account/create
     MatDatepickerModule, MatNativeDateModule,
     MatProgressBarModule,
     MatSnackBarModule,
-    AngularFireStorageModule
-    // AngularFireAuthModule
+    AngularFireStorageModule,
+    HttpClientModule
+ 
   ],
-  providers: [],
+  providers: [
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

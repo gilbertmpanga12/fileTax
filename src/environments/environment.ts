@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  baseUrl: 'https://us-central1-tax-as-a-service.cloudfunctions.net/',
   firebase: { 
     apiKey: "AIzaSyDgsepomz7meneHDmg9qemBVDbEa-fnf3E",
     authDomain: "tax-as-a-service.firebaseapp.com",
