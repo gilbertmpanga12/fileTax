@@ -3,7 +3,7 @@ const sgMail = require('@sendgrid/mail');
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
 
-export const offlinerequest = functions.https.onRequest(function (request, response) {
+export const requestPending = functions.https.onRequest(function (request, response) {
   const toEmail = request.query['toEmail'];
   var template: string = `<!doctype html>
 <html>
@@ -327,7 +327,7 @@ export const offlinerequest = functions.https.onRequest(function (request, respo
                       <td>
                         <p>Hi ${request.query['fullName']},</p>
                         <p>
-                        Filetax team here! Your request for offline taxation documents were received and they will be processed
+                        Filetax team here! Your taxation documents were received and they will be processed
                         in 2 business days and have results delivered to you.
                         </p>
                         
@@ -350,6 +350,8 @@ export const offlinerequest = functions.https.onRequest(function (request, respo
                             </tr>
                           </tbody>
                         </table>
+                        
+                        <p>I’d love to hear what you think of Filetax and if there is anything we can improve. If you have any questions, please reply to this email. I’m always happy to help!</p>
                       </td>
                     </tr>
                   </table>
@@ -383,14 +385,14 @@ export const offlinerequest = functions.https.onRequest(function (request, respo
   const msg = {
   to: toEmail,
   from: 'support@filetax.live',
-  subject: 'Your tax offline-request documents were received and are being processed 👋👋',
+  subject: 'Your tax documents were received and are being processed 👋👋',
   html: template,
 };
 sgMail
 .send(msg)
 .then(() => {
-  response.send({message: "done!"});
+  response.send({message: "done!", status: request.query['fullName']});
 }).catch(()=> {
-  response.send({message: "Error something went wrong"});
+  response.send({message: "Error something went wrong", status: request.query['fullName']});
 });
 });

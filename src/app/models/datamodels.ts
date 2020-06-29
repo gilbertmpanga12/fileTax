@@ -40,6 +40,8 @@ export interface OfflineTaxFiling{
     requesteeType: "users" | "company_users",
     requesteeName: string;
     uid: string;
+    email: string;
+    telephone: string;
 }
 
 export interface BasicProfileDocuments{

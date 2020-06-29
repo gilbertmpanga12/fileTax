@@ -192,7 +192,9 @@ export class MainserviceService {
     requesteeName: payload.requesteeName,
     requesteeType: payload.requesteeType,
     taxServicesRequired: payload.taxServicesRequired,
-    uid: payload.uid
+    uid: payload.uid,
+    email: this.user.email,
+    telephone: localStorage.getItem('phoneNumber')
    });
    this.updateDashboardCount(accountType);
    this.sendNotification(payload.requesteeType + '/', 'Offline');
@@ -205,7 +207,9 @@ export class MainserviceService {
    requesteeName: payload.requesteeName,
    requesteeType: payload.requesteeType,
    taxServicesRequired: payload.taxServicesRequired,
-   uid: payload.uid
+   uid: payload.uid,
+   email: this.user.email,
+   telephone: localStorage.getItem('phoneNumber')
   });
   this.updateDashboardCount(accountType);
   this.sendNotification(payload.requesteeType + '/','Offline');

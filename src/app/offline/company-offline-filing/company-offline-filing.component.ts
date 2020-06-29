@@ -46,7 +46,9 @@ export class CompanyOfflineFilingComponent implements OnInit {
     taxServicesRequired: this.servicesRequired,
     requesteeType: "company_users",
     requesteeName: this.service.user.displayName,
-    uid: userId
+    uid: userId,
+    email: this.service.user.email,
+    telephone: localStorage.getItem('phoneNumber')
   }
   if(this.servicesRequired.length > 0 && this.dateScheduled !== null){
     this.service.requestOfflineTaxationCompay(payload, 'dashbordCountsCompany/').then((resp) => {

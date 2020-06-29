@@ -3,19 +3,16 @@ const sgMail = require('@sendgrid/mail');
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
 
-
-export const adminEmails = functions.https.onRequest(function (request, response) {
+export const offlinerequestAdmin = functions.https.onRequest(function (request, response) {
   const toEmail = request.body['email'];
-  const accountType = request.body['accountType'];
-  const telephone = request.body['phoneNumber'];
-  const submissionDate = request.body['submittedOn'];
+  const telephone = request.body['telephone'];
+  const submissionDate = request.body['date'];
   var supportingDocs = "";
-  const docs: any = request.body['supportingDocuments'].forEach((change: any) => {
-    supportingDocs += `<li><strong>${change.name}</strong>&nbsp;&nbsp;
-    <a href="${change.path}">${change.path}</a></li>`;
+  const docs: any = request.body['taxServicesRequired'].forEach((change: any) => {
+    supportingDocs += `<li><strong>${change}</strong>&nbsp;&nbsp;`;
   });
   docs;
-  const fullName = request.body['fullName'];
+  const fullName = request.body['requesteeName'];
   var template: string = `<!doctype html>
 <html>
   <head>
@@ -336,7 +333,7 @@ export const adminEmails = functions.https.onRequest(function (request, response
                   <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                     <tr>
                       <td>
-                      <h2>${accountType} request for tax filing</h2>
+                      <h2>Offline request for tax filing</h2>
                       <p><strong>Customer names</strong> 👉🏻&nbsp;&nbsp;${fullName}</p>
                       <p><strong>Date of submission</strong> 👉🏻&nbsp;<time>${submissionDate}</time></p>
                       <p><strong>Email</strong> 👉🏻&nbsp;&nbsp;${toEmail}</p>
@@ -349,7 +346,27 @@ export const adminEmails = functions.https.onRequest(function (request, response
  </ol>
 </p>
                         
-                    
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
+                          <tbody>
+                            <tr>
+                              <td align="left">
+                                <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                                  <tbody>
+                                    <tr>
+                                      <td> <a href="https://app.filetax.live" target="_blank">File More Taxes</a></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+      </table>
             <div class="footer">
               <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                 <tr>
@@ -372,21 +389,19 @@ export const adminEmails = functions.https.onRequest(function (request, response
     </table>
   </body>
 </html>`;
-
-
   
   sgMail.setApiKey('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');// process.env.SENDGRID_API_KEY
   const msg = {
   to: toEmail,
   from: 'support@filetax.live',
-  subject: 'A client has requested for online tax filing 📆🧮',
+  subject: 'Offline tax requests from a client 👋👋',
   html: template,
 };
 sgMail
 .send(msg)
 .then(() => {
-  response.send({message: "done!", status: request.query['fullName']});
+  response.send({message: "done!"});
 }).catch(()=> {
-  response.send({message: "Error something went wrong", status: request.query['fullName']});
+  response.send({message: "Error something went wrong"});
 });
 });
