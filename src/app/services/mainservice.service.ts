@@ -201,6 +201,7 @@ export class MainserviceService {
    });
    this.updateDashboardCount(accountType);
    this.sendNotification(payload.requesteeType + '/', 'Offline');
+   this.offlineRequest(payload);
  }
 
  async requestOfflineTaxationCompay(payload: OfflineTaxFiling, accountType: string){
@@ -216,6 +217,7 @@ export class MainserviceService {
   });
   this.updateDashboardCount(accountType);
   this.sendNotification(payload.requesteeType + '/','Offline');
+  this.offlineRequest(payload);
 }
 
  async createBasicFile(payload: BasicProfile) {
@@ -236,6 +238,7 @@ export class MainserviceService {
    await this.firestore.collection<Filings>(businessType).add(payload);
    this.updateDashboardCount(accountType);
    this.sendNotification(businessType + '/');
+   this.onlineRequest(payload);
  }
 
  async updateDashboardCount(businessType: string){
@@ -280,12 +283,18 @@ export class MainserviceService {
 
  // callable functions
 
- async welcomeTemplate(email: string, fullName: string){
-   const functionName = 'onboarding-welcomeEmail';
-   await this.http.get(environment.baseUrl + functionName, {params: {fullName: fullName, 
-   toEmail: email}},
-   );
-    
+ async onlineRequest(payload: Filings){
+   const functionName = 'pending-requestPending';
+   const functionNameAdmin = 'admin-adminEmails';
+   await this.http.post(environment + functionName, payload);
+   await this.http.post(environment + functionNameAdmin, payload);
+ }
+
+ async offlineRequest(payload: OfflineTaxFiling){
+  const functionName = 'offline-requestPending';
+  const functionNameAdmin = 'adminoffline-offlinerequestAdmin';
+  await this.http.post(environment + functionName, payload);
+  await this.http.post(environment + functionNameAdmin, payload);
  }
 
 }
