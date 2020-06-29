@@ -155,7 +155,10 @@ setTimeout(() => {
     supportingDocuments: this.documentFiles,
     uid: this.service.user.uid,
     fullName: this.service.user.displayName,
-    submittedOn: new Date()
+    submittedOn: new Date(),
+    accountType: "company",
+    email: this.service.user.email,
+    phoneNumber: localStorage.getItem('phoneNumber')
     
   };
  

@@ -117,6 +117,12 @@ export class MainserviceService {
     this.sessionRegister(true);
  }
 
+  async getPhoneNumber(accountType: string, basicProfileType: string){
+    this.firestore.collection(accountType)
+    .doc(this.user.uid).collection(basicProfileType).doc(this.user.uid).get().subscribe((data) => {
+      localStorage.setItem('phoneNumber', data.data['telephone']);
+  })
+  }
 
   async sessionRegister(isCompany: boolean){
     await this.firestore.doc('sessionRegister/' + this.user.uid).set({isCompany}, {merge: true});

@@ -84,7 +84,10 @@ export interface Filings {
    uid: string;
    submittedOn: Date;
    fullName: string;
-   supportingDocuments:  BasicProfileDocuments[]
+   supportingDocuments:  BasicProfileDocuments[];
+   accountType: "users" | "company";
+   phoneNumber: string;
+   email: string;
 }
 
 export interface AccountType {

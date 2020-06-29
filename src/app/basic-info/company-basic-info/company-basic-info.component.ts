@@ -155,6 +155,7 @@ export class CompanyBasicInfoComponent implements OnInit {
         this.service.createBasicFileCompany(payload).then(res => {
           this.isLoading = false;
           this.snackbar('Great! your profile is up and ready. Start filing taxes now');
+          this.service.getPhoneNumber(personalInfo['telephone'], 'basicCompanyProfile');
           stepper.reset();
       }).catch(err => {
         this.isLoading = false;

@@ -1,18 +1,6 @@
-<ng-container [ngSwitch]="(service.accountType$ | async)?.isCompany">
-    <app-companydasboard 
-    *ngIf="true"></app-companydasboard>
-    <app-userdashboard 
-    *ngIf="false"
-    ></app-userdashboard>
-    <div class="flex-container-column" *ngSwitchDefault>
-    <div class="height-block2"></div>
-      <div class="sk-chase">
-          <div class="sk-chase-dot"></div>
-          <div class="sk-chase-dot"></div>
-          <div class="sk-chase-dot"></div>
-          <div class="sk-chase-dot"></div>
-          <div class="sk-chase-dot"></div>
-          <div class="sk-chase-dot"></div>
-        </div>
-  </div>
-</ng-container>
+<app-companydasboard 
+*ngIf="(service.accountType$ | async)?.isCompany == true;else user"></app-companydasboard>
+
+<ng-template #user>
+    <app-userdashboard #user></app-userdashboard>
+</ng-template>

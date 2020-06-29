@@ -190,6 +190,7 @@ export class UserBasicInfoComponent implements OnInit {
         this.service.createBasicFile(payload).then(res => {
           this.isLoading = false;
           this.snackbar('Great! your profile is up and ready. Start filing taxes now');
+          this.service.getPhoneNumber(personalInfo['telephone'], 'basicProfile');
           stepper.reset();
       }).catch(err => {
     
