@@ -394,8 +394,10 @@ sgMail
 .send(msg)
 .then(() => {
   response.send({message: "done!", status: request.query['fullName']});
-}).catch(()=> {
-  response.send({message: "Error something went wrong", status: request.query['fullName']});
+}).catch((err: any)=> {
+  console.log('my errors pending');
+  console.log(err);
+  response.send({message: "Error something went wrong bitch", status: err});
 });
  });
 });

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import {  Router, ActivatedRoute, Params, RoutesRecognized} from '@angular/router';
 import {UserServices} from '../../models/user-services';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -19,6 +19,7 @@ import { MainserviceService } from '../../services/mainservice.service';
 })
 export class UserTaxformsComponent implements OnInit {
 // isLinear: boolean = true;
+@ViewChild('ref') audioElement: ElementRef;
 serviceName: string = '';
 description: string = '';
 step1: FormGroup;
@@ -57,7 +58,7 @@ supportDocuments1 =  [
     ];
 constructor(private router: Router,  
   private route: ActivatedRoute, private _fb: FormBuilder, private storage: AngularFireStorage,
-  private service: MainserviceService, private snackBar: MatSnackBar) {
+  public service: MainserviceService, private snackBar: MatSnackBar) {
    
    }
 
@@ -78,6 +79,9 @@ ngOnInit(): void {
     stepcontrol3: ['', Validators.required]
   });
 }
+    playNotificationSound(): void{
+  this.audioElement.nativeElement.play();
+ }
 
 uploadMainDocument(event: FileList, stepper: MatHorizontalStepper){
   const file = event.item(0);
@@ -166,6 +170,7 @@ setTimeout(() => {
   this.service.uploadTaxFiles(payload, 'userTaxFiling', 'dashbordCounts/').then(res => {
     this.isLoading = false;
     this.snackbar('Great! your taxes have succesfully been submitted for filing');
+    this.playNotificationSound();
     stepper.reset();
  }).catch(err => {
 

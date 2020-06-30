@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ElementRef, ViewChild } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from 'firebase/app';
 import { Router } from '@angular/router';
@@ -21,7 +21,7 @@ export class MainserviceService {
   userId: string;
   accountType: AngularFirestoreDocument<AccountType>;
   accountType$: Observable<AccountType>;
-
+  
   constructor(private auth: AngularFireAuth, private router: Router, private firestore: AngularFirestore,
     private snackBar: MatSnackBar, private http: HttpClient
     ) {
@@ -94,6 +94,8 @@ export class MainserviceService {
     },{merge: true});
 
     this.sessionRegister(false);
+    this.welcomeTemplate();
+
   }
 
 
@@ -118,6 +120,7 @@ export class MainserviceService {
     },{merge: true});
     
     this.sessionRegister(true);
+    this.welcomeTemplate();
  }
 
   async getPhoneNumber(accountType: string, basicProfileType: string){
@@ -247,19 +250,20 @@ export class MainserviceService {
    .set({latestTaxFiled: increment}, {merge: true});
  }
 
+ 
  async sendNotification(accountType: string, offline=' '){
-   const audio = new Audio('assets/swiftly.ogg');
-   audio.addEventListener("canplaythrough", event => {
-    audio.play();
-  });
-  // const increment = ft.FieldValue.increment(1);
+  
   await this.firestore.doc(accountType + this.user.uid).set({notificationCount: 1},{merge: true});
     
   await this.firestore.collection(accountType)
   .doc(this.user.uid).collection<TaxNotifications>('notifications')
   .add({description:
      `Your${offline}request has been received. You will receive your results in 2 business days`, timeStamp: Date.now()});
- }
+    //  audio.addEventListener("canplaythrough", event => {
+    //   audio.play();
+    //   return event;
+    // });
+    }
 
 
   async uncheckNotification(){
@@ -272,7 +276,7 @@ export class MainserviceService {
       this.resetToZero('users');
       return;
     }, err => {
-      console.log(err);
+      return;
     });
     
 }
@@ -286,15 +290,46 @@ export class MainserviceService {
  async onlineRequest(payload: Filings){
    const functionName = 'pending-requestPending';
    const functionNameAdmin = 'admin-adminEmails';
-   await this.http.post(environment + functionName, payload);
-   await this.http.post(environment + functionNameAdmin, payload);
+   await this.http.get(environment.baseUrl + functionName, {
+     params: {toEmail: this.user.email, fullName: this.user.displayName}
+   }).subscribe(resp => {
+    return;
+  }, err => {
+    console.log(err);
+  });;
+   await this.http.post(environment.baseUrl + functionNameAdmin, payload).subscribe(resp => {
+    return;
+  }, err => {
+    console.log(err);
+  });;
  }
 
  async offlineRequest(payload: OfflineTaxFiling){
   const functionName = 'offline-requestPending';
   const functionNameAdmin = 'adminoffline-offlinerequestAdmin';
-  await this.http.post(environment + functionName, payload);
-  await this.http.post(environment + functionNameAdmin, payload);
+  await this.http.get(environment.baseUrl + functionName, {
+    params: {toEmail: this.user.email, fullName: this.user.displayName}
+  }).subscribe(resp => {
+    return;
+  }, err => {
+    console.log(err); // not working
+  });
+  await this.http.post(environment.baseUrl + functionNameAdmin, payload).subscribe(resp => {
+    return;
+  }, err => {
+    return;
+  });;
+ }
+
+ async welcomeTemplate(){
+  const functionName = 'onboarding-welcomeEmail';
+  await this.http.get(environment.baseUrl + functionName, {
+    params: {toEmail: this.user.email}
+  }).subscribe(data => {
+    return;
+  }, err => {
+    return;
+  });
  }
 
 }

@@ -388,7 +388,9 @@ return cors(request, response, () => {
   .send(msg)
   .then(() => {
     response.send({message: "done!", status: request.query['fullName']});
-  }).catch(()=> {
+  }).catch((err: any)=> {
+    console.log('admin email logs');
+    console.log(err);
     response.send({message: "Error something went wrong", status: request.query['fullName']});
   });
 });

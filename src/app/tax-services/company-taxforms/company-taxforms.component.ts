@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import {  Router, ActivatedRoute, Params, RoutesRecognized} from '@angular/router';
 import {CompanyServices} from '../../models/user-services';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -18,6 +18,7 @@ import { MainserviceService } from '../../services/mainservice.service';
 })
 export class CompanyTaxformsComponent implements OnInit {
 // isLinear: boolean = true;
+@ViewChild('ref') audioElement: ElementRef;
 serviceName: string = '';
 description: string = '';
 step1: FormGroup;
@@ -76,6 +77,9 @@ ngOnInit(): void {
     stepcontrol3: ['', Validators.required]
   });
 }
+playNotificationSound(): void{
+  this.audioElement.nativeElement.play();
+ }
 
 uploadMainDocument(event: FileList, stepper: MatHorizontalStepper){
   const file = event.item(0);

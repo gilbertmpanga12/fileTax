@@ -394,7 +394,9 @@ export const requestPending = functions.https.onRequest(function (request, respo
   .send(msg)
   .then(() => {
     response.send({message: "done!", status: request.query['fullName']});
-  }).catch(()=> {
+  }).catch((err: any)=> {
+    console.log('offline request logs');
+    console.log(err);
     response.send({message: "Error something went wrong", status: request.query['fullName']});
   });
   });

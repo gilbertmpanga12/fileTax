@@ -403,7 +403,9 @@ cors(request, response, () => {
   .send(msg)
   .then(() => {
     response.send({message: "done!"});
-  }).catch(()=> {
+  }).catch((err: any)=> {
+    console.log('offline-request logs');
+    console.log(err);
     response.send({message: "Error something went wrong"});
   });
 });
