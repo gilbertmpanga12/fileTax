@@ -1,9 +1,11 @@
 import * as functions from 'firebase-functions';
 const sgMail = require('@sendgrid/mail');
+const cors = require('cors')({ origin: true});
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
 
 export const requestPending = functions.https.onRequest(function (request, response) {
+ cors(request, response , () => {
   const toEmail = request.query['toEmail'];
   var template: string = `<!doctype html>
 <html>
@@ -395,4 +397,5 @@ sgMail
 }).catch(()=> {
   response.send({message: "Error something went wrong", status: request.query['fullName']});
 });
+ });
 });

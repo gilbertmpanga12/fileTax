@@ -1,7 +1,7 @@
 {
   "hosting": [
     {
-      "target": "webapp",
+      "target": "landingpage",
       "public": "dist",
       "ignore": [
         "firebase.json",
@@ -16,7 +16,7 @@
       ]
     },
     {
-      "target": "landingpage",
+      "target": "webapp",
       "public": "landingPage",
       "ignore": [
         "firebase.json",
