@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { MainserviceService } from '../../services/mainservice.service';
 import { AngularFirestoreCollection } from '@angular/fire/firestore/public_api';
 import { TaxServices, OfflineTaxFiling } from '../../models/datamodels';
@@ -14,6 +14,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class CompanyOfflineFilingComponent implements OnInit {
   isLoading: boolean = false;
+  @ViewChild('audioref') audioElement: ElementRef;
   dateScheduled: Date;
   showError: boolean = false;
   servicesRequired: string[] = [];
@@ -38,6 +39,10 @@ export class CompanyOfflineFilingComponent implements OnInit {
   
   }
 
+  playNotificationSound(): void{
+    this.audioElement.nativeElement.play();
+   }
+
   submitOfflineRequest(){
     let userId = this.service.user.uid;
     this.isLoading = true;
@@ -53,6 +58,7 @@ export class CompanyOfflineFilingComponent implements OnInit {
   if(this.servicesRequired.length > 0 && this.dateScheduled !== null){
     this.service.requestOfflineTaxationCompay(payload, 'dashbordCountsCompany/').then((resp) => {
       this.isLoading = false;
+      this.playNotificationSound();
       this.snackbar('Offline request sent! You\' receive email comformation shortly');
     }).catch(err => {
       this.isLoading = false;

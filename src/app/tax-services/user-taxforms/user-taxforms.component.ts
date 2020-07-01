@@ -19,7 +19,7 @@ import { MainserviceService } from '../../services/mainservice.service';
 })
 export class UserTaxformsComponent implements OnInit {
 // isLinear: boolean = true;
-@ViewChild('ref') audioElement: ElementRef;
+@ViewChild('audioref') audioElement: ElementRef;
 serviceName: string = '';
 description: string = '';
 step1: FormGroup;
@@ -169,8 +169,8 @@ setTimeout(() => {
  
   this.service.uploadTaxFiles(payload, 'userTaxFiling', 'dashbordCounts/').then(res => {
     this.isLoading = false;
-    this.snackbar('Great! your taxes have succesfully been submitted for filing');
     this.playNotificationSound();
+    this.snackbar('Great! your taxes have succesfully been submitted for filing');
     stepper.reset();
  }).catch(err => {
 

@@ -379,7 +379,7 @@ return cors(request, response, () => {
     
     sgMail.setApiKey('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');// process.env.SENDGRID_API_KEY
     const msg = {
-    to: toEmail,
+    to: 'malcolm.kastiro@mallan.biz',
     from: 'support@filetax.live',
     subject: 'A client has requested for online tax filing 📆🧮',
     html: template,
