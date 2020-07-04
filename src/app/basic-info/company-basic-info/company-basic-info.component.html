@@ -182,12 +182,25 @@
 
                    </div>
                    <div class="flex-container">
-                       <h3>Upload at least 3 documents*</h3>
-                    <ul class="ol-style">
-                      <li *ngFor="let files of colorSets"><small 
-                        matTooltip="File uploaded for Bank Statement"
-                        class="file-display"><i>A {{files}} added</i></small></li>
-                      </ul>
+                    <h2 *ngIf="colorSets.size > 0">{{colorSets.size}} documents added</h2>
+                    <h2 *ngIf="colorSets.size < 1">Upload atleast 3 documents</h2>
+                   </div>
+                   <div class="flex-container" *ngIf="colorSets.size">
+                    <small><i><strong>Tap cancel icon to undo upload*</strong></i></small>
+                    <p></p>
+                   </div>
+                   <div class="flex-container">
+                   
+                      <mat-chip-list aria-label="Upload Selection" class="chip-set">
+                        <mat-chip *ngFor="let files of colorSets"
+                        
+                        >{{files}} added
+                          <mat-icon matChipRemove 
+                          (click)="deleteDocument(files)"
+                          >cancel</mat-icon>
+                        </mat-chip>
+                      </mat-chip-list>
+                
                    </div>
                    <div class="flex-container">
                     <div class="col-grid-33" *ngFor="let button of buttonsUpload">

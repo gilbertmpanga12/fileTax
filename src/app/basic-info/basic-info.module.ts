@@ -18,6 +18,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
 import { UserBasicInfoComponent } from './user-basic-info/user-basic-info.component';
 import { CompanyBasicInfoComponent } from './company-basic-info/company-basic-info.component';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [BasicInfoComponent, UserBasicInfoComponent, CompanyBasicInfoComponent],
@@ -37,7 +38,8 @@ import { CompanyBasicInfoComponent } from './company-basic-info/company-basic-in
     MatFormFieldModule,
     FormsModule, ReactiveFormsModule,
     MatSelectModule,
-    MatRadioModule
+    MatRadioModule,
+    MatChipsModule
   ]
 })
 export class BasicInfoModule { }
