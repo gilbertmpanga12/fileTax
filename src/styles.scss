@@ -93,6 +93,9 @@ flex-basis: 50%;
     flex-basis: 87%;
 }
 
+.col-full-grid{
+    flex-basis: 100%;
+}
 .overview-title{
     font-weight: 400 !important;
     // font-variant-caps: all-petite-caps !important;
@@ -295,7 +298,7 @@ color: #43379d !important;
 .logo-wrapper-box-container-registerbox{
     // border: 1px solid white;
     position: relative;
-    left:39.3%;
+    left:37.3%;
     margin-bottom: 6% !important;
 }
 .login-card{
@@ -375,7 +378,7 @@ text-transform: uppercase;
 }
 
 .register-card{
-    width: 43%;
+    width: 36%;
     max-height: 515px;
     margin: -22% auto !important;
     .login-title{

@@ -44,7 +44,7 @@ export class CreateBusinessAccountComponent implements OnInit {
       password: ['', Validators.required],
       companyName: ['', Validators.required],
       address: ['', Validators.required],
-      companyFoundationDate: ['', Validators.required],
+      companyFoundationDate: [this.date],
       registrationNumber: ['', Validators.required]
     });
   }

@@ -5,12 +5,13 @@
 <mat-card class="register-card mat-elevation-z4">
   <div class="logo-wrapper-box-container-registerbox">
     <img class="gb_ua" src="/assets/coollogo_com-124492030.png" 
-   alt="" aria-hidden="true" style="width:120px;height:46px">
+   alt="company-logo" aria-hidden="true" style="width:120px;height:46px">
 </div>
     
     <!-- <br/> -->
     <form [formGroup]="registerGroup" (ngSubmit)="register()">
       <div class="flex-container">
+      
         <div class="col-6-grid">
           <mat-form-field class="example-full-width" 
           
@@ -34,9 +35,9 @@
               <mat-error>Provide your last name</mat-error>
             </mat-form-field>
       </div>
-      <!-- br -->
-      <div class="col-6-grid">
-          <mat-form-field class="example-full-width" 
+        <!-- br -->
+        <div class="col-full-grid">
+          <mat-form-field class="email-full" 
           
           >
               <mat-label>Email</mat-label>
@@ -61,16 +62,8 @@
         </mat-form-field>
   </div>
        <!-- br -->
-       <div class="col-6-grid">
-          <!-- <mat-form-field class="example-full-width" 
-          
-          >
-              <mat-label>Date of birth</mat-label>
-              <input matInput placeholder="October 20th 1999" 
-              [errorStateMatcher]="matcher"
-              formControlName="dateOfBirth">
-              <mat-error>Date of birth required</mat-error>
-            </mat-form-field> -->
+       <!-- <div class="col-6-grid">
+         
   
             <mat-form-field class="example-full-width">
               <mat-label>Date of birth</mat-label>
@@ -81,7 +74,7 @@
               <mat-hint>Tap calendar icon to choose dates</mat-hint>
             </mat-form-field>
   
-      </div>
+      </div> -->
       <!-- br -->
       <div class="col-6-grid">
           <mat-form-field class="example-full-width" 

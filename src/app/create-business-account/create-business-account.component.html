@@ -14,7 +14,7 @@
     <form [formGroup]="registerGroup" (ngSubmit)="register()">
       <div class="flex-container">
         
-        <div class="col-6-grid">
+        <div class="col-full-grid">
           <mat-form-field class="example-full-width" 
           
           >
@@ -64,16 +64,8 @@
         </mat-form-field>
   </div>
        <!-- br -->
-       <div class="col-6-grid">
-          <!-- <mat-form-field class="example-full-width" 
-          
-          >
-              <mat-label>Date of birth</mat-label>
-              <input matInput placeholder="October 20th 1999" 
-              [errorStateMatcher]="matcher"
-              formControlName="dateOfBirth">
-              <mat-error>Date of birth required</mat-error>
-            </mat-form-field> -->
+       <!-- <div class="col-6-grid">
+       
   
             <mat-form-field class="example-full-width">
               <mat-label>Company founded on</mat-label>
@@ -84,7 +76,7 @@
               <mat-hint>Tap calendar icon to choose dates</mat-hint>
             </mat-form-field>
   
-      </div>
+      </div> -->
       <!-- br -->
       <div class="col-6-grid">
           <mat-form-field class="example-full-width" 

@@ -6,6 +6,10 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="./css/settings.css">
         <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./plugins/meanmenu/meanmenu.css">
+        <!-- fonts -->
+        <link rel="stylesheet" href="./fonts/ep-icon-fonts/css/style.css">
+        <link rel="stylesheet" href="./fonts/fontawesome-5/css/all.min.css">
 <style>
     body {
     /* font-family: 'Source Sans Pro', sans-serif; */
@@ -29,6 +33,20 @@ h1,h2,h3,h4,h5,h6{
     font-size: 25px !important;
 }
 </style>        
+ <script>
+    (function(d,t) {
+      var BASE_URL = "https://app.chatwoot.com";
+      var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+      g.src= BASE_URL + "/packs/js/sdk.js";
+      s.parentNode.insertBefore(g,s);
+      g.onload=function(){
+        window.chatwootSDK.run({
+          websiteToken: 'bKBQ1sQxditUy2XQ76KgZWC7',
+          baseUrl: BASE_URL
+        })
+      }
+    })(document,"script");
+  </script>
     </head>
     <body>
        
@@ -90,5 +108,85 @@ h1,h2,h3,h4,h5,h6{
         
      </div>
  </div>
+ <br/>
+<div class="footer-section">
+  <div class="container">
+        <div class="row margin-decrese">
+          <div class="col-xl-4 col-lg-5 col-margin">
+            <div class="single-footer">
+              <div class="footer-title">
+                 <!-- Brand Logo -->
+                <div class="brand-logo" height="10px !important;">
+                  <img src="./image/main-logo.png" alt=""
+                  
+                  >
+                </div>
+              </div>
+              <div class="footer-text">
+                <p>
+                  Filetax is Uganda's number #1 file taxing platform assisting you to file your tax. 
+We assist anyone who is a novice to an expert. We help
+you keep compliant with URA.
+                </p>
+              </div>
+              <ul class="footer-social-list">
+                  <li>
+                    <a href="https://www.facebook.com/FileTax-109179050831326">
+                      <i class="icon icon-logo-fb-simple"></i>
+                    </a>
+                  </li>
+                  <li>
+                      <a href="https://twitter.com/tax_file">
+                        <i class="icon icon-logo-twitter"></i>
+                      </a>
+                    </li>
+                    <li>
+                     
+                      <a href=" https://www.linkedin.com/company/filetax/about/?viewAsMember=true">
+                        <i class="icon fab fa-linkedin"></i>
+                      </a>
+                    </li>
+                    
+                      <li>Mawanda Road, KLA</li>
+                </ul>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-4 col-6 offset-xl-1 col-margin">
+              <div class="single-footer">
+                    <ul class="footer-list">
+                      <li><a href="index.html">About</a></li>
+                      <li><a href="team.html">Team</a></li>
+                      <li><a href="index.html">Features</a></li>
+                      <li><a href="mailto:info@filetax.live">Contact us</a></li>
+                      
+                    </ul>
+              </div>
+          </div> 
+          <div class="col-lg-2 col-xl-3 col-sm-4 col-6 col-margin">
+              <div class="single-footer">
+                  
+                    <ul class="footer-list">
+                      <li><a href="privacy.html">Terms & Conditions</a></li>
+                      <!-- <li><a href="">Privacy Policy</a></li> -->
+                      <li><a href="mailto:support@filetax.live">Support</a></li>
+                    </ul>
+              </div>
+          </div>  
+          <!-- <div class="col-lg-2 col-sm-4 col-margin">
+              <div class="single-footer">
+                  <div class="footer-title">
+                      <h6>Products</h6>
+                    </div>
+                    <ul class="footer-list">
+                      <li><a href=""> Shades Pro</a></li>
+                      <li><a href="">Essential Blocks</a></li>
+                      <li><a href="">Avasta Dash</a></li>
+                      <li><a href="">vApp Landing Page</a></li>
+                    </ul>
+              </div>
+          </div>  -->
+        </div>
+  </div>
+</div>
     </body>
 </html>
