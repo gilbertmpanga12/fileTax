@@ -47,16 +47,27 @@ src="assets/swiftly.ogg" id="notification-audio"
                 <form [formGroup]="step2">
                   <ng-template matStepLabel>Upload all supporting documents</ng-template>
               
-              <div class="flex-container">
-                <h2>{{colorSets.size}} documents added</h2>
-               </div>
-               <div class="flex-container">
-                <ul class="ol-style">
-                  <li *ngFor="let files of colorSets"><small 
-                    matTooltip="File uploaded for Bank Statement"
-                    class="file-display"><i>A {{files}} added</i></small></li>
-                  </ul>
-               </div>
+                  <div class="flex-container">
+                    <h2 *ngIf="colorSets.size > 0">{{colorSets.size}} documents added</h2>
+                    <h2 *ngIf="colorSets.size < 1">Start uploading documents</h2>
+                   </div>
+                   <div class="flex-container" *ngIf="colorSets.size">
+                    <small><i><strong>Tap cancel icon to undo upload*</strong></i></small>
+                    <p></p>
+                   </div>
+                   <div class="flex-container">
+                   
+                      <mat-chip-list aria-label="Upload Selection" class="chip-set">
+                        <mat-chip *ngFor="let files of colorSets"
+                        
+                        >{{files}} added
+                          <mat-icon matChipRemove 
+                          (click)="deleteDocument(files)"
+                          >cancel</mat-icon>
+                        </mat-chip>
+                      </mat-chip-list>
+    
+                   </div>
                <input formControlName="stepcontrol2" class="form-hidden"/>
 <div class="flex-container">
   <div class="col-grid-33" *ngFor="let doc of supportDocuments1">
@@ -91,14 +102,25 @@ src="assets/swiftly.ogg" id="notification-audio"
             <mat-step>
               <ng-template matStepLabel>Finish up</ng-template>
               <div class="flex-container">
-                <h2>{{colorSets.size}} documents added</h2>
+                <h2 *ngIf="colorSets.size > 0">{{colorSets.size}} documents added</h2>
+                <h2 *ngIf="colorSets.size < 1">Start uploading documents</h2>
+               </div>
+               <div class="flex-container" *ngIf="colorSets.size">
+                <small><i><strong>Tap cancel icon to undo upload*</strong></i></small>
+                <p></p>
                </div>
                <div class="flex-container">
-                <ul class="ol-style">
-                  <li *ngFor="let files of colorSets"><small 
-                    matTooltip="File uploaded for Bank Statement"
-                    class="file-display"><i>A {{files}} added</i></small></li>
-                  </ul>
+               
+                  <mat-chip-list aria-label="Upload Selection" class="chip-set">
+                    <mat-chip *ngFor="let files of colorSets"
+                    
+                    >{{files}} added
+                      <mat-icon matChipRemove 
+                      (click)="deleteDocument(files)"
+                      >cancel</mat-icon>
+                    </mat-chip>
+                  </mat-chip-list>
+
                </div>
               <div class="flex-container">
                 <div class="col-grid-33" *ngFor="let doc2 of supportDocuments2">

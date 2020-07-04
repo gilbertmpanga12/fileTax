@@ -13,7 +13,7 @@ src="assets/swiftly.ogg" id="notification-audio"
 <!-- linear -->
 <div class="flex-container">
     <mat-card class="service-tax-card mat-elevation-z3">
-        <mat-horizontal-stepper  #stepper >
+        <mat-horizontal-stepper  #stepper linear>
             <mat-step [stepControl]="step1">
                 <form [formGroup]="step1">
                   <ng-template matStepLabel>File {{serviceName}}</ng-template>
@@ -49,10 +49,10 @@ src="assets/swiftly.ogg" id="notification-audio"
                   <ng-template matStepLabel>Upload all supporting documents</ng-template>
               
               <div class="flex-container">
-                <h2>{{colorSets.size}} documents added</h2>
-               
+                <h2 *ngIf="colorSets.size > 0">{{colorSets.size}} documents added</h2>
+                <h2 *ngIf="colorSets.size < 1">Start uploading documents</h2>
                </div>
-               <div class="flex-container" *ngIf="colorSets.size > 0">
+               <div class="flex-container" *ngIf="colorSets.size">
                 <small><i><strong>Tap cancel icon to undo upload*</strong></i></small>
                 <p></p>
                </div>
@@ -103,15 +103,28 @@ src="assets/swiftly.ogg" id="notification-audio"
             <mat-step>
               <ng-template matStepLabel>Finish up</ng-template>
               <div class="flex-container">
-                <h2>{{colorSets.size}} documents added</h2>
+                <h2 *ngIf="colorSets.size > 0">{{colorSets.size}} documents added</h2>
+                <h2 *ngIf="colorSets.size < 1">Start uploading documents</h2>
                </div>
+               <div class="flex-container" *ngIf="colorSets.size">
+                <small><i><strong>Tap cancel icon to undo upload*</strong></i></small>
+                <p></p>
+               </div>
+
                <div class="flex-container">
-                <ul class="ol-style">
-                  <li *ngFor="let files of colorSets"><small 
-                    matTooltip="File uploaded for Bank Statement"
-                    class="file-display"><i>A {{files}} added</i></small></li>
-                  </ul>
-               </div>
+               
+                <mat-chip-list aria-label="Upload Selection" class="chip-set">
+                  <mat-chip *ngFor="let files of colorSets"
+                  
+                  >{{files}} added
+                    <mat-icon matChipRemove 
+                    (click)="deleteDocument(files)"
+                    >cancel</mat-icon>
+                  </mat-chip>
+                </mat-chip-list>
+
+             </div>
+
               <div class="flex-container">
                 <div class="col-grid-33" *ngFor="let doc2 of supportDocuments2">
                   <input class="file-input" type="file" 
