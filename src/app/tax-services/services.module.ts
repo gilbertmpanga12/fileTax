@@ -14,7 +14,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserTaxformsComponent } from './user-taxforms/user-taxforms.component';
 import { CompanyTaxformsComponent } from './company-taxforms/company-taxforms.component';
-
+import {MatChipsModule} from '@angular/material/chips';
 @NgModule({
   declarations: [ServicesComponent, UserTaxformsComponent, CompanyTaxformsComponent],
   imports: [
@@ -28,7 +28,8 @@ import { CompanyTaxformsComponent } from './company-taxforms/company-taxforms.co
     MatIconModule,
     MatStepperModule,
     MatTooltipModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatChipsModule
   ]
 })
 export class ServicesModule { }

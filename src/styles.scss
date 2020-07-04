@@ -66,6 +66,10 @@ h1,h2,h3,h4,h5,h6{
     justify-content: space-between;
 }
 
+.col-1-grid{
+    flex-basis: 1%;
+}
+
 .col-grid-33{
     flex-basis: 33.3%;
 }
@@ -287,6 +291,7 @@ color: #43379d !important;
     }
     
 }
+
 
 .logo-wrapper-box-container{
     // border: 1px solid white;
@@ -645,4 +650,7 @@ background-color: #6515dd !important;
 
   .file-input{
     display: none;
+}
+.chip-set{
+    margin-bottom: 2% !important;
 }

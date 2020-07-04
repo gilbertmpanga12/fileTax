@@ -10,10 +10,10 @@
 src="assets/swiftly.ogg" id="notification-audio" 
 #audioref
 ></audio>
-
+<!-- linear -->
 <div class="flex-container">
     <mat-card class="service-tax-card mat-elevation-z3">
-        <mat-horizontal-stepper  #stepper linear>
+        <mat-horizontal-stepper  #stepper >
             <mat-step [stepControl]="step1">
                 <form [formGroup]="step1">
                   <ng-template matStepLabel>File {{serviceName}}</ng-template>
@@ -50,13 +50,24 @@ src="assets/swiftly.ogg" id="notification-audio"
               
               <div class="flex-container">
                 <h2>{{colorSets.size}} documents added</h2>
+               
+               </div>
+               <div class="flex-container" *ngIf="colorSets.size > 0">
+                <small><i><strong>Tap cancel icon to undo upload*</strong></i></small>
+                <p></p>
                </div>
                <div class="flex-container">
-                <ul class="ol-style">
-                  <li *ngFor="let files of colorSets"><small 
-                    matTooltip="File uploaded for Bank Statement"
-                    class="file-display"><i>A {{files}} added</i></small></li>
-                  </ul>
+               
+                  <mat-chip-list aria-label="Upload Selection" class="chip-set">
+                    <mat-chip *ngFor="let files of colorSets"
+                    
+                    >{{files}} added
+                      <mat-icon matChipRemove 
+                      (click)="deleteDocument(files)"
+                      >cancel</mat-icon>
+                    </mat-chip>
+                  </mat-chip-list>
+
                </div>
                <input formControlName="stepcontrol2" class="form-hidden"/>
 <div class="flex-container">
