@@ -32,7 +32,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { CreateBusinessAccountComponent } from './create-business-account/create-business-account.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AccountsubscriptionComponent } from './accountsubscription/accountsubscription.component';
 
 @NgModule({
   declarations: [
@@ -43,9 +42,7 @@ import { AccountsubscriptionComponent } from './accountsubscription/accountsubsc
     LoginComponent,
     SignInComponent,
     RegisterComponent,
-    CreateBusinessAccountComponent,
-    AccountsubscriptionComponent
-  ],
+    CreateBusinessAccountComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
