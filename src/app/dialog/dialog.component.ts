@@ -19,7 +19,16 @@ export class DialogComponent implements OnInit {
     });
   }
 
-  resendEmailConfirmation(): void{
-     this.hasSubmittedForm = true;
+  resendEmailConfirmation(): void {
+    this.isLoading = true;
+     if(this.service.userVerified){
+       this.isLoading = false;
+       return;
+     }else{
+
+       this.service.sendEmailVerification().then((e) =>  {
+        this.hasSubmittedForm = true;
+       });
+     }
   }
 }
