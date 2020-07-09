@@ -33,6 +33,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { CreateBusinessAccountComponent } from './create-business-account/create-business-account.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DialogComponent } from './dialog/dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { DialogComponent } from './dialog/dialog.component';
     MatProgressBarModule,
     MatSnackBarModule,
     AngularFireStorageModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
  
   ],
   providers: [

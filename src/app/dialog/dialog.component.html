@@ -1,1 +1,42 @@
-<p>dialog works!</p>
+  <ng-container *ngIf="!hasSubmittedForm">
+    <form [formGroup]="emailForm" (ngSubmit)="resendEmailConfirmation()" >
+      <h2 mat-dialog-title>Type email to request for new confimation link</h2>
+      <mat-dialog-content>
+    
+    <p>
+      <mat-form-field class="example-full-width">
+        <mat-label>Type your email</mat-label>
+        <input matInput type="email" formControlName="email">
+      </mat-form-field>
+    </p>
+      </mat-dialog-content>
+     
+      <br/>
+      <mat-dialog-actions>
+        <button mat-button mat-dialog-close>Cancel</button>
+        <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+        <button mat-button type="submit" color="primary"
+        >
+            <div class="spinner-2" *ngIf="isLoading">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+              </div>
+              <span *ngIf="!isLoading">Send Activation link</span>
+        </button>
+      </mat-dialog-actions>
+    </form>
+  </ng-container>
+
+
+  <ng-container *ngIf="hasSubmittedForm">
+ <mat-dialog-content >
+    <h2 class="activation-link">Email sent! Check your email for link</h2>
+ </mat-dialog-content>
+ <mat-dialog-actions >
+    <button mat-stroked-button mat-dialog-close 
+    class="align-center-btn"
+    color="primary">Close</button>
+  </mat-dialog-actions>
+
+  </ng-container>

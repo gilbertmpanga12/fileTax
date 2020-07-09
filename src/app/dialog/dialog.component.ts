@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MainserviceService } from '../services/mainservice.service';
 
 @Component({
   selector: 'app-dialog',
@@ -6,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dialog.component.scss']
 })
 export class DialogComponent implements OnInit {
-
-  constructor() { }
+  hasSubmittedForm: boolean = false;
+  isLoading: boolean = false;
+  emailForm: FormGroup;
+  constructor(private _fb: FormBuilder, public service: MainserviceService) { }
 
   ngOnInit(): void {
+   this.emailForm =  this._fb.group({
+      email: ['', [Validators.required, Validators.email]]
+    });
   }
 
+  resendEmailConfirmation(): void{
+     this.hasSubmittedForm = true;
+  }
 }

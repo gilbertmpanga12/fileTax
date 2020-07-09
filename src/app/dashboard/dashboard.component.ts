@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-
+import {MatDialog} from '@angular/material/dialog';
 import { map, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { MainserviceService } from '../services/mainservice.service';
-import { TaxNotifications, IndividualUser } from '../models/datamodels';
+import { IndividualUser } from '../models/datamodels';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection} from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { DialogComponent } from '../dialog/dialog.component';
 
 declare const FlutterwaveCheckout: any;
 // Models
@@ -85,7 +86,7 @@ links:  Links[] = [{
   notificationsDocument: AngularFirestoreDocument<IndividualUser>;
   notificationsDocument$: Observable<IndividualUser>;
 constructor(private breakpointObserver: BreakpointObserver, private router: Router, public service: MainserviceService
-  , private firestore: AngularFirestore
+  , private firestore: AngularFirestore, private dialog: MatDialog
   ) {
   this.notificationsDocument = this.firestore.doc<IndividualUser>('users/' + this.service.user.uid);
   this.notificationsDocument$ = this.notificationsDocument.valueChanges();
@@ -143,6 +144,12 @@ constructor(private breakpointObserver: BreakpointObserver, private router: Rout
     script.async = false;
     script.defer = true;
     body.appendChild(script);
+  }
+
+  openDialog(): void{
+     this.dialog.open(DialogComponent, {
+      width: '380px'
+    });
   }
 
 }
