@@ -66,6 +66,11 @@ h1,h2,h3,h4,h5,h6{
     justify-content: space-between;
 }
 
+.auto-center{
+    text-align: center !important;
+    margin: 5% auto !important;
+    width: 80%;
+}
 .col-1-grid{
     flex-basis: 1%;
 }

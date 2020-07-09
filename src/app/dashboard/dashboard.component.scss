@@ -161,7 +161,7 @@
 
   .center-box{
     text-align: center;
-    margin-top: 12%;
+    margin-top: 2%;
     h3{
       font-size: 17px !important;
       color: green !important;
@@ -184,3 +184,96 @@
     border-image: initial;
     transition: background 0.2s linear 0s;
   }
+
+  // pricing table
+  // * {
+  //   box-sizing: border-box;
+  // }
+  
+  /* Create three columns of equal width */
+  .columns {
+    float: left;
+    width: 87%;
+    padding: 8px;
+   
+  }
+  
+  /* Style the list #eee*/
+  .price {
+    list-style-type: none;
+    border: 1px solid rgb(219, 214, 214); 
+    margin: 0;
+    padding: 0;
+    -webkit-transition: 0.3s;
+    box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+  }
+  
+  
+  
+  /* Pricing header */
+  .price .header {
+    // background-color: #6515dd;
+    color: #32325d;
+    font-size: 22px;
+  
+  }
+
+  
+  /* List items */
+  .price li {
+    border-bottom: 1px solid #eee;
+    padding: 20px;
+    text-align: center;
+    color: #32325d;
+    font-weight: 500;
+  }
+  
+  /* Grey list item */
+  .price .grey {
+    background-color: #eee;
+    font-size: 20px;
+    font-weight: bold;
+    color: #32325d;
+  }
+  
+  .price .fullbutton {
+    background-color: #eee;
+    font-size: 20px;
+    // font-weight: bold;
+    color: #fff;
+    background-color: #32325d;
+    text-align: center;
+    cursor: pointer;
+  }
+ 
+  
+  /* Change the width of the three columns to 100%
+  (to stack horizontally on small screens) */
+  @media only screen and (max-width: 600px) {
+    .columns {
+      width: 100%;
+     
+    }
+  }
+
+  .upper-case {
+    margin-bottom: 0;
+    letter-spacing: 2px;
+    font-weight:600;
+    font-size: 2em;
+}
+.half-txt {
+  width: 54%;
+  margin: 0 auto;
+  display: inline-block;
+  line-height: 25px;
+  color: #7e7e7e;
+ 
+}
+
+.p-top-30 {
+  padding-top: 30px;
+  // text-align: center !important;
+}
