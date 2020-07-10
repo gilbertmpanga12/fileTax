@@ -1,35 +1,128 @@
-<div class="auto-center">
-  <h2 class="upper-case">Choose your subscription plan</h2>
-  <p class="half-txt p-top-30">
-   Filetax pricing is designed to meet any needs whether you're just 
-   an individual or company. Our charges are clear with no hidden plans.
-  </p>
-  <br/>
-  <br/>
-  <p>
-    <button mat-stroked-button (click)="openDialog()"
-    color="primary"
-    >Didn't receive activation link when subscribed? Tap here or choose package below to get started</button>
-  </p>
-</div>
+<!-- service.userVerified -->
+<ng-container *ngIf="false">
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport
+        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'"
+        [opened]="(isHandset$ | async) === false">
+      <mat-toolbar class="custom-toolbar-color">
+       <img class="gb_ua" src="/assets/coollogo_com-8614574.png" 
+       
+       alt="" aria-hidden="true" style="width:109px;height:40px">
+      </mat-toolbar>
+     
+     
+      <div class="links-wrapper">
+        <ng-container *ngFor="let link of links">
+          <a class="link-item is-anchor" [routerLink]="link.path" 
+          [routerLinkActiveOptions]="{exact: true}" routerLinkActive
+          #rla="routerLinkActive"
+          (click)="link.path == '/app/login' ? logout(): false"
+          >
+            <div 
+            [ngClass]="rla.isActive ? 'flex-active' : 'flex'"
+            >
+              <div class="is-10">
+                <i [ngClass]="rla.isActive ? link.icon + ' ' + 'is-selected' : link.icon + ' ' + 'is-not-selected' "></i>
+              </div>
+              <div class="is-90">
+                <h3 
+                [ngClass]="rla.isActive ? 'is-h3' + ' ' + 'is-selected' : 'is-h3-light' + ' ' + 'is-not-selected' "
+                >{{link.name}}</h3>
+              </div>
+            </div>
+          </a>
+        <!-- <br/> -->
+        </ng-container>
 
-<div class="flex-container" style="margin-left: 3% !important;">
-  <div class="col-grid-33" *ngFor="let plan of plans">
-    <div class="columns">
-      <ul class="price">
-        <li class="header">{{plan.title}}</li>
-        <li class="grey">{{plan.price}} / month</li>
-        <li *ngFor="let feature of plan.features">{{feature}}</li>
-        
-        <!-- <li class="grey"><a 
-          (click)="subscribe()"
-          class="button"></a></li> -->
-          <li class="fullbutton" (click)="subscribe()">
-            Get {{plan.title}}
-          </li>
-      </ul>
-    </div>
+      </div>
+<br/>
+      <mat-divider class="divider-bottom"></mat-divider>
+     <mat-card class="card-bottom">
+      <mat-card-header>
+      
+        <img  mat-card-avatar [src]="service.user.photoURL" 
+        class="example-header-image">
+        <mat-card-title class="bottom-title">{{service.user.displayName}}</mat-card-title>
+        <mat-card-subtitle class="bottom-subtitle"
+        routerLink="/settings"
+        >view profile</mat-card-subtitle>
+      </mat-card-header>
+     </mat-card>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar color="primary">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <span class="fill-remaining-space"></span>
+        <span>
+          <mat-icon 
+          [matBadgeHidden]="(notificationsDocument$ | async)?.notificationCount > 0 ? false: true"
+          [matBadge]="(notificationsDocument$ | async)?.notificationCount" 
+          class="notifications-icon"
+          (click)="checkNotifications()"
+          matBadgeColor="warn">notifications</mat-icon>
+        </span>
+      </mat-toolbar>
+      <!-- Add Content Here -->
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
+</ng-container>
+<!-- !service.userVerified -->
+<ng-container *ngIf="true">
+  <div class="auto-center">
+    <h2 class="upper-case">Choose your subscription plan</h2>
+    <p class="half-txt p-top-30">
+     Filetax pricing is designed to meet any needs whether you're just 
+     an individual or company. Our charges are clear with no hidden plans.
+    </p>
+    <br/>
+    <br/>
+    <p>
+      <button mat-stroked-button (click)="openDialog()"
+      color="primary"
+      >Didn't receive activation link when subscribed? Tap here or choose package below to get started</button>
+    </p>
   </div>
   
- 
-</div>
+  <div class="flex-container" style="margin-left: 3% !important;">
+    <div class="col-grid-33" *ngFor="let plan of plans">
+      <div class="columns">
+        <ul class="price">
+          <li class="header">{{plan.title}}</li>
+          <li class="grey">{{plan.price}} / month</li>
+          <li *ngFor="let feature of plan.features">{{feature}}</li>
+          
+          <!-- <li class="grey"><a 
+            (click)="subscribe()"
+            class="button"></a></li> -->
+            <li class="fullbutton" (click)="subscribe(plan.title, plan.priceNumber)">
+              Get {{plan.title}}
+            </li>
+        </ul>
+      </div>
+    </div>
+    
+   
+  </div>
+  
+  
+</ng-container>
+
+
+
+
+
+
+
+
+

@@ -26,6 +26,7 @@ interface Plans{
   title: string;
   price: string;
   features: string[];
+  priceNumber: number; 
  
 }
 
@@ -35,16 +36,20 @@ interface Plans{
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  logo: string = 'https://firebasestorage.googleapis.com/v0/b/tax-as-a-service.appspot.com/o/Facebook%20Dp.jpg?alt=media&token=eeaa247a-8baf-4cff-a923-9e41587f6cf2';
   date: Date = new Date();
   year: number = this.date.getFullYear();
   plans: Plans[] = [{title: 'Starter Pack',features: ['Online Filing of Taxes',
 'Online Support', 'Tax Consultation not included', 'Client Visits not included'
-],price: 'UGX50,000'},
+],price: 'UGX50,000',priceNumber: 50000},
   {title: 'SME Pack',features: ['Online Filing of Taxes', 
-  'Online Support', 'Tax Consultation', 'Client Visits not included'],price: 'UGX70,000'},
+  'Online Support', 'Tax Consultation', 'Client Visits not included'],price: 'UGX70,000',
+priceNumber: 70000
+},
 
   {title: 'Onsite Pack',features: ['Client Visits', 
-  'Online/Offline Filing of Taxes', 'Online Support', 'Tax Consultation & more'],price: 'UGX70,000'}
+  'Online/Offline Filing of Taxes', 'Online Support', 'Tax Consultation & more'],price: 'UGX100,000',
+  priceNumber: 100000}
 ];
 links:  Links[] = [{
   path: '/',
@@ -106,32 +111,32 @@ constructor(private breakpointObserver: BreakpointObserver, private router: Rout
     this.service.logout();
   }
 
-  subscribe(): void{
-    console.log('fewms');
+  subscribe(packType: string, price: number): void{
     FlutterwaveCheckout({
       public_key: "FLWPUBK_TEST-31d61a13026483fc38f15f0e90232374-X",
       tx_ref: "hooli-tx-1920bbtyt",
-      amount: 54600,
-      currency: "NGN",
-      payment_options: "card,mobilemoney,ussd",
+      amount: price,
+      currency: "UGX",
+      // payment_options: "mobile_money_uganda",
+      type: "mobilemoney,ussd",
       redirect_url: // specified redirect URL
-        "https://callbacks.piedpiper.com/flutterwave.aspx?ismobile=34",
+        "https://app.filetax.live",
       meta: {
         consumer_id: 23,
         consumer_mac: "92a3-912ba-1192a",
       },
       customer: {
-        email: "user@gmail.com",
-        phone_number: "08102909304",
-        name: "yemi desola",
+        email: this.service.user.email,
+        phone_number: "+256785442776",
+        name: this.service.user.displayName,
       },
       callback: function (data) {
         console.log(data);
       },
       customizations: {
-        title: "My store",
-        description: "Payment for items in cart",
-        logo: "https://assets.piedpiper.com/logo.png",
+        title: "Filetax",
+        description: "Payment for " + packType,
+        logo: this.logo,
       },
     });
   }
