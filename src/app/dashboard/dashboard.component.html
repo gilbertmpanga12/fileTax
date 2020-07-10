@@ -82,16 +82,24 @@
   <div class="auto-center">
     <h2 class="upper-case">Choose your subscription plan</h2>
     <p class="half-txt p-top-30">
-     Filetax pricing is designed to meet any needs whether you're just 
-     an individual or company. Our charges are clear with no hidden plans.
-    </p>
-    <br/>
-    <br/>
-    <p>
-      <button mat-stroked-button (click)="openDialog()"
-      color="primary"
-      >Didn't receive activation link when subscribed? Tap here or choose package below to get started</button>
-    </p>
+      Filetax pricing is designed to meet any needs whether you're just 
+      an individual or company. Our charges are clear with no hidden plans.
+     </p>
+     <br/>
+     <br/>
+     <p>
+       <button mat-stroked-button (click)="refresh()"
+       color="primary"
+       >Refresh your browser if already subscribed</button>
+     </p>
+ 
+   
+     <br/>
+     <p>
+       <button mat-stroked-button (click)="openDialog()"
+       color="primary"
+       >Didn't receive activation link when subscribed? Tap here or choose package below to get started</button>
+     </p>
   </div>
   
   <div class="flex-container" style="margin-left: 3% !important;" *ngIf="!isLoading">
@@ -128,17 +136,26 @@
 <ng-container *ngIf="!service.userVerified && (service.accountType$ | async)?.hasPaid == false">
   <div class="auto-center">
     <h2 class="upper-case">Choose your subscription plan</h2>
+    
     <p class="half-txt p-top-30">
-     Filetax pricing is designed to meet any needs whether you're just 
-     an individual or company. Our charges are clear with no hidden plans.
-    </p>
-    <br/>
-    <br/>
-    <p>
-      <button mat-stroked-button (click)="openDialog()"
-      color="primary"
-      >Didn't receive activation link when subscribed? Tap here or choose package below to get started</button>
-    </p>
+      Filetax pricing is designed to meet any needs whether you're just 
+      an individual or company. Our charges are clear with no hidden plans.
+     </p>
+     <br/>
+     <br/>
+     <p>
+       <button mat-stroked-button (click)="refresh()"
+       color="primary"
+       >Refresh your browser if already subscribed</button>
+     </p>
+ 
+   
+     <br/>
+     <p>
+       <button mat-stroked-button (click)="openDialog()"
+       color="primary"
+       >Didn't receive activation link when subscribed? Tap here or choose package below to get started</button>
+     </p>
   </div>
   
   <div class="flex-container" style="margin-left: 3% !important;" *ngIf="!isLoading">

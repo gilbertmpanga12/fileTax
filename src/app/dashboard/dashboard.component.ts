@@ -168,5 +168,8 @@ constructor(private breakpointObserver: BreakpointObserver, private router: Rout
       this.isLoading = false;
     }).catch(err => this.isLoading = false);
   }
+  refresh(): void{
+    window.location.reload();
+  }
 
 }

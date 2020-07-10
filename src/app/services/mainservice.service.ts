@@ -95,6 +95,7 @@ export class MainserviceService {
 
     this.sessionRegister(false);
     this.welcomeTemplate();
+    localStorage.setItem('firstSignIn','true');
 
   }
 
@@ -121,6 +122,7 @@ export class MainserviceService {
     
     this.sessionRegister(true);
     this.welcomeTemplate();
+    localStorage.setItem('firstSignIn','true');
  }
 
   async getPhoneNumber(accountType: string, basicProfileType: string){
@@ -337,6 +339,7 @@ export class MainserviceService {
  async reactivateAccount(){
   await this.firestore.doc('sessionRegister/' + this.user.uid).set({
     hasPaid: true}, {merge: true});
+    window.location.reload();
  }
 
 }

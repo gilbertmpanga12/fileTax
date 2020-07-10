@@ -11,11 +11,13 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { UserHistoryComponent } from './user-history/user-history.component';
 import { CompanyHistoryComponent } from './company-history/company-history.component';
+import {MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dialog';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 
 @NgModule({
   declarations: [HomeComponent, UserdashboardComponent, CompanydasboardComponent,
-  UserHistoryComponent, CompanyHistoryComponent
+  UserHistoryComponent, CompanyHistoryComponent, WelcomeComponent
   ],
   imports: [
     CommonModule,
@@ -24,6 +26,13 @@ import { CompanyHistoryComponent } from './company-history/company-history.compo
     MatButtonModule,
     MatTableModule,
     MatPaginatorModule,
+    MatDialogModule
+  ],
+  entryComponents: [
+    WelcomeComponent
+  ],
+  providers: [
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
   ]
 })
 export class HomeModule { }
