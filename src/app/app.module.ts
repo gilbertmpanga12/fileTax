@@ -34,6 +34,7 @@ import { CreateBusinessAccountComponent } from './create-business-account/create
 import { HttpClientModule } from '@angular/common/http';
 import { DialogComponent } from './dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatSnackBarModule,
     AngularFireStorageModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule
  
   ],
   providers: [

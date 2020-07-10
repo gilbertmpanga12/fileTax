@@ -1,5 +1,5 @@
 <!-- service.userVerified -->
-<ng-container *ngIf="false">
+<ng-container *ngIf="service.userVerified && (service.accountType$ | async)?.hasPaid == true">
   <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #drawer class="sidenav" fixedInViewport
         [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
@@ -78,7 +78,7 @@
   
 </ng-container>
 <!-- !service.userVerified -->
-<ng-container *ngIf="true">
+<ng-container *ngIf="service.userVerified && (service.accountType$ | async)?.hasPaid == false">
   <div class="auto-center">
     <h2 class="upper-case">Choose your subscription plan</h2>
     <p class="half-txt p-top-30">
@@ -94,27 +94,80 @@
     </p>
   </div>
   
-  <div class="flex-container" style="margin-left: 3% !important;">
-    <div class="col-grid-33" *ngFor="let plan of plans">
+  <div class="flex-container" style="margin-left: 3% !important;" *ngIf="!isLoading">
+    <div class="col-2-grid" *ngFor="let plan of plans">
       <div class="columns">
         <ul class="price">
           <li class="header">{{plan.title}}</li>
-          <li class="grey">{{plan.price}} / month</li>
-          <li *ngFor="let feature of plan.features">{{feature}}</li>
+          <li class="grey" *ngIf="plan.price != '*'">{{plan.price}} / month</li>
+          <li *ngFor="let feature of plan.features">
+            <s *ngIf="feature.includes('*')">{{feature}}</s>
+            <span *ngIf="!feature.includes('*')">{{feature}}</span>
+          </li>
           
-          <!-- <li class="grey"><a 
-            (click)="subscribe()"
-            class="button"></a></li> -->
-            <li class="fullbutton" (click)="subscribe(plan.title, plan.priceNumber)">
-              Get {{plan.title}}
+         
+            <li class="fullbutton" 
+            (click)="plan.price != '*' ? subscribe(plan.title, plan.priceNumber): payByCash()">
+              <span *ngIf="plan.price != '*'">Get</span> {{plan.title}}
             </li>
         </ul>
       </div>
     </div>
-    
    
   </div>
+ <div class="flex-container-center" *ngIf="isLoading">
+   <p></p>
+  <mat-spinner
   
+  ></mat-spinner>
+ </div>
+  
+</ng-container>
+
+<!-- user not verified -->
+<ng-container *ngIf="!service.userVerified && (service.accountType$ | async)?.hasPaid == false">
+  <div class="auto-center">
+    <h2 class="upper-case">Choose your subscription plan</h2>
+    <p class="half-txt p-top-30">
+     Filetax pricing is designed to meet any needs whether you're just 
+     an individual or company. Our charges are clear with no hidden plans.
+    </p>
+    <br/>
+    <br/>
+    <p>
+      <button mat-stroked-button (click)="openDialog()"
+      color="primary"
+      >Didn't receive activation link when subscribed? Tap here or choose package below to get started</button>
+    </p>
+  </div>
+  
+  <div class="flex-container" style="margin-left: 3% !important;" *ngIf="!isLoading">
+    <div class="col-2-grid" *ngFor="let plan of plans">
+      <div class="columns">
+        <ul class="price">
+          <li class="header">{{plan.title}}</li>
+          <li class="grey" *ngIf="plan.price != '*'">{{plan.price}} / month</li>
+          <li *ngFor="let feature of plan.features">
+            <s *ngIf="feature.includes('*')">{{feature}}</s>
+            <span *ngIf="!feature.includes('*')">{{feature}}</span>
+          </li>
+          
+         
+            <li class="fullbutton" 
+            (click)="plan.price != '*' ? subscribe(plan.title, plan.priceNumber): payByCash()">
+              <span *ngIf="plan.price != '*'">Get</span> {{plan.title}}
+            </li>
+        </ul>
+      </div>
+    </div>
+   
+  </div>
+ <div class="flex-container-center" *ngIf="isLoading">
+   <p></p>
+  <mat-spinner
+  
+  ></mat-spinner>
+ </div>
   
 </ng-container>
 

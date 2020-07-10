@@ -21,7 +21,7 @@ export class MainserviceService {
   userId: string;
   accountType: AngularFirestoreDocument<AccountType>;
   accountType$: Observable<AccountType>;
-  
+  isLoading: boolean = false;
   constructor(private auth: AngularFireAuth, private router: Router, private firestore: AngularFirestore,
     private snackBar: MatSnackBar, private http: HttpClient
     ) {
@@ -131,7 +131,8 @@ export class MainserviceService {
   }
 
   async sessionRegister(isCompany: boolean){
-    await this.firestore.doc('sessionRegister/' + this.user.uid).set({isCompany}, {merge: true});
+    await this.firestore.doc('sessionRegister/' + this.user.uid).set({isCompany:isCompany,
+      hasPaid: false}, {merge: true});
   }
 
   // Basic Operations
@@ -330,6 +331,12 @@ export class MainserviceService {
   }, err => {
     return;
   });
+ }
+ 
+
+ async reactivateAccount(){
+  await this.firestore.doc('sessionRegister/' + this.user.uid).set({
+    hasPaid: true}, {merge: true});
  }
 
 }

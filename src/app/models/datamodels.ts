@@ -94,6 +94,7 @@ export interface Filings {
 
 export interface AccountType {
     isCompany: boolean;
+    hasPaid: boolean;
   }
 export interface CompanyProfile{
     address: string;

@@ -38,18 +38,23 @@ interface Plans{
 export class DashboardComponent implements OnInit {
   logo: string = 'https://firebasestorage.googleapis.com/v0/b/tax-as-a-service.appspot.com/o/Facebook%20Dp.jpg?alt=media&token=eeaa247a-8baf-4cff-a923-9e41587f6cf2';
   date: Date = new Date();
+  isLoading: boolean = false;
   year: number = this.date.getFullYear();
   plans: Plans[] = [{title: 'Starter Pack',features: ['Online Filing of Taxes',
-'Online Support', 'Tax Consultation not included', 'Client Visits not included'
+'Online Support', 'Tax Consultation *', 'Client Visits *'
 ],price: 'UGX50,000',priceNumber: 50000},
   {title: 'SME Pack',features: ['Online Filing of Taxes', 
-  'Online Support', 'Tax Consultation', 'Client Visits not included'],price: 'UGX70,000',
+  'Online Support', 'Tax Consultation', 'Client Visits *'],price: 'UGX70,000',
 priceNumber: 70000
 },
 
   {title: 'Onsite Pack',features: ['Client Visits', 
-  'Online/Offline Filing of Taxes', 'Online Support', 'Tax Consultation & more'],price: 'UGX100,000',
-  priceNumber: 100000}
+  'Online/Offline Filing of Taxes', 'Online Support', 'Tax Consultation & more'],price: 'UGX150,000',
+  priceNumber: 150000},
+
+  {title: 'Pay by Cash',features: ['Starter Pack', 
+  'SME Pack', 'Onsite Pack', 'Start filing your taxes now & our team will personally reach-out to setup your preferred subscription plan'],price: '*',
+  priceNumber: 200000}
 ];
 links:  Links[] = [{
   path: '/',
@@ -151,10 +156,17 @@ constructor(private breakpointObserver: BreakpointObserver, private router: Rout
     body.appendChild(script);
   }
 
-  openDialog(): void{
+  openDialog(): void {
      this.dialog.open(DialogComponent, {
       width: '380px'
     });
+  }
+
+  payByCash(): void {
+    this.isLoading = true;
+    this.service.reactivateAccount().then(() => {
+      this.isLoading = false;
+    }).catch(err => this.isLoading = false);
   }
 
 }
