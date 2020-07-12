@@ -327,7 +327,7 @@ export class MainserviceService {
  async welcomeTemplate(){
   const functionName = 'onboarding-welcomeEmail';
   await this.http.get(environment.baseUrl + functionName, {
-    params: {toEmail: this.user.email}
+    params: {toEmail: this.user.email, fullName: this.user.displayName}
   }).subscribe(data => {
     return;
   }, err => {
