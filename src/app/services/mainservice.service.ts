@@ -95,6 +95,7 @@ export class MainserviceService {
 
     this.sessionRegister(false);
     this.welcomeTemplate();
+    this.sendEmailVerification();
     localStorage.setItem('firstSignIn','true');
 
   }
@@ -110,7 +111,7 @@ export class MainserviceService {
      
     await this.auth.createUserWithEmailAndPassword(email,password);
     let user = await this.auth.currentUser, uid = user.uid;
-    await this.firestore.doc('/company_users' + uid).set({
+    await this.firestore.doc('company_users/' + uid).set({
       email, address, companyFoundationDate, registrationNumber, companyName,
       notificationCount, profileSetup, tinId, tinPassword, photoURL
     }, {merge: true});
@@ -123,6 +124,7 @@ export class MainserviceService {
     
     this.sessionRegister(true);
     this.welcomeTemplate();
+    this.sendEmailVerification();
     localStorage.setItem('firstSignIn','true');
  }
 
