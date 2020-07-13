@@ -116,12 +116,13 @@ export class MainserviceService {
       notificationCount, profileSetup, tinId, tinPassword, photoURL
     }, {merge: true});
 
-    await this.firestore.collection('dashbordCounts').doc(user.uid).set({
+    await this.firestore.collection('dashbordCountsCompany').doc(user.uid).set({
       totalTaxesFiled: 0,
       latestTaxFiled: 0,
       lastestTaxFiledName: ''
     },{merge: true});
     
+    this.updateUserProfile(companyName, this.profilePhoto);
     this.sessionRegister(true);
     this.welcomeTemplate();
     this.sendEmailVerification();
