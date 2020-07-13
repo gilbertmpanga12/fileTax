@@ -104,11 +104,12 @@ export class MainserviceService {
   address: string, companyFoundationDate: string, 
   registrationNumber: string, companyName: string, password: string
   ){
-    let user = await this.auth.currentUser, uid = user.uid, 
+    let 
     notificationCount = 0, profileSetup = 0, tinId = "Not set yet",photoURL = this.profilePhoto, 
     tinPassword = "Not set yet";
      
     await this.auth.createUserWithEmailAndPassword(email,password);
+    let user = await this.auth.currentUser, uid = user.uid;
     await this.firestore.doc('/company_users' + uid).set({
       email, address, companyFoundationDate, registrationNumber, companyName,
       notificationCount, profileSetup, tinId, tinPassword, photoURL
