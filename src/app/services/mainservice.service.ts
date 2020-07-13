@@ -48,8 +48,9 @@ export class MainserviceService {
    
    
    
-   snackbar(message: string): void{
-    this.snackBar.open(message,'OK',{duration: 5000,verticalPosition:'top',horizontalPosition:'right'});
+   snackbar(message: string, cssClass: string='default'): void{
+    this.snackBar.open(message,'OK',{duration: 5000,
+      verticalPosition:'top',horizontalPosition:'right',panelClass:cssClass});
   }
 
    async register(email: string, 
@@ -121,7 +122,7 @@ export class MainserviceService {
       latestTaxFiled: 0,
       lastestTaxFiledName: ''
     },{merge: true});
-    
+
     this.updateUserProfile(companyName, this.profilePhoto);
     this.sessionRegister(true);
     this.welcomeTemplate();

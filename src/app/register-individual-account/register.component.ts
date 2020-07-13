@@ -51,7 +51,7 @@ export class RegisterComponent implements OnInit {
       }).catch(err => {
         this.progressLoading = false;
         this.loadingText = this.defatultText;
-        this.snackbar(err.message);
+        this.service.snackbar(err.message, 'error-snackbar');
       });
     }else{
       this.progressLoading = false;
@@ -61,8 +61,6 @@ export class RegisterComponent implements OnInit {
     
   }
 
-  snackbar(message: string): void{
-    this.snackBar.open(message,'OK',{duration: 3000,verticalPosition:'top',horizontalPosition:'right'});
-  }
+ 
 
 }
