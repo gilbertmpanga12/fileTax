@@ -8,6 +8,7 @@ import { IndividualUser } from '../models/datamodels';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection} from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { DialogComponent } from '../dialog/dialog.component';
+import { WelcomeComponent } from '../welcome/welcome.component';
 
 declare const FlutterwaveCheckout: any;
 // Models
@@ -84,7 +85,7 @@ links:  Links[] = [{
   name: 'Offline Filing'
 },
 {
-  path: '/requsest-off-site-file-tax',
+  path: '/help',
   icon: 'icon ni ni-support-16 icon-lg icon-outline icon-stroke-1 ni-2x',
   name: 'How to file taxes'
 }
@@ -189,6 +190,13 @@ constructor(private breakpointObserver: BreakpointObserver, private router: Rout
     .catch(err => {
       this.loadingTextbool = false;
       this.service.snackbar('Oops something went wrong try again', 'error-snackbar')
+    });
+  }
+
+  launchHelp(): void{
+    const dialogRef = this.dialog.open(WelcomeComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
     });
   }
 

@@ -3,7 +3,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { Observable } from 'rxjs';
 import { DashboardCount } from 'src/app/models/datamodels';
 import { MainserviceService } from 'src/app/services/mainservice.service';
-import { WelcomeComponent } from '../welcome/welcome.component';
+import { WelcomeComponent } from '../../welcome/welcome.component';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({

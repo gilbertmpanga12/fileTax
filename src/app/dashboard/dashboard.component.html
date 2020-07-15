@@ -17,7 +17,7 @@
           <a class="link-item is-anchor" [routerLink]="link.path" 
           [routerLinkActiveOptions]="{exact: true}" routerLinkActive
           #rla="routerLinkActive"
-          (click)="link.path == '/app/login' ? logout(): false"
+          (click)="link.path == '/app/login' ? logout(): link.path == '/help' ? launchHelp(): false"
           >
             <div 
             [ngClass]="rla.isActive ? 'flex-active' : 'flex'"

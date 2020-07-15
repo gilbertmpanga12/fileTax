@@ -33,11 +33,14 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { CreateBusinessAccountComponent } from './create-business-account/create-business-account.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DialogComponent } from './dialog/dialog.component';
-import { MatDialogModule } from '@angular/material/dialog';
+import {MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+// import { WelcomeComponent } from './welcome/welcome.component';
+import { WelcomeModule } from './welcome/welcome.module';
 
 @NgModule({
   declarations: [
+    // WelcomeComponent,
     AppComponent,
     DashboardComponent,
     ResetPasswordComponent,
@@ -72,13 +75,15 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatSnackBarModule,
     AngularFireStorageModule,
     HttpClientModule,
-    MatDialogModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    WelcomeModule,
+    MatDialogModule
  
   ],
-  providers: [
-
-  ],
-  bootstrap: [AppComponent]
+ 
+  bootstrap: [AppComponent],
+  entryComponents: [
+    DialogComponent
+  ]
 })
 export class AppModule { }

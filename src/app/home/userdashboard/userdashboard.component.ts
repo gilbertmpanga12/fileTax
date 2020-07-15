@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { DashboardCount } from 'src/app/models/datamodels';
 import { MainserviceService } from 'src/app/services/mainservice.service';
 import { MatDialog } from '@angular/material/dialog';
-import { WelcomeComponent } from '../welcome/welcome.component';
+import { WelcomeComponent } from '../../welcome/welcome.component';
 
 
 @Component({
