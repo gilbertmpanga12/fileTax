@@ -45,8 +45,7 @@ export class UserBasicInfoComponent implements OnInit {
   secondaryNames: string[] = this.minors;
   appliedForTins: string[] = this.minors;
   residenceControllers: Residence[] = [{name:'District',controller:'district'}, {name:'City',controller:'city'},
-{name: 'Sub county',controller:'subCounty'}, {name: 'Parish', controller: 'parish'},
-{name: 'Village', controller: 'village'}
+{name: 'Address',controller:'address'}
 ];
  task: AngularFireUploadTask;
  percentage: Observable<number>;

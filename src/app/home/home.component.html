@@ -1,6 +1,7 @@
-<app-companydasboard 
-*ngIf="(service.accountType$ | async)?.isCompany == true;else user"></app-companydasboard>
 
-<ng-template #user>
-    <app-userdashboard #user></app-userdashboard>
-</ng-template>
+
+<ng-container [ngSwitch]="(service.accountType$ | async)?.isCompany">
+    <app-companydasboard 
+    *ngSwitchCase="true"></app-companydasboard>
+    <app-userdashboard *ngSwitchCase="false"></app-userdashboard>
+</ng-container>
