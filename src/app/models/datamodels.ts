@@ -68,9 +68,9 @@ export interface BasicProfile{
     employerTelephoneNumber?: string;
     district: string;
     city: string;
-    parish: string;
-    subCounty: string;
-    village: string;
+    // parish: string;
+    // subCounty: string;
+    // village: string;
     documents: BasicProfileDocuments[],
     uid: string;
     profileSetup: number;

@@ -89,9 +89,10 @@ export class UserBasicInfoComponent implements OnInit {
     this.residenceInfo = this._formBuilder.group({
       district: ['', Validators.required],
       city: ['', Validators.required],
-      subCounty: ['', Validators.required],
-      parish: ['', Validators.required],
-      village: ['', Validators.required]
+      address: ['', Validators.required]
+      // subCounty: ['', Validators.required],
+      // parish: ['', Validators.required],
+      // village: ['', Validators.required]
     });
 
     this.documentsUpload = this._formBuilder.group({
@@ -173,9 +174,9 @@ export class UserBasicInfoComponent implements OnInit {
           selfEmployedTin: financialsUpload['selfEmployedTin'],
           selfEmployedAddress: financialsUpload['selfEmployedAddress'],
           district: residenceInfo['district'],
-          village: residenceInfo['village'],
-          parish: residenceInfo['parish'],
-          subCounty: residenceInfo['subCounty'],
+          // village: residenceInfo['village'],
+          // parish: residenceInfo['parish'],
+          // subCounty: residenceInfo['subCounty'],
           city: residenceInfo['city'],
           documents: this.documentFiles,
           uid: this.service.user.uid,
