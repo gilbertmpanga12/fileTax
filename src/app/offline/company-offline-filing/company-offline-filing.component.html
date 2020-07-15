@@ -51,13 +51,13 @@ src="assets/swiftly.ogg" id="notification-audio"
     <!-- <span class="spanner">{{dateScheduled}}</span> -->
     <!-- <mat-icon class="c5e-settings-icon-edit-mode-off">edit_mode</mat-icon> -->
     <mat-form-field class="full-width">
-        <mat-label>Date of birth</mat-label>
+        <mat-label>Proposed Date of Visit</mat-label>
         <input matInput [matDatepicker]="picker" [(ngModel)]="dateScheduled" name="dateScheduled" required> 
         <mat-datepicker-toggle matSuffix [for]="picker">
             <mat-icon matDatepickerToggleIcon class="date-picker-icon">event</mat-icon>
         </mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
-        <mat-error>Date of birth required</mat-error>
+        <mat-error>Proposed Date of Visit required</mat-error>
         <mat-hint>Tap calendar icon to choose dates</mat-hint>
       </mat-form-field>
             </div>

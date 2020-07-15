@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { MainserviceService } from '../../services/mainservice.service';
-import { BasicProfile , BasicProfileDocuments, CompanyProfile} from '../../models/datamodels';
+import { BasicProfileDocuments, CompanyProfile} from '../../models/datamodels';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatHorizontalStepper } from '@angular/material/stepper';
 import { AngularFireUploadTask } from '@angular/fire/storage/task';
@@ -70,14 +70,14 @@ export class CompanyBasicInfoComponent implements OnInit {
       tin: ['No', Validators.required],
       tinNumber: [''],
       refereeName: ['', Validators.required],
-      refereeTin: ['', Validators.required],
+      // refereeTin: ['', Validators.required],
       refereeTelephone: ['', Validators.required]
     });
 
 
     this.documentsUpload = this._formBuilder.group({
-      associatedEntityName: [''],
-      associatedEntityTin: [''],
+      // associatedEntityName: [''],
+      // associatedEntityTin: [''],
       companyForms: ['', Validators.required],
       certificatesOfRegistration: ['', Validators.required],
       directorsTin: ['']
@@ -143,10 +143,10 @@ export class CompanyBasicInfoComponent implements OnInit {
           telephone: personalInfo['telephone'],
           refereeName: moreInfo['refereeName'],
           refereeTelephone: moreInfo['refereeTelephone'],
-          refereeTin: moreInfo['refereeTin'],
+          // refereeTin: moreInfo['refereeTin'],
           tin: moreInfo['tinNumber'],
-          associatedEntityName: documentsUpload['associatedEntityName'],
-          associatedEntityTin: documentsUpload['associatedEntityTin'],
+          // associatedEntityName: documentsUpload['associatedEntityName'],
+          // associatedEntityTin: documentsUpload['associatedEntityTin'],
           sourceOfIncome: personalInfo['sourceOfIncome'],
           keyDocuments: this.documentFiles,
           uid: this.service.user.uid

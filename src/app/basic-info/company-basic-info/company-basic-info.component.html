@@ -17,7 +17,7 @@
 
        
 <!---->
-        <mat-horizontal-stepper  #stepper linear>
+        <mat-horizontal-stepper  #stepper >
             <mat-step [stepControl]="personalInfo">
                 <ng-template matStepLabel>Primay Contact Information</ng-template>
                 <form [formGroup]="personalInfo" class="flex-container">
@@ -128,14 +128,7 @@
                                   <mat-error>Referee telephone number required</mat-error>
                                   </mat-form-field>
                                 </div>
-                              <div class="custom-width">
-                                <mat-form-field appearance="standard" class="forms">
-                                  <mat-label>Referee Tin</mat-label>
-                                  <input matInput placeholder="" 
-                                  formControlName="refereeTin">
-                                  <mat-error>Referee TIN required</mat-error>
-                                  </mat-form-field>
-                                </div>
+                              
                         </div>
      
 
@@ -157,30 +150,7 @@
             <mat-step >
                 <form [formGroup]="documentsUpload">
                     <ng-template matStepLabel>Documents</ng-template>
-                <div class="flex-container">
-
-                    <div class="custom-width-50"
-                    >
-                    <mat-form-field appearance="standard" class="forms">
-                        <mat-label>Associated Entity Name</mat-label>
-                        <input matInput placeholder="" 
-                        formControlName="associatedEntityName">
-                        <mat-error>Provide Associated Entity Name</mat-error>
-                        </mat-form-field>
-                </div>
-
-                <div class="custom-width-50"
-                >
-                <mat-form-field appearance="standard" class="forms">
-                    <mat-label>Associated Entity TIN</mat-label>
-                    <input matInput placeholder="" 
-                    formControlName="associatedEntityTin">
-                    <mat-error>Provide Associated Entity TIN</mat-error>
-                    </mat-form-field>
-            </div>
-
-
-                   </div>
+               
                    <div class="flex-container">
                     <h2 *ngIf="colorSets.size > 0">{{colorSets.size}} documents added</h2>
                     <h2 *ngIf="colorSets.size < 1">Upload atleast 3 documents</h2>

@@ -104,10 +104,10 @@ export interface CompanyProfile{
     telephone: string;
     tin: string;
     refereeName: string;
-    refereeTin: string;
+    // refereeTin: string;
     refereeTelephone: string;
-    associatedEntityName:  string;
-    associatedEntityTin: string;
+    // associatedEntityName:  string;
+    // associatedEntityTin: string;
     keyDocuments: BasicProfileDocuments[]
     uid: string;
 }
