@@ -39,6 +39,7 @@ export class DashboardComponent implements OnInit {
   logo: string = 'https://firebasestorage.googleapis.com/v0/b/tax-as-a-service.appspot.com/o/Facebook%20Dp.jpg?alt=media&token=eeaa247a-8baf-4cff-a923-9e41587f6cf2';
   date: Date = new Date();
   isLoading: boolean = false;
+  loadingTextbool: boolean = false;
   year: number = this.date.getFullYear();
   plans: Plans[] = [{title: 'Starter Pack',features: ['Online Filing of Taxes',
 'Online Support', 'Tax Consultation *', 'Client Visits *'
@@ -81,7 +82,13 @@ links:  Links[] = [{
   path: '/requsest-off-site-file-tax',
   icon: 'icon ni ni-books icon-lg icon-outline icon-stroke-1 ni-2x',
   name: 'Offline Filing'
-},{
+},
+{
+  path: '/requsest-off-site-file-tax',
+  icon: 'icon ni ni-support-16 icon-lg icon-outline icon-stroke-1 ni-2x',
+  name: 'How to file taxes'
+}
+,{
   path: '/app/login',
   icon: 'icon ni ni-lock-circle-open icon-lg icon-outline icon-stroke-1 ni-2x',
   name: 'Log out'
@@ -168,8 +175,21 @@ constructor(private breakpointObserver: BreakpointObserver, private router: Rout
       this.isLoading = false;
     }).catch(err => this.isLoading = false);
   }
+
   refresh(): void{
     window.location.reload();
+  }
+
+  refreshAndActivate(): void{
+    this.loadingTextbool = true;
+    this.service.sendEmailVerification().then(() => {
+      this.loadingTextbool = false;
+      window.location.reload();
+    })
+    .catch(err => {
+      this.loadingTextbool = false;
+      this.service.snackbar('Oops something went wrong try again', 'error-snackbar')
+    });
   }
 
 }

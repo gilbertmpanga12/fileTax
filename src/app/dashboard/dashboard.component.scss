@@ -18,6 +18,8 @@
   .sidenav {
     width: 260px;
     background-color: #6515dd !important;
+   
+    
   }
   
   .sidenav .mat-toolbar {
@@ -68,7 +70,7 @@
  
   .card-bottom{
     position: relative;
-    bottom: 0;
+    bottom: -5%;
     border-radius: 0 !important;
     background: transparent !important;
     height: 48px !important;
@@ -161,7 +163,7 @@
 
   .center-box{
     text-align: center;
-    margin-top: 2%;
+    margin-top: 10%;
     h3{
       font-size: 17px !important;
       color: green !important;

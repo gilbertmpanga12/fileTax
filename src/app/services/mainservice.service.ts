@@ -95,7 +95,7 @@ export class MainserviceService {
     },{merge: true});
 
     this.sessionRegister(false);
-    this.welcomeTemplate();
+    this.welcomeTemplate(email, firstName + ' ' + lastName);
     this.sendEmailVerification();
     localStorage.setItem('firstSignIn','true');
 
@@ -125,8 +125,9 @@ export class MainserviceService {
 
     this.updateUserProfile(companyName, this.profilePhoto);
     this.sessionRegister(true);
-    this.welcomeTemplate();
+    
     this.sendEmailVerification();
+    this.welcomeTemplate(email, companyName);
     localStorage.setItem('firstSignIn','true');
  }
 
@@ -329,10 +330,10 @@ export class MainserviceService {
   });;
  }
 
- async welcomeTemplate(){
+ async welcomeTemplate(email: string, fullName: string){
   const functionName = 'onboarding-welcomeEmail';
   await this.http.get(environment.baseUrl + functionName, {
-    params: {toEmail: this.user.email, fullName: this.user.displayName}
+    params: {toEmail: email, fullName: fullName}
   }).subscribe(data => {
     return;
   }, err => {

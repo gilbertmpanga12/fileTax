@@ -36,8 +36,8 @@
         </ng-container>
 
       </div>
-<br/>
-      <mat-divider class="divider-bottom"></mat-divider>
+<!-- <br/> -->
+      <!-- <mat-divider class="divider-bottom"></mat-divider> -->
      <mat-card class="card-bottom">
       <mat-card-header>
       
@@ -62,6 +62,7 @@
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
         <span class="fill-remaining-space"></span>
+       
         <span>
           <mat-icon 
           [matBadgeHidden]="(notificationsDocument$ | async)?.notificationCount > 0 ? false: true"
@@ -134,51 +135,32 @@
 
 <!-- user not verified -->
 <ng-container *ngIf="!service.userVerified && (service.accountType$ | async)?.hasPaid == false">
-  <div class="auto-center">
-    <h2 class="upper-case">Confirmation link sent! Check your email</h2>
-    
-    <p class="half-txt p-top-30">
-      Filetax pricing is designed to meet any needs whether you're just 
-      an individual or company. Our charges are clear with no hidden plans.
-     </p>
-     <br/>
-     <br/>
-     <p>
-       <button mat-stroked-button (click)="refresh()"
-       color="primary"
-       >Refresh your browser if already subscribed</button>
-     </p>
- 
+  
+  <div class="center-box">
+    <h1>👋👋 Please check your email for a link to<br/>activate this account & refresh browser after</h1>
    
-     <br/>
-     <p>
-       <button mat-stroked-button (click)="openDialog()"
-       color="primary"
-       >Didn't receive activation link when subscribed? Tap here or choose package below to get started</button>
-     </p>
   </div>
   
-  <div class="flex-container" style="margin-left: 3% !important;" *ngIf="!isLoading">
-    <div class="col-2-grid" *ngFor="let plan of plans">
-      <div class="columns">
-        <ul class="price">
-          <li class="header">{{plan.title}}</li>
-          <li class="grey" *ngIf="plan.price != '*'">{{plan.price}} / month</li>
-          <li *ngFor="let feature of plan.features">
-            <s *ngIf="feature.includes('*')">{{feature}}</s>
-            <span *ngIf="!feature.includes('*')">{{feature}}</span>
-          </li>
-          
-         
-            <li class="fullbutton" 
-            (click)="plan.price != '*' ? subscribe(plan.title, plan.priceNumber): payByCash()">
-              <span *ngIf="plan.price != '*'">Get</span> {{plan.title}}
-            </li>
-        </ul>
-      </div>
+  <br/>
+  <div class="flex-container-center">
+    <button mat-flat-button (click)="refreshAndActivate()"
+    color="primary">
+    <div class="spinner" *ngIf="loadingTextbool">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
     </div>
-   
+    <span *ngIf="!loadingTextbool">Didn't confirmation receive link to your email? Tap here</span>
+  </button>
   </div>
+  
+  <footer class="footer">
+    <a class="resources-links">&copy; {{year}} — Filetax </a>
+    <a class="resources-links" routerLink="/app/login"><small><u>Home</u></small></a>
+    <a class="resources-links"> <small><u>Help</u></small></a>
+    <a class="resources-links"> <u><small>Terms and Conditions</small></u></a>
+    <a class="resources-links"> <u><small>Blog</small></u></a>
+  </footer>
  <div class="flex-container-center" *ngIf="isLoading">
    <p></p>
   <mat-spinner
