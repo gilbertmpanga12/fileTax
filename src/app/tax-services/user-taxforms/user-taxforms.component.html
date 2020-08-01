@@ -25,17 +25,24 @@ src="assets/swiftly.ogg" id="notification-audio"
   
         <div class="flex-container-column">
           <input formControlName="stepcontrol1" class="form-hidden"/>
-             <div class="col-grid-33">
-                 <button mat-raised-button 
-                 class="upload-taxes-btn"
-                 (click)="colorSets.has(serviceName) ? deleteMainDocument(serviceName) : ref.click()"
-                 color="{{colorSets.has(serviceName) ? accentColor : primaryColor}}">
-                 <mat-icon
-                 class="icon-lg"
-                 >cloud_upload</mat-icon> 
-               FILE {{serviceName}}
-                 </button>
-             </div>
+          <div class="col-grid-33">
+            <h2 class="template-link"
+              *ngIf="template.includes('https')"
+               >Template [<a href="{{template}}" download>link to template</a>] to guide you to fill your {{serviceName}}</h2>
+                 
+          </div>
+          <div class="col-grid-33">
+           
+              <button mat-raised-button 
+              class="center-btn"
+              (click)="colorSets.has(serviceName) ? deleteMainDocument(serviceName) : ref.click()"
+              color="{{colorSets.has(serviceName) ? accentColor : primaryColor}}">
+              <mat-icon
+              class="icon-lg"
+              >cloud_upload</mat-icon> 
+            File {{serviceName}}
+              </button>
+          </div>
            
              <div class="col-grid-33">
                  <h2 class="custom-h2">{{description}}</h2>

@@ -37,7 +37,7 @@ export class MainserviceService {
       } else {
         localStorage.setItem('user', null);
       }
-    })
+    });
    }
 
   async login(email: string, password: string) {
@@ -112,6 +112,7 @@ export class MainserviceService {
      
     await this.auth.createUserWithEmailAndPassword(email,password);
     let user = await this.auth.currentUser, uid = user.uid;
+    this.updateUserProfile(companyName, this.profilePhoto);
     await this.firestore.doc('company_users/' + uid).set({
       email, address, companyFoundationDate, registrationNumber, companyName,
       notificationCount, profileSetup, tinId, tinPassword, photoURL
@@ -123,7 +124,7 @@ export class MainserviceService {
       lastestTaxFiledName: ''
     },{merge: true});
 
-    this.updateUserProfile(companyName, this.profilePhoto);
+    
     this.sessionRegister(true);
     
     this.sendEmailVerification();

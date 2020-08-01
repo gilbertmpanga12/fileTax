@@ -22,6 +22,7 @@ export class UserTaxformsComponent implements OnInit {
 @ViewChild('audioref') audioElement: ElementRef;
 serviceName: string = '';
 description: string = '';
+template: string = '';
 step1: FormGroup;
 step2: FormGroup;
 step3: FormGroup;
@@ -66,6 +67,7 @@ ngOnInit(): void {
   this.route.params.subscribe(param => {
     this.serviceName = UserServices[param.serviceName]['serviceName'];
     this.description = UserServices[param.serviceName]['description'];
+    this.template =  UserServices[param.serviceName]['template'];
 
   });
 

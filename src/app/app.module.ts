@@ -37,6 +37,7 @@ import {MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 // import { WelcomeComponent } from './welcome/welcome.component';
 import { WelcomeModule } from './welcome/welcome.module';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { WelcomeModule } from './welcome/welcome.module';
     SignInComponent,
     RegisterComponent,
     CreateBusinessAccountComponent,
-    DialogComponent],
+    DialogComponent,
+    PagenotfoundComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
