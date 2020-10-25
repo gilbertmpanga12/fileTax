@@ -23,6 +23,21 @@
         "**/.*",
         "**/node_modules/**"
       ]
+    },
+    {
+      "target": "oyomicrocredit",
+      "public": "oyadist/oyacredit/",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
     }
   ],
   "functions": {
